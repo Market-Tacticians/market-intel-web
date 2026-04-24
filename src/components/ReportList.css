@@ -1,0 +1,88 @@
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.report-list-empty {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.report-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.report-card {
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.report-card:hover {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.03);
+  transform: translateY(-2px);
+}
+
+.report-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.report-type {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-muted);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.report-status {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.report-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.report-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.meta-item .label {
+  color: var(--text-secondary);
+}
+
+.meta-item .value {
+  color: var(--text-primary);
+  font-weight: 500;
+}
