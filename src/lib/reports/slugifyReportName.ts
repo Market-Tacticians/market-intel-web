@@ -15,5 +15,5 @@ export function slugifyReportName(title: string, date: Date): string {
   const dateStr = formatInTimeZone(date, 'America/New_York', 'yyyy-MM-dd');
   const timeStr = formatInTimeZone(date, 'America/New_York', 'HHmm');
 
-  return `${slugifiedTitle}-${dateStr}-${timeStr}-et.html`;
+  return `reports/${slugifiedTitle}-${dateStr}-${timeStr}-et.html`;
 }
