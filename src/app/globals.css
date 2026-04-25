@@ -1,18 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
 :root {
-  --bg-dark: #0a0a0b;
-  --bg-elevated: #151518;
-  --bg-card: #1c1c21;
-  --text-primary: #f0f0f2;
+  --bg-dark: #070708;
+  --bg-elevated: rgba(15, 15, 18, 0.8);
+  --bg-card: rgba(22, 22, 26, 0.6);
+  --text-primary: #f8f8f2;
   --text-secondary: #94949e;
+  --text-muted: #5d5d66;
   --accent: #3b82f6;
-  --accent-muted: rgba(59, 130, 246, 0.15);
+  --accent-glow: rgba(59, 130, 246, 0.4);
+  --accent-muted: rgba(59, 130, 246, 0.1);
+  --success: #10b981;
+  --danger: #ef4444;
   --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-bright: rgba(255, 255, 255, 0.15);
   --radius-lg: 12px;
-  --radius-md: 8px;
-  --radius-sm: 4px;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-md: 6px;
+  --radius-sm: 3px;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --grid-size: 30px;
 }
 
 * {
@@ -23,62 +31,105 @@
 
 body {
   background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-dark) 80%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 h1, h2, h3, h4 {
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.mono {
+  font-family: var(--font-mono);
 }
 
 .glass-panel {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
+.tactical-border {
+  position: relative;
   border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-primary);
 }
 
-.btn:hover {
-  border-color: var(--border-hover);
-  background: #25252b;
-}
-
-.btn-primary {
-  background: var(--accent);
+.tactical-border::before,
+.tactical-border::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
   border-color: var(--accent);
-  color: white;
+  border-style: solid;
 }
 
-.btn-primary:hover {
-  background: #2563eb;
-  border-color: #2563eb;
+.tactical-border::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
 }
+
+.tactical-border::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Utils */
+.text-accent { color: var(--accent); }
+.text-secondary { color: var(--text-secondary); }
+.text-xs { font-size: 0.75rem; }
+.tracking-tighter { letter-spacing: -0.05em; }
+.uppercase { text-transform: uppercase; }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.4s ease forwards;
+.pulse {
+  animation: pulse-glow 2s infinite;
 }

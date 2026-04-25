@@ -1,23 +1,18 @@
 .report-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .report-list-empty {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  padding: 2rem;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  padding: 4rem;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .report-cards {
@@ -27,62 +22,87 @@
 }
 
 .report-card {
-  padding: 1.25rem;
+  padding: 1.5rem;
   cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.report-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background: var(--accent);
   transition: var(--transition);
 }
 
 .report-card:hover {
-  border-color: var(--accent);
-  background: rgba(59, 130, 246, 0.03);
-  transform: translateY(-2px);
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.report-card:hover::before {
+  height: 100%;
 }
 
 .report-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .report-type {
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--accent);
-  background: var(--accent-muted);
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-sm);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .report-status {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .report-title {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .report-card-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 .meta-item {
   display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .meta-item .label {
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .meta-item .value {
-  color: var(--text-primary);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
   font-weight: 500;
 }
