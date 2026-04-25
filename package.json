@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "sync-intel": "npx ts-node --compiler-options '{\"module\": \"commonjs\", \"esModuleInterop\": true}' scripts/ingest-folder.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.104.1",
