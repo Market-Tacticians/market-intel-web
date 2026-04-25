@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync-intel": "npx ts-node --compiler-options '{\"module\": \"commonjs\", \"esModuleInterop\": true}' scripts/ingest-folder.ts"
+    "sync-intel": "npx ts-node --project tsconfig.scripts.json scripts/ingest-folder.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.104.1",

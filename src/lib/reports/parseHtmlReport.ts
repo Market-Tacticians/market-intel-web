@@ -33,7 +33,7 @@ export function parseHtmlReport(html: string, sourceFileName: string): ParsedHtm
 
   // 3. Extract Timestamp
   const rawTs = $('.timestamp-badge .ts-value').text().trim();
-  const { last_updated_at, last_updated_display, calendar_date } = normalizeReportTimestamp(rawTs);
+  const { last_updated_at, last_updated_display, calendar_date } = normalizeReportTimestamp(rawTs, sourceFileName);
 
   // 4. Infer Report Type
   let report_type = 'Other';
