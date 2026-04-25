@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Report } from '@/types/report';
 import { supabase } from '@/lib/supabase';
 import './ReportViewer.css';
@@ -11,28 +11,12 @@ interface ReportViewerProps {
 }
 
 export default function ReportViewer({ report, onClose }: ReportViewerProps) {
-  const [signedUrl, setSignedUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  // Get the public URL for the report
+  const { data } = supabase.storage
+    .from('reports')
+    .getPublicUrl(report.file_path);
 
-  useEffect(() => {
-    async function getSignedUrl() {
-      try {
-        setLoading(true);
-        const { data, error } = await supabase.storage
-          .from('reports')
-          .createSignedUrl(report.file_path, 3600); // 1 hour expiry
-
-        if (error) throw error;
-        setSignedUrl(data.signedUrl);
-      } catch (err) {
-        console.error('Error generating signed URL:', err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getSignedUrl();
-  }, [report.file_path]);
+  const publicUrl = data.publicUrl;
 
   return (
     <div className="report-viewer-overlay animate-fade-in">
@@ -48,16 +32,14 @@ export default function ReportViewer({ report, onClose }: ReportViewerProps) {
           </div>
         </div>
         <div className="report-content">
-          {loading ? (
-            <div className="viewer-loading mono">Initializing secure link...</div>
-          ) : signedUrl ? (
+          {publicUrl ? (
             <iframe 
-              src={signedUrl} 
+              src={publicUrl} 
               title={report.title}
               className="report-iframe"
             />
           ) : (
-            <div className="viewer-error mono">Failed to retrieve report data.</div>
+            <div className="viewer-error mono">Failed to resolve report path.</div>
           )}
         </div>
       </div>
