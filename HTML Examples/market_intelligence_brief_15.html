@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weekly Market Intelligence Brief — Week of Apr 21, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080b10;--surface:#0f1318;--surface2:#151a22;--border:#1e2530;--border-hi:#2a3344;
+  --text:#d0d7e0;--text-dim:#6b7a8d;--text-bright:#f0f4f8;
+  --green:#22c55e;--green-dim:rgba(34,197,94,0.12);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.12);
+  --amber:#f59e0b;--amber-dim:rgba(245,158,11,0.12);
+  --blue:#3b82f6;--blue-dim:rgba(59,130,246,0.12);
+  --cyan:#06b6d4;--cyan-dim:rgba(6,182,212,0.10);
+  --purple:#a855f7;--purple-dim:rgba(168,85,247,0.10);
+}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* ── Header ── */
+.masthead{padding:28px 32px 20px;border-bottom:1px solid var(--border)}
+.masthead-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.masthead h1{font-family:'IBM Plex Mono',monospace;font-size:1.1rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-bright)}
+.masthead h1 .accent{color:var(--cyan)}
+.masthead .meta{font-size:.72rem;color:var(--text-dim);font-family:'IBM Plex Mono',monospace}
+.subtitle{font-size:.82rem;color:var(--text-dim);margin-top:6px;max-width:720px}
+
+/* ── Regime Banner ── */
+.regime-banner{margin:20px 32px 0;padding:16px 22px;border-radius:8px;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.regime-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.regime-label{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:.95rem;text-transform:uppercase;letter-spacing:1px}
+.regime-desc{font-size:.78rem;color:var(--text-dim);flex:1;min-width:200px}
+
+/* ── Section containers ── */
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+section{padding:28px 0}
+.section-title{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.6px;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:block;width:3px;height:14px;background:var(--cyan);border-radius:2px}
+.divider{border:0;border-top:1px solid var(--border);margin:0}
+
+/* ── Dominant Narrative ── */
+.narrative-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px 26px;margin-bottom:14px}
+.narrative-card h3{font-size:1rem;font-weight:700;color:var(--text-bright);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.narrative-card p{font-size:.84rem;color:var(--text);line-height:1.7}
+
+/* ── Story Thread — collapsible update timeline ── */
+.story-thread{margin-bottom:14px}
+.story-thread .narrative-card{margin-bottom:0;border-radius:10px 10px 0 0;border-bottom-color:var(--border-hi)}
+.story-thread .narrative-card.condensed h3{font-size:.9rem}
+.story-thread .narrative-card.condensed p{font-size:.8rem;color:var(--text-dim)}
+
+/* The timeline rail that sits below the condensed card */
+.update-timeline{background:var(--surface2);border:1px solid var(--border-hi);border-top:none;border-radius:0 0 10px 10px;padding:0;overflow:hidden}
+
+/* Vertical rail line running through all dots */
+.update-timeline-rail{position:relative;padding:16px 24px 4px 52px}
+.update-timeline-rail::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:var(--border-hi)}
+
+/* Individual update row — the clickable dot + header */
+.update-entry{position:relative;margin-bottom:0}
+.update-entry:last-child{margin-bottom:4px}
+
+/* The dot + label row — always visible, cursor pointer */
+.update-trigger{display:flex;flex-direction:column;gap:6px;padding:12px 0 12px 0;cursor:pointer;user-select:none;list-style:none}
+.update-trigger::-webkit-details-marker{display:none}
+.update-trigger-top{display:flex;align-items:center;gap:12px;width:100%}
+
+/* Timeline dot */
+.update-dot{position:absolute;left:-38px;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;background:var(--surface);border:2px solid var(--red);flex-shrink:0;transition:background .2s,box-shadow .2s;z-index:1}
+.update-entry[open] .update-dot,
+.update-trigger:hover .update-dot{background:var(--red);box-shadow:0 0 10px rgba(239,68,68,0.5)}
+
+/* Pulsing dot variant for newest update */
+.update-dot.live{background:var(--red);animation:pulse-dot 2s ease-in-out infinite;box-shadow:0 0 8px rgba(239,68,68,0.4)}
+
+/* Badge + timestamp on the trigger row */
+.update-badge{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:var(--red);color:#fff;padding:3px 9px;border-radius:4px;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
+.update-badge .pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse-dot 1.5s ease-in-out infinite}
+.update-timestamp{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-dim);flex:1;min-width:0}
+.update-chevron{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text-dim);margin-left:auto;transition:transform .2s;flex-shrink:0}
+.update-entry[open] .update-chevron{transform:rotate(180deg)}
+
+/* The collapsible content panel */
+.update-trigger-headline{font-size:.84rem;font-weight:600;color:var(--text-bright);line-height:1.4;padding-left:2px}
+.update-body{padding:12px 0 16px 0;border-top:1px solid var(--border)}
+.update-body p{font-size:.84rem;color:var(--text);line-height:1.7;margin-bottom:10px}
+.update-body p:last-of-type{margin-bottom:0}
+
+/* Bullet list inside updates */
+.bullet-list{list-style:none;padding:0;margin:8px 0 10px}
+.bullet-list li{font-size:.82rem;color:var(--text);line-height:1.65;padding:3px 0 3px 18px;position:relative}
+.bullet-list li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:.75rem}
+
+/* Market impact box inside updates */
+.market-impact{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:6px;padding:12px 16px;margin-top:14px}
+.market-impact-label{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--red);margin-bottom:6px}
+.market-impact p{font-size:.8rem;color:var(--text-dim);margin-bottom:0!important;line-height:1.6}
+
+/* Separator line between entries */
+.update-entry+.update-entry .update-trigger{border-top:1px solid var(--border)}
+.update-entry+.update-entry[open] .update-trigger{border-top:1px solid var(--border)}
+
+/* ── Inline update indicators for calendar/stats ── */
+.tl-item.updated{border-left:none}
+.tl-item.updated .tl-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.inline-update{font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:700;background:var(--red);color:#fff;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0}
+.tl-update-note{margin-top:6px;padding:8px 12px;background:rgba(239,68,68,0.07);border-left:2px solid var(--red);border-radius:0 4px 4px 0;font-size:.78rem;color:var(--text);line-height:1.6}
+.stat-val.updated-flag{position:relative}
+.stat-update-note{font-size:.72rem;color:var(--text-dim);font-family:'IBM Plex Mono',monospace;padding:4px 0 2px;display:block;line-height:1.5;border-top:1px solid var(--border);margin-top:4px}
+.scenario.updated-scenario{border-color:var(--amber);border-width:1px}
+.scenario-update-note{margin-top:10px;padding:10px 14px;background:rgba(245,158,11,0.07);border-left:2px solid var(--amber);border-radius:0 4px 4px 0;font-size:.8rem;color:var(--text);line-height:1.65}
+.scenario.updated-scenario.bear-updated{border-color:var(--red)}
+.scenario.updated-scenario.bear-updated .scenario-update-note{background:rgba(239,68,68,0.07);border-left-color:var(--red)}
+.q-answered{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:700;background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,0.3);padding:1px 6px;border-radius:3px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px;vertical-align:middle}
+.q-updated{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;font-weight:700;background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,0.3);padding:1px 6px;border-radius:3px;margin-left:6px;text-transform:uppercase;letter-spacing:.4px;vertical-align:middle}
+.q-answer{display:block;margin-top:5px;padding:8px 12px;background:rgba(34,197,94,0.06);border-left:2px solid var(--green);border-radius:0 4px 4px 0;font-size:.79rem;color:var(--text);line-height:1.6}
+.q-answer.partial{background:rgba(245,158,11,0.06);border-left-color:var(--amber)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:600;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.5px;vertical-align:middle}
+.tag-geo{background:var(--red-dim);color:var(--red)}
+.tag-fed{background:var(--blue-dim);color:var(--blue)}
+.tag-oil{background:var(--amber-dim);color:var(--amber)}
+.tag-earnings{background:var(--green-dim);color:var(--green)}
+.tag-data{background:var(--cyan-dim);color:var(--cyan)}
+.tag-flow{background:var(--purple-dim);color:var(--purple)}
+
+/* ── Timeline ── */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;border:2px solid var(--border-hi);background:var(--bg)}
+.tl-item.high::before{border-color:var(--red);background:var(--red);box-shadow:0 0 8px rgba(239,68,68,0.3)}
+.tl-item.medium::before{border-color:var(--amber);background:var(--amber)}
+.tl-item.low::before{border-color:var(--text-dim);background:var(--text-dim)}
+.tl-date{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--text-dim);font-weight:600}
+.tl-title{font-size:.84rem;font-weight:600;color:var(--text-bright);margin:2px 0 3px}
+.tl-body{font-size:.78rem;color:var(--text);line-height:1.6}
+.tl-tags{margin-top:4px;display:flex;gap:5px;flex-wrap:wrap}
+
+/* ── Key Levels / Watchlist ── */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 22px}
+.card h4{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:10px}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--border)}
+.stat-row:last-child{border-bottom:0}
+.stat-label{font-size:.8rem;color:var(--text)}
+.stat-val{font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:600}
+.stat-val.up{color:var(--green)}.stat-val.down{color:var(--red)}.stat-val.neutral{color:var(--amber)}
+
+/* ── Scenarios ── */
+.scenario{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:14px}
+.scenario-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.scenario-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.scenario h4{font-size:.88rem;font-weight:700;color:var(--text-bright)}
+.scenario p{font-size:.8rem;color:var(--text);line-height:1.65}
+
+/* ── Manual Notes ── */
+.notes-area{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 22px}
+.notes-area textarea{width:100%;min-height:120px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:.8rem;padding:12px;resize:vertical;line-height:1.6}
+.notes-area textarea:focus{outline:none;border-color:var(--cyan)}
+.notes-area textarea::placeholder{color:var(--text-dim)}
+.notes-actions{display:flex;gap:8px;margin-top:10px}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;padding:7px 14px;border-radius:5px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .15s}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-primary{background:var(--cyan-dim);border-color:rgba(6,182,212,0.3);color:var(--cyan)}
+
+/* ── Footer ── */
+footer{text-align:center;padding:24px 32px;font-size:.65rem;color:var(--text-dim);border-top:1px solid var(--border);font-family:'IBM Plex Mono',monospace}
+
+/* ── Print ── */
+@media print{body{background:#fff;color:#111}.masthead,.regime-banner,.card,.narrative-card,.scenario,.notes-area{border-color:#ccc;background:#fafafa}}
+@media(max-width:768px){.grid-2,.grid-3{grid-template-columns:1fr}.container{padding:0 16px}.masthead{padding:20px 16px}.regime-banner{margin:16px}}
+
+/* ── Sources Drawer ── */
+.sources-drawer{margin-top:12px}
+.sources-toggle{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;cursor:pointer;user-select:none;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.68rem;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;transition:border-color .15s,color .15s;width:fit-content}
+.sources-toggle::-webkit-details-marker{display:none}
+.sources-toggle:hover{border-color:var(--cyan);color:var(--cyan)}
+.sources-toggle .sources-count{background:var(--border-hi);color:var(--text-dim);padding:1px 6px;border-radius:3px;font-size:.6rem;font-weight:700}
+.sources-toggle .sources-chevron{margin-left:4px;transition:transform .2s;font-size:.6rem}
+.sources-drawer[open] .sources-chevron{transform:rotate(180deg)}
+.sources-drawer[open] .sources-toggle{border-color:var(--cyan);color:var(--cyan)}
+.sources-list{padding:10px 14px;margin-top:6px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;list-style:none}
+.sources-list li{padding:4px 0;font-size:.72rem;line-height:1.5;border-bottom:1px solid var(--border)}
+.sources-list li:last-child{border-bottom:none}
+.sources-list a{color:var(--cyan);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:.68rem;word-break:break-all}
+.sources-list a:hover{text-decoration:underline;color:var(--text-bright)}
+.sources-list .source-label{color:var(--text-dim);font-family:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;font-size:.72rem}
+.timestamp-badge{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-dim);background:var(--surface2);border:1px solid var(--border);border-radius:5px;padding:4px 10px;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.timestamp-badge .ts-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0}
+.timestamp-badge .ts-label{color:var(--text-dim);font-size:.6rem;text-transform:uppercase;letter-spacing:.5px;margin-right:2px}
+.timestamp-badge .ts-value{color:var(--text-bright);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- MASTHEAD                                                -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<header class="masthead">
+  <div class="masthead-row">
+    <h1><span class="accent">▶</span> Weekly Market Intelligence Brief</h1>
+    <span class="meta">Week of Apr 21–25, 2026</span>
+    <div class="timestamp-badge">
+      <span class="ts-dot"></span>
+      <span class="ts-label">Last Updated</span>
+      <span class="ts-value">Fri Apr 24, 2026 &nbsp;|&nbsp; 4:30 PM ET</span>
+    </div>
+  </div>
+  <p class="subtitle">Dominant narratives, scheduled catalysts, geopolitical risk map, and scenario planning for the trading week ahead.</p>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- REGIME BANNER                                           -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="regime-banner" style="border-color:rgba(239,68,68,0.35)">
+  <div class="regime-dot" style="background:var(--red)"></div>
+  <span class="regime-label" style="color:var(--red)">Risk-Off (Cautious)</span>
+  <span class="regime-desc">
+    Lebanon ceasefire extended 3 weeks by Trump after Oval Office meeting. DOJ dropped probe of Fed Chair Powell — Tillis blockade on Warsh unblocked — confirmation path now clear. Hegseth: US will "shoot to destroy" any vessel laying Hormuz mines. Brent briefly dipped below $100 on Lebanon/Iran deal optimism then rebounded. S&P/Nasdaq closed at fresh ATH on semi surge (INTC +23%, NVDA $5T). Trump: "I could make a deal right now" with Iran — but "no time frame."
+    <span style="display:inline-block;margin-left:10px;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:700;background:var(--red);color:#fff;padding:2px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;vertical-align:middle">Updated Fri Close</span>
+  </span>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 1: LAST WEEK'S DOMINANT NARRATIVES              -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Last Week's Dominant Narratives (Apr 14–18)</div>
+
+  <!-- ═══ STORY THREAD: HORMUZ (2-part) ═══ -->
+  <div class="story-thread">
+
+    <!-- Part 1: Condensed original brief entry -->
+    <div class="narrative-card condensed">
+      <h3><span class="tag tag-geo">Geopolitical</span> Iran Ceasefire &amp; Strait of Hormuz — The Story That Drove Everything <span style="font-size:.7rem;font-weight:400;color:var(--text-dim);margin-left:auto;font-family:'IBM Plex Mono',monospace">Apr 14–18 original brief</span></h3>
+      <p>Markets rallied hard Mon–Thu on ceasefire signals. Iran's FM declared Hormuz "fully open" Friday — oil dropped 10–11%, S&amp;P broke 7,000 for the first time. On Saturday Apr 18, Iran reversed and re-closed the Strait, citing the US naval blockade. IRGC gunboats fired on tankers. Happened after Friday's close — market had not yet priced it in.</p>
+    </div>
+
+    <!-- Update timeline — each <details> is one collapsible update entry -->
+    <!-- Oldest update first, newest last and open by default             -->
+    <div class="update-timeline">
+      <div class="update-timeline-rail">
+
+        <!-- Update 1 — Sunday Apr 19 — starts collapsed -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 1</span>
+            <span class="update-timestamp">Sunday Apr 19, 2026 — ~6:00 PM ET</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Hormuz Fully Closed, Tankers Fired On, US Seizes Iranian Vessel — Talks Still On</div>
+          </summary>
+          <div class="update-body">
+            <p>Today saw the situation escalate sharply on multiple fronts simultaneously, even as both sides signaled they still want a deal. Here is the full picture as of Sunday evening:</p>
+
+            <ul class="bullet-list">
+              <li><strong>Zero tankers transited Hormuz on Sunday</strong>, per shipping tracking data. The IRGC ordered all vessels to treat passage as "cooperation with the enemy," threatening to target any violating ship. Lloyd's List confirmed traffic has come to a complete halt.</li>
+              <li><strong>US Navy seized the Iranian cargo ship TOUSKA</strong> in the Gulf of Oman. The USS Spruance (guided missile destroyer) intercepted the vessel after it ignored six hours of warnings attempting to breach the US naval blockade. US Marines are on deck. CENTCOM confirmed. Iran called it "an act of aggression" and "maritime piracy" and vowed retaliation.</li>
+              <li><strong>Iran fired on ships from multiple nations.</strong> India's foreign ministry summoned Iran's ambassador after IRGC gunboats fired on two Indian-flagged vessels. UK MTO confirmed a tanker was fired on by two IRGC gunboats. Botswana- and Angola-flagged tankers were also turned back. France's CMA CGM confirmed one of its vessels received warning shots.</li>
+              <li><strong>Trump threatened to destroy "every single Power Plant and every single Bridge in Iran"</strong> via Truth Social, calling the tanker firings a "Total Violation of our Ceasefire Agreement" — while simultaneously saying the US was having "very good conversations" with Tehran. Carrots and threats in the same post.</li>
+              <li><strong>Oil gapping hard: Brent +7% to $96.88, WTI +7% to $90.33</strong> as of Sunday afternoon. Friday's close was the lowest since March 10 on the brief reopening news. That entire move has now reversed. US national average gas hit $4.05/gallon. Energy Secretary Chris Wright told CNN it may not return below $3 "until next year."</li>
+              <li><strong>Talks are still scheduled.</strong> VP Vance, Steve Witkoff, and Jared Kushner are confirmed traveling to Islamabad. Iranian sources told CNN their delegation arrives in Pakistan on Tuesday. Iran's National Security Council said it is "examining new US proposals." Iran's parliament speaker Ghalibaf framed the core standoff bluntly on state TV: <em>"It is impossible for others to pass through the Strait of Hormuz while we cannot."</em></li>
+              <li><strong>Both ceasefire clocks are ticking simultaneously.</strong> The 2-week US-Iran truce technically expires Wednesday Apr 22. The 10-day Israel-Lebanon ceasefire also expires around that window. Negotiators reconvene Tuesday with both deadlines hanging over them.</li>
+            </ul>
+
+            <p>The read: both sides are maximizing leverage before the next round, not walking away from the table. Iran re-closing Hormuz and the US seizing a vessel are coercive signals. The weekend timing of the escalation — when markets are closed — suggests Iran is applying pressure without triggering an immediate market rout that would also hurt them. The Islamabad talks on Tuesday are the single most important event to watch this week.</p>
+
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Monday Open</div>
+              <p>Oil opened ~7% higher Sunday. Equity futures will gap down Monday unless a diplomatic breakthrough emerges overnight. Retail chasers who piled in at the 55th-percentile last week are underwater going into Monday — watch for stop-loss cascades if SPY breaks below 6,900. Defense names (NOC, RTX, LMT) could open higher on escalation. Airlines (UAL, LUV — both reporting this week) face another sharp rise in their dominant cost input. The prior "buy the ceasefire" trade is unwinding, but it is not a full reversal until we see whether Islamabad produces anything Tuesday.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">NBC News — Iran war live, TOUSKA seizure</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149</a></li>
+              <li><span class="source-label">Washington Post — Oil jumps, TOUSKA, Hormuz re-closure</span><br><a href="https://www.washingtonpost.com/world/2026/04/19/trump-iran-war-hormuz-strait-negotiations/" target="_blank" rel="noopener">https://www.washingtonpost.com/world/2026/04/19/trump-iran-war-hormuz-strait-negotiations/</a></li>
+              <li><span class="source-label">Wikipedia — 2026 Iran–US War ceasefire</span><br><a href="https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 2 — Monday Apr 20 — starts open (newest = default open) -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 2 — Mon AM</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — Pre-Market</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Iran Confirms No Talks, Ceasefire Expires Wednesday — Futures Gap Down, Mediators Still Working</div>
+          </summary>
+          <div class="update-body">
+            <p>As of Monday pre-market, the situation has deteriorated on the diplomatic front even as both parties technically remain inside the ceasefire window.</p>
+
+            <ul class="bullet-list">
+              <li><strong>Iran FM officially confirms "no plans" for new talks.</strong> Spokesperson Esmaeil Baghaei said Monday: "As of now, we have no plans for the next round of negotiation." US delegation arrived in Islamabad to empty chairs. Iran's First VP called the US approach "childish." IRNA cited the naval blockade as a precondition that must be lifted before talks can resume.</li>
+              <li><strong>Ceasefire clock: expires Wednesday Apr 22 at midnight GMT (8pm ET Tuesday).</strong> Without extension or new deal, the formal truce lapses in ~48 hours. Iran's IRGC Aerospace commander stated Monday: "Our speed in updating and refilling missile and drone launch platforms is even greater than before the war."</li>
+              <li><strong>The one positive: mediators report "in principle" ceasefire extension.</strong> Pakistani and other mediators told AP that both sides have given in-principle agreement to extend the truce another two weeks. Pakistan PM Sharif traveling to Saudi Arabia, Qatar, and Turkey this week to secure broader backing. Unconfirmed publicly by either principal.</li>
+              <li><strong>Hormuz: 3rd consecutive day of near-zero traffic.</strong> Only 3 vessels tracked near the strait Monday — all empty or sanctioned. Iran military HQ issued formal statement: will take "necessary action" in retaliation for TOUSKA. Timing unspecified.</li>
+              <li><strong>Futures gap confirmed: S&amp;P -0.7%, Nasdaq -0.7%, Dow -0.8%.</strong> WTI at $88.50 (+5.5%), Brent at $94.70 (+4.8%). Airlines (DAL, LUV, UAL) falling premarket. Energy stocks (CVX, XOM, OXY) rallying. The sector rotation within the gap is clean.</li>
+              <li><strong>New signal — Marvell/Google AI chip deal.</strong> MRVL surging premarket on reports of talks to co-develop two new AI chips for Google (memory processing unit + new TPU). A potential tech decoupler from the macro tape — watch it as a positive offset if the session turns broad risk-off.</li>
+            </ul>
+
+            <p>The US bet that arriving in Islamabad would pull Iran to the table has not worked — yet. The in-principle ceasefire extension is the market's only anchor. Watch Pakistan PM Sharif's statements from Riyadh/Doha as the leading indicator for whether that extension gets confirmed before Wednesday midnight.</p>
+
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Monday Session</div>
+              <p>Gap down confirmed at open. Gap-fill requires a positive diplomatic headline before noon ET — extension confirmed, or Iran signals return to talks. Without that, gap holds and likely widens into Wednesday. Airlines are the highest-conviction risk on session. Energy longs (XLE, CVX, XOM) are the hedge. Do not fight the tape in either direction until Pakistan's diplomatic circuit produces something concrete. Wednesday midnight is the hard stop — position accordingly before Tuesday close.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">2</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">NBC News live blog — Iran FM no plans, Islamabad talks</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149</a></li>
+              <li><span class="source-label">Euronews — US-Iran ceasefire on brink, talks stall</span><br><a href="https://www.euronews.com/2026/04/21/us-iran-ceasefire-on-brink-of-collapse-as-talks-stall-and-strait-of-hormuz-crisis-deepens" target="_blank" rel="noopener">https://www.euronews.com/2026/04/21/us-iran-ceasefire-on-brink-of-collapse-as-talks-stall-and-strait-of-hormuz-crisis-deepens</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+
+        <!-- Update 3 — Monday Apr 20 close — demoted -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 3 — Mon Close</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — Market Close</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Market Absorbed Gap Better Than Feared — Russell 2000 Hits All-Time High — Wednesday Midnight Confirmed Hard Stop</div>
+          </summary>
+          <div class="update-body">
+            <p>Monday's session closed far more resilient than the pre-market gap implied, with the Russell 2000 delivering the most surprising data point: a new all-time closing record even as Iran escalation continued.</p>
+            <ul class="bullet-list">
+              <li><strong>Market close: S&amp;P -0.24% to 7,109, Nasdaq -0.26% to 24,404, Dow flat at 49,442.</strong> The -0.7% pre-market gap was almost entirely absorbed. Nasdaq snapped its 13-day streak (longest since 1992). Energy (CVX, XOM, OXY) led gains. Meta (-2.6%), Tesla (-2.0%), Broadcom (-1.7%) led tech declines.</li>
+              <li><strong>Russell 2000 hit an ALL-TIME HIGH, closing +0.58% at 2,792.96.</strong> Small-caps outperforming during an Iran escalation session is a striking divergence. The market is NOT pricing in a full risk-off collapse — small-caps don't make ATHs if recession or war escalation is the base case. The Piper Sandler fragility thesis is being directly tested by this breadth signal.</li>
+              <li><strong>Trump: extension "highly unlikely."</strong> Monday afternoon, Trump told PBS "if the ceasefire expires Tuesday, lots of bombs start going off." This is materially more definitive than "mediators report in-principle extension." Wednesday midnight is now a confirmed hard stop — not just a risk event.</li>
+              <li><strong>16 ships transited Hormuz Monday</strong>, per MarineTraffic — up from near-zero Sunday, but still ~94% below pre-war normal. Two were Iranian-flagged. Iran is selectively allowing its own vessels while maintaining control of the strait — not a reopening signal.</li>
+              <li><strong>Iranian parliament drafting Hormuz toll law.</strong> Construction committee chair announced plans to legislate $1M+ per-ship tolls for non-hostile nations and ban "hostile" flag vessels entirely. If passed, this converts Hormuz from a tactical military standoff into a permanent legal chokepoint.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Tuesday Session</div>
+              <p>The Russell 2000 ATH changes the playbook: this is not a clean risk-off tape. Market is selectively pricing Iran risk rather than going full defensive. Warsh hearing at 10am is Tuesday's first catalyst — bond/dollar reaction in the first hour will set the session tone. Wednesday midnight remains the hard stop. If ceasefire lapses without extension and Iran executes the TOUSKA retaliation threat, the ATH in small-caps becomes a false summit with violent reversal potential.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">2</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">The Motley Fool — April 20 market rebound, Russell 2000 ATH</span><br><a href="https://www.fool.com/coverage/stock-market-today/2026/04/20/stock-market-today-april-20-market-rebound-stumbles-as-oil-disruption-continues/" target="_blank" rel="noopener">https://www.fool.com/coverage/stock-market-today/2026/04/20/stock-market-today-april-20-market-rebound-stumbles-as-oil-disruption-continues/</a></li>
+              <li><span class="source-label">CNBC — Stock market today April 20 live updates</span><br><a href="https://www.cnbc.com/2026/04/19/stock-market-today-live-updates.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/19/stock-market-today-live-updates.html</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+
+        <!-- Update 4 — Tuesday Apr 21 AM — starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 4 — Tue AM</span>
+            <span class="update-timestamp">Tuesday Apr 21, 2026 — Morning</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Iran No-Show Again — "New Cards on Battlefield" — Vance Flying to Islamabad — Ceasefire Expires Tonight</div>
+          </summary>
+          <div class="update-body">
+            <p>Tuesday morning brought the sharpest diplomatic deterioration yet, hours before the ceasefire expires at midnight GMT (approximately 8pm ET tonight).</p>
+            <ul class="bullet-list">
+              <li><strong>Iran confirmed no delegation sent to Islamabad.</strong> Iranian state TV stated Tuesday morning: "So far, no delegation from Iran has departed for Islamabad, whether it is the main or subsidiary delegation, primary or secondary." This directly reverses the Monday signal that Iran was willing to attend. Tehran cited the US naval blockade as a ceasefire violation and called US diplomatic overtures "a media game."</li>
+              <li><strong>"New cards on the battlefield."</strong> Iran's top negotiator — parliament speaker Ghalibaf — warned Iran has "prepared to reveal new cards on the battlefield" and will not negotiate "under the shadow of threats." This is an escalation from IRGC retaliation threats to a direct statement from the lead negotiator that Iran is militarily prepared for resumed hostilities.</li>
+              <li><strong>Vance flying to Islamabad anyway.</strong> Despite the Iranian no-show, a source confirmed to NBC News that Vice President Vance is heading to Islamabad Tuesday. Trump said: "They're going to negotiate. If they don't, they're going to see problems like they've never seen before." US is betting on Pakistan to get Iran back to the table before midnight.</li>
+              <li><strong>Hormuz: 12 ships in past 24 hours</strong>, down from 16 Monday. Four were Iranian-flagged. Traffic through the Iranian-approved route near Bandar Abbas — Iran is controlling access, not reopening it. US boarded another sanctioned tanker overnight.</li>
+              <li><strong>Brent crude $95 Tuesday.</strong> Up from $93.92 Monday close as ceasefire expiry risk reprices. IEA chief Fatih Birol called this "the biggest energy crisis in history" — combining Hormuz oil shock with Russia/gas crisis.</li>
+              <li><strong>Iran Air domestic flights to resume Wednesday</strong>, per Fars news — the first flights in 50 days. Signals Iran is not internally preparing for immediate full-scale resumption, but the ceasefire clock is separate from domestic operations.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Tuesday Session / Tonight</div>
+              <p>The binary is now hours away, not days. Iran's no-show this morning makes the ceasefire extension scenario materially less likely than it was 24 hours ago. The lone positive: Vance is still flying to Islamabad — Pakistan is not giving up. Watch for any Iran delegation signal before 4pm ET (midnight in Tehran). If none by then, position for ceasefire lapse: energy longs (XLE, CVX, XOM), defensive (XLU, XLP, XLV), short airlines (UAL, LUV, DAL). Earnings from HAL, NOC, RTX, UNH before the open today will provide a secondary read on war/energy cost absorption.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">2</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">NBC News live blog — Iran no delegation, Vance to Islamabad</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-peace-talks-vance-ceasefire-ship-hormuz-rcna341149</a></li>
+              <li><span class="source-label">Al Jazeera — Iran war live, ceasefire expiry timeline</span><br><a href="https://www.aljazeera.com/news/liveblog/2026/4/22/iran-war-live-trump-says-ceasefire-extended-as-talks-with-tehran-in-limbo" target="_blank" rel="noopener">https://www.aljazeera.com/news/liveblog/2026/4/22/iran-war-live-trump-says-ceasefire-extended-as-talks-with-tehran-in-limbo</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 5 — Tuesday Apr 21 evening / Wed Apr 22 — starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 5 — Tue Eve</span>
+            <span class="update-timestamp">Tuesday Apr 21, 2026 — Evening / Wed AM</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Trump Extends Ceasefire Open-Ended — Vance Trip Cancelled — Iran: "Means Nothing" — New Ship Attack Wednesday</div>
+          </summary>
+          <div class="update-body">
+            <p>The Tuesday binary resolved without resumption of hostilities — but was immediately complicated by a new IRGC ship attack Wednesday morning.</p>
+            <ul class="bullet-list">
+              <li><strong>Trump extended the ceasefire open-ended at Pakistani request.</strong> Shortly after Tuesday's market close, Trump posted on Truth Social extending the truce "until such time as their leaders and representatives can come up with a unified proposal." No new deadline. Pakistan's army chief Munir and PM Sharif personally requested the extension. Trump added the decision was "based on the fact that the Government of Iran is seriously fractured."</li>
+              <li><strong>Vance Islamabad trip cancelled.</strong> White House said Vance would not travel Tuesday. "Any further updates on in-person meetings will be announced by the White House." Formal second round of talks is on indefinite hold, not permanently cancelled.</li>
+              <li><strong>Iran dismissed the extension.</strong> Senior adviser Mahdi Mohammadi: extension "means nothing." Iran's UN envoy: talks will happen "as soon as the US ends the blockade." FM Araghchi: blockade is "an act of war." Core deadlock unchanged — US won't lift blockade until final deal; Iran won't talk while blockade continues.</li>
+              <li><strong>New ship attacked Wednesday morning.</strong> Iran's IRGC opened fire on a container ship in Hormuz, damaging it. UK UKMTO confirmed a second vessel also came under attack. No injuries. This is the first confirmed IRGC attack after the ceasefire extension — the IRGC is operating independently of the diplomatic track.</li>
+              <li><strong>UK and France convening 30-nation military meeting Wednesday in London</strong> to plan a multinational defensive mission for Hormuz. Mission activates only after "a sustainable ceasefire." US Treasury Secretary Bessent: Iranian oil storage at Kharg Island will be full in days — threatening to force shutdown of Iranian oil production regardless of Hormuz status.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Wednesday Open</div>
+              <p>The open-ended extension removes the immediate cliff-edge and gives oil a modest relief valve. However the Wednesday ship attack signals IRGC is not standing down — the extension is a diplomatic pause, not de-escalation on the water. Watch oil's reaction to the ship attack at open. The 30-nation London military meeting is a signal that the international community is moving toward a parallel military track if diplomacy continues to stall. Wednesday earnings (TSLA, BA, IBM, LUV) now compete for attention with the Hormuz/ceasefire follow-through.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">CBS News — Trump extends ceasefire, Vance trip cancelled</span><br><a href="https://www.cbsnews.com/live-updates/us-iran-war-trump-ceasefire-pakistan-peace-talks-ultimatum/" target="_blank" rel="noopener">https://www.cbsnews.com/live-updates/us-iran-war-trump-ceasefire-pakistan-peace-talks-ultimatum/</a></li>
+              <li><span class="source-label">CNN — US-Iran ceasefire extended, ship attacked Wed</span><br><a href="https://www.cnn.com/2026/04/22/world/live-news/iran-war-us-trump-blockade-ceasefire" target="_blank" rel="noopener">https://www.cnn.com/2026/04/22/world/live-news/iran-war-us-trump-blockade-ceasefire</a></li>
+              <li><span class="source-label">Time — Trump extends ceasefire at Pakistan request</span><br><a href="https://time.com/article/2026/04/21/iran-us-trump-war-ceasefire-talks-stalemate/" target="_blank" rel="noopener">https://time.com/article/2026/04/21/iran-us-trump-war-ceasefire-talks-stalemate/</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+
+        <!-- Update 6 — Wednesday Apr 22 close — starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 6 — Wed Close</span>
+            <span class="update-timestamp">Wednesday Apr 22, 2026 — Close</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Trump: Iran Has 3–5 Days — IRGC Seizes 3 Ships — Pentagon: 6 Months to Clear Mines — Market Hits ATH on Ceasefire Relief</div>
+          </summary>
+          <div class="update-body">
+            <p>Wednesday brought a soft new deadline, a sharp IRGC escalation on the water, and a market that chose to rally on the ceasefire extension rather than the ship seizures.</p>
+            <ul class="bullet-list">
+              <li><strong>Trump gave Iran 3–5 days to submit a unified proposal.</strong> US officials said Wednesday that Trump has given Tehran a 3–5 day window to resolve alleged internal divisions and present negotiating terms before the US resumes attacks. This converts the "open-ended" extension into a soft deadline — roughly Apr 25–27. No formal announcement; communicated through officials. Iran's President Pezeshkian said Iran "welcomes dialogue" but blamed US blockade for stalling progress.</li>
+              <li><strong>Iran seized three ships Wednesday — IRGC took two.</strong> Iran's Revolutionary Guard attacked three vessels in the Strait of Hormuz, seizing two of them. Trump's spokesperson said this does not violate the ceasefire because "these were not US or Israeli ships — these were international vessels." White House not treating civilian ship seizures as ceasefire violations. CENTCOM confirmed the naval blockade has now turned back 31 ships total.</li>
+              <li><strong>Pentagon: 6 months to clear Hormuz mines post-war.</strong> Officials briefed House Armed Services Committee that it could take up to six months to fully clear the Strait of Hormuz of mines after the war ends. This is the most significant long-term oil supply signal yet — even a deal tomorrow doesn't mean Hormuz reopens tomorrow. Citigroup's $110/barrel estimate assumed 1 more month of closure; a 6-month mine clearance timeline is structurally bullish for oil regardless of ceasefire outcome.</li>
+              <li><strong>US Navy Secretary Phelan ousted "effective immediately."</strong> Pentagon spokesman announced Phelan's departure with no explanation given. Comes as the US Navy continues its Hormuz blockade. Leadership shakeup at the service most directly prosecuting the blockade during active ceasefire negotiations.</li>
+              <li><strong>S&P 500 and Nasdaq hit fresh all-time highs.</strong> S&P rose >1% to a new record; Nasdaq jumped 1.6% to an ATH. Market read the ceasefire extension as risk-on relief and layered in strong earnings (TSLA +3% AH, BA +4% pre-mkt, TSLA gross margin 21.7%). The divergence between IRGC seizing ships and the market hitting ATHs is the defining tension of this tape.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Thursday Open</div>
+              <p>The 3–5 day soft deadline puts the next binary at Apr 25–27 — coinciding with the Lebanon ceasefire expiry (~Apr 27) and ahead of FOMC Apr 28–29. The 6-month mine clearance revelation is the most underappreciated development: it means oil supply normalization is a 2026H2 story at the earliest, not a post-deal event. Thursday has initial jobless claims and PMI Flash. Watch whether the ATH holds or fades on the IRGC ship seizure news as it gets more coverage.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">Fox News — Iran 3–5 day deadline, Navy Sec. Phelan ousted</span><br><a href="https://www.foxnews.com/live-news/iran-us-war-blockade-hormuz-april-22" target="_blank" rel="noopener">https://www.foxnews.com/live-news/iran-us-war-blockade-hormuz-april-22</a></li>
+              <li><span class="source-label">NBC News live — IRGC seizes 3 ships, ceasefire update</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-trump-ceasefire-hormuz-attack-peace-talks-israel-rcna341361" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-trump-ceasefire-hormuz-attack-peace-talks-israel-rcna341361</a></li>
+              <li><span class="source-label">Yahoo Finance — S&P/Nasdaq ATH, Tesla/Boeing earnings Apr 22</span><br><a href="https://ca.finance.yahoo.com/news/stock-market-today-wednesday-april-22-dow-sp-500-nasdaq-trump-us-iran-ceasefire-230429476.html" target="_blank" rel="noopener">https://ca.finance.yahoo.com/news/stock-market-today-wednesday-april-22-dow-sp-500-nasdaq-trump-us-iran-ceasefire-230429476.html</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 7 — Thursday Apr 23 close — starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 7 — Thu Close</span>
+            <span class="update-timestamp">Thursday Apr 23, 2026 — Close</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Ghalibaf Quits Negotiating Team — Iran Mines Hormuz — Air Defenses Activated in Tehran — Brent $105, WTI $96 — Trump: "Don't Rush Me"</div>
+          </summary>
+          <div class="update-body">
+            <p>Thursday brought the most significant diplomatic and military escalation since the ceasefire began. By market close, Brent crude had crossed $105 for the first time since the original Hormuz closure.</p>
+            <ul class="bullet-list">
+              <li><strong>Iran's chief negotiator resigned from the peace talks.</strong> Mohammad Bagher Ghalibaf — Iran's parliamentary speaker and the head of Iran's negotiating delegation in Islamabad — publicly resigned from the negotiating team Thursday. He cited the US naval blockade as a violation of the ceasefire and said the only path forward is the US accepting "the rights of the Iranian nation." His departure removes the most senior Iranian diplomat from the diplomatic track and signals hardliners are gaining influence inside Tehran's fractured government.</li>
+              <li><strong>Axios: Iran is deploying additional mines around the Strait of Hormuz.</strong> US intelligence assessments obtained by Axios show Iran has been actively expanding its mining operation around the strait since the ceasefire extension. This is separate from the ship seizures — it is a deliberate long-term denial strategy intended to maintain leverage regardless of ceasefire status. The Pentagon 6-month mine clearance estimate becomes even more relevant if the expansion continues.</li>
+              <li><strong>Iranian air defense systems activated at multiple Tehran locations.</strong> Reports of air defense radar activations at several locations across Iran Thursday afternoon triggered a spike in oil prices. Iran's state media confirmed the activations were in response to "small drones." Stocks accelerated lower on the reports. No damage or casualties confirmed.</li>
+              <li><strong>Trump: "Don't rush me" — no deadline.</strong> When reporters asked about a timeline for ending the war or for Iran's response, Trump said "Don't rush me" and declined to set any timeline. White House press secretary Leavitt confirmed the 3–5 day timeline reported earlier this week was "not true." The administration says it is "waiting to hear back from the Iranian regime."</li>
+              <li><strong>Brent $105+, WTI $96+.</strong> Oil rose for a fourth consecutive day. The combined effect of Ghalibaf's resignation and the Tehran air defense activation pushed Brent through $105 for the first time. Philly semiconductor index (SOX) hit its 17th consecutive day of gains — the only major index subsector holding up in the Iran-driven risk-off tape.</li>
+              <li><strong>Software rout: IBM -8%, ServiceNow -18%.</strong> IBM maintained full-year guidance despite a top/bottom beat — investors sold on lack of upside. ServiceNow's subscription revenue growth slowed, blamed partly on the Middle East conflict. The April software bounce reversed in a single session.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Market Impact — Friday Open / Weekend</div>
+              <p>Ghalibaf's departure is the clearest signal yet that the diplomatic track is deteriorating from the Iranian side. If hardliners consolidate around his position, the ceasefire extension becomes a holding pattern rather than a bridge to Round 2 talks. The mine expansion story is the most structurally bearish development of the week — it means the 6-month clearance timeline is now a floor, not a ceiling. Friday has New Home Sales and Intel earnings (INTC surging >19% AH Thursday on strong results + Tesla partnership signal). Going into the weekend: position for oil continuing higher, software continuing lower, and any diplomatic breakthrough as the tail scenario rather than the base.</p>
+            </div>
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">5</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">MarketScreener / Reuters — Stocks fall, Iran war stalls</span><br><a href="https://www.marketscreener.com/news/stocks-close-lower-on-fading-hopes-for-quick-iran-deal-mixed-quarterly-earnings-ce7f59dedd8af221" target="_blank" rel="noopener">https://www.marketscreener.com/news/stocks-close-lower-on-fading-hopes-for-quick-iran-deal-mixed-quarterly-earnings-ce7f59dedd8af221</a></li>
+              <li><span class="source-label">Yahoo Finance — S&P/Dow/Nasdaq Thu Apr 23 close</span><br><a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-thursday-april-23-dow-sp-500-nasdaq-oil-rises-software-233045213.html" target="_blank" rel="noopener">https://finance.yahoo.com/markets/stocks/live/stock-market-today-thursday-april-23-dow-sp-500-nasdaq-oil-rises-software-233045213.html</a></li>
+              <li><span class="source-label">Investrade — Market Review April 23, 2026</span><br><a href="https://investrade.com/market-review-april-23-2026/" target="_blank" rel="noopener">https://investrade.com/market-review-april-23-2026/</a></li>
+              <li><span class="source-label">CNN — Trump declines Iran timeline, 'Don't rush me'</span><br><a href="https://www.cnn.com/2026/04/23/world/live-news/iran-war-trump-blockade-israel-lebanon" target="_blank" rel="noopener">https://www.cnn.com/2026/04/23/world/live-news/iran-war-trump-blockade-israel-lebanon</a></li>
+              <li><span class="source-label">NBC News — Iran ceasefire live blog Apr 23</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-trump-ceasefire-hormuz-attack-peace-talks-israel-rcna341361" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-trump-ceasefire-hormuz-attack-peace-talks-israel-rcna341361</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 8 — Friday Apr 24 close — starts open -->
+        <details class="update-entry" open>
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot live"></div>
+            <span class="update-badge"><span class="pulse"></span>&nbsp;Update 8 — Live</span>
+            <span class="update-timestamp">Friday Apr 24, 2026 — Close</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Hegseth: "Shoot to Destroy" Mine-Laying Boats — Lebanon Ceasefire Extended 3 Weeks — Trump "Could Make a Deal Now" — Brent Dips Below $100 Briefly</div>
+          </summary>
+          <div class="update-body">
+            <p>Friday delivered simultaneous diplomatic progress (Lebanon extension), a military escalation order (Hegseth on mines), and a rare dovish signal from Trump on Iran — all in the same session. The week closed at S&P/Nasdaq ATHs.</p>
+            <ul class="bullet-list">
+              <li><strong>Hegseth: US will "shoot to destroy" any vessel laying Hormuz mines.</strong> Secretary of War Pete Hegseth held a Pentagon briefing Friday and stated: "President Trump has authorized the United States Navy to destroy any Iranian fast boats that attempt to put mines in the water or disrupt passage through the Strait of Hormuz, to shoot and kill. No hesitation. Just like the drug boats in the Caribbean." White House Press Secretary Leavitt said the Navy is doing a "tremendous job" with the blockade — "strangling their economy by the second."</li>
+              <li><strong>Lebanon–Israel ceasefire extended 3 weeks.</strong> Trump announced Thursday evening after an Oval Office meeting with Israeli and Lebanese ambassadors that the ceasefire — originally set to expire this weekend — is extended by three weeks. Trump said he wants Netanyahu and Lebanon's President Aoun to meet at the White House during the extension period. Hezbollah and Israel both continued low-level exchanges Friday despite the extension.</li>
+              <li><strong>Trump: "I could make a deal right now" — but "no time frame."</strong> In Friday remarks Trump said he "could make a deal right now" with Iran, but wants an "everlasting" agreement rather than a quick fix. He repeated there is "no time pressure" and "no time frame." Iran's state media framed this as Trump seeking to negotiate from weakness. The sanctioned supertanker transited Hormuz regardless of the blockade Friday, according to Iran's Tasnim news — a signal Iran is selectively enforcing who moves through.</li>
+              <li><strong>Brent briefly dipped below $100 on peace optimism.</strong> Lebanon extension + Trump's dovish Iran comments pushed Brent below $100 intraday for the first time in over a week. It rebounded to ~$105 by the close on Hegseth's "shoot to destroy" remarks. WTI followed the same intraday pattern. The price action confirmed oil is trading on diplomatic headlines in real time.</li>
+              <li><strong>War death toll update.</strong> Iran's forensics chief reported nearly 3,400 killed in Iran since US-Israeli strikes began Feb. 28. Nearly 2,500 killed in Lebanon. 13 US service members killed. The human cost is now entering the political discourse alongside the economic one.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Week Close / Weekend Setup</div>
+              <p>The week ends with S&P and Nasdaq at ATHs — a remarkable outcome given Thursday's Ghalibaf/mine/air defense triple-escalation. The market is reading Friday's signals (Lebanon extension, Trump dovish, DOJ/Warsh cleared) as more durable than Thursday's (Ghalibaf out, mines, air defenses). Going into the weekend: FOMC Apr 28–29 is the primary macro event. Warsh confirmation now has a clear path. Iran ceasefire is unstable but not collapsed. The 3-week Lebanon window gives Trump space to pursue Iran Round 2 without a dual-front crisis. Key risk: Hegseth's "shoot to destroy" order creates a new escalation tripwire — any IRGC fast boat engaged by the US Navy over the weekend changes the tape immediately.</p>
+            </div>
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">4</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">Fox News — Hegseth 'shoot to destroy' mine-laying boats</span><br><a href="https://www.foxnews.com/live-news/iran-war-trump-us-ceasefire-deal-strait-hormuz-israel-lebanon-april-24" target="_blank" rel="noopener">https://www.foxnews.com/live-news/iran-war-trump-us-ceasefire-deal-strait-hormuz-israel-lebanon-april-24</a></li>
+              <li><span class="source-label">NBC News live — Lebanon 3-week extension, sanctioned tanker</span><br><a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-trump-iran-hormuz-blockade-ceasefire-talks-lebanon-israel-rcna341831" target="_blank" rel="noopener">https://www.nbcnews.com/world/iran/live-blog/live-updates-trump-iran-hormuz-blockade-ceasefire-talks-lebanon-israel-rcna341831</a></li>
+              <li><span class="source-label">Al Jazeera — Trump 'could make deal now', Hormuz mines order</span><br><a href="https://www.aljazeera.com/news/2026/4/24/iran-war-whats-happening-on-day-56-after-trump-extended-ceasefire" target="_blank" rel="noopener">https://www.aljazeera.com/news/2026/4/24/iran-war-whats-happening-on-day-56-after-trump-extended-ceasefire</a></li>
+              <li><span class="source-label">CBS News — Lebanon ceasefire extended 3 weeks</span><br><a href="https://www.cbsnews.com/live-updates/iran-war-trump-video-strait-of-hormuz-ship-attack-ceasefire-lebanon/" target="_blank" rel="noopener">https://www.cbsnews.com/live-updates/iran-war-trump-video-strait-of-hormuz-ship-attack-ceasefire-lebanon/</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+
+      </div>
+    </div>
+
+  </div>
+  <!-- ═══ END STORY THREAD ═══ -->
+
+  <div class="story-thread">
+    <div class="narrative-card condensed">
+      <h3><span class="tag tag-flow">Flows</span> Short Squeeze → Retail FOMO Chase <span style="font-size:.7rem;font-weight:400;color:var(--text-dim);margin-left:auto;font-family:'IBM Plex Mono',monospace">Apr 14–18 original brief</span></h3>
+      <p>Massive short squeeze drove the rally, with retail participation surging from the 10th to the 55th percentile. Single-stock buying at the 71st percentile — a chase pattern into individual names, not broad ETFs. Software (ORCL +30%) and mega-cap (MSFT +14%) led; semis stalled.</p>
+    </div>
+    <div class="update-timeline">
+      <div class="update-timeline-rail">
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 1 — Mon AM</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — AM</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Piper Sandler: 12-Day Oversold→Overbought Transition "Masks Precarious Macro Reality" — Russell 2000 ATH Challenges This Thesis</div>
+          </summary>
+          <div class="update-body">
+            <p>Chief market technician Craig Johnson wrote Friday that the equity market's rapid 12-day transition from oversold to overbought masks a precarious macro reality. He specifically called out crude above $90/barrel as a threat and described the technical foundation as "highly fragile" despite the ATH print. "Mixed signals from short-term strength and lagging intermediate breadth" — translation: the index moved on a narrow short squeeze, not on broad buying. Intermediate breadth never confirmed. This is exactly the setup that unwinds hard when the squeeze fuel is exhausted and a negative catalyst hits. The retail chasers who arrived at the 55th percentile are now providing the exit liquidity for the institutional shorts who covered. Watch Monday for whether breadth improves on any bounce — if small-caps and cyclicals don't participate, the fragility thesis is intact.</p>
+            <div class="market-impact">
+              <div class="market-impact-label">Monday Close Update</div>
+              <p>The Russell 2000 hit an ALL-TIME HIGH on Monday (+0.58% to 2,792.96) while the S&amp;P fell only -0.24%. Small-caps and cyclicals DID participate — which directly challenges the Piper Sandler fragility thesis. The short squeeze base may be narrower than indexes suggest, but the breadth signal Monday is the opposite of what fragility predicts. Watch Tuesday for whether small-cap momentum holds into the Warsh hearing and ceasefire clock.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">CNBC — April 20 stock market live updates</span><br><a href="https://www.cnbc.com/2026/04/19/stock-market-today-live-updates.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/19/stock-market-today-live-updates.html</a></li>
+              <li><span class="source-label">The Motley Fool — April 20 market rebound stumbles</span><br><a href="https://www.fool.com/coverage/stock-market-today/2026/04/20/stock-market-today-april-20-market-rebound-stumbles-as-oil-disruption-continues/" target="_blank" rel="noopener">https://www.fool.com/coverage/stock-market-today/2026/04/20/stock-market-today-april-20-market-rebound-stumbles-as-oil-disruption-continues/</a></li>
+              <li><span class="source-label">TheStreet — Stock market today Apr 20</span><br><a href="https://www.thestreet.com/latest-news/stock-market-today-apr-20-2026-updates" target="_blank" rel="noopener">https://www.thestreet.com/latest-news/stock-market-today-apr-20-2026-updates</a></li>
+              </ul>
+            </details>
+          </div>
+
+        </details>
+
+        <!-- Update 2 — Friday Apr 24 close — starts open -->
+        <details class="update-entry" open>
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot live"></div>
+            <span class="update-badge"><span class="pulse"></span>&nbsp;Update 2 — Live</span>
+            <span class="update-timestamp">Friday Apr 24, 2026 — Close</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">SOX 18th Straight Gain — INTC Best Day Since 1987 — NVDA Retakes $5T — RSI 85 Overbought Warning — Software Selective</div>
+          </summary>
+          <div class="update-body">
+            <p>The week closed with semiconductors as the unchallenged leadership sector — but a technical warning light is beginning to flash.</p>
+            <ul class="bullet-list">
+              <li><strong>SOX 18th consecutive day of gains.</strong> The iShares Semiconductor ETF is up 23% over the past month. Friday weekly leaders: ARM +40%, AMD +25%, INTC +19% (best day since 1987). NVDA retook $5 trillion market cap. QCOM +10%, TSM +8–11%. The AI trade is fully intact and widening into legacy chipmakers.</li>
+              <li><strong>RSI 85 overbought signal on semis.</strong> As of Thursday's close the SPDR Semiconductor ETF had an RSI of 85 — readings above 70 indicate overbought; 85 is statistically in the exhaustion zone. Not a sell signal, but the single most important technical caution for next week. Friday's gains extend this further.</li>
+              <li><strong>Software: selective, not leading.</strong> SAP +6% Friday but -4% on the week. Synopsys +10% for a second straight week. But GitLab hit an all-time low. Cognizant and FICO at multi-year lows. IBM -8% / NOW -18% Thursday not fully recovered. Software is alive above support but divided.</li>
+              <li><strong>X-Energy IPO: largest nuclear public offering on record.</strong> Debuted at $30.11 vs $23 pricing (range: $16–$19), raising over $1B. AI/electrification-driven nuclear interest is now a capital markets story, not just thematic.</li>
+              <li><strong>Diversification working again.</strong> Defensives (Utilities, Staples, Industrials) participated alongside semis this week. Not a single-factor tape — structurally positive for base case durability.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Flows Setup — FOMC Week</div>
+              <p>Semis overbought but momentum intact. Software selectively recovering. Defensives participating. Retail selling INTC into the rally (reducing overhang). FOMC Apr 28–29 is the primary flow event — Warsh path now clear after DOJ probe dropped. Watch whether the SOX RSI resolves via consolidation or sharp mean-reversion early in FOMC week.</p>
+            </div>
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">Yahoo Finance — S&P/Nasdaq ATH, NVDA $5T, INTC surge Fri</span><br><a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html" target="_blank" rel="noopener">https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html</a></li>
+              <li><span class="source-label">CNBC — Intel soars after earnings beat, AMD/QCOM week</span><br><a href="https://www.cnbc.com/2026/04/23/stock-market-today-live-updates.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/23/stock-market-today-live-updates.html</a></li>
+              <li><span class="source-label">Motley Fool — INTC +23%, DOJ/Powell, market today Fri</span><br><a href="https://www.fool.com/investing/2026/04/24/stock-market-today-live-coverage/" target="_blank" rel="noopener">https://www.fool.com/investing/2026/04/24/stock-market-today-live-coverage/</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <div class="narrative-card">
+    <h3><span class="tag tag-oil">Energy</span> Oil Remains the Macro Variable</h3>
+    <p>Crude oil whipsawed violently. It dropped ~10% on the Hormuz reopening announcement Friday, but the Saturday re-closure throws that move into question. As long as Hormuz remains contested, oil stays the dominant macro variable — it drives CPI (March CPI jumped to 3.3% YoY, driven almost entirely by a 21% monthly spike in gasoline), it drives consumer sentiment (record lows at 47.6), and it drives the Fed's rate path.</p>
+  </div>
+
+  <div class="story-thread">
+    <div class="narrative-card condensed">
+      <h3><span class="tag tag-earnings">Earnings</span> Netflix Miss; TSMC Beat But Sold Off <span style="font-size:.7rem;font-weight:400;color:var(--text-dim);margin-left:auto;font-family:'IBM Plex Mono',monospace">Apr 14–18 original brief</span></h3>
+      <p>Netflix fell 9% AH on weak Q2 guidance (EPS 78c vs 84c est.); Reed Hastings announced board departure. TSMC beat with record Q1 profit (+58% YoY) but sold off 2.4% on capex guidance. Apple upgraded by BNP Paribas on China iPhone shipments +20%.</p>
+    </div>
+    <div class="update-timeline">
+      <div class="update-timeline-rail">
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 1 — Mon AM</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — AM</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Wall Street Near-Unanimous: Buy the Dip — "Nothing Thesis-Changing"</div>
+          </summary>
+          <div class="update-body">
+            <p>Netflix closed Friday at $97.29 (-10.8%). Post-earnings analyst reaction was near-unanimous in the other direction: Evercore ISI (outperform, $115) called it a "high-quality compounder" with "nothing thesis-changing." William Blair (outperform, $108) predicted mid-20% upside over 12 months. Wedbush (outperform, $118) cited survey data showing resilience to price hikes. BMO Capital (outperform, $135) noted 60% of all new subs in ad-tier regions chose the ad-supported plan — the monetization model is working. The sell-off is being read by most analysts as expectations being too high, not fundamentals being broken. Netflix ad revenue on track to roughly double to $3B in 2026.</p>
+            <div class="market-impact">
+              <div class="market-impact-label">Trading Note</div>
+              <p>Near-universal analyst support for the dip, but the stock enters the week with macro risk-off pressure from Iran. Watch whether it holds $95 support or tests it on Monday's gap-down tape.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">2</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">Yahoo Finance — Netflix analyst buy-the-dip consensus</span><br><a href="https://finance.yahoo.com/news/netflix-q1-2026-earnings-analysts-reactions-202912476.html" target="_blank" rel="noopener">https://finance.yahoo.com/news/netflix-q1-2026-earnings-analysts-reactions-202912476.html</a></li>
+              <li><span class="source-label">CNBC — Netflix earnings miss, analyst reactions</span><br><a href="https://www.cnbc.com/2026/04/17/netflix-nflx-q1-2026-earnings.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/17/netflix-nflx-q1-2026-earnings.html</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 2 — Monday Apr 20 AH — Apple CEO transition, starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 2 — Mon AH</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — After Hours</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Tim Cook Steps Down as Apple CEO — John Ternus Takes Over Sept 1</div>
+          </summary>
+          <div class="update-body">
+            <p>Apple announced Monday afternoon that Tim Cook will step down as CEO, transitioning to executive chairman of the board effective September 1, 2026. John Ternus, Apple's SVP of Hardware Engineering and a 25-year company veteran, will become CEO. The board approved unanimously after what Apple called a "thoughtful, long-term succession planning process."</p>
+            <ul class="bullet-list">
+              <li><strong>AAPL fell ~0.5% in after-hours trading</strong> to approximately $271. Muted reaction suggests the market had partially anticipated a succession. Apple reports Q2 earnings April 30 — the first call under the transition announcement.</li>
+              <li><strong>Wedbush's Dan Ives: "A surprise" given Apple's AI push.</strong> "Apple is making a major transition on its AI strategy and legendary Cook leaving now is a surprise. We agree with Ternus as the pick." Apple has been relying on Google's AI for Siri and has not established its own competitive AI offering.</li>
+              <li><strong>Ternus profile: hardware-first CEO.</strong> D.A. Davidson's Gil Luria noted the promotion signals Apple may accelerate new hardware bets — folding phones, smart glasses, VR/AR devices, AI-powered products. Ternus has overseen iPhone, Mac, iPad, and Apple Watch for 25 years. No software or services background.</li>
+              <li><strong>Cook's role as executive chairman</strong> will focus on "engaging with policymakers around the world" — significant given ongoing US-China tensions and EU regulation as top AAPL risk factors.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Trading Note — AAPL into Apr 30 Earnings</div>
+              <p>The April 30 earnings call is now the most important Apple event of the near term — Ternus's first opportunity to address AI strategy publicly. The BNP Paribas upgrade (China iPhone +20%) thesis from last week remains intact, but the CEO transition introduces new uncertainty on AI execution. Near-term: modest overhang until April 30 call resolves strategy questions. Watch whether analysts use Q&A to probe AI roadmap gaps vs. celebrate the hardware-focused succession.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">9to5Mac — Tim Cook stepping down, John Ternus CEO</span><br><a href="https://9to5mac.com/2026/04/20/apple-ceo-tim-cook-stepping-down-john-ternus-confirmed-as-new-apple-ceo/" target="_blank" rel="noopener">https://9to5mac.com/2026/04/20/apple-ceo-tim-cook-stepping-down-john-ternus-confirmed-as-new-apple-ceo/</a></li>
+              <li><span class="source-label">TechCrunch — Tim Cook stepping down as Apple CEO</span><br><a href="https://techcrunch.com/2026/04/20/tim-cook-stepping-down-as-apple-ceo-john-ternus-taking-over/" target="_blank" rel="noopener">https://techcrunch.com/2026/04/20/tim-cook-stepping-down-as-apple-ceo-john-ternus-taking-over/</a></li>
+              <li><span class="source-label">Fox Business — Apple leadership, Wall Street reactions</span><br><a href="https://www.foxbusiness.com/technology/leadership-change-apple-sparks-industry-wall-street-reactions-cook-transitions-roles" target="_blank" rel="noopener">https://www.foxbusiness.com/technology/leadership-change-apple-sparks-industry-wall-street-reactions-cook-transitions-roles</a></li>
+              </ul>
+            </details>
+          </div>
+
+        </details>
+
+        <!-- Update 3 — Friday Apr 24 close — starts open -->
+        <details class="update-entry" open>
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot live"></div>
+            <span class="update-badge"><span class="pulse"></span>&nbsp;Update 3 — Live</span>
+            <span class="update-timestamp">Friday Apr 24, 2026 — Close (Week-in-Review)</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">INTC Best Day Since 1987 (+23%) — 81% of S&P Reporters Beat — AI CPU Demand +40% YoY — Week Closes at ATH</div>
+          </summary>
+          <div class="update-body">
+            <p>Intel's Thursday-night earnings were the defining event of the week's close — turning a potential down-Friday into a record-setting session.</p>
+            <ul class="bullet-list">
+              <li><strong>Intel blowout: $0.29 EPS vs $0.02 est; rev $13.58B vs $12.41B.</strong> $0.27/share EPS beat; $1.17B revenue beat. AI-driven business revenue +40% YoY. 6th consecutive quarter exceeding guidance. 41% non-GAAP gross margin. INTC best single day since 1987. NVDA and SoftBank invested in Intel; US government poured ~$11B for domestic manufacturing.</li>
+              <li><strong>Earnings season scorecard: 81% EPS beat, 76% revenue beat.</strong> Of 87 S&P 500 companies reporting this week — well above the ~70% historical beat rate. Energy, defense, and semis are clear winners; airlines the clearest loser.</li>
+              <li><strong>AAL (American Airlines) cut 2026 guidance on oil.</strong> Third airline (after UAL and LUV) to do so — $4+ fuel costs embedding into full-year airline guidance is now a confirmed sector-wide trend.</li>
+              <li><strong>NVDA retook $5T market cap.</strong> Only the second time in history. AI trade firmly intact; INTC print confirms AI-driven CPU demand is wide enough to lift legacy chipmakers alongside pure-play AI names.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Earnings Setup — FOMC Week (Apple Apr 30, Mega-Cap Tech)</div>
+              <p>Apple reports Apr 30 — most consequential remaining print. Cook→Ternus adds AI hardware roadmap scrutiny. Alphabet, Microsoft, Meta, Amazon all report next week. Q1 was beat-heavy; forward guidance is the live question as airlines/software signal margin compression.</p>
+            </div>
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">BBN Times — S&P closes ATH, INTC earnings, DOJ probe dropped</span><br><a href="https://www.bbntimes.com/companies/s-p-500-closes-at-fresh-record-high-on-intel-earnings-surge-and-doj-powell-probe-dropped" target="_blank" rel="noopener">https://www.bbntimes.com/companies/s-p-500-closes-at-fresh-record-high-on-intel-earnings-surge-and-doj-powell-probe-dropped</a></li>
+              <li><span class="source-label">CNBC — Intel soars after earnings beat, Wall St. buy ratings</span><br><a href="https://www.cnbc.com/2026/04/24/intel-soars-after-earnings-beat-two-wall-street-firms-call-the-stock-a-buy.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/24/intel-soars-after-earnings-beat-two-wall-street-firms-call-the-stock-a-buy.html</a></li>
+              <li><span class="source-label">TheStreet — Thu Apr 23 market close, earnings season scorecard</span><br><a href="https://www.thestreet.com/latest-news/stock-market-today-apr-23-2026-updates" target="_blank" rel="noopener">https://www.thestreet.com/latest-news/stock-market-today-apr-23-2026-updates</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="story-thread">
+    <div class="narrative-card condensed">
+      <h3><span class="tag tag-fed">Fed</span> Rate Path: On Hold, No Clarity <span style="font-size:.7rem;font-weight:400;color:var(--text-dim);margin-left:auto;font-family:'IBM Plex Mono',monospace">Apr 14–18 original brief</span></h3>
+      <p>Fed funds at 3.50–3.75%, on hold. FOMC sees elevated inflation risk and employment downside risk simultaneously. SF Fed's Daly prefers patience. Market pricing 98% probability of no change at Apr 28–29 meeting. Statement language is the only live variable.</p>
+    </div>
+    <div class="update-timeline">
+      <div class="update-timeline-rail">
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 1 — Mon PM</span>
+            <span class="update-timestamp">Monday Apr 20, 2026 — AM/PM</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Warsh Hearing Tomorrow 10am — Prepared Remarks Released: "Fed Must Stay in Its Lane" — Tillis Blockade Holds</div>
+          </summary>
+          <div class="update-body">
+            <p>The Warsh confirmation hearing before the Senate Banking Committee is Tuesday Apr 21 at 10am ET — a live bond market event that was missing entirely from the original brief. Three crises are compounding simultaneously:</p>
+            <ul class="bullet-list">
+              <li><strong>Sen. Tillis blockade.</strong> The key Republican on the committee is refusing to vote for Warsh until the DOJ drops its criminal probe into Powell. Without Tillis, the nomination cannot advance past committee.</li>
+              <li><strong>May 15 hard deadline.</strong> Powell's term expires in 25 days. If Warsh isn't confirmed, Powell said he'll serve as chair pro tempore. Trump said he'll fire Powell if he does. Powell said he'll sue.</li>
+              <li><strong>Warsh himself.</strong> Disclosed $100M+ personal fortune including stakes in SpaceX and Polymarket. Argued inflation is caused by government spending, not growth. Hinted at cutting Fed headcount from 3,200 to 2,000. His testimony on Fed independence will be the primary market signal.</li>
+            </ul>
+            <div class="tl-update-note"><strong>Monday PM — Prepared remarks released:</strong> Warsh's testimony states "The Fed must stay in its lane. Fed independence is placed at greatest risk when it strays into fiscal and social policies." He wrote "Fed independence is largely up to the Fed" — framing independence as the Fed's own responsibility, not an external guarantee. His prepared text focuses heavily on fighting inflation with only a single mention of the labor market — a hawkish lean. Democrats on the committee released a report noting his $100M+ holdings are disclosed only in limited detail, calling it impossible to assess conflicts. Tillis's advisor told Yahoo Finance the senator is "extraordinarily unlikely" to back down on the DOJ blockade.</div>
+            <div class="market-impact">
+              <div class="market-impact-label">Three Things to Watch — Tuesday 10am ET</div>
+              <p>(1) Rate path: Does Warsh signal any openness to cuts given the war/energy shock, or does he lean hawkish on inflation? His prepared text suggests hawkish — watch for any softening under questioning. (2) Balance sheet: Warsh has advocated dramatic reduction in the Fed's $6.7T portfolio — a rapid drawdown could threaten equity liquidity. Listen for specifics on pace and timeline. (3) Tillis: His five minutes will be about the DOJ probe, not Warsh's credentials. Any sign Tillis softens = confirmation path reopens. Any hardening = constitutional crisis at the Fed on May 15.</p>
+            </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">CNBC — Warsh 'Fed must stay in its lane', prepared remarks</span><br><a href="https://www.cnbc.com/2026/04/20/kevin-warsh-fed-confirmation-senate.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/20/kevin-warsh-fed-confirmation-senate.html</a></li>
+              <li><span class="source-label">Roll Call — Warsh to face Fed independence questions</span><br><a href="https://rollcall.com/2026/04/20/fed-chair-nominee-warsh-to-field-questions-about-fed-independence/" target="_blank" rel="noopener">https://rollcall.com/2026/04/20/fed-chair-nominee-warsh-to-field-questions-about-fed-independence/</a></li>
+              <li><span class="source-label">CBS News — Warsh confirmation hearing preview</span><br><a href="https://www.cbsnews.com/news/kevin-warsh-federal-reserve-chair-senate-confirmation-hearing/" target="_blank" rel="noopener">https://www.cbsnews.com/news/kevin-warsh-federal-reserve-chair-senate-confirmation-hearing/</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <!-- Update 2 — Tuesday Apr 21 — hearing live, starts open -->
+        <details class="update-entry">
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot"></div>
+            <span class="update-badge">Update 2 — Tue 10am</span>
+            <span class="update-timestamp">Tuesday Apr 21, 2026 — 10:00am ET (Hearing Live)</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">Warsh Opens: "Inflation Is a Choice" — Tillis "Not for 264 Days" — Only 35% Odds Seated Before May 15</div>
+          </summary>
+          <div class="update-body">
+            <p>The Senate Banking Committee hearing opened at 10am ET Tuesday. Warsh delivered his opening statement and questioning is underway. Key takeaways from the opening and pre-hearing intelligence:</p>
+            <ul class="bullet-list">
+              <li><strong>"Inflation is a choice, and the Fed must take responsibility for it."</strong> Warsh's opening statement leads with this framing — hawkish, accountability-forward, no mention of rate cuts. He also said "monetary policy independence is essential" and "I am committed to ensuring that the conduct of monetary policy remains strictly independent." The statement never mentions Trump or rate cuts by name — a careful walk of both lines simultaneously.</li>
+              <li><strong>Tillis put a hard number on his blockade: "not for the remaining 264 days."</strong> In an NBC interview last week, Tillis said: "I will vote for Kevin Warsh simultaneously with the conclusion of that statement coming out of the DOJ, and not for the remaining 264 days in my tenure in the U.S. Senate." Tillis is retiring at end of this Congress — zero political incentive to back down. This is the clearest signal yet that the blockade is structural, not negotiable.</li>
+              <li><strong>Polymarket: 94% eventual confirmation — but only 35% odds seated before May 15.</strong> Markets believe Warsh gets confirmed eventually. But the near-term base case is now the constitutional crisis scenario: Powell serves pro tempore after May 15, Trump threatens to fire him, courts intervene.</li>
+              <li><strong>"Zero cuts" in 2026 now the dominant Polymarket outcome</strong>, roughly six points above "one cut." The market has stopped pricing Warsh as a guaranteed dove. July meeting cut odds collapsed 34 points in one month. The first cut has been steadily pushed into late 2026 or beyond.</li>
+              <li><strong>Sen. Warren's Epstein question.</strong> Warren announced plans to question Warsh about his name appearing in the Epstein files. Warsh claims "zero knowledge of anything related to this." New attack vector not in prior brief — watch for whether this dominates coverage and shifts hearing narrative away from rate/independence discussion.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">Three Live Trades — Hearing In Progress</div>
+              <p>(1) Any rate-cut softening under questioning → dollar weakens, bonds rally. (2) Tillis doubles down on 264-day blockade in his five minutes → May 15 constitutional crisis odds rise, yields spike on uncertainty. (3) Epstein/Warren exchange dominates coverage → confirmation derailment risk rises, Fed uncertainty premium reprices. The "zero cuts" move in rate pricing is already the most significant market signal from the pre-hearing period — the market has priced out Warsh as a near-term dovish catalyst before he's said a word in testimony.</p>
+          </div>
+          
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">CNN Business — Warsh confirmation hearing live</span><br><a href="https://www.cnn.com/2026/04/21/business/live-news/kevin-warsh-fed-confirmation-hearing" target="_blank" rel="noopener">https://www.cnn.com/2026/04/21/business/live-news/kevin-warsh-fed-confirmation-hearing</a></li>
+              <li><span class="source-label">Yahoo Finance — Fed independence, Warsh hearing</span><br><a href="https://finance.yahoo.com/economy/policy/article/central-bank-independence-in-focus-as-fed-chair-nominee-kevin-warsh-faces-confirmation-hearing-112647540.html" target="_blank" rel="noopener">https://finance.yahoo.com/economy/policy/article/central-bank-independence-in-focus-as-fed-chair-nominee-kevin-warsh-faces-confirmation-hearing-112647540.html</a></li>
+              <li><span class="source-label">Benzinga — Warsh: 'Inflation is a choice'</span><br><a href="https://www.benzinga.com/news/politics/26/04/51926900/trump-picked-warsh-cut-rates-fed-last-word-inflation-independence" target="_blank" rel="noopener">https://www.benzinga.com/news/politics/26/04/51926900/trump-picked-warsh-cut-rates-fed-last-word-inflation-independence</a></li>
+              </ul>
+            </details>
+          </div>
+
+        </details>
+
+        <!-- Update 3 — Friday Apr 24 — DOJ drops Powell probe — starts open -->
+        <details class="update-entry" open>
+          <summary class="update-trigger">
+            <div class="update-trigger-top"><div class="update-dot live"></div>
+            <span class="update-badge"><span class="pulse"></span>&nbsp;Update 3 — Live</span>
+            <span class="update-timestamp">Friday Apr 24, 2026 — Market Hours</span>
+            <span class="update-chevron">▾</span></div>
+            <div class="update-trigger-headline">DOJ Drops Powell Probe — Tillis Unblocked — Warsh Confirmation Path Clear — Constitutional Crisis Off the Table</div>
+          </summary>
+          <div class="update-body">
+            <p>The single most consequential Fed development of the week arrived Friday: the DOJ closed its investigation into Jerome Powell, removing the last obstacle to Warsh's confirmation.</p>
+            <ul class="bullet-list">
+              <li><strong>DOJ drops Powell probe.</strong> US Attorney Jeanine Pirro announced the DOJ closed its criminal investigation into Powell — centred on alleged cost overruns in the Fed's Washington HQ renovation. The probe was widely viewed as politically motivated.</li>
+              <li><strong>Tillis unblocked — Warsh path now clear.</strong> Tillis had vowed to vote for Warsh "simultaneously with the conclusion of that statement coming out of the DOJ." Condition met. Banking committee confirmation vote can now proceed. Odds of Warsh seated before May 15 sharply higher than the prior 35% Polymarket reading.</li>
+              <li><strong>Constitutional crisis scenario removed.</strong> The May 15 scenario — Powell serves pro tempore → Trump fires him → courts intervene — is now effectively off the table. Market rose on this news Friday as institutional uncertainty premium was removed.</li>
+              <li><strong>Rate path unchanged: hawkish Warsh, "zero cuts" still dominant.</strong> Warsh's "inflation is a choice" hearing framing is on record. The transition doesn't imply a dovish shift. "Zero cuts" in 2026 remains the dominant Polymarket outcome. First FOMC under the new dynamic: Apr 28–29 — likely Powell's last meeting.</li>
+            </ul>
+            <div class="market-impact">
+              <div class="market-impact-label">FOMC Week — Confirmed Succession Path</div>
+              <p>The Fed uncertainty fog has cleared. Watch: Warsh Senate floor vote date; any Trump public statement on the FOMC during meeting week; 10Y yield and dollar reaction when Warsh seating is confirmed. No rate change expected Apr 28–29 (98% hold). The statement language is the only live variable — "data dependent" framing in a Warsh-transition context will be parsed for hawkish signals.</p>
+            </div>
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">3</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">BBN Times — DOJ drops Powell probe, S&P ATH</span><br><a href="https://www.bbntimes.com/companies/s-p-500-closes-at-fresh-record-high-on-intel-earnings-surge-and-doj-powell-probe-dropped" target="_blank" rel="noopener">https://www.bbntimes.com/companies/s-p-500-closes-at-fresh-record-high-on-intel-earnings-surge-and-doj-powell-probe-dropped</a></li>
+              <li><span class="source-label">Motley Fool — Powell cleared, Warsh moves closer</span><br><a href="https://www.fool.com/investing/2026/04/24/stock-market-today-live-coverage/" target="_blank" rel="noopener">https://www.fool.com/investing/2026/04/24/stock-market-today-live-coverage/</a></li>
+              <li><span class="source-label">Yahoo Finance — Market today Fri: DOJ/Powell, Warsh</span><br><a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html" target="_blank" rel="noopener">https://finance.yahoo.com/markets/stocks/live/stock-market-today-friday-april-24-224547261.html</a></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 2: NEXT WEEK'S CATALYSTS                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Next Week's Catalyst Calendar (Apr 21–25)</div>
+
+  <div class="timeline">
+
+    <div class="tl-item high">
+      <div class="tl-date">MONDAY APR 21</div>
+      <div class="tl-title">Market Open — Hormuz Re-Closure Repricing <span class="inline-update">Updated</span></div>
+      <div class="tl-body">Iran closed the Strait again on Saturday. This is NOT priced in. Expect oil to gap higher and equity futures to gap lower at the Sunday night open. Watch crude futures starting 6pm ET Sunday for direction. The gap could be partially offset if weekend diplomatic channels produce new signals.</div>
+      <div class="tl-update-note"><strong>Now confirmed — live:</strong> S&P futures -0.7%, Nasdaq -0.7%, Dow -0.8%. WTI $88.50 (+5.5%), Brent $94.70 (+4.8%). Iran no-show in Islamabad. Ceasefire expires Wed midnight. Airlines (DAL, LUV, UAL) falling; energy (CVX, XOM, OXY) rallying. SPY 6,900 watch level active. Gap-fill requires positive diplomatic headline before noon ET.</div>
+      <div class="tl-tags"><span class="tag tag-geo">Geopolitical</span><span class="tag tag-oil">Energy</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">MONDAY APR 21</div>
+      <div class="tl-title">No Scheduled High-Impact Econ Data</div>
+      <div class="tl-body">Earnings: Steel Dynamics (STLD) — read for industrial demand signals and steel pricing.</div>
+      <div class="tl-tags"><span class="tag tag-earnings">Earnings</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">TUESDAY APR 21</div>
+      <div class="tl-title">Warsh Confirmation Hearing — 10:00am ET <span class="inline-update">New</span></div>
+      <div class="tl-body">Senate Banking Committee confirmation hearing for Kevin Warsh as Fed Chair nominee. Powell's term expires May 15 — 25 days away. Sen. Tillis (R-NC) has vowed to block the nomination until the DOJ probe into Powell is dropped. No clear confirmation path currently. Warsh's testimony on Fed independence and balance sheet reduction will move bond markets. Watch 10-year Treasury yield and dollar reaction in real time.</div>
+      <div class="tl-tags"><span class="tag tag-fed">Fed</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">TUESDAY APR 21</div>
+      <div class="tl-title">Retail Sales (Mar) — 8:30am ET <span class="inline-update">Answered</span></div>
+      <div class="tl-body">Rescheduled from Apr 16. This is the first hard consumer spending data covering the early war period. Feb was +0.6%. If March shows consumer pullback from record-low sentiment, it signals the war is hitting Main Street. Watch ex-gas and ex-auto components for the clean signal.</div>
+      <div class="tl-update-note"><strong>Result — +1.7% vs +1.4% est (largest gain since Jan 2023).</strong> Gas-distorted: gasoline stations +15.5%. Ex-gas +0.6% (in line). Control purchases (ex-autos, gas, building materials) +0.8% vs +0.2% est — the clean consumer signal beat. Consumer is not collapsing. Tax refunds, wage growth, and credit cushioning the energy shock for now. Key risk: those buffers aren't permanent.</div>
+      <div class="tl-tags"><span class="tag tag-data">Econ Data</span></div>
+    </div>
+
+    <div class="tl-item medium">
+      <div class="tl-date">TUESDAY APR 21</div>
+      <div class="tl-title">Pending Home Sales (Mar) — 10:00am | ADP Employment (Apr 4 week)</div>
+      <div class="tl-body">Housing data matters for rate sensitivity. ADP weekly data for labor pulse.</div>
+      <div class="tl-tags"><span class="tag tag-data">Econ Data</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">TUESDAY APR 21</div>
+      <div class="tl-title">Mega Earnings Day #1 <span class="inline-update">Results</span></div>
+      <div class="tl-body">Before open: UnitedHealth Group (UNH), GE Aerospace (GE), RTX, Halliburton (HAL), Northrop Grumman (NOC), 3M, D.R. Horton. After close: United Airlines (UAL), Intuitive Surgical (ISRG), Capital One (COF), Interactive Brokers (IBKR). Key reads: HAL for oil services/war impact, UNH for healthcare costs, UAL for consumer travel demand + fuel cost commentary, D.R. Horton for housing.</div>
+      <div class="tl-update-note"><strong>Results in — UNH beat ($7.23 adj EPS vs $6.60 est), raised FY guidance to >$18.25; HAL beat 10.6% on EPS; RTX raised FY guidance 10 cents after 26-cent beat. The key read: UAL beat Q1 but slashed full-year guidance to $7–$11 from $12–$14 on fuel costs (-$5/share cut).</strong> UAL stock fell ~1.3% AH. This is the most actionable corporate signal of the week — a profitable airline taking $5+/share out of forward guidance specifically because of oil. The fuel cost transmission from Hormuz to corporate margins is now confirmed in earnings guidance.</div>
+      <div class="tl-tags"><span class="tag tag-earnings">Earnings</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">WEDNESDAY APR 22</div>
+      <div class="tl-title">Tesla (TSLA) Earnings After Close <span class="inline-update">Results</span></div>
+      <div class="tl-body">Q1 deliveries came in at 358K (slightly below 365K consensus, but +6% YoY). EPS estimates range wildly: $0.09 to $0.44, avg $0.24. Stock rallied 15% last week. The call will focus on Cybercab ramp, FSD progress, and margins under pressure from R&D spend. Tesla reports are market-moving events regardless of the numbers — Musk's commentary sets the tone.</div>
+      <div class="tl-update-note"><strong>Beat — EPS $0.41 vs $0.35 est; rev $22.39B vs $22.08B; gross margin 21.7%.</strong> Stock +3% AH. Revenue -9% YoY but margin expansion was the story — best gross margin in several quarters. Energy storage deployment -38% QoQ but international auto demand offset US softness. S&P 500 and Nasdaq hit fresh ATHs on the combination of ceasefire extension and strong earnings.</div>
+      <div class="tl-tags"><span class="tag tag-earnings">Earnings</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">WEDNESDAY APR 22</div>
+      <div class="tl-title">Boeing (BA) Earnings Before Open <span class="inline-update">Results</span></div>
+      <div class="tl-body">Forecast: 10%+ revenue growth. Watch delivery numbers (RBC est. 665 for full year) and any defense/government order commentary given the war environment. Shares fell after the last 3 reports.</div>
+      <div class="tl-update-note"><strong>Beat — rev $22.2B vs $21.79B (+14% YoY); adj loss -$0.20 vs -$0.76 est.</strong> Shares +4% pre-market. Much smaller loss than feared. Turnaround gaining traction — delivery ramp holding and defense pipeline strong in war environment. The 56-cent adj loss beat is the most positive Boeing print in several quarters.</div>
+      <div class="tl-tags"><span class="tag tag-earnings">Earnings</span></div>
+    </div>
+
+    <div class="tl-item medium">
+      <div class="tl-date">WEDNESDAY APR 22</div>
+      <div class="tl-title">More Wed Earnings: IBM, ServiceNow, Lam Research, Texas Instruments, AT&T, Southwest Airlines, Philip Morris, CME Group, Boston Scientific <span class="inline-update">Results</span></div>
+      <div class="tl-body">Breadth of sectors reporting gives cross-reads: LRCX/TXN for semis, NOW for enterprise software, LUV for airline fuel costs, PM for consumer staples pricing power, CME for trading volume (vol regimes).</div>
+      <div class="tl-update-note"><strong>LUV key signal — Q2 fuel cost guide $4.10–$4.15/gal.</strong> Southwest beat Q1 ($0.45 EPS in-line, record $7.2B revenue, margin +8.1pts YoY) but Q1 fuel was $2.73/gal vs $2.40 guidance — $164M headwind, $0.22/share drag. Q2 fuel assumed $4.10–$4.15 based on forward curve. Full-year $4 EPS guidance suspended pending fuel clarity. This confirms UAL's signal: Hormuz oil shock is embedding into Q2+ forward costs at roughly double Q1 fuel levels. Two airlines have now guided fuel costs >$4/gal for next quarter.</div>
+      <div class="tl-tags"><span class="tag tag-earnings">Earnings</span></div>
+    </div>
+
+    <div class="tl-item medium">
+      <div class="tl-date">THURSDAY APR 23</div>
+      <div class="tl-title">Initial Jobless Claims — 8:30am ET <span class="inline-update">Answered</span></div>
+      <div class="tl-body">Last week: 207K (below 215K est.). The labor market remains in a low-layoff environment. Any spike here would be a yellow flag. 4-week moving average is at its lowest since June 2024.</div>
+      <div class="tl-update-note"><strong>Result — 214K vs 210K est:</strong> Slight miss, up 6K from prior week. Continuing claims edged to 1.821M. Both counts remain firmly below prior-year averages — low-layoff environment intact. Federal employee claims fell 60 to 452. Consumer employment holding even as corporate margins compress under energy costs.</div>
+      <div class="tl-tags"><span class="tag tag-data">Econ Data</span></div>
+    </div>
+
+    <div class="tl-item medium">
+      <div class="tl-date">THURSDAY APR 23</div>
+      <div class="tl-title">PMI Flash (Apr) — 9:45am ET <span class="inline-update">Answered</span></div>
+      <div class="tl-body">S&P Global preliminary PMI. First look at April business activity. Manufacturing vs services split matters — manufacturing has been more war-impacted via energy costs.</div>
+      <div class="tl-update-note"><strong>Beat — but quality weak:</strong> Composite 52.0 vs 50.3 prior; Mfg 54.0 vs 52.5 est; Services 51.3 vs 50.3 est. S&P Global flagged the improvement was "largely driven by stock building in the face of concerns over supply availability and price hikes" — precautionary inventory build, not genuine demand acceleration.</div>
+      <div class="tl-tags"><span class="tag tag-data">Econ Data</span></div>
+    </div>
+
+    <div class="tl-item low">
+      <div class="tl-date">FRIDAY APR 24</div>
+      <div class="tl-title">New Home Sales (Mar) — 10:00am ET <span class="inline-update">Answered</span></div>
+      <div class="tl-body">Housing data. Rates on hold should keep housing stable but watch for demand softening from consumer sentiment collapse.</div>
+      <div class="tl-update-note"><strong>Result — 724K vs 680K est (SAAR):</strong> Strong beat. New home sales resilient despite mortgage rate pressure — buyers shifting from resale to new construction as existing inventory stays tight. Builders used rate buydowns to drive volume. Housing is not cracking under energy/rate pressure.</div>
+      <div class="tl-tags"><span class="tag tag-data">Econ Data</span></div>
+    </div>
+
+    <div class="tl-item high">
+      <div class="tl-date">ALL WEEK</div>
+      <div class="tl-title">Iran/Hormuz Headlines — Continuous <span class="inline-update">Updated</span></div>
+      <div class="tl-body">Peace talks expected to resume in Islamabad early this week. The 10-day Israel-Lebanon ceasefire expires around Apr 27. Any headline about Hormuz status, naval blockade, or talk breakdowns will move oil and by extension the entire market instantly. This is a headline-driven tape.</div>
+      <div class="tl-update-note"><strong>Updated Wed close:</strong> Trump gave Iran 3–5 days to submit proposal (soft deadline ~Apr 25–27). IRGC seized 3 ships Wednesday. Pentagon: 6 months to clear mines post-war — oil supply normalization is a 2026H2 story at earliest. Navy Secretary Phelan ousted. S&P/Nasdaq hit ATH on ceasefire relief. Next binary: Apr 25–27 Iran proposal deadline, aligning with Lebanon ceasefire expiry (~Apr 27).</div>
+      <div class="tl-update-note"><strong>Pinned watchlist for this week:</strong> (1) <strong>Mon now — US in Islamabad, Iran absent.</strong> Iran FM: "no plans" for talks. Pakistan PM traveling Riyadh/Doha/Ankara as back-channel. (2) <strong>Wed Apr 22 midnight GMT / 8pm ET Tue</strong> — Ceasefire expiry. Mediators report in-principle 2-week extension — unconfirmed publicly. This is the week's #1 binary. (3) <strong>Continuous</strong> — Iran military HQ issued formal retaliation warning for TOUSKA. Any IRGC action = immediate escalation. (4) <strong>~Apr 27</strong> — Israel-Lebanon ceasefire expiry. Hezbollah fired on Israeli tanks Monday per early reports. (5) <strong>Watch Pakistan PM Sharif statements</strong> from Riyadh/Doha — leading indicator for ceasefire extension signal.</div>
+      <div class="tl-tags"><span class="tag tag-geo">Geopolitical</span><span class="tag tag-oil">Energy</span></div>
+    </div>
+
+    <div class="tl-item medium">
+      <div class="tl-date">APR 28–29 (FOLLOWING WEEK)</div>
+      <div class="tl-title">FOMC Meeting — Preview Week <span class="inline-update">Updated</span></div>
+      <div class="tl-body">No change expected (98% probability). But this week's data and any war developments will shape the statement language and press conference tone. The market will start positioning for the meeting by Thursday/Friday.</div>
+      <div class="tl-update-note"><strong>Setup update (Fri Apr 24):</strong> DOJ dropped the Powell probe — Tillis is unblocked. Warsh confirmation vote can now proceed before May 15. This may be Powell's last meeting. With Warsh's "inflation is a choice" framing on record, no dovish tilt expected. Institutional uncertainty premium removed; "zero cuts" rate path unchanged. Watch for any Warsh Senate floor vote date announcement next week.</div>
+      <div class="tl-tags"><span class="tag tag-fed">Fed</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 3: KEY LEVELS & DATA SNAPSHOT                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Market Snapshot & Key Levels</div>
+  <div class="grid-3">
+
+    <div class="card">
+      <h4>Indexes (Fri Close — Week End) <span class="inline-update" style="font-size:.58rem">Updated</span></h4>
+      <div class="stat-row"><span class="stat-label">S&P 500</span><span class="stat-val down">~7,160 ▲ NEW ATH (+0.8% Fri)</span></div>
+      <div class="stat-row"><span class="stat-label">Nasdaq</span><span class="stat-val down">NEW ATH (+1.5%+ Fri)</span></div>
+      <div class="stat-row"><span class="stat-label">Dow</span><span class="stat-val down">~49,200 (-0.2% Fri)</span></div>
+      <div class="stat-row"><span class="stat-label">Russell 2000</span><span class="stat-val up">Flat/mixed Fri</span></div>
+    </div>
+
+    <div class="card">
+      <h4>Macro Gauges</h4>
+      <div class="stat-row"><span class="stat-label">Fed Funds Rate</span><span class="stat-val neutral">3.50–3.75%</span></div>
+      <div class="stat-row"><span class="stat-label">CPI (Mar YoY)</span><span class="stat-val down">3.3% (↑ from 2.4%)</span></div>
+      <div class="stat-row"><span class="stat-label">Core CPI (Mar YoY)</span><span class="stat-val neutral">2.6%</span></div>
+      <div class="stat-row"><span class="stat-label">Mich. Sentiment (Apr)</span><span class="stat-val down">49.8 — RECORD LOW (below COVID/GFC)</span></div>
+    </div>
+
+    <div class="card">
+      <h4>Energy &amp; Vol <span class="inline-update" style="font-size:.58rem">Updated Fri Close</span></h4>
+      <div class="stat-row"><span class="stat-label">Brent Crude</span><span class="stat-val down">~$105 (dipped sub-$100 intraday, rebounded)</span></div>
+      <div class="stat-row"><span class="stat-label">WTI Crude</span><span class="stat-val down">~$93–96 (volatile; Lebanon relief then Hegseth)</span></div>
+      <div class="stat-row"><span class="stat-label">Gasoline Natl Avg</span><span class="stat-val down">$4.05/gal</span></div>
+      <div class="stat-row"><span class="stat-label">VIX</span><span class="stat-val neutral">~19 range Tue</span></div>
+      <div class="stat-row"><span class="stat-label">Mine clearance</span><span class="stat-val down">Pentagon: 6 months post-war to clear Hormuz</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 4: STORIES TO TRACK                             -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Stories to Track This Week</div>
+  <div class="grid-2">
+
+    <div class="card">
+      <h4>Geopolitical / Macro <span class="inline-update" style="font-size:.58rem">Updated Sun</span></h4>
+      <div class="stat-row">
+        <span class="stat-label">Strait of Hormuz</span>
+        <span class="stat-val down">
+          Hegseth "shoot to destroy" mine layers — Brent volatile
+          <span class="stat-update-note">Hegseth: US authorized to shoot any vessel laying Hormuz mines. Brent dipped sub-$100 on Lebanon extension, rebounded on Hegseth order. Sanctioned tanker transited anyway. War enters week 9.</span>
+        </span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Islamabad talks</span>
+        <span class="stat-val neutral">
+          No talks — Trump "could make deal now" — no framework
+          <span class="stat-update-note">Trump: "I could make a deal right now" — wants "everlasting" agreement. No timeline. Iran: US blockade is main obstacle. No Round 2 date. Ghalibaf still out.</span>
+        </span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">US-Iran ceasefire</span>
+        <span class="stat-val down">
+          Open-ended — Trump "no time frame" — Hegseth mine order
+          <span class="stat-update-note">Trump: "no time pressure, no time frame." Hegseth authorized to shoot mine-laying boats. Lebanon extended 3 wks. US-Iran ceasefire structurally unstable but holding.</span>
+        </span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Israel-Lebanon ceasefire</span>
+        <span class="stat-val up">
+          Extended 3 weeks — both sides still firing
+          <span class="stat-update-note">Trump extended 3 weeks Thu in Oval Office meeting. IDF and Hezbollah continued exchanges Fri. Netanyahu revealed treated prostate cancer. New expiry ~mid-May.</span>
+        </span>
+      </div>
+      <div class="stat-row"><span class="stat-label">US naval blockade of Iran</span><span class="stat-val down">Hegseth: "shoot to destroy" mine-laying boats authorized</span></div>
+      <div class="stat-row"><span class="stat-label">Fed Chair transition</span><span class="stat-val up">Powell term May 15 — Warsh path now clear</span></div>
+      <div class="stat-row">
+        <span class="stat-label">Kevin Warsh confirmation</span>
+        <span class="stat-val up">
+          DOJ probe dropped — Tillis unblocked — vote imminent
+          <span class="stat-update-note">DOJ closed Powell probe Fri. Tillis condition met — confirmation vote can now proceed before May 15. Constitutional crisis scenario removed. Warsh hawkish/independent stance on record.</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Sector / Stock Signals</h4>
+      <div class="stat-row"><span class="stat-label">Semis (SOX)</span><span class="stat-val up">18 straight days up — RSI 85 overbought</span></div>
+      <div class="stat-row"><span class="stat-label">INTC</span><span class="stat-val up">+23% Fri — best day since 1987</span></div>
+      <div class="stat-row"><span class="stat-label">NVDA</span><span class="stat-val up">$5T market cap — ATH</span></div>
+      <div class="stat-row"><span class="stat-label">Software</span><span class="stat-val down">IBM -8%, NOW -18% Thu; selective recovery</span></div>
+      <div class="stat-row"><span class="stat-label">Airlines</span><span class="stat-val down">UAL/LUV/AAL all cut FY guidance on $4+ fuel</span></div>
+      <div class="stat-row"><span class="stat-label">AAPL</span><span class="stat-val neutral">Cook → Ternus CEO Sept 1 (AH -0.5%); reports Apr 30</span></div>
+      <div class="stat-row"><span class="stat-label">Semis (MU, WDC)</span><span class="stat-val neutral">Stalling after run</span></div>
+      <div class="stat-row">
+        <span class="stat-label">MRVL (Marvell)</span>
+        <span class="stat-val up">
+          Surging pre-mkt — Google AI chip deal
+          <span class="stat-update-note">Reports of talks to co-develop memory processing unit + new TPU for Google. Potential decoupler from macro tape — watch as tech bright spot offsetting airline/index drag.</span>
+        </span>
+      </div>
+      <div class="stat-row"><span class="stat-label">Defense (NOC, RTX)</span><span class="stat-val up">War beneficiaries report</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 5: SCENARIO PLANNING                            -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Scenario Planning</div>
+
+  <div class="scenario updated-scenario">
+    <div class="scenario-header">
+      <div class="scenario-icon" style="background:var(--green-dim);color:var(--green)">A</div>
+      <h4>Bull Case: Hormuz Reopens + Earnings Beat</h4>
+    </div>
+    <p>Weekend diplomacy produces a deal or credible signal that Hormuz will reopen. Oil gaps down, equities resume the rally. Tesla and Boeing deliver upside surprises. S&P pushes toward 7,100+. In this scenario, lean into cyclicals, tech, and energy-sensitive names that benefit from lower oil. Financials and consumer discretionary lead. Defensive sectors underperform.</p>
+    <div class="scenario-update-note"><strong>Probability: low but slightly recovering.</strong> Lebanon ceasefire extended 3 weeks. DOJ/Tillis cleared — institutional stability restored. Trump "could make a deal right now." These are genuine positive signals. Bull case now requires: Ghalibaf's departure is reversed or a new Iranian delegation forms, Round 2 produces a Hormuz reopening framework, and the FOMC doesn't deliver a hawkish surprise. ATH S&P/Nasdaq is the market partially pricing this outcome. The 6-month mine clearance ceiling remains — even a deal won't normalize oil quickly.</div>
+  </div>
+
+  <div class="scenario updated-scenario">
+    <div class="scenario-header">
+      <div class="scenario-icon" style="background:var(--amber-dim);color:var(--amber)">B</div>
+      <h4>Base Case: Headline Chop, Range-Bound</h4>
+    </div>
+    <p>Hormuz situation remains unresolved but talks continue. Oil spikes on Mon open but stabilizes as market digests. Equities give back some of last week's gains Mon–Tue but find support. Earnings are mixed. S&P trades 6,850–7,050 range. In this scenario, focus on stock selection over directional bets. Earnings reactions dominate. Hedge with options around key reports (TSLA, BA).</p>
+    <div class="scenario-update-note"><strong>Base case recovering — week ended at ATH.</strong> S&P and Nasdaq closed at record highs Friday. Lebanon extension buys diplomatic space. DOJ/Warsh cleared removes institutional overhang. INTC blowout and 81% earnings beat rate confirm economic resilience. Range restored to S&P 7,000–7,300. Remaining base case risk: Ghalibaf's resignation signals Iran diplomatic track deterioration that the equity market is underpricing. FOMC week is the next macro test. Base case holds as long as the ceasefire holds and earnings season cooperates.</div>
+  </div>
+
+  <div class="scenario updated-scenario bear-updated">
+    <div class="scenario-header">
+      <div class="scenario-icon" style="background:var(--red-dim);color:var(--red)">C</div>
+      <h4>Bear Case: Talks Collapse + Oil Spikes</h4>
+    </div>
+    <p>Islamabad talks break down. Hormuz stays closed. Oil spikes toward $130+. The entire rally unwinds. Consumer data confirms recession fears. VIX spikes above 30. S&P re-tests 6,500. In this scenario, defensive rotation to XLU, XLP, XLV. Energy (XLE) benefits from oil spike. Cash is a position. The short squeeze unwinds violently — the same retail chasers become sellers.</p>
+    <div class="scenario-update-note"><strong>Probability reduced but structurally elevated.</strong> Lebanon extension and Trump's dovish "could make a deal" signal reduce the near-term trigger probability. But Ghalibaf is still out, the blockade deadlock is unchanged, and Hegseth's "shoot to destroy" order creates a new escalation tripwire — any IRGC fast boat engaged by the US Navy activates this scenario regardless of the ceasefire status. Structural bear factors: mines expanding (6-month clearance floor), Iran calling talks "waste of time," Hormuz effectively closed for week 9. Bear C trigger: IRGC engages US Navy → Trump strikes Iranian infrastructure → oil $120–$140, VIX >40, S&P 6,000–6,400. The Hegseth ROE is now the hair trigger.</div>
+  </div>
+
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 6: QUESTIONS TO ANSWER THIS WEEK                -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Key Questions to Answer This Week</div>
+  <div class="card" style="margin-bottom:16px">
+    <p style="font-size:.84rem;line-height:1.8;color:var(--text)">
+
+      <strong style="color:var(--text-bright)">1.</strong> Does the Hormuz re-closure stick, or is it negotiating leverage? Watch Sunday night futures + Monday morning headlines.
+      <span class="q-answered">Answered</span>
+      <span class="q-answer partial">It sticks. Ceasefire extended open-ended Tuesday evening — no deal, no Hormuz reopening. IRGC attacked a new ship Wednesday morning despite the extension. Closure is confirmed real enforcement AND leverage simultaneously. The question has evolved again: can the open-ended extension create space for a Round 2 deal that includes a Hormuz reopening framework? Iran's UN envoy says talks happen "as soon as the US ends the blockade." Core deadlock unchanged — but timeline is now indefinite rather than imminent.</span><br>
+
+      <strong style="color:var(--text-bright)">2.</strong> How much did the war hurt consumers? Retail Sales on Tuesday is the first real data point.
+      <span class="q-answered">Answered</span>
+      <span class="q-answer partial">Less than feared — for now. March retail sales +1.7% vs +1.4% est, largest gain since Jan 2023. But heavily gas-distorted: gasoline stations +15.5% MoM. The clean signal is control purchases (ex-autos, gas, building materials) +0.8% vs +0.2% est — consumer is spending despite the energy shock. Tax refunds, wage growth, and credit are the cushion. Key risk: those buffers aren't permanent. If the war extends into summer, consumer resilience erodes. UAL's guidance cut (-$5/share on fuel costs) shows the corporate transmission is already happening even as the consumer holds.</span><br>
+
+      <strong style="color:var(--text-bright)">3.</strong> Is the tech rally broadening or narrowing? Watch TSLA, BA, and breadth of earnings reactions. <em>New variable: Tim Cook stepping down as Apple CEO (John Ternus Sept 1) — AAPL AH -0.5%. Apple reports April 30.</em>
+      <span class="q-answered">Answered</span>
+      <span class="q-answer partial">Broadening — with semis as dominant leader. INTC +23% Fri (best day since 1987). NVDA retook $5T. SOX 18 straight days up. AMD +13%, QCOM +10% week. Software split: SAP +6% Fri but divided; IBM/NOW still digesting Thu losses. Airlines continued lower. The ATH close is semi-driven; the divergence between semis (winning) and software/airlines (losing) is the defining positioning story of the week. RSI 85 on SOX is the one caution — technically overbought entering FOMC week.</span><br>
+
+      <strong style="color:var(--text-bright)">4.</strong> Are retail chasers trapped? If the gap down on Monday is large, watch for capitulation selling.
+      <span class="q-answered">Answered</span>
+      <span class="q-answer partial">The flush never came. The 55th-percentile ATH buyers from the ceasefire rally are now back in the green — S&P and Nasdaq closed the week at new ATHs. The "retail trap" thesis was wrong directionally: earnings beats, semi dominance, and DOJ/Warsh resolution all provided enough fundamental support to prevent a capitulation. The week-close setup is technically strong; the structural Hormuz risk remains but the short-term catalyst for a forced unwind has been removed.</span><br>
+
+      <strong style="color:var(--text-bright)">5.</strong> What does the Lebanon ceasefire expiry (Apr 27) mean for next week's risk? Is it being extended?
+      <span class="q-updated">Updated</span>
+      <span class="q-answer partial">Lebanon ceasefire elevated risk as dual expiry window approaches. Reporter Amal Khalil (Al-Akhbar) killed in Israeli airstrike in southern Lebanon Wednesday. Hezbollah active. Lebanon ceasefire expiry ~Apr 27 now coincides with FOMC week Apr 28–29 AND the collapsed Iran diplomatic track — a triple confluence of risk events going into next week. If all three materialize simultaneously, the scenario distribution shifts sharply toward Bear C with no diplomatic circuit breaker in place.</span><br>
+
+      <strong style="color:var(--text-bright)">6.</strong> How are companies guiding on energy costs? Listen to HAL, UAL, LUV commentary on fuel.
+      <span class="q-updated">Updated</span>
+      <span class="q-answer partial">Answered — fuel cost impact confirmed in guidance. <strong>UAL slashed full-year EPS guidance to $7–$11 from $12–$14 explicitly on fuel costs — a $5/share forward earnings cut.</strong> HAL beat on EPS ($0.55 vs $0.50 est) with operating margins improving to 13% vs 8% prior year — oil services benefiting from the same energy shock that's hurting airlines. The divergence is clean: energy producers and services win; airlines, cruise lines, and consumer transport lose. LUV (Southwest) reports Wednesday — watch for confirmation of UAL's fuel cost signal.</span><br>
+
+      <strong style="color:var(--text-bright)">7.</strong> Is the Fed shifting its language ahead of the Apr 28–29 meeting? Any Fed speaker appearances?
+      <span class="q-updated">Updated</span>
+      <span class="q-answer partial">Resolved Friday. DOJ dropped the Powell probe — Tillis's stated condition is met — confirmation vote can now proceed before May 15. Constitutional crisis scenario is off the table. Warsh's "inflation is a choice" / "Fed must stay in its lane" positioning is on the record. "Zero cuts" remains the dominant 2026 outcome — the transition doesn't imply dovish policy. Apr 28–29 FOMC is Powell's likely last meeting. Watch: Warsh Senate floor vote date; any Trump public pressure on the FOMC during meeting week; 10Y yield reaction to Warsh seating confirmation.</span>
+    
+
+            <details class="sources-drawer">
+              <summary class="sources-toggle">Sources <span class="sources-count">8</span> <span class="sources-chevron">▾</span></summary>
+              <ul class="sources-list">
+              <li><span class="source-label">CNN — US retail sales March 2026 surge</span><br><a href="https://www.cnn.com/2026/04/21/economy/us-retail-sales-march" target="_blank" rel="noopener">https://www.cnn.com/2026/04/21/economy/us-retail-sales-march</a></li>
+              <li><span class="source-label">Advisor Perspectives — Retail sales +1.7%</span><br><a href="https://www.advisorperspectives.com/dshort/updates/2026/04/21/retail-sales-jump-1-7-in-march-higher-than-expected" target="_blank" rel="noopener">https://www.advisorperspectives.com/dshort/updates/2026/04/21/retail-sales-jump-1-7-in-march-higher-than-expected</a></li>
+              <li><span class="source-label">BusinessWire — UnitedHealth Q1 2026 earnings</span><br><a href="https://www.businesswire.com/news/home/20260420382912/en/UnitedHealth-Group-Reports-First-Quarter-2026-Results" target="_blank" rel="noopener">https://www.businesswire.com/news/home/20260420382912/en/UnitedHealth-Group-Reports-First-Quarter-2026-Results</a></li>
+              <li><span class="source-label">Benzinga — United Airlines Q1, full-year guidance cut</span><br><a href="https://www.benzinga.com/markets/earnings/26/04/51955899/united-airlines-stock-slips-as-softer-2026-outlook-overshadows-q1-earnings-beat" target="_blank" rel="noopener">https://www.benzinga.com/markets/earnings/26/04/51955899/united-airlines-stock-slips-as-softer-2026-outlook-overshadows-q1-earnings-beat</a></li>
+              <li><span class="source-label">CNBC — Southwest Airlines Q1 2026 earnings</span><br><a href="https://www.cnbc.com/2026/04/22/southwest-airlines-luv-q1-2026-earnings.html" target="_blank" rel="noopener">https://www.cnbc.com/2026/04/22/southwest-airlines-luv-q1-2026-earnings.html</a></li>
+              <li><span class="source-label">LUV Q1 2026 press release — SEC filing</span><br><a href="https://www.sec.gov/Archives/edgar/data/0000092380/000009238026000044/er-3312026xerdoc.htm" target="_blank" rel="noopener">https://www.sec.gov/Archives/edgar/data/0000092380/000009238026000044/er-3312026xerdoc.htm</a></li>
+              <li><span class="source-label">Electrek — Tesla Q1 2026 financial results</span><br><a href="https://electrek.co/2026/04/22/tesla-tsla-q1-2026-financial-results/" target="_blank" rel="noopener">https://electrek.co/2026/04/22/tesla-tsla-q1-2026-financial-results/</a></li>
+              <li><span class="source-label">Yahoo Finance — Halliburton Q1 beat</span><br><a href="https://finance.yahoo.com/markets/stocks/articles/halliburton-nyse-hal-posts-better-105907749.html" target="_blank" rel="noopener">https://finance.yahoo.com/markets/stocks/articles/halliburton-nyse-hal-posts-better-105907749.html</a></li>
+              </ul>
+            </details>
+    </p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 7: MANUAL NOTES                                 -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="section-title">Your Notes & Observations</div>
+  <div class="notes-area">
+    <textarea id="userNotes" placeholder="Add your own notes, trade ideas, or observations here. These are saved locally in your browser...&#10;&#10;Example:&#10;- Watching TSLA 260 level for support if earnings miss&#10;- If oil opens above 115, short SPY at the open&#10;- Retail Sales miss → defensive rotation play"></textarea>
+    <div class="notes-actions">
+      <button class="btn btn-primary" onclick="saveNotes()">Save Notes</button>
+      <button class="btn" onclick="clearNotes()">Clear</button>
+      <span id="saveStatus" style="font-size:.7rem;color:var(--text-dim);margin-left:8px;align-self:center"></span>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  Weekly Market Intelligence Brief · Sources: CNBC, BLS, Federal Reserve, Reuters, CNN, NPR, BNN Bloomberg · For informational purposes only — not investment advice.<br>
+  Generated Sunday Apr 19, 2026 · Last updated Friday Apr 24, 2026 — 4:30 PM ET (Week Close) · Next brief: Sunday Apr 26, 2026
+</footer>
+
+<script>
+// Simple localStorage persistence for notes
+const NOTES_KEY = 'mktIntelBrief_notes_20260421';
+function saveNotes(){
+  try {
+    const v = document.getElementById('userNotes').value;
+    localStorage.setItem(NOTES_KEY, v);
+    document.getElementById('saveStatus').textContent = 'Saved ✓';
+    setTimeout(()=> document.getElementById('saveStatus').textContent = '', 2000);
+  } catch(e) {
+    document.getElementById('saveStatus').textContent = 'Save failed (storage unavailable)';
+  }
+}
+function clearNotes(){
+  if(confirm('Clear all notes?')){
+    document.getElementById('userNotes').value = '';
+    try { localStorage.removeItem(NOTES_KEY); } catch(e){}
+  }
+}
+// Load on init
+try {
+  const saved = localStorage.getItem(NOTES_KEY);
+  if(saved) document.getElementById('userNotes').value = saved;
+} catch(e){}
+</script>
+</body>
+</html>
+

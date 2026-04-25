@@ -3,7 +3,7 @@
 import React from 'react';
 import './Navigation.css';
 
-export type TabType = 'intelligence' | 'calendar' | 'archive';
+export type TabType = 'calendar' | 'archive';
 
 interface NavigationProps {
   activeTab: TabType;
@@ -12,7 +12,6 @@ interface NavigationProps {
 
 export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
   const tabs: { id: TabType; label: string; icon: string }[] = [
-    { id: 'intelligence', label: 'Intelligence', icon: '📡' },
     { id: 'calendar', label: 'Calendar', icon: '📅' },
     { id: 'archive', label: 'Archive', icon: '🗄️' },
   ];

@@ -6,100 +6,45 @@ import Navigation, { TabType } from '@/components/Navigation';
 import Calendar from '@/components/Calendar';
 import ReportList from '@/components/ReportList';
 import ReportViewer from '@/components/ReportViewer';
-import { mockReports } from '@/data/reports';
+import { useReports } from '@/hooks/useReports';
 import { Report } from '@/types/report';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<TabType>('intelligence');
+  const [activeTab, setActiveTab] = useState<TabType>('calendar');
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
 
+  const { reports, loading, error } = useReports();
+
   const activeDates = useMemo(() => {
-    return Array.from(new Set(mockReports.map(r => r.calendarDate)));
-  }, []);
+    return Array.from(new Set(reports.map(r => r.calendar_date)));
+  }, [reports]);
+
+  const reportCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    reports.forEach(r => {
+      counts[r.calendar_date] = (counts[r.calendar_date] || 0) + 1;
+    });
+    return counts;
+  }, [reports]);
 
   const reportsForSelectedDate = useMemo(() => {
     if (!selectedDate) return [];
-    return mockReports
-      .filter(r => r.calendarDate === selectedDate)
-      .sort((a, b) => new Date(b.lastUpdatedAt).getTime() - new Date(a.lastUpdatedAt).getTime());
-  }, [selectedDate]);
-
-  const latestReports = useMemo(() => {
-    return [...mockReports]
-      .sort((a, b) => new Date(b.lastUpdatedAt).getTime() - new Date(a.lastUpdatedAt).getTime())
-      .slice(0, 5);
-  }, []);
+    return reports
+      .filter(r => r.calendar_date === selectedDate)
+      .sort((a, b) => new Date(b.last_updated_at).getTime() - new Date(a.last_updated_at).getTime());
+  }, [selectedDate, reports]);
 
   const renderTabContent = () => {
-    switch (activeTab) {
-      case 'intelligence':
-        return (
-          <div className="tab-intelligence animate-fade-in">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              <div className="lg:col-span-8">
-                <div className="intelligence-hero glass-panel tactical-border p-8 mb-8">
-                  <h2 className="mono text-accent mb-2">Live Intelligence Feed</h2>
-                  <p className="text-secondary max-w-xl mb-6">
-                    Real-time monitoring of market-moving events and tactical intelligence briefings.
-                  </p>
-                  <div className="hero-stats grid grid-cols-3 gap-4">
-                    <div className="stat-card">
-                      <span className="stat-label mono uppercase">Alert Level</span>
-                      <span className="stat-value mono text-accent">ELEVATED</span>
-                    </div>
-                    <div className="stat-card">
-                      <span className="stat-label mono uppercase">Active Assets</span>
-                      <span className="stat-value mono">6/6</span>
-                    </div>
-                    <div className="stat-card">
-                      <span className="stat-label mono uppercase">Latency</span>
-                      <span className="stat-value mono">14ms</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="latest-intel">
-                  <h3 className="section-title mb-4">Latest Briefings</h3>
-                  <ReportList 
-                    reports={latestReports} 
-                    onReportSelect={setSelectedReport}
-                  />
-                </div>
-              </div>
-              
-              <div className="lg:col-span-4">
-                <div className="market-state glass-panel p-6 mb-8">
-                  <h3 className="section-title mb-6">Market Posture</h3>
-                  <div className="posture-grid space-y-4">
-                    <div className="posture-item">
-                      <span className="mono text-xs text-muted uppercase">Global Risk</span>
-                      <div className="progress-bar"><div className="progress-fill" style={{ width: '65%' }} /></div>
-                    </div>
-                    <div className="posture-item">
-                      <span className="mono text-xs text-muted uppercase">Volatility</span>
-                      <div className="progress-bar"><div className="progress-fill danger" style={{ width: '82%' }} /></div>
-                    </div>
-                    <div className="posture-item">
-                      <span className="mono text-xs text-muted uppercase">Liquidity</span>
-                      <div className="progress-bar"><div className="progress-fill success" style={{ width: '45%' }} /></div>
-                    </div>
-                  </div>
-                </div>
+    if (loading && reports.length === 0) {
+      return <div className="p-20 text-center mono animate-pulse">SYNCHRONIZING INTEL...</div>;
+    }
 
-                <div className="system-logs glass-panel p-6">
-                  <h3 className="section-title mb-4">System Logs</h3>
-                  <div className="logs-list mono text-[10px] space-y-2 opacity-60">
-                    <div className="log-entry"><span className="text-accent">[08:30:00]</span> Morning Briefing Ingested</div>
-                    <div className="log-entry"><span className="text-accent">[10:15:22]</span> Volatility Threshold Crossed</div>
-                    <div className="log-entry"><span className="text-accent">[14:00:05]</span> Mid-Session Review Pending</div>
-                    <div className="log-entry"><span className="text-accent">[16:30:10]</span> Daily Archive Finalized</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
+    if (error) {
+      return <div className="p-20 text-center mono text-danger">CONNECTION ERROR: {error}</div>;
+    }
+
+    switch (activeTab) {
       case 'calendar':
         return (
           <div className="tab-calendar animate-fade-in">
@@ -109,20 +54,23 @@ export default function Home() {
                   activeDates={activeDates}
                   selectedDate={selectedDate}
                   onDateSelect={setSelectedDate}
+                  reportCounts={reportCounts}
                 />
               </div>
               <div className="lg:col-span-3">
                 {selectedDate ? (
-                  <div className="selected-date-info">
-                    <h2 className="mono mb-4">{format(new Date(selectedDate + 'T12:00:00Z'), 'MMM d, yyyy')}</h2>
+                  <div className="selected-date-info glass-panel p-6 border-hi">
+                    <h2 className="mono mb-4 text-accent border-bottom pb-2">
+                      {format(new Date(selectedDate + 'T12:00:00Z'), 'MMMM d, yyyy')}
+                    </h2>
                     <ReportList 
                       reports={reportsForSelectedDate} 
                       onReportSelect={setSelectedReport}
                     />
                   </div>
                 ) : (
-                  <div className="p-8 glass-panel border-dashed text-center opacity-40">
-                    <p className="mono text-xs uppercase">Select Node</p>
+                  <div className="p-12 glass-panel border-dashed text-center opacity-40">
+                    <p className="mono text-xs uppercase tracking-widest">Select Node to View Daily Briefings</p>
                   </div>
                 )}
               </div>
@@ -131,9 +79,17 @@ export default function Home() {
         );
       case 'archive':
         return (
-          <div className="tab-archive animate-fade-in text-center p-20 opacity-30">
-            <h2 className="mono">Historical Archive Offline</h2>
-            <p className="text-xs uppercase mt-2">Requires Supabase Synchronization</p>
+          <div className="tab-archive animate-fade-in">
+            <div className="archive-header mb-8">
+              <h2 className="section-title">Master Intelligence Archive</h2>
+              <p className="text-secondary mono text-xs uppercase mt-2">Historical Records Synchronization: Active ({reports.length} Reports)</p>
+            </div>
+            <div className="archive-grid">
+              <ReportList 
+                reports={reports} 
+                onReportSelect={setSelectedReport}
+              />
+            </div>
           </div>
         );
     }
@@ -146,10 +102,10 @@ export default function Home() {
       <main className="app-main">
         <header className="app-header">
           <div className="header-breadcrumbs mono text-[10px] uppercase text-muted">
-            Main / {activeTab} {selectedDate && `/ ${selectedDate}`}
+            Terminal / {activeTab} {selectedDate && `/ ${selectedDate}`}
           </div>
           <div className="header-actions">
-            <button className="btn mono text-xs">RELOAD SYSTEM</button>
+            <button className="btn mono text-xs" onClick={() => window.location.reload()}>RELOAD CORE</button>
           </div>
         </header>
 
@@ -187,33 +143,6 @@ export default function Home() {
         .content-container {
           flex: 1;
         }
-        .stat-card {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-        .stat-label {
-          font-size: 0.6rem;
-          color: var(--text-muted);
-        }
-        .stat-value {
-          font-size: 1.25rem;
-          font-weight: 800;
-        }
-        .progress-bar {
-          height: 4px;
-          background: var(--border);
-          border-radius: 2px;
-          margin-top: 4px;
-          overflow: hidden;
-        }
-        .progress-fill {
-          height: 100%;
-          background: var(--accent);
-        }
-        .progress-fill.danger { background: var(--danger); }
-        .progress-fill.success { background: var(--success); }
-
         @media (max-width: 1024px) {
           .app-layout {
             flex-direction: column;

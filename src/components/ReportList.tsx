@@ -20,7 +20,6 @@ export default function ReportList({ reports, onReportSelect }: ReportListProps)
 
   return (
     <div className="report-list animate-fade-in">
-      <h3 className="section-title">Reports</h3>
       <div className="report-cards">
         {reports.map((report) => (
           <div 
@@ -29,18 +28,18 @@ export default function ReportList({ reports, onReportSelect }: ReportListProps)
             onClick={() => onReportSelect(report)}
           >
             <div className="report-card-header">
-              <span className="report-type">{report.reportType}</span>
-              <span className="report-status">{report.statusLabel}</span>
+              <span className="report-type">{report.report_type}</span>
+              <span className="report-status">{report.status_label}</span>
             </div>
             <h4 className="report-title">{report.title}</h4>
             <div className="report-card-meta">
               <div className="meta-item">
                 <span className="label">Period:</span>
-                <span className="value">{report.periodLabel}</span>
+                <span className="value">{report.period_label}</span>
               </div>
               <div className="meta-item">
                 <span className="label">Updated:</span>
-                <span className="value">{report.lastUpdatedDisplay}</span>
+                <span className="value">{report.last_updated_display}</span>
               </div>
             </div>
           </div>
