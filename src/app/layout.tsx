@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const plexSans = IBM_Plex_Sans({ 
+  weight: ['400', '500', '600', '700'], 
+  subsets: ["latin"],
+  variable: '--font-plex-sans'
+});
+const plexMono = IBM_Plex_Mono({ 
+  weight: ['400', '500', '600', '700'], 
+  subsets: ["latin"],
+  variable: '--font-plex-mono'
+});
 
 export const metadata: Metadata = {
   title: "Market Intelligence | Chronological Reports",
@@ -19,7 +29,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.variable} ${plexSans.variable} ${plexMono.variable} antialiased font-sans`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -3,37 +3,29 @@
 import React, { useState } from 'react';
 import './DynamicReport.css';
 
-// --- Mock Data Structure ---
-const MOCK_REPORT_DATA = {
-  id: 'mock-123',
-  title: 'Weekly Market Intelligence Brief',
-  period: 'Week of Apr 26 - May 1, 2026',
-  lastUpdated: 'Sun Apr 26, 2026 | Morning ET',
+// --- Mock Data Structure (Simulating what Claude would output) ---
+const MOCK_INTEL = {
+  title: "WEEKLY MARKET INTELLIGENCE BRIEF",
+  period: "Week of Apr 26 – May 2, 2026",
+  lastUpdated: "Sun Apr 26, 2026 | Morning ET",
   regime: {
-    status: 'Risk-On (Cautious)',
-    description: 'Stocks hit fresh all-time highs Friday on Intel’s blowout earnings. Regime is structurally bullish but fragile: ceasefire expiry ambiguity | Hormuz deadlock | earnings week of 2026 creates a binary tape ahead.',
-    color: '#f59e0b' // Amber
+    label: "RISK-ON (CAUTIOUS)",
+    color: "var(--amber)",
+    summary: "Stocks hit fresh all-time highs Friday on Intel’s blowout earnings and Iran FM travel to Islamabad, but Trump’s Sunday cancellation of US peace talks envoy trip pulls the geopolitical floor out. Regime is structurally bullish but fragile: ceasefire expiry ambiguity | Hormuz deadlock | earnings week of 2026 creates a binary tape ahead."
   },
   narratives: [
     {
-      id: 'n1',
-      category: 'GEOPOLITICAL',
-      title: 'Iran Ceasefire Holds in Name Only',
-      content: 'The Apr 8 Pakistan-brokered two-week ceasefire nominally held through last week, but the strategic picture deteriorated daily. Both the US Navy and Iran seized commercial vessels in the Strait of Hormuz.',
-      impact: 'High risk of a negative gap open Monday.'
-    },
-    {
-      id: 'n2',
-      category: 'MONETARY',
-      title: 'Inflation Gauges Remain Sticky',
-      content: 'Core PCE came in slightly above expectations, suggesting the Fed may keep rates higher for longer. Market is pricing in a 40% chance of a June cut, down from 60% last week.',
-      impact: 'Yields likely to test recent highs.'
+      title: "Iran Ceasefire Holds in Name Only — Hormuz Remains a Battleground",
+      label: "GEOPOLITICAL",
+      dateRange: "APR 21-25",
+      content: "The Apr 8 Pakistan-brokered two-week ceasefire nominally held through last week, but the strategic picture deteriorated daily. Both the US Navy and Iran seized commercial vessels in the Strait of Hormuz, oil tanker traffic remains at near-standstill, and a second round of peace talks in Islamabad collapsed almost before it began.",
+      details: [
+        "Trump cancels Witkoff/Kushner Islamabad trip — peace hopes collapse Sunday AM",
+        "Iran's FM Araghchi traveled to Pakistan Friday, then departed after presenting mediators a new framework.",
+        "IEA assessment: IEA head Birol called this \"the biggest energy security threat in history.\""
+      ],
+      impact: "High risk of a negative gap open Monday. Crude will likely open higher as the peace-talks catalyst that lifted Friday is removed. S\u0026P 500 futures flat as of late Sunday — the full implications of the cancellation may not be fully priced."
     }
-  ],
-  catalysts: [
-    { time: 'MON 08:30', event: 'Empire State Manufacturing', impact: 'Medium' },
-    { time: 'TUE 10:00', event: 'Consumer Confidence', impact: 'High' },
-    { time: 'WED 14:00', event: 'FOMC Minutes', impact: 'Critical' }
   ]
 };
 
@@ -42,97 +34,145 @@ export default function DynamicReport() {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   return (
-    <div className="dynamic-report animate-fade-in">
-      {/* Tactical Toolbar (Account Level Functionality) */}
-      <div className="report-toolbar glass-panel border-hi">
-        <div className="toolbar-status">
-          <div className="status-dot online" />
-          <span className="mono text-[10px] uppercase">Interactive Mode Active</span>
-        </div>
-        <div className="toolbar-actions">
+    <div className="report-container">
+      {/* Tactical HUD (Interactive Layer) */}
+      <div className="tactical-hud glass-panel">
+        <div className="hud-label mono text-[10px] opacity-40 uppercase">Interactive HUD // Mode: Analysis</div>
+        <div className="hud-controls">
           <button 
-            className={`btn-icon ${isBookmarked ? 'active' : ''}`} 
+            className={`hud-btn ${isBookmarked ? 'active' : ''}`}
             onClick={() => setIsBookmarked(!isBookmarked)}
-            title="Bookmark Report"
           >
-            {isBookmarked ? '★' : '☆'}
+            {isBookmarked ? 'NODE_SAVED' : 'SAVE_NODE'}
           </button>
-          <button className="btn-icon" title="Share Intel">↗</button>
-          <button className="btn-icon" title="Export PDF">PDF</button>
+          <button className="hud-btn">EXPORT_INTEL</button>
+        </div>
+        <div className="hud-notes mt-4">
+          <textarea 
+            placeholder="ADD TACTICAL NOTE..." 
+            value={userNote}
+            onChange={(e) => setUserNote(e.target.value)}
+          />
         </div>
       </div>
 
-      <div className="report-layout mt-6">
-        <div className="report-main">
-          {/* Header */}
-          <div className="dynamic-masthead">
-            <div className="mono text-xs text-accent mb-2 uppercase tracking-widest">Market Intelligence Node</div>
-            <h1>{MOCK_REPORT_DATA.title}</h1>
-            <div className="meta-row mt-4">
-              <span className="period mono">{MOCK_REPORT_DATA.period}</span>
-              <span className="divider">|</span>
-              <span className="updated mono opacity-50">{MOCK_REPORT_DATA.lastUpdated}</span>
+      {/* Main Report Body (Exact Replica of Briefing Style) */}
+      <div className="briefing-root">
+        <div className="masthead-dynamic">
+          <div className="masthead-row">
+            <h1><span className="accent">▶</span> {MOCK_INTEL.title}</h1>
+            <div className="meta mono uppercase">{MOCK_INTEL.lastUpdated}</div>
+          </div>
+          <div className="subtitle-dynamic">{MOCK_INTEL.period} | Dominant narratives · Catalyst calendar · Scenario planning · Key levels</div>
+        </div>
+
+        <div className="regime-banner-dynamic">
+          <div className="regime-dot" />
+          <div className="regime-content">
+            <div className="regime-status uppercase font-bold text-amber">
+              {MOCK_INTEL.regime.label}
             </div>
+            <p className="mt-2 text-sm opacity-90">{MOCK_INTEL.regime.summary}</p>
+          </div>
+        </div>
+
+        <section className="narratives-section mt-12">
+          <div className="section-header-dynamic">
+            <span className="mono text-xs uppercase opacity-40">Dominant Narratives</span>
           </div>
 
-          {/* Regime Banner */}
-          <div className="regime-banner-dynamic glass-panel mt-8">
-            <div className="regime-header">
-              <div className="regime-dot" style={{ backgroundColor: MOCK_REPORT_DATA.regime.color }} />
-              <span className="regime-status uppercase font-bold" style={{ color: MOCK_REPORT_DATA.regime.color }}>
-                {MOCK_REPORT_DATA.regime.status}
-              </span>
-            </div>
-            <p className="regime-text mt-3">{MOCK_REPORT_DATA.regime.description}</p>
-          </div>
-
-          {/* Narratives */}
-          <div className="section-group mt-12">
-            <h2 className="section-title-dynamic mono text-xs uppercase opacity-40 mb-6">Dominant Narratives</h2>
-            {MOCK_REPORT_DATA.narratives.map(narrative => (
-              <div key={narrative.id} className="narrative-card glass-panel mb-6">
-                <div className="card-header">
-                  <span className="category-tag mono">{narrative.category}</span>
-                  <h3 className="text-bright">{narrative.title}</h3>
+          {MOCK_INTEL.narratives.map((narrative, idx) => (
+            <div key={idx} className="narrative-card-dynamic mt-8">
+              <div className="card-header">
+                <span className="category-tag mono">{narrative.label}</span>
+                <h3>{narrative.title}</h3>
+              </div>
+              <div className="card-body mt-6">
+                <p className="text-sm leading-relaxed">{narrative.content}</p>
+                
+                <div className="timeline-items mt-6">
+                  {narrative.details.map((detail, dIdx) => (
+                    <div key={dIdx} className="timeline-item">
+                      <div className="timeline-dot" />
+                      <p className="text-xs opacity-70">{detail}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="card-content mt-4">
-                  <p className="text-sm opacity-80">{narrative.content}</p>
-                  <div className="impact-box mt-4 border-l-2 border-accent pl-4 py-1">
-                    <span className="mono text-[10px] text-accent uppercase block mb-1">Market Impact</span>
-                    <p className="text-xs font-semibold italic">{narrative.impact}</p>
-                  </div>
+
+                <div className="impact-box-dynamic mt-8">
+                  <div className="impact-label mono text-[10px] uppercase tracking-widest text-red">Market Impact — Monday Open</div>
+                  <p className="mt-2 text-sm italic font-medium opacity-90">{narrative.impact}</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Sidebar (Account Specific Features) */}
-        <div className="report-sidebar-dynamic">
-          <div className="sidebar-module glass-panel p-4">
-            <h4 className="mono text-[10px] uppercase text-accent mb-4">Tactical Notes</h4>
-            <textarea 
-              className="notes-input" 
-              placeholder="Add your own analysis or reminders..."
-              value={userNote}
-              onChange={(e) => setUserNote(e.target.value)}
-            />
-            <button className="btn-small mt-3 w-full mono">Save to Account</button>
-          </div>
-
-          <div className="sidebar-module glass-panel p-4 mt-6">
-            <h4 className="mono text-[10px] uppercase text-accent mb-4">Scheduled Catalysts</h4>
-            <div className="catalyst-list">
-              {MOCK_REPORT_DATA.catalysts.map((c, i) => (
-                <div key={i} className="catalyst-row py-2 border-b border-border last:border-0 flex justify-between items-center">
-                  <span className="mono text-[10px] opacity-60">{c.time}</span>
-                  <span className="text-[11px] font-medium">{c.event}</span>
-                </div>
-              ))}
             </div>
-          </div>
-        </div>
+          ))}
+        </section>
       </div>
+
+      <style jsx>{`
+        .report-container {
+          position: relative;
+          width: 100%;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+
+        /* --- Tactical HUD --- */
+        .tactical-hud {
+          position: fixed;
+          left: 40px;
+          top: 140px;
+          width: 240px;
+          padding: 16px;
+          z-index: 200;
+          border-left: 2px solid var(--accent);
+        }
+
+        .hud-btn {
+          width: 100%;
+          background: var(--surface2);
+          border: 1px solid var(--border);
+          color: var(--text-dim);
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 10px;
+          padding: 8px;
+          margin-top: 8px;
+          text-align: left;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .hud-btn:hover {
+          border-color: var(--accent);
+          color: var(--text-bright);
+        }
+
+        .hud-btn.active {
+          border-color: var(--accent);
+          background: var(--accent-dim);
+          color: var(--accent);
+        }
+
+        .hud-notes textarea {
+          width: 100%;
+          height: 120px;
+          background: var(--bg);
+          border: 1px solid var(--border);
+          padding: 10px;
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 10px;
+          color: var(--text);
+          resize: none;
+        }
+
+        @media (max-width: 1400px) {
+          .tactical-hud {
+            position: static;
+            width: 100%;
+            margin-bottom: 32px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
