@@ -111,28 +111,35 @@ export default function DynamicReport() {
 
       <style jsx>{`
         .report-container {
-          position: relative;
+          display: flex;
+          gap: 40px;
           width: 100%;
-          max-width: 900px;
+          max-width: 1300px;
           margin: 0 auto;
+          align-items: flex-start;
         }
 
-        /* --- Tactical HUD --- */
+        /* --- Tactical HUD (Repositioned to Margin) --- */
         .tactical-hud {
-          position: fixed;
-          left: 40px;
-          top: 140px;
-          width: 240px;
+          position: sticky;
+          top: 20px;
+          width: 220px;
+          flex-shrink: 0;
           padding: 16px;
-          z-index: 200;
           border-left: 2px solid var(--accent);
+          background: var(--intel-surface);
+        }
+
+        .briefing-root {
+          flex: 1;
+          min-width: 0;
         }
 
         .hud-btn {
           width: 100%;
           background: var(--surface2);
           border: 1px solid var(--border);
-          color: var(--text-dim);
+          color: var(--intel-text-dim);
           font-family: 'IBM Plex Mono', monospace;
           font-size: 10px;
           padding: 8px;
@@ -144,7 +151,7 @@ export default function DynamicReport() {
 
         .hud-btn:hover {
           border-color: var(--accent);
-          color: var(--text-bright);
+          color: var(--intel-text-bright);
         }
 
         .hud-btn.active {
@@ -165,7 +172,10 @@ export default function DynamicReport() {
           resize: none;
         }
 
-        @media (max-width: 1400px) {
+        @media (max-width: 1024px) {
+          .report-container {
+            flex-direction: column;
+          }
           .tactical-hud {
             position: static;
             width: 100%;
