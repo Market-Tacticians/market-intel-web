@@ -7,6 +7,7 @@ import Calendar from '@/components/Calendar';
 import ReportList from '@/components/ReportList';
 import ReportViewer from '@/components/ReportViewer';
 import DailyReportModal from '@/components/DailyReportModal';
+import DynamicReport from '@/components/DynamicReport';
 import { useReports } from '@/hooks/useReports';
 import { Report } from '@/types/report';
 
@@ -85,6 +86,11 @@ export default function Home() {
                 onDateSelect={handleDateSelect}
                 reportCounts={reportCounts}
               />
+            </div>
+          ) : activeTab === 'template' ? (
+            /* --- TEMPLATE MOCKUP VIEW --- */
+            <div className="tab-template animate-fade-in p-8 overflow-y-auto h-full">
+              <DynamicReport />
             </div>
           ) : (
             /* --- ARCHIVE VIEW (Organized) --- */
