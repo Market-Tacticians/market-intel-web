@@ -24,8 +24,26 @@ export default function DynamicReport({ data }: DynamicReportProps) {
       'blue': 'var(--blue)',
       'cyan': 'var(--cyan)',
       'purple': 'var(--purple)',
+      'bull': 'var(--green)',
+      'bear': 'var(--red)',
+      'base': 'var(--amber)',
     };
     return map[colorName.toLowerCase()] || 'var(--amber)';
+  };
+
+  const getColorDim = (colorName: string) => {
+    const map: Record<string, string> = {
+      'green': 'var(--green-dim)',
+      'red': 'var(--red-dim)',
+      'amber': 'var(--amber-dim)',
+      'blue': 'var(--blue-dim)',
+      'cyan': 'var(--cyan-dim)',
+      'purple': 'var(--purple-dim)',
+      'bull': 'var(--green-dim)',
+      'bear': 'var(--red-dim)',
+      'base': 'var(--amber-dim)',
+    };
+    return map[colorName.toLowerCase()] || 'var(--amber-dim)';
   };
 
   const getTagClass = (tag: string) => {
@@ -39,9 +57,17 @@ export default function DynamicReport({ data }: DynamicReportProps) {
     return '';
   };
 
+  const getDirectionClass = (dir: string) => {
+    const d = (dir || '').toLowerCase();
+    if (d === 'up') return 'up';
+    if (d === 'down') return 'down';
+    if (d === 'neutral') return 'neutral';
+    return 'flat';
+  };
+
   return (
     <div className="report-root">
-      {/* Tactical HUD (Kept for functionality, styled to match) */}
+      {/* Tactical HUD */}
       <div className="tactical-hud-v2">
         <div className="hud-label-v2 mono text-[10px] opacity-40 uppercase">Interactive HUD // Mode: Analysis</div>
         <div className="hud-controls-v2">
@@ -90,6 +116,80 @@ export default function DynamicReport({ data }: DynamicReportProps) {
         )}
 
         <div className="container">
+          {/* Market Snapshot */}
+          {intel.market_snapshot && (
+            <section>
+              <h2 className="section-title">Market Snapshot</h2>
+              <div className="grid-3">
+                <div className="card">
+                  <h4>Global Indexes</h4>
+                  {intel.market_snapshot.indexes?.map((item: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{item.label}</span>
+                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
+                        {item.value}
+                        {item.update && <span className="stat-update-note">{item.update}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Macro & Fed</h4>
+                  {intel.market_snapshot.macro_fed?.map((item: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{item.label}</span>
+                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
+                        {item.value}
+                        {item.update && <span className="stat-update-note">{item.update}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Energy & Volatility</h4>
+                  {intel.market_snapshot.energy_volatility?.map((item: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{item.label}</span>
+                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
+                        {item.value}
+                        {item.update && <span className="stat-update-note">{item.update}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Stories to Track */}
+          {intel.stories_to_track && (
+            <section>
+              <h2 className="section-title">Stories to Track</h2>
+              <div className="grid-2">
+                <div className="card">
+                  <h4>Geopolitical Risk</h4>
+                  {intel.stories_to_track.geopolitical?.map((item: any, i: number) => (
+                    <div key={i} className="watchlist-item">
+                      <div className={`w-dot ${getDirectionClass(item.direction)}`} />
+                      <div className="w-label">{item.label}</div>
+                      <div className="w-status">{item.status}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Sector Signals</h4>
+                  {intel.stories_to_track.sector_signals?.map((item: any, i: number) => (
+                    <div key={i} className="watchlist-item">
+                      <div className={`w-dot ${getDirectionClass(item.direction)}`} />
+                      <div className="w-label">{item.label}</div>
+                      <div className="w-status">{item.status}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           {/* Narratives Section */}
           {intel.dominant_narratives && (
             <section>
@@ -105,7 +205,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                           {narrative.tag && <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>}
                           {narrative.headline}
                         </h3>
-                        <p>{narrative.summary || narrative.body}</p>
+                        <p>{narrative.body || narrative.summary}</p>
                       </div>
                       <div className="update-timeline">
                         <div className="update-timeline-rail">
@@ -211,17 +311,20 @@ export default function DynamicReport({ data }: DynamicReportProps) {
               <h2 className="section-title">Scenario Planning</h2>
               <div className="grid-2">
                 {intel.scenarios.map((s: any, idx: number) => (
-                  <div key={idx} className="scenario-card">
+                  <div key={idx} className="scenario">
                     <div className="scenario-header">
-                      <div className="scenario-icon" style={{ background: `${getColor(s.color)}22`, color: getColor(s.color) }}>
+                      <div className="scenario-icon" style={{ background: getColorDim(s.case), color: getColor(s.case) }}>
                         {s.label}
                       </div>
-                      <h4>{s.case} Case</h4>
+                      <h4>{s.case} Case: {s.headline}</h4>
                     </div>
-                    <div className="scenario">
-                      <h4>{s.headline}</h4>
-                      <p>{s.body}</p>
-                    </div>
+                    <p>{s.body}</p>
+                    {s.update && (
+                      <div className="scenario-update-note">
+                        <div className="scenario-update-label">{s.update.label}</div>
+                        <p>{s.update.text}</p>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
