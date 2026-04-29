@@ -11,6 +11,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ activeTab, onTabChange }: NavigationProps) {
+  const tabs: { id: TabType; label: string; icon: string }[] = [
     { id: 'archive', label: 'Archive', icon: '🗄️' },
     { id: 'template', label: 'Template Mock Up', icon: '🧪' },
   ];
