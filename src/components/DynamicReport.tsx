@@ -15,21 +15,45 @@ export default function DynamicReport({ data }: DynamicReportProps) {
 
   const intel = data;
 
+  // Helper to map color names to hex/var
+  const getColor = (colorName: string) => {
+    const map: Record<string, string> = {
+      'green': 'var(--green)',
+      'red': 'var(--red)',
+      'amber': 'var(--amber)',
+      'blue': 'var(--blue)',
+      'cyan': 'var(--cyan)',
+      'purple': 'var(--purple)',
+    };
+    return map[colorName.toLowerCase()] || 'var(--amber)';
+  };
+
+  const getTagClass = (tag: string) => {
+    const t = (tag || '').toLowerCase();
+    if (t.includes('geo')) return 'tag-geo';
+    if (t.includes('fed') || t.includes('monetary')) return 'tag-fed';
+    if (t.includes('oil') || t.includes('energy')) return 'tag-oil';
+    if (t.includes('earn')) return 'tag-earnings';
+    if (t.includes('data') || t.includes('econ')) return 'tag-data';
+    if (t.includes('flow') || t.includes('posit')) return 'tag-flow';
+    return '';
+  };
+
   return (
-    <div className="report-container">
-      {/* Tactical HUD */}
-      <div className="tactical-hud glass-panel">
-        <div className="hud-label mono text-[10px] opacity-40 uppercase">Interactive HUD // Mode: Analysis</div>
-        <div className="hud-controls">
+    <div className="report-root">
+      {/* Tactical HUD (Kept for functionality, styled to match) */}
+      <div className="tactical-hud-v2">
+        <div className="hud-label-v2 mono text-[10px] opacity-40 uppercase">Interactive HUD // Mode: Analysis</div>
+        <div className="hud-controls-v2">
           <button 
-            className={`hud-btn ${isBookmarked ? 'active' : ''}`}
+            className={`hud-btn-v2 ${isBookmarked ? 'active' : ''}`}
             onClick={() => setIsBookmarked(!isBookmarked)}
           >
             {isBookmarked ? 'NODE_SAVED' : 'SAVE_NODE'}
           </button>
-          <button className="hud-btn">EXPORT_INTEL</button>
+          <button className="hud-btn-v2">EXPORT_INTEL</button>
         </div>
-        <div className="hud-notes mt-4">
+        <div className="hud-notes-v2 mt-4">
           <textarea 
             placeholder="ADD TACTICAL NOTE..." 
             value={userNote}
@@ -38,147 +62,225 @@ export default function DynamicReport({ data }: DynamicReportProps) {
         </div>
       </div>
 
-      {/* Main Report Body */}
-      <div className="briefing-root">
-        <div className="masthead-dynamic">
+      <div className="briefing-container">
+        {/* Masthead */}
+        <header className="masthead">
           <div className="masthead-row">
-            <h1><span className="accent">▶</span> {intel.meta?.title}</h1>
-            <div className="meta mono uppercase">{intel.meta?.generated}</div>
+            <h1><span className="accent">▶</span> {intel.meta?.title || 'MARKET INTELLIGENCE BRIEF'}</h1>
+            <div className="timestamp-badge">
+              <div className="ts-dot" />
+              <span className="ts-label">Last Updated:</span>
+              <span className="ts-value">{intel.meta?.generated || intel.meta?.last_updated || 'N/A'}</span>
+            </div>
           </div>
-          <div className="subtitle-dynamic">{intel.meta?.period_covered} | Dominant narratives · Catalyst calendar · Scenario planning · Key levels</div>
-        </div>
+          <div className="subtitle">
+            {intel.meta?.period_covered} | Dominant narratives · Catalyst calendar · Scenario planning · Key levels
+          </div>
+        </header>
 
         {/* Regime Banner */}
         {intel.regime && (
-          <div className="regime-banner-dynamic">
-            <div className="regime-dot" style={{ backgroundColor: `var(--intel-${intel.regime.color || 'amber'})` }} />
-            <div className="regime-content">
-              <div className="regime-status uppercase font-bold" style={{ color: `var(--intel-${intel.regime.color || 'amber'})` }}>
-                {intel.regime.label}
-              </div>
-              <p className="mt-2 text-sm opacity-90">{intel.regime.description}</p>
-            </div>
+          <div className="regime-banner" style={{ borderColor: `${getColor(intel.regime.color)}33` }}>
+            <div className="regime-dot" style={{ background: getColor(intel.regime.color) }} />
+            <span className="regime-label" style={{ color: getColor(intel.regime.color) }}>
+              {intel.regime.label}
+            </span>
+            <span className="regime-desc">{intel.regime.description}</span>
           </div>
         )}
 
-        {/* Narratives Section */}
-        {intel.dominant_narratives && (
-          <section className="narratives-section mt-12">
-            <div className="section-header-dynamic">
-              <span className="mono text-xs uppercase opacity-40">Dominant Narratives</span>
-            </div>
-
-            {intel.dominant_narratives.map((narrative: any, idx: number) => (
-              <div key={idx} className="narrative-card-dynamic mt-8">
-                <div className="card-header">
-                  <span className="category-tag mono">{narrative.tag}</span>
-                  <h3>{narrative.headline}</h3>
-                </div>
-                <div className="card-body mt-6">
-                  {narrative.summary && <p className="text-sm leading-relaxed mb-4">{narrative.summary}</p>}
-                  {narrative.body && <p className="text-sm leading-relaxed">{narrative.body}</p>}
-                  
-                  {narrative.updates && (
-                    <div className="timeline-items mt-6">
-                      {narrative.updates.map((update: any, uIdx: number) => (
-                        <div key={uIdx} className="timeline-item mb-4">
-                          <div className="timeline-dot" />
-                          <div className="mono text-[10px] opacity-40 uppercase mb-1">{update.label} // {update.timestamp}</div>
-                          <p className="text-xs font-bold text-bright mb-2">{update.headline}</p>
-                          <p className="text-[11px] opacity-70 leading-relaxed">{update.body}</p>
-                          {update.market_impact && (
-                            <div className="mt-3 border-l border-intel-red pl-3 italic text-[11px] opacity-80">
-                              <span className="mono text-[9px] uppercase text-intel-red not-italic block mb-1">Impact: {update.market_impact.session}</span>
-                              {update.market_impact.text}
-                            </div>
-                          )}
+        <div className="container">
+          {/* Narratives Section */}
+          {intel.dominant_narratives && (
+            <section>
+              <h2 className="section-title">Dominant Narratives</h2>
+              {intel.dominant_narratives.map((narrative: any, idx: number) => {
+                const isThread = narrative.type === 'story_thread' || (narrative.updates && narrative.updates.length > 0);
+                
+                if (isThread) {
+                  return (
+                    <div key={idx} className="story-thread">
+                      <div className="narrative-card condensed">
+                        <h3>
+                          {narrative.tag && <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>}
+                          {narrative.headline}
+                        </h3>
+                        <p>{narrative.summary || narrative.body}</p>
+                      </div>
+                      <div className="update-timeline">
+                        <div className="update-timeline-rail">
+                          {narrative.updates?.map((update: any, uIdx: number) => (
+                            <details key={uIdx} className="update-entry" open={uIdx === 0}>
+                              <summary className="update-trigger">
+                                <div className="update-trigger-top">
+                                  <div className={`update-dot ${uIdx === 0 ? 'live' : ''}`} />
+                                  <div className="update-badge">
+                                    {uIdx === 0 && <span className="pulse" />}
+                                    {update.label || 'Update'}
+                                  </div>
+                                  <div className="update-timestamp">{update.timestamp}</div>
+                                  <div className="update-chevron">▾</div>
+                                </div>
+                                <div className="update-trigger-headline">{update.headline}</div>
+                              </summary>
+                              <div className="update-body">
+                                <p>{update.body}</p>
+                                {update.market_impact && (
+                                  <div className="market-impact">
+                                    <div className="market-impact-label">Market Impact // {update.market_impact.session || 'Analysis'}</div>
+                                    <p>{update.market_impact.text || update.market_impact}</p>
+                                  </div>
+                                )}
+                                {update.sources && update.sources.length > 0 && (
+                                  <details className="sources-drawer">
+                                    <summary className="sources-toggle">
+                                      Sources <span className="sources-count">{update.sources.length}</span>
+                                      <span className="sources-chevron">▾</span>
+                                    </summary>
+                                    <ul className="sources-list">
+                                      {update.sources.map((source: any, sIdx: number) => (
+                                        <li key={sIdx}>
+                                          <span className="source-label">{source.label}</span><br />
+                                          <a href={source.url} target="_blank" rel="noopener">{source.url}</a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </details>
+                                )}
+                              </div>
+                            </details>
+                          ))}
                         </div>
-                      ))}
+                      </div>
                     </div>
-                  )}
+                  );
+                }
 
-                  {narrative.market_impact && (
-                    <div className="impact-box-dynamic mt-8">
-                      <div className="impact-label mono text-[10px] uppercase tracking-widest text-intel-red">Market Impact</div>
-                      <p className="mt-2 text-sm italic font-medium opacity-90">{narrative.market_impact}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </section>
-        )}
-
-        {/* Catalyst Calendar */}
-        {intel.catalyst_calendar && (
-          <section className="catalysts-section mt-16">
-            <div className="section-header-dynamic">
-              <span className="mono text-xs uppercase opacity-40">Scheduled Catalysts</span>
-            </div>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {intel.catalyst_calendar.map((c: any, idx: number) => (
-                <div key={idx} className="catalyst-card-dynamic glass-panel p-5 border border-intel-border">
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="mono text-[10px] text-intel-cyan">{c.date_label}</span>
-                    {c.impact && <span className={`impact-badge mono text-[8px] uppercase ${c.impact}`}>{c.impact}</span>}
+                return (
+                  <div key={idx} className="narrative-card">
+                    <h3>
+                      {narrative.tag && <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>}
+                      {narrative.headline}
+                    </h3>
+                    <p>{narrative.body || narrative.summary}</p>
+                    {narrative.market_impact && (
+                      <div className="market-impact">
+                        <div className="market-impact-label">Market Impact</div>
+                        <p>{narrative.market_impact}</p>
+                      </div>
+                    )}
                   </div>
-                  <div className="text-sm font-bold text-intel-text-bright mb-3">{c.event}</div>
-                  <p className="text-[11px] opacity-60 leading-relaxed">{c.body}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+                );
+              })}
+            </section>
+          )}
 
-        {/* Scenarios */}
-        {intel.scenarios && (
-          <section className="scenarios-section mt-16">
-            <div className="section-header-dynamic">
-              <span className="mono text-xs uppercase opacity-40">Scenario Planning</span>
-            </div>
-            <div className="mt-8 grid grid-cols-1 gap-6">
-              {intel.scenarios.map((s: any, idx: number) => (
-                <div key={idx} className={`scenario-card-dynamic border-l-4 p-6 bg-intel-surface`} style={{ borderColor: `var(--intel-${s.color})` }}>
-                  <div className="mono text-[10px] uppercase mb-1" style={{ color: `var(--intel-${s.color})` }}>Scenario {s.label} // {s.case} Case</div>
-                  <h4 className="text-intel-text-bright font-bold mb-3">{s.headline}</h4>
-                  <p className="text-xs opacity-70 leading-relaxed">{s.body}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+          <hr className="divider" />
+
+          {/* Catalyst Calendar */}
+          {intel.catalyst_calendar && (
+            <section>
+              <h2 className="section-title">Scheduled Catalysts</h2>
+              <div className="timeline">
+                {intel.catalyst_calendar.map((c: any, idx: number) => (
+                  <div key={idx} className={`tl-item ${c.impact || 'low'}`}>
+                    <div className="tl-date">{c.date_label}</div>
+                    <div className="tl-title">
+                      {c.event}
+                      {c.flag && <span className="inline-update">{c.flag}</span>}
+                    </div>
+                    <div className="tl-body">{c.body}</div>
+                    {c.tags && (
+                      <div className="tl-tags">
+                        {c.tags.map((tag: string, tIdx: number) => (
+                          <span key={tIdx} className={`tag ${getTagClass(tag)}`}>{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <hr className="divider" />
+
+          {/* Scenarios */}
+          {intel.scenarios && (
+            <section>
+              <h2 className="section-title">Scenario Planning</h2>
+              <div className="grid-2">
+                {intel.scenarios.map((s: any, idx: number) => (
+                  <div key={idx} className="scenario-card">
+                    <div className="scenario-header">
+                      <div className="scenario-icon" style={{ background: `${getColor(s.color)}22`, color: getColor(s.color) }}>
+                        {s.label}
+                      </div>
+                      <h4>{s.case} Case</h4>
+                    </div>
+                    <div className="scenario">
+                      <h4>{s.headline}</h4>
+                      <p>{s.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Key Questions */}
+          {intel.key_questions && (
+            <section>
+              <h2 className="section-title">Key Questions</h2>
+              <div className="question-block">
+                {intel.key_questions.map((q: any, idx: number) => (
+                  <p key={idx}>
+                    <strong>{q.number || idx + 1}.</strong> {q.question}
+                    <span className={`q-${q.status?.replace('_', '-') || 'unanswered'}`}>
+                      {q.status?.replace('_', ' ') || 'Unanswered'}
+                    </span>
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
       </div>
 
       <style jsx>{`
-        .report-container {
+        .report-root {
           display: flex;
-          gap: 40px;
-          width: 100%;
-          max-width: 1400px;
-          margin: 0 auto;
+          gap: 20px;
           align-items: flex-start;
+          width: 100%;
+          min-height: 100%;
+          background: var(--bg);
         }
 
-        .tactical-hud {
+        .briefing-container {
+          flex: 1;
+          min-width: 0;
+          padding-bottom: 100px;
+        }
+
+        .tactical-hud-v2 {
           position: sticky;
-          top: 20px;
+          top: 0;
           width: 240px;
           flex-shrink: 0;
           padding: 16px;
-          border-left: 2px solid var(--intel-cyan);
-          background: var(--intel-surface);
+          border-right: 1px solid var(--border);
+          background: var(--surface);
+          height: calc(100vh - 40px);
+          display: flex;
+          flex-direction: column;
         }
 
-        .briefing-root {
-          flex: 1;
-          min-width: 0;
-        }
-
-        .hud-btn {
+        .hud-btn-v2 {
           width: 100%;
-          background: var(--intel-surface2);
-          border: 1px solid var(--intel-border);
-          color: var(--intel-text-dim);
+          background: var(--surface2);
+          border: 1px solid var(--border);
+          color: var(--text-dim);
           font-family: 'IBM Plex Mono', monospace;
           font-size: 10px;
           padding: 8px;
@@ -188,50 +290,40 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           transition: all 0.2s;
         }
 
-        .hud-btn:hover {
-          border-color: var(--intel-cyan);
-          color: var(--intel-text-bright);
+        .hud-btn-v2:hover {
+          border-color: var(--cyan);
+          color: var(--text-bright);
         }
 
-        .hud-btn.active {
-          border-color: var(--intel-cyan);
-          background: var(--intel-cyan-dim);
-          color: var(--intel-cyan);
+        .hud-btn-v2.active {
+          border-color: var(--cyan);
+          background: var(--cyan-dim);
+          color: var(--cyan);
         }
 
-        .hud-notes textarea {
+        .hud-notes-v2 textarea {
           width: 100%;
-          height: 120px;
-          background: var(--intel-bg);
-          border: 1px solid var(--intel-border);
+          flex: 1;
+          min-height: 200px;
+          background: var(--bg);
+          border: 1px solid var(--border);
           padding: 10px;
           font-family: 'IBM Plex Mono', monospace;
-          font-size: 10px;
-          color: var(--intel-text);
+          font-size: 11px;
+          color: var(--text);
           resize: none;
         }
 
-        .impact-badge {
-          padding: 2px 6px;
-          border-radius: 2px;
-          background: var(--intel-surface2);
-          border: 1px solid var(--intel-border);
-        }
-
-        .impact-badge.high, .impact-badge.critical {
-          color: var(--intel-red);
-          border-color: var(--intel-red);
-          background: var(--intel-red-dim);
-        }
-
         @media (max-width: 1024px) {
-          .report-container {
+          .report-root {
             flex-direction: column;
           }
-          .tactical-hud {
+          .tactical-hud-v2 {
             position: static;
             width: 100%;
-            margin-bottom: 32px;
+            height: auto;
+            border-right: none;
+            border-bottom: 1px solid var(--border);
           }
         }
       `}</style>
