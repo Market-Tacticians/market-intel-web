@@ -15,7 +15,8 @@ export default function DynamicReport({ data }: DynamicReportProps) {
 
   const intel = data;
 
-  // Helper to map color names to hex/var
+  // --- Helper Functions from Spec ---
+
   const getColor = (colorName: string) => {
     const map: Record<string, string> = {
       'green': 'var(--green)',
@@ -28,7 +29,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
       'bear': 'var(--red)',
       'base': 'var(--amber)',
     };
-    return map[colorName.toLowerCase()] || 'var(--amber)';
+    return map[colorName?.toLowerCase()] || 'var(--amber)';
   };
 
   const getColorDim = (colorName: string) => {
@@ -43,7 +44,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
       'bear': 'var(--red-dim)',
       'base': 'var(--amber-dim)',
     };
-    return map[colorName.toLowerCase()] || 'var(--amber-dim)';
+    return map[colorName?.toLowerCase()] || 'var(--amber-dim)';
   };
 
   const getTagClass = (tag: string) => {
@@ -57,12 +58,41 @@ export default function DynamicReport({ data }: DynamicReportProps) {
     return '';
   };
 
-  const getDirectionClass = (dir: string) => {
-    const d = (dir || '').toLowerCase();
-    if (d === 'up') return 'up';
-    if (d === 'down') return 'down';
-    if (d === 'neutral') return 'neutral';
-    return 'flat';
+  const directionClass = (direction: string) => {
+    switch (direction) {
+      case 'up':      return 'up';
+      case 'down':    return 'down';
+      case 'neutral': return 'neutral';
+      case 'mixed':   return 'flat';
+      default:        return 'flat';
+    }
+  };
+
+  const formatStatVal = (row: any) => {
+    if (row.value && row.note) return `${row.value} | ${row.note}`;
+    if (row.value) return row.value;
+    if (row.note) return row.note;
+    return '';
+  };
+
+  const badgeClass = (status: string) => {
+    switch (status) {
+      case 'unanswered':         return 'q-unanswered';
+      case 'answered':           return 'q-answered';
+      case 'partially_answered': return 'q-badge-partial';
+      case 'updated':            return 'q-badge-updated';
+      default:                   return 'q-unanswered';
+    }
+  };
+
+  const statusToLabel = (status: string) => {
+    switch (status) {
+      case 'unanswered':         return 'Unanswered';
+      case 'answered':           return 'Answered';
+      case 'partially_answered': return 'Partially Answered';
+      case 'updated':            return 'Updated';
+      default:                   return 'Unanswered';
+    }
   };
 
   return (
@@ -94,19 +124,19 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           <div className="masthead-row">
             <h1><span className="accent">▶</span> {intel.meta?.title || 'MARKET INTELLIGENCE BRIEF'}</h1>
             <div className="timestamp-badge">
-              <div className="ts-dot" />
-              <span className="ts-label">Last Updated:</span>
+              <span className="ts-dot" />
+              <span className="ts-label">Last Updated</span>
               <span className="ts-value">{intel.meta?.generated || intel.meta?.last_updated || 'N/A'}</span>
             </div>
           </div>
-          <div className="subtitle">
-            {intel.meta?.period_covered} | Dominant narratives · Catalyst calendar · Scenario planning · Key levels
-          </div>
+          <p className="subtitle">
+            Week of {intel.meta?.period_covered} | Dominant narratives · Catalyst calendar · Scenario planning · Key levels
+          </p>
         </header>
 
         {/* Regime Banner */}
         {intel.regime && (
-          <div className="regime-banner" style={{ borderColor: `${getColor(intel.regime.color)}33` }}>
+          <div className="regime-banner" style={{ borderColor: intel.regime.color === 'green' ? 'rgba(34,197,94,0.2)' : intel.regime.color === 'red' ? 'rgba(239,68,68,0.35)' : 'var(--border)' }}>
             <div className="regime-dot" style={{ background: getColor(intel.regime.color) }} />
             <span className="regime-label" style={{ color: getColor(intel.regime.color) }}>
               {intel.regime.label}
@@ -116,119 +146,49 @@ export default function DynamicReport({ data }: DynamicReportProps) {
         )}
 
         <div className="container">
-          {/* Market Snapshot */}
-          {intel.market_snapshot && (
-            <section>
-              <h2 className="section-title">Market Snapshot</h2>
-              <div className="grid-3">
-                <div className="card">
-                  <h4>Global Indexes</h4>
-                  {intel.market_snapshot.indexes?.map((item: any, i: number) => (
-                    <div key={i} className="stat-row">
-                      <span className="stat-label">{item.label}</span>
-                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
-                        {item.value}
-                        {item.update && <span className="stat-update-note">{item.update}</span>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="card">
-                  <h4>Macro & Fed</h4>
-                  {intel.market_snapshot.macro_fed?.map((item: any, i: number) => (
-                    <div key={i} className="stat-row">
-                      <span className="stat-label">{item.label}</span>
-                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
-                        {item.value}
-                        {item.update && <span className="stat-update-note">{item.update}</span>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="card">
-                  <h4>Energy & Volatility</h4>
-                  {intel.market_snapshot.energy_volatility?.map((item: any, i: number) => (
-                    <div key={i} className="stat-row">
-                      <span className="stat-label">{item.label}</span>
-                      <div className={`stat-val ${getDirectionClass(item.direction)}`}>
-                        {item.value}
-                        {item.update && <span className="stat-update-note">{item.update}</span>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* Stories to Track */}
-          {intel.stories_to_track && (
-            <section>
-              <h2 className="section-title">Stories to Track</h2>
-              <div className="grid-2">
-                <div className="card">
-                  <h4>Geopolitical Risk</h4>
-                  {intel.stories_to_track.geopolitical?.map((item: any, i: number) => (
-                    <div key={i} className="watchlist-item">
-                      <div className={`w-dot ${getDirectionClass(item.direction)}`} />
-                      <div className="w-label">{item.label}</div>
-                      <div className="w-status">{item.status}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="card">
-                  <h4>Sector Signals</h4>
-                  {intel.stories_to_track.sector_signals?.map((item: any, i: number) => (
-                    <div key={i} className="watchlist-item">
-                      <div className={`w-dot ${getDirectionClass(item.direction)}`} />
-                      <div className="w-label">{item.label}</div>
-                      <div className="w-status">{item.status}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* Narratives Section */}
+          {/* Dominant Narratives */}
           {intel.dominant_narratives && (
             <section>
-              <h2 className="section-title">Dominant Narratives</h2>
+              <div className="section-title">Dominant Narratives</div>
               {intel.dominant_narratives.map((narrative: any, idx: number) => {
-                const isThread = narrative.type === 'story_thread' || (narrative.updates && narrative.updates.length > 0);
+                const isThread = narrative.type === 'story_thread';
                 
                 if (isThread) {
                   return (
                     <div key={idx} className="story-thread">
                       <div className="narrative-card condensed">
-                        <h3>
-                          {narrative.tag && <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>}
-                          {narrative.headline}
-                        </h3>
-                        <p>{narrative.body || narrative.summary}</p>
+                        <h3><span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span> {narrative.headline}</h3>
+                        <p>{narrative.body}</p>
                       </div>
                       <div className="update-timeline">
                         <div className="update-timeline-rail">
                           {narrative.updates?.map((update: any, uIdx: number) => (
-                            <details key={uIdx} className="update-entry" open={uIdx === 0}>
+                            <details key={uIdx} className="update-entry" open={update.is_live}>
                               <summary className="update-trigger">
                                 <div className="update-trigger-top">
-                                  <div className={`update-dot ${uIdx === 0 ? 'live' : ''}`} />
-                                  <div className="update-badge">
-                                    {uIdx === 0 && <span className="pulse" />}
-                                    {update.label || 'Update'}
-                                  </div>
-                                  <div className="update-timestamp">{update.timestamp}</div>
-                                  <div className="update-chevron">▾</div>
+                                  <div className={`update-dot ${update.is_live ? 'live' : ''}`} />
+                                  <span className="update-badge">
+                                    {update.is_live && <span className="pulse" />}
+                                    {update.label}
+                                  </span>
+                                  <span className="update-timestamp">{update.timestamp}</span>
+                                  <span className="update-chevron">▾</span>
                                 </div>
                                 <div className="update-trigger-headline">{update.headline}</div>
                               </summary>
                               <div className="update-body">
                                 <p>{update.body}</p>
+                                {update.bullets && (
+                                  <ul className="bullet-list">
+                                    {update.bullets.map((b: string, bIdx: number) => (
+                                      <li key={bIdx}>{b}</li>
+                                    ))}
+                                  </ul>
+                                )}
                                 {update.market_impact && (
                                   <div className="market-impact">
-                                    <div className="market-impact-label">Market Impact // {update.market_impact.session || 'Analysis'}</div>
-                                    <p>{update.market_impact.text || update.market_impact}</p>
+                                    <div className="market-impact-label">Market Impact — {update.market_impact.session}</div>
+                                    <p>{update.market_impact.text}</p>
                                   </div>
                                 )}
                                 {update.sources && update.sources.length > 0 && (
@@ -238,10 +198,10 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                                       <span className="sources-chevron">▾</span>
                                     </summary>
                                     <ul className="sources-list">
-                                      {update.sources.map((source: any, sIdx: number) => (
+                                      {update.sources.map((s: any, sIdx: number) => (
                                         <li key={sIdx}>
-                                          <span className="source-label">{source.label}</span><br />
-                                          <a href={source.url} target="_blank" rel="noopener">{source.url}</a>
+                                          <span className="source-label">{s.label}</span><br />
+                                          <a href={s.url} target="_blank" rel="noopener">{s.url}</a>
                                         </li>
                                       ))}
                                     </ul>
@@ -259,16 +219,10 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                 return (
                   <div key={idx} className="narrative-card">
                     <h3>
-                      {narrative.tag && <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>}
+                      <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>
                       {narrative.headline}
                     </h3>
-                    <p>{narrative.body || narrative.summary}</p>
-                    {narrative.market_impact && (
-                      <div className="market-impact">
-                        <div className="market-impact-label">Market Impact</div>
-                        <p>{narrative.market_impact}</p>
-                      </div>
-                    )}
+                    <p>{narrative.body}</p>
                   </div>
                 );
               })}
@@ -280,20 +234,20 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Catalyst Calendar */}
           {intel.catalyst_calendar && (
             <section>
-              <h2 className="section-title">Scheduled Catalysts</h2>
+              <div className="section-title">Catalyst Calendar</div>
               <div className="timeline">
                 {intel.catalyst_calendar.map((c: any, idx: number) => (
-                  <div key={idx} className={`tl-item ${c.impact || 'low'}`}>
+                  <div key={idx} className={`tl-item ${c.impact}`}>
                     <div className="tl-date">{c.date_label}</div>
                     <div className="tl-title">
                       {c.event}
                       {c.flag && <span className="inline-update">{c.flag}</span>}
                     </div>
                     <div className="tl-body">{c.body}</div>
-                    {c.tags && (
+                    {c.tags && c.tags.length > 0 && (
                       <div className="tl-tags">
-                        {c.tags.map((tag: string, tIdx: number) => (
-                          <span key={tIdx} className={`tag ${getTagClass(tag)}`}>{tag}</span>
+                        {c.tags.map((t: string, tIdx: number) => (
+                          <span key={tIdx} className={`tag ${getTagClass(t)}`}>{t}</span>
                         ))}
                       </div>
                     )}
@@ -305,49 +259,131 @@ export default function DynamicReport({ data }: DynamicReportProps) {
 
           <hr className="divider" />
 
-          {/* Scenarios */}
-          {intel.scenarios && (
+          {/* Market Snapshot */}
+          {intel.market_snapshot && (
             <section>
-              <h2 className="section-title">Scenario Planning</h2>
-              <div className="grid-2">
-                {intel.scenarios.map((s: any, idx: number) => (
-                  <div key={idx} className="scenario">
-                    <div className="scenario-header">
-                      <div className="scenario-icon" style={{ background: getColorDim(s.case), color: getColor(s.case) }}>
-                        {s.label}
-                      </div>
-                      <h4>{s.case} Case: {s.headline}</h4>
+              <div className="section-title">Market Snapshot</div>
+              <div className="grid-3">
+                <div className="card">
+                  <h4>Global Indexes</h4>
+                  {intel.market_snapshot.indexes?.map((row: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{row.label}</span>
+                      <span className={`stat-val ${directionClass(row.direction)}`}>{formatStatVal(row)}</span>
                     </div>
-                    <p>{s.body}</p>
-                    {s.update && (
-                      <div className="scenario-update-note">
-                        <div className="scenario-update-label">{s.update.label}</div>
-                        <p>{s.update.text}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Macro & Fed</h4>
+                  {intel.market_snapshot.macro_fed?.map((row: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{row.label}</span>
+                      <span className={`stat-val ${directionClass(row.direction)}`}>{formatStatVal(row)}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Energy & Volatility</h4>
+                  {intel.market_snapshot.energy_volatility?.map((row: any, i: number) => (
+                    <div key={i} className="stat-row">
+                      <span className="stat-label">{row.label}</span>
+                      <span className={`stat-val ${directionClass(row.direction)}`}>{formatStatVal(row)}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
           )}
 
+          <hr className="divider" />
+
+          {/* Stories to Track */}
+          {intel.stories_to_track && (
+            <section>
+              <div className="section-title">Stories to Track</div>
+              <div className="grid-2">
+                <div className="card">
+                  <h4>Geopolitical & Macro</h4>
+                  {intel.stories_to_track.geopolitical_macro?.map((row: any, i: number) => (
+                    <div key={i} className="watchlist-item">
+                      <div className={`w-dot ${row.direction}`}></div>
+                      <span className="w-label">{row.label}</span>
+                      <span className="w-status">{row.status}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="card">
+                  <h4>Sector & Stock Signals</h4>
+                  {intel.stories_to_track.sector_stock_signals?.map((row: any, i: number) => (
+                    <div key={i} className="watchlist-item">
+                      <div className={`w-dot ${row.direction}`}></div>
+                      <span className="w-label">{row.label}</span>
+                      <span className="w-status">{row.status}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          <hr className="divider" />
+
+          {/* Scenarios */}
+          {intel.scenarios && (
+            <section>
+              <div className="section-title">Scenarios</div>
+              {intel.scenarios.map((s: any, idx: number) => (
+                <div key={idx} className="scenario">
+                  <div className="scenario-header">
+                    <div className="scenario-icon" style={{ background: getColorDim(s.color), color: getColor(s.color) }}>
+                      {s.label}
+                    </div>
+                    <h4>{s.case} Case: {s.headline}</h4>
+                  </div>
+                  <p>{s.body}</p>
+                  {s.update && (
+                    <div className="scenario-update-note">
+                      <div className="scenario-update-label">{s.update.label}</div>
+                      <p>{s.update.text}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </section>
+          )}
+
+          <hr className="divider" />
+
           {/* Key Questions */}
           {intel.key_questions && (
             <section>
-              <h2 className="section-title">Key Questions</h2>
-              <div className="question-block">
-                {intel.key_questions.map((q: any, idx: number) => (
-                  <p key={idx}>
-                    <strong>{q.number || idx + 1}.</strong> {q.question}
-                    <span className={`q-${q.status?.replace('_', '-') || 'unanswered'}`}>
-                      {q.status?.replace('_', ' ') || 'Unanswered'}
-                    </span>
-                  </p>
-                ))}
+              <div className="section-title">Key Questions</div>
+              <div className="card">
+                <div className="question-block">
+                  {intel.key_questions.map((q: any, idx: number) => (
+                    <React.Fragment key={idx}>
+                      <p>
+                        <strong style={{ color: 'var(--text-bright)' }}>{q.number}.</strong>
+                        {' '}{q.question}{' '}
+                        <span className={badgeClass(q.status)}>
+                          {q.update_label || statusToLabel(q.status)}
+                        </span>
+                      </p>
+                      {q.answer && <span className="q-answer">{q.answer}</span>}
+                      {q.update && <span className="q-answer partial">{q.update}</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
             </section>
           )}
         </div>
+
+        {/* Footer */}
+        <footer>
+          <span>Weekly Market Intelligence Brief — Week of {intel.meta?.period_covered}</span>
+          <span>Last updated: {intel.meta?.generated || intel.meta?.last_updated} | Sources: {intel.meta?.sources?.join(', ') || 'Internal'}</span>
+        </footer>
       </div>
 
       <style jsx>{`
@@ -363,7 +399,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
         .briefing-container {
           flex: 1;
           min-width: 0;
-          padding-bottom: 100px;
+          padding-bottom: 40px;
         }
 
         .tactical-hud-v2 {
@@ -417,6 +453,17 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           resize: none;
         }
 
+        footer {
+          padding: 32px;
+          border-top: 1px solid var(--border);
+          display: flex;
+          justify-content: space-between;
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 0.65rem;
+          color: var(--text-dim);
+          text-transform: uppercase;
+        }
+
         @media (max-width: 1024px) {
           .report-root {
             flex-direction: column;
@@ -427,6 +474,11 @@ export default function DynamicReport({ data }: DynamicReportProps) {
             height: auto;
             border-right: none;
             border-bottom: 1px solid var(--border);
+          }
+          footer {
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
           }
         }
       `}</style>
