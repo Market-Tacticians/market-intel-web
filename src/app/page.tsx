@@ -193,8 +193,12 @@ export default function Home() {
           flex: 1;
           min-height: 0; /* Important for flex-grow with overflow */
         }
-        .tab-calendar, .tab-archive {
+        .tab-calendar, .tab-archive, .tab-template {
           height: 100%;
+        }
+        .tab-template {
+          overflow-y: auto;
+          padding: 2rem;
         }
         @media (max-width: 1024px) {
           .app-layout {
