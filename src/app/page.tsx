@@ -6,17 +6,14 @@ import Navigation, { TabType } from '@/components/Navigation';
 import Calendar from '@/components/Calendar';
 import ReportList from '@/components/ReportList';
 import ReportViewer from '@/components/ReportViewer';
-import DailyReportModal from '@/components/DailyReportModal';
 import DynamicReport from '@/components/DynamicReport';
 import { useReports } from '@/hooks/useReports';
 import { useJsonReports } from '@/hooks/useJsonReports';
 import { Report } from '@/types/report';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<TabType>('calendar');
-  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>('archive');
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
-  const [showModal, setShowModal] = useState(false);
   
   // Archive specific state
   const [archiveDate, setArchiveDate] = useState<string>(format(new Date(), 'yyyy-MM-dd'));
@@ -41,17 +38,7 @@ export default function Home() {
     return counts;
   }, [reports]);
 
-  const reportsForSelectedDate = useMemo(() => {
-    if (!selectedDate) return [];
-    return reports
-      .filter(r => r.calendar_date === selectedDate)
-      .sort((a, b) => new Date(b.last_updated_at).getTime() - new Date(a.last_updated_at).getTime());
-  }, [selectedDate, reports]);
 
-  const handleDateSelect = (date: string) => {
-    setSelectedDate(date);
-    setShowModal(true);
-  };
 
   // --- Logic for Archive ---
   const reportsForArchiveDate = useMemo(() => {
@@ -64,14 +51,12 @@ export default function Home() {
     <div className="app-layout">
       <Navigation activeTab={activeTab} onTabChange={(tab) => {
         setActiveTab(tab);
-        setSelectedDate(null);
-        setShowModal(false);
       }} />
       
       <main className="app-main">
         <header className="app-header">
           <div className="header-breadcrumbs mono text-[10px] uppercase text-muted">
-            Terminal / {activeTab} {activeTab === 'calendar' && selectedDate && `/ ${selectedDate}`}
+            Terminal / {activeTab}
           </div>
           <div className="header-actions">
             <button className="btn mono text-xs" onClick={() => window.location.reload()}>RELOAD CORE</button>
@@ -83,16 +68,6 @@ export default function Home() {
             <div className="p-20 text-center mono animate-pulse">SYNCHRONIZING INTEL...</div>
           ) : error ? (
             <div className="p-20 text-center mono text-danger">CONNECTION ERROR: {error}</div>
-          ) : activeTab === 'calendar' ? (
-            /* --- CALENDAR VIEW --- */
-            <div className="tab-calendar animate-fade-in flex items-center justify-center p-12">
-              <Calendar 
-                activeDates={activeDates}
-                selectedDate={selectedDate}
-                onDateSelect={handleDateSelect}
-                reportCounts={reportCounts}
-              />
-            </div>
           ) : activeTab === 'template' ? (
             /* --- TEMPLATE MOCKUP VIEW --- */
             <div className="tab-template animate-fade-in p-8 overflow-y-auto h-full">
@@ -147,18 +122,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* --- MODALS --- */}
-      {showModal && selectedDate && (
-        <DailyReportModal
-          date={selectedDate}
-          reports={reportsForSelectedDate}
-          onSelectReport={(report) => {
-            setSelectedReport(report);
-            setShowModal(false);
-          }}
-          onClose={() => setShowModal(false)}
-        />
-      )}
+
 
       {selectedReport && (
         <ReportViewer 
