@@ -164,6 +164,53 @@ export default function Home() {
           overflow-y: auto;
           padding: 2rem;
         }
+        
+        /* Archive Layout */
+        .archive-layout {
+          display: grid;
+          grid-template-columns: 350px 1fr;
+          gap: 32px;
+          height: 100%;
+        }
+        .archive-sidebar {
+          border-right: 1px solid var(--border);
+          padding-right: 32px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .archive-selector-group h4 {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.75rem;
+          color: var(--text-dim);
+          text-transform: uppercase;
+          margin-bottom: 12px;
+          letter-spacing: 1px;
+        }
+        .archive-calendar-mini {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 8px;
+          padding: 16px;
+        }
+        .archive-results {
+          overflow-y: auto;
+        }
+        .empty-state {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 200px;
+          color: var(--text-dim);
+          text-align: center;
+          border: 1px dashed var(--border);
+          border-radius: 8px;
+        }
+        .empty-state p {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.8rem;
+        }
         @media (max-width: 1024px) {
           .app-layout {
             flex-direction: column;
