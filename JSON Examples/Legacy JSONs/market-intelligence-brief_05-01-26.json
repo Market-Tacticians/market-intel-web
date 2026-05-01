@@ -1,0 +1,931 @@
+{
+  "meta": {
+    "title": "Weekly Market Intelligence Brief",
+    "week_of": "2026-04-28",
+    "period_covered": "Apr 28 \u2013 May 2, 2026",
+    "last_updated": "2026-05-01T11:30:00-04:00",
+    "update_version": 5,
+    "sources": [
+      "CNBC",
+      "TheStreet",
+      "24/7 Wall St",
+      "MacRumors",
+      "9to5Mac",
+      "Motley Fool",
+      "CBS News",
+      "iDropNews",
+      "Wikipedia/2026 Iran war",
+      "Wikipedia/Hormuz crisis",
+      "Edward Jones"
+    ]
+  },
+  "regime": {
+    "label": "Risk-On (Strong)",
+    "color": "green",
+    "description": "Regime upgraded to full Risk-On after Apple's blowout Q2 and the S&P closing April as its best month since 2020 (+10%). S&P 500 and Nasdaq both closed at all-time highs Thursday. Apple beat on revenue ($111.18B, +17%), EPS ($2.01 vs $1.95 est), Services (all-time record $31B), and guide (Q3 14-17% vs 9.5% expected). Iran sent a revised proposal through Pakistani mediators Friday \u2014 oil fell ~5% (WTI ~$100, Brent ~$107) on de-escalation hopes. Trump says 'no one knows' the status of talks. Risk-on is now broad: Russell 2000 +2.21% Friday, every S&P sector positive Thursday. Key remaining risks: Hormuz still closed, Core PCE 3.2%, hawkish Fed dissenters vocal again Friday.",
+    "updated": "2026-05-01T11:30:00-04:00"
+  },
+  "dominant_narratives": [
+    {
+      "id": "iran-hormuz",
+      "type": "story_thread",
+      "tag": "Geopolitical",
+      "headline": "Iran Ceasefire Holds in Name Only \u2014 Hormuz Remains a Battleground",
+      "body": "The Apr 8 Pakistan-brokered two-week ceasefire nominally held through last week, but the strategic picture deteriorated daily. Both the US Navy and Iran seized commercial vessels in the Strait of Hormuz, oil tanker traffic remains at near-standstill, and a second round of peace talks in Islamabad collapsed almost before it began.",
+      "updates": [
+        {
+          "id": "iran-update-1",
+          "label": "Mon\u2013Wed Apr 21\u201323",
+          "timestamp": "Week recap",
+          "is_live": false,
+          "headline": "Trump extends ceasefire; talks stall; Hormuz seizures intensify",
+          "body": "Tuesday evening Trump extended the ceasefire citing Iran's 'seriously fractured' government. Extension came with a 3\u20135 day ultimatum. Iran's parliament speaker Ghalibaf said a full ceasefire only made sense if the Hormuz reopened. Wednesday saw Iran seize two foreign cargo ships inside the strait. Brent crude topped $105 Thursday on dual-blockade fears.",
+          "bullets": [
+            "Ship traffic: Roughly 20M bbl/day transited Hormuz pre-war; current flow is a fraction of normal.",
+            "Naval escalation: US seized three ships under the blockade. Iran captured two cargo vessels."
+          ],
+          "market_impact": {
+            "session": "Midweek",
+            "text": "S&P dipped 0.4% Wednesday before recovering Thursday on earnings. Oil vol elevated. Energy sector beneficiary; transports and consumer discretionary exposed to inflation pass-through."
+          },
+          "sources": [
+            {
+              "label": "CNBC \u2014 Iran oil price Strait Hormuz Apr 23",
+              "url": "https://www.cnbc.com/2026/04/23/oil-price-iran-war-strait-hormuz.html"
+            },
+            {
+              "label": "Wikipedia \u2014 2026 Iran war ceasefire chronology",
+              "url": "https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire"
+            }
+          ]
+        },
+        {
+          "id": "iran-update-2",
+          "label": "Weekend \u2014 Update 2",
+          "timestamp": "Sat\u2013Sun Apr 25\u201326",
+          "is_live": false,
+          "headline": "Trump cancels Witkoff/Kushner Islamabad trip \u2014 peace hopes collapse Sunday AM",
+          "body": "Iran's FM Araghchi traveled to Pakistan Friday, then flew to Oman Saturday. On Sunday morning Trump announced he was canceling his envoys' planned trip to Islamabad, telling Fox News he would not send his team on 'an 18-hour flight to sit around talking about nothing.' Monday morning had to reprice the geopolitical component of the equity tape.",
+          "bullets": [
+            "IEA assessment: IEA head Birol called this 'the biggest energy security threat in history.'",
+            "Israel-Lebanon: Trump Thursday announced a 3-week extension to the Israel-Lebanon ceasefire \u2014 a stabilizing signal \u2014 but Israel's PM simultaneously ordered vigorous attacks on Hezbollah. Lebanese Health Ministry death toll since March 2 now stands above 2,496."
+          ],
+          "sources": [
+            {
+              "label": "CNN Live \u2014 Trump cancels Witkoff/Kushner Pakistan trip Apr 25",
+              "url": "https://www.cnn.com/2026/04/25/world/live-news/iran-war-israel-pakistan-talks"
+            },
+            {
+              "label": "Al Jazeera \u2014 Iran war live, Apr 26 AM",
+              "url": "https://www.aljazeera.com/news/liveblog/2026/4/26/iran-war-live-tehrans-fm-in-islamabad-us-says-envoys-to-travel-for-talks"
+            }
+          ]
+        },
+        {
+          "id": "iran-update-3",
+          "label": "Update 3 \u2014 Mon\u2013Tue Apr 28",
+          "timestamp": "Mon\u2013Tue Apr 28",
+          "is_live": false,
+          "headline": "Iran submits formal Hormuz proposal \u2014 nuclear bypass offer; US skeptical; Brent $111; UAE exits OPEC",
+          "body": "Iran's FM Araghchi flew to Moscow Monday to meet Putin before the proposal reached Washington. Tehran's new offer: reopen Hormuz and end hostilities if the US lifts its naval blockade \u2014 but nuclear program negotiations deferred to a later stage. Rubio called it 'better' but indicated nuclear deferral is a non-starter. CNN reports Trump unlikely to accept.",
+          "bullets": [
+            "UAE exits OPEC effective May 1: First major Gulf exit since Qatar in 2019. UAE produced 3.4M bbl/day pre-war but was cut to 1.9M bbl/day by Hormuz closure.",
+            "Oil 7th straight up session: Brent topped $111 Tuesday \u2014 highest since March. WTI surpassed $98. National average gas hit $4.18/gallon.",
+            "UN Security Council: Guterres warned standoff risks triggering a global food emergency. Qatar warned against a 'frozen conflict.'"
+          ],
+          "market_impact": {
+            "session": "Mon\u2013Tue Apr 28",
+            "text": "Monday: S&P 7,173.91 (+0.12%, ATH close), Nasdaq 24,887.10 (+0.20%, ATH close). Tuesday reversed \u2014 Nasdaq \u22121%, S&P \u22120.49% on OpenAI miss + oil rise."
+          },
+          "sources": [
+            {
+              "label": "NBC News \u2014 US cool on Iran proposal, Brent hits 3-week high Apr 28",
+              "url": "https://www.nbcnews.com/world/iran/trumpl-iran-proposal-end-war-reopen-hormuz-nuclear-deal-oil-storage-rcna342441"
+            },
+            {
+              "label": "The National \u2014 UAE announces OPEC exit Apr 28",
+              "url": "https://www.thenationalnews.com/business/2026/04/28/uae-announces-it-will-leave-opec/"
+            },
+            {
+              "label": "Bloomberg \u2014 UAE to leave OPEC and OPEC+ in May Apr 28",
+              "url": "https://www.bloomberg.com/news/articles/2026-04-28/uae-to-leave-opec-and-opec-next-month-to-pursue-new-strategy"
+            }
+          ]
+        },
+        {
+          "id": "iran-update-4",
+          "label": "Update 4 \u2014 Wed Apr 29 AM",
+          "timestamp": "Wed Apr 29 AM",
+          "is_live": false,
+          "headline": "Trump 'No More Mr. Nice Guy' \u2014 Rubio rejects proposal AND questions Araghchi's authority \u2014 Brent $115",
+          "body": "At 4am ET Wednesday, Trump posted on Truth Social: 'Iran can't get their act together. They don't know how to sign a non-nuclear deal. They better get smart soon!' accompanied by an AI gun image captioned 'NO MORE MR. NICE GUY!' WSJ reports Trump has told aides to prepare for an extended blockade.",
+          "bullets": [
+            "Rubio authority question: Rubio told Fox News he questions whether Araghchi 'had the authority to submit that offer' \u2014 meaning the US now doubts whether any FM deal can be honored by the Supreme Leader.",
+            "Bessent: Iran oil pumping 'will soon collapse': Treasury Secretary posted on X the US blockade is 'creaking' Iran's oil industry. Signals the strategy is economic strangulation.",
+            "Oil: Brent $115+ (highest since June 2022), WTI $103+ \u2014 8th straight session. Both up 49%+ since war began Feb 28.",
+            "IRGC counter-threat: Deputy for Political Affairs warned of 'surprise tactics' that would 'set massive vessels ablaze' in case of any US miscalculation."
+          ],
+          "market_impact": {
+            "session": "Wed Apr 29 AM",
+            "text": "Hyperscalers all 1\u20132% lower premarket. Brent $115 on FOMC day. S&P futures +0.22%, Nasdaq futures +0.50% \u2014 market not in full retreat but Iran-exposed AI names selling into earnings."
+          },
+          "sources": [
+            {
+              "label": "The National \u2014 Trump 'No More Mr. Nice Guy' Iran warning Apr 29",
+              "url": "https://www.thenationalnews.com/news/mena/2026/04/29/trump-warns-iran-no-more-nice-guy/"
+            },
+            {
+              "label": "ABC7 \u2014 Rubio dismisses Iran proposal, questions authority; Bessent warning Apr 29",
+              "url": "https://abc7.com/live-updates/iran-war-today-trump-straight-of-hormuz-us-ceasefire-talks/18979096/"
+            },
+            {
+              "label": "CNBC \u2014 Oil extends rally, Brent tops $114, WTI above $103 Apr 29",
+              "url": "https://www.cnbc.com/2026/04/29/oil-prices-brent-wti-trump-iran.html"
+            }
+          ]
+        },
+        {
+          "id": "iran-update-5",
+          "label": "Update 5 \u2014 Wed\u2013Thu Apr 29\u201330",
+          "timestamp": "Wed\u2013Thu Apr 29\u201330",
+          "is_live": false,
+          "headline": "Trump formally rejects Iran proposal \u2014 'no nuclear weapons, ever' \u2014 Ghalibaf says oil heading to $140 \u2014 revised proposal expected Friday",
+          "body": "In a phone interview with Axios Wednesday afternoon, Trump formally and publicly rejected Iran's Hormuz-without-nuclear proposal: 'at this moment, there will never be a deal unless they agree that there will be no nuclear weapons.' WSJ confirmed he told aides to prepare for extended blockade. Brent peaked at $116.53 Wed (+4.74%) \u2014 highest since June 2022. WTI above $104. Pakistani sources tell CNN that Iran's revised proposal may arrive by Friday.",
+          "bullets": [
+            "Ghalibaf: oil to $140 \u2014 mocked Bessent's 'pumping will collapse' prediction, citing 'three days in, no well exploded.' Said 'Next stop: 140' on Brent.",
+            "IRGC escalation: Daily kinetic threat language. Deputy for Political Affairs warned of 'surprise tactics' and ability to 'set massive vessels ablaze.'",
+            "Revised proposal expected Friday: CNN sources say Pakistan may receive revised Iranian framework by end of week."
+          ],
+          "market_impact": {
+            "session": "Thu Apr 30 AM",
+            "text": "Oil pulled back slightly from $116 peak as hyperscaler earnings provided risk-on offset. WTI ~$103-104, Brent ~$114-116. Formal rejection removes near-term diplomatic ceiling on oil upside. Friday revised proposal is the next Iran catalyst."
+          },
+          "sources": [
+            {
+              "label": "CNN \u2014 Trump rejects Iran proposal, Iran-Ukraine timetable, Day 61 Apr 29",
+              "url": "https://www.cnn.com/2026/04/29/world/live-news/iran-war-peace-proposal-trump"
+            },
+            {
+              "label": "ABC7 \u2014 Ghalibaf 'Next stop 140'; Bessent oil collapse warning Apr 29",
+              "url": "https://abc7.com/live-updates/iran-war-today-trump-straight-of-hormuz-us-ceasefire-talks/18979096/"
+            },
+            {
+              "label": "Trading Economics \u2014 Brent crude $116.53 high Apr 29 (+4.74%)",
+              "url": "https://tradingeconomics.com/commodity/brent-crude-oil"
+            }
+          ]
+        },
+        {
+          "id": "iran-update-6",
+          "label": "Live Update",
+          "timestamp": "Fri May 1",
+          "is_live": true,
+          "headline": "Iran sends revised proposal via Pakistan \u2014 oil drops 5% \u2014 Trump says 'no one knows' \u2014 CENTCOM prepared strike plan \u2014 War Powers deadline today",
+          "body": "Iran sent an updated peace proposal to Pakistani mediators Friday morning. Pakistani officials confirmed mediators received the revised framework and it has been delivered to the US. Oil fell sharply on the news \u2014 WTI crude fell nearly 5% to $100.03, Brent lost nearly 3% to $107.14 by mid-morning. Trump, speaking Friday, said 'no one knows' the status of talks with Iran as the S&P 500 hit a fresh all-time high. The administration simultaneously argued the ceasefire 'terminated' hostilities for War Powers Resolution purposes, avoiding the May 1 congressional deadline.",
+          "bullets": [
+            "Revised proposal delivered: Pakistani officials confirmed to MS Now that mediators received an updated framework from Iran. The proposal has been delivered to the US. No details of its contents have been disclosed, but it follows Trump's formal rejection of the prior offer Wednesday.",
+            "Oil -5% on hopes: WTI fell to $100.03 (from $103+ Thursday), Brent to $107.14 (from $114-116 range). Context: Brent hit a four-year high of $126.41 on Thursday before settling at $114.01. Friday's drop is significant but oil remains far above pre-war levels.",
+            "CENTCOM strike plan: Axios reported Thursday that Trump received a briefing from CENTCOM Admiral Brad Cooper on a 'short and powerful' wave of strikes against Iran \u2014 including infrastructure \u2014 as a pressure option if talks fail. The plan exists; it has not been ordered.",
+            "War Powers deadline: The 60-day War Powers Resolution clock (started March 2) hit May 1. The White House argues the ceasefire 'terminated' hostilities, making the deadline moot. Democratic senators Kaine and Warren disagree. Hegseth argued the same before the House Armed Services Committee.",
+            "Gas $4.39/gallon: National average hit a new war-era high Thursday per AAA. This is the inflation pressure the FOMC hawkish dissenters (Hammack/Kashkari, who pushed back again Friday) are flagging as incompatible with any near-term rate cut."
+          ],
+          "market_impact": {
+            "session": "Fri May 1",
+            "text": "Oil -5% on revised proposal news is the dominant early catalyst. S&P +0.54%, Nasdaq +0.69%, Russell +2.21%. Apple +3.5% pulling everything higher. The combination of Apple's blowout + Iran diplomatic re-engagement + oil pullback is the trifecta driving the risk-on regime upgrade. Watch: if Trump responds to the revised proposal positively over the weekend, oil could fall another $5-10 Monday and cement the Risk-On (Strong) regime."
+          },
+          "sources": [
+            {
+              "label": "CNBC \u2014 Oil prices fall after Iran sends updated peace proposal to mediators in Pakistan May 1",
+              "url": "https://www.cnbc.com/2026/05/01/oil-prices-today-brent-wti-us-iran-war-trump-war-powers-deadline.html"
+            },
+            {
+              "label": "CBS News \u2014 Iran war, Trump mulls latest Iranian offer, War Powers deadline May 1",
+              "url": "https://www.cbsnews.com/live-updates/iran-war-trump-oil-prices-hegseth-costs-strait-of-hormuz/"
+            },
+            {
+              "label": "TheStreet \u2014 Stock market today May 1: S&P Nasdaq records, Apple, oil falls",
+              "url": "https://www.thestreet.com/latest-news/stock-market-today-may-1-2026-updates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intel-chips-ai",
+      "type": "narrative_card",
+      "tag": "Earnings",
+      "headline": "Intel's Best Day Since 1987 Reignites the AI CPU Thesis \u2014 and Drags the Whole Chip Sector",
+      "body": "Intel reported Q1 revenue of $13.6B against consensus of $12.4B \u2014 a $1.2B beat \u2014 with adj. EPS of $0.29 vs. $0.01 expected. Data center and AI revenue accelerated sequentially, the Xeon 6+ ramp confirmed CPU is now an infrastructure play in agentic AI deployments, and Q2 guidance of $13.8\u2013$14.8B blew past $13.1B consensus. Shares closed up 24% Friday, the best single-session gain since October 1987. The broader read-through was immediate: AMD +13%, Qualcomm +10%, SOXX ETF posted its 18th consecutive positive session and ended the week +11%. Nvidia crossed the $5 trillion market cap threshold again on Friday."
+    },
+    {
+      "id": "flows-positioning",
+      "type": "story_thread",
+      "tag": "Flows",
+      "headline": "Retail Taking Profits on Intel; Institutional Conviction Drives the Index",
+      "body": "VandaTrack reported retail sold $18M+ of Intel into the 24% surge \u2014 disciplined exit, not FOMO. Fear & Greed recovered from 15 (Extreme Fear) to 72 (Greed) in 30 days. The week of Apr 21\u201325: Nasdaq +1.5%, S&P +0.6%, Dow -0.4% \u2014 technology-led advance, narrowing breadth.",
+      "updates": [
+        {
+          "id": "flows-update-1",
+          "label": "Update 1 \u2014 Tue Apr 28",
+          "timestamp": "Tue Apr 28",
+          "is_live": false,
+          "headline": "OpenAI revenue miss hits AI capex thesis \u2014 Monday ATH reversed sharply Tuesday",
+          "body": "WSJ reported Monday evening that OpenAI missed its own internal revenue and user-growth targets, and CFO Sarah Friar warned leadership the company may struggle to pay future computing contracts if top-line doesn't expand. Oracle (holding a $300B, 5-year OpenAI compute contract) dropped 7.5% premarket Tuesday. Nvidia, Broadcom, AMD fell 2\u20135%.",
+          "bullets": [
+            "Tuesday confirmed closes: S&P 7,138.80 (\u22120.49%), Nasdaq 24,663.80 (\u22120.9%), Dow 49,141.93 (\u22120.05%), Russell 2000 \u22121.15%. 10Y yield rose to 4.36% \u2014 a 4-week high.",
+            "Oracle defended OpenAI: Oracle spokesperson said it's 'incredibly excited' about the OpenAI partnership and sees 'continued momentum.'"
+          ],
+          "sources": [
+            {
+              "label": "CNBC \u2014 S&P 500/Nasdaq Tue Apr 28 confirmed closes",
+              "url": "https://www.cnbc.com/2026/04/27/stock-market-today-live-updates.html"
+            },
+            {
+              "label": "TheStreet \u2014 Stock market today Apr 28 confirmed closes",
+              "url": "https://www.thestreet.com/latest-news/stock-market-today-apr-28-2026-updates"
+            }
+          ]
+        },
+        {
+          "id": "flows-update-2",
+          "label": "Update 2 \u2014 Wed Apr 29 AM",
+          "timestamp": "Wed Apr 29 AM",
+          "is_live": false,
+          "headline": "Hyperscalers 1\u20132% lower premarket \u2014 AI capex verdict arrives tonight \u2014 S&P futures slightly higher",
+          "body": "All four major hyperscalers trading 1\u20132% lower premarket Wednesday as the OpenAI revenue miss overhang combines with Iran escalation heading into their earnings prints. S&P futures +0.22%, Nasdaq futures +0.50% \u2014 market not in full retreat but hyperscalers specifically being sold ahead of earnings.",
+          "bullets": [
+            "Microsoft tonight: Azure guided 37\u201338% growth. Beat threshold 39%+. Must address OpenAI demand weakness directly.",
+            "Alphabet/Meta/Amazon tonight: AI revenue attribution \u2014 how much cloud growth is directly AI-driven \u2014 is the decisive question.",
+            "Defensive rotation: Coca-Cola +4% Tuesday on strong earnings. Consumer staples gaining vs tech."
+          ],
+          "sources": [
+            {
+              "label": "Trading Economics \u2014 US stock market Apr 29 futures, hyperscaler premarket",
+              "url": "https://tradingeconomics.com/united-states/stock-market"
+            },
+            {
+              "label": "Yahoo Finance \u2014 Microsoft Q3 FY26 earnings preview Apr 29",
+              "url": "https://finance.yahoo.com/sectors/technology/article/microsoft-earnings-report-on-deck-with-stock-slide-azure-growth-and-openai-deal-hanging-over-company-211358133.html"
+            }
+          ]
+        },
+        {
+          "id": "flows-update-3",
+          "label": "Update 3 \u2014 Wed Close / Thu AM",
+          "timestamp": "Wed Close / Thu AM",
+          "is_live": false,
+          "headline": "Hyperscaler earnings: beat-and-raise broadly \u2014 Alphabet +7% AH, Meta \u22125% on flat Q2 guide \u2014 MSFT +3% AH \u2014 Dow 5th straight loss",
+          "body": "All four hyperscalers reported after Wednesday's close. Results broadly positive on AI revenue but created bifurcated after-hours reactions. Wednesday closed little-changed (S&P \u22120.04%, Nasdaq +0.04%) but the Dow fell for a fifth straight session (\u22120.57% to 48,861.81) on oil's drag. The 10Y yield surged 5+ bps to 4.41% after the Fed decision.",
+          "bullets": [
+            "Microsoft (MSFT) \u2014 Strong beat: Revenue $82.9B (+18%), Azure +40% (crushed 37-38% guidance, re-accelerated from 39%), AI annual run rate $37B (+123% YoY). Capex $31.9B \u2014 below the $34.9B estimate. Stock +3-4% AH.",
+            "Alphabet (GOOGL) \u2014 Blockbuster: Revenue $109.9B (+22%, best growth since 2022), Cloud $20B (+63%), net income +81% to $62.6B. CFO said 2027 capex will 'significantly increase.' Cloud backlog $460B. Stock +6-7% AH.",
+            "Meta \u2014 Mixed reaction: Revenue $56.3B (+33%), net income +61% to $26.8B. BUT Q2 revenue guide flat vs expectations \u2014 stock fell 5%+ AH. Capex raised to $125\u2013$145B (up from $115\u2013$135B).",
+            "Amazon (AMZN) \u2014 Softer: AWS +28% to $37.6B, total revenue +17% to $181.5B. Q2 guidance softer \u2014 stock -3% AH. $16.8B pre-tax gain from Anthropic investment boosted net income."
+          ],
+          "market_impact": {
+            "session": "Thu Apr 30 AM",
+            "text": "AI capex ROI narrative partially rehabilitated (Azure +40%, Google Cloud +63%) but not fully resolved (Meta flat Q2 guide, Amazon softer). Futures pointing modestly higher Thursday morning. GDP + Core PCE have now printed: GDP 2.0%, Core PCE 3.2%."
+          },
+          "sources": [
+            {
+              "label": "InvestmentNews \u2014 MSFT/META/GOOGL/AMZN Q1 2026 earnings recap",
+              "url": "https://www.investmentnews.com/equities/microsoft-meta-alphabet-amazon-report-earnings-should-investors-be-concerned/266374"
+            },
+            {
+              "label": "NBC News \u2014 Big Tech earnings beat but fell short of sky-high AI expectations Apr 29",
+              "url": "https://www.nbcnews.com/business/markets/big-tech-ai-earnings-alphabet-meta-amazon-microsoft-rcna342796"
+            },
+            {
+              "label": "SEC 8-K \u2014 Amazon Q1 2026 (AWS +28%, Anthropic $16.8B gain)",
+              "url": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000012/amzn-20260331xex991.htm"
+            }
+          ]
+        },
+        {
+          "id": "flows-update-4",
+          "label": "Live Update",
+          "timestamp": "Thu Close / Fri May 1",
+          "is_live": true,
+          "headline": "S&P and Nasdaq hit all-time highs Thursday \u2014 April best month since 2020 \u2014 Apple +3.5% Fri \u2014 Russell leads",
+          "body": "Thursday Apr 30 closed at record highs: S&P 7,207.xx (+1.02%, first-ever close above 7,200), Nasdaq record close (+0.89%), Dow +1.62% (+850pts), Russell 2000 +2.1% (best performer). S&P finished April +10% \u2014 best single month since November 2020. Every sector of the S&P 500 advanced Thursday. Caterpillar +10% (beat) and Alphabet +9% led; Meta -7.5% and Microsoft -3.8% were the main drags but couldn't stop the tape.",
+          "bullets": [
+            "Friday May 1 early: S&P +0.54%, Dow +0.37%, Nasdaq +0.69%, Russell 2000 +2.21%. Apple +3.5% premarket after blowout earnings carrying the Nasdaq.",
+            "Energy major earnings: XOM and CVX both beat Wall Street expectations but profits fell sharply \u2014 XOM net income -45%, CVX -36% \u2014 due to oil price surge since Feb 28 causing accounting charges and hedging losses. Gas $4.39/gallon national average, up 42-44% since war began.",
+            "SanDisk (SNDK) crushed estimates: Revenue $5.95B, EPS $23.41 vs $14.50 expected, gross margin ~78%. CEO: 'fundamental inflection point' tied to datacenter mix shift. Shares +73% over past month \u2014 the hidden AI infrastructure winner of earnings season.",
+            "Market breadth improving: S&P equal-weight rose <6% in April vs cap-weight +10% \u2014 rally still mega-cap led. Russell 2000 outperforming Friday is the first sign of broadening. Watch whether Apple's follow-through pulls laggards into May."
+          ],
+          "market_impact": {
+            "session": "Fri May 1",
+            "text": "The combination of Apple blowout + Iran revised proposal + oil -5% is driving the broadest risk-on session since the Intel earnings week. Russell +2.21% suggests rotation is beginning. The risk: rally still mega-cap concentrated. Two Fed dissenters (Hammack, Kashkari) pushed back on any dovish FOMC read Friday \u2014 the rate path remains live."
+          },
+          "sources": [
+            {
+              "label": "TheStreet \u2014 Stock market today May 1: Nasdaq S&P 500 jump again after record closes",
+              "url": "https://www.thestreet.com/latest-news/stock-market-today-may-1-2026-updates"
+            },
+            {
+              "label": "CNBC \u2014 S&P 500 rises to record to kick off May trading as oil falls, Apple shares jump",
+              "url": "https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html"
+            },
+            {
+              "label": "24/7 Wall St \u2014 S&P 500 strong May footing powered by Apple, SanDisk, easing oil",
+              "url": "https://247wallst.com/investing/2026/05/01/sp-500s-strong-may-footing-powered-by-apple-sandisk-and-easing-oil/"
+            },
+            {
+              "label": "TheStreet \u2014 Stock market today Apr 30: S&P caps best month since 2020 as Alphabet rallies",
+              "url": "https://www.thestreet.com/latest-news/stock-market-today-apr-30-2026-updates"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fomc-setup",
+      "type": "story_thread",
+      "tag": "Fed",
+      "headline": "FOMC Tuesday\u2013Wednesday: Hold Certain, but the Statement Tone Is the Variable",
+      "body": "Fed meets Apr 28\u201329. Hold at 3.50\u20133.75% unanimous. Powell's press conference is the variable \u2014 how he characterizes stagflation risk from the Hormuz blockade, and whether he shifts language toward 'higher for longer,' will hit rate-sensitive stocks. March FOMC minutes: 'further progress in reducing inflation had been absent in recent months.'",
+      "updates": [
+        {
+          "id": "fed-update-1",
+          "label": "Update 1 \u2014 Tue Apr 28",
+          "timestamp": "Tue Apr 28",
+          "is_live": false,
+          "headline": "Powell's final FOMC as chair \u2014 Warsh Senate vote 10am same day \u2014 market prices no cuts until Sept 2027",
+          "body": "Three developments materially changed what Wednesday means. First: this is Jerome Powell's final FOMC meeting as chair \u2014 term expires May 15. Second: Senate Banking Committee votes on Warsh at 10am ET Wednesday, 4 hours before the decision. Third: CME FedWatch now shows no cuts until September 2027.",
+          "bullets": [
+            "Warsh path cleared: DOJ dropped Powell investigation Friday. Tillis lifted block. Republicans hold 13\u201311 majority. EY-Parthenon expects Warsh confirmed before May 15, chairing the June FOMC.",
+            "Warsh regime-change signals: Fewer annual meetings, new inflation framework. RSM Brusuelas: 'Investors are not pricing in a rate cut this year.'"
+          ],
+          "sources": [
+            {
+              "label": "CBS News \u2014 Fed rate decision April 2026, Powell final meeting",
+              "url": "https://www.cbsnews.com/news/fed-rate-decision-april-2026-powell-final-meeting/"
+            },
+            {
+              "label": "Reuters/WHBL \u2014 Senate Banking Committee Warsh vote April 29",
+              "url": "https://whbl.com/2026/04/27/senate-panel-to-vote-on-wednesday-on-advancing-fed-chair-warshs-nomination/"
+            },
+            {
+              "label": "Blockonomi \u2014 Warsh confirmation, CME no-cut-til-2027",
+              "url": "https://blockonomi.com/kevin-warshs-fed-chair-confirmation-moves-forward-after-gop-senator-lifts-block/"
+            }
+          ]
+        },
+        {
+          "id": "fed-update-2",
+          "label": "Update 2 \u2014 Wed Apr 29",
+          "timestamp": "Wed Apr 29",
+          "is_live": false,
+          "headline": "Decision arrives 2pm today \u2014 Warsh vote this morning \u2014 Powell final press conference 2:30pm",
+          "body": "Today is the day. The Warsh Senate Banking Committee vote is this morning at 10am ET. The FOMC rate decision arrives at 2pm \u2014 hold at 3.50\u20133.75% is 100% priced. Powell's last press conference as chair begins at 2:30pm.",
+          "bullets": [
+            "Brent $115 at press conference time: Powell faces questions about a supply shock the FOMC cannot address with rate cuts. His exact language on the energy shock changes the balance of risks.",
+            "Will Powell confirm staying as Fed Governor through 2028? The DOJ investigation was dropped Friday, removing his stated precondition.",
+            "Powell press conference as valedictory: The usual forward guidance read-through is diminished \u2014 this is more about tone and legacy."
+          ],
+          "market_impact": {
+            "session": "2\u20133pm ET Today",
+            "text": "With the rate decision zero-surprise, the market-moving variables are: (1) dovish language from Powell contradicting 'no cuts until 2027' \u2014 bullish; (2) stagflation acknowledgment on Iran \u2014 bearish; (3) Powell's answer on remaining as Governor."
+          },
+          "sources": [
+            {
+              "label": "CNBC \u2014 Fed meeting preview April 2026, Powell legacy Apr 28",
+              "url": "https://www.cnbc.com/2026/04/28/fed-meeting-preview-april-2026.html"
+            },
+            {
+              "label": "Kiplinger \u2014 April Fed meeting live updates Apr 29",
+              "url": "https://www.kiplinger.com/news/live/fed-meeting-updates-and-commentary-april-2026"
+            }
+          ]
+        },
+        {
+          "id": "fed-update-3",
+          "label": "Update 3 \u2014 Wed Close \u2014 RESULTS",
+          "timestamp": "Wed Close \u2014 RESULTS",
+          "is_live": false,
+          "headline": "FOMC held 3.5\u20133.75% in dramatic 8-4 split \u2014 Powell stays as Fed Governor \u2014 'Trump's legal attacks left me no choice'",
+          "body": "The Federal Reserve held at 3.50\u20133.75% in an 8-4 split \u2014 the widest dissent margin in years. Stephen Miran wanted to cut rates; Beth Hammack, Neel Kashkari, and Lorie Logan opposed the inclusion of an easing bias in the statement \u2014 meaning they want the language to reflect that cuts are further away, not closer.",
+          "bullets": [
+            "Powell stays as Fed Governor: His exact words: 'Trump's legal attacks have left me no choice.' Powell will remain on the FOMC as a voting governor alongside Warsh starting June.",
+            "Warsh advanced 13-11 party-line: All 13 Republicans in favor, all 11 Democrats against. Full Senate confirmation vote expected within weeks.",
+            "Hawkish dissent signal: KKM Financial CEO Kilburg on CNBC: the three dissenters are 'sending a warning to Trump nominee Warsh \u2014 this is a new quarterback hitting the portal.'",
+            "March CPI context: Headline CPI rose 0.9% MoM and 3.3% YoY in March \u2014 highest annual increase since May 2024. Core PCE just printed 3.2% this morning."
+          ],
+          "market_impact": {
+            "session": "Post-Fed / Thu AM",
+            "text": "The 10Y yield surged 5+ bps to 4.41% immediately after the decision. Core PCE 3.2% this morning validates the hawkish dissenters retroactively. Powell staying as Governor means Warsh inherits internal tension from day one of the June FOMC."
+          },
+          "sources": [
+            {
+              "label": "CNBC \u2014 Fed meeting live: Powell stays, 8-4 vote, Warsh advances Apr 29",
+              "url": "https://www.cnbc.com/2026/04/29/fed-meeting-today-live-updates-warsh-powell.html"
+            },
+            {
+              "label": "Federal Reserve \u2014 FOMC Statement Apr 29, 2026 (8-4 vote breakdown)",
+              "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm"
+            },
+            {
+              "label": "Kiplinger \u2014 April Fed meeting recap: Powell stays, hawkish split vote Apr 29",
+              "url": "https://www.kiplinger.com/news/live/fed-meeting-updates-and-commentary-april-2026"
+            }
+          ]
+        },
+        {
+          "id": "fed-update-4",
+          "label": "Live Update",
+          "timestamp": "Fri May 1",
+          "is_live": true,
+          "headline": "Hammack and Kashkari push back Friday \u2014 gas $4.39/gallon \u2014 War Powers Resolution deadline today \u2014 rate path stays live",
+          "body": "Two of the three hawkish FOMC dissenters from Wednesday \u2014 Beth Hammack and Neel Kashkari \u2014 publicly pushed back on any dovish interpretation of the FOMC outcome Friday, citing oil-driven inflation risk from the Hormuz closure. Gas hit $4.39/gallon nationally Thursday \u2014 up 42-44% since the war began February 28. The War Powers Resolution May 1 deadline arrived today: White House argues the ceasefire 'terminated' hostilities for WPR purposes, meaning Trump does not need Congressional authorization. Democratic senators Kaine and Warren formally dispute this reading.",
+          "bullets": [
+            "Hammack and Kashkari public pushback: Both told media Friday that the oil-driven inflation environment is incompatible with any near-term rate cut. This is the same position they voted on Wednesday but now stated publicly \u2014 a signal they will continue to advocate for hawkish policy under Warsh.",
+            "War Powers deadline: The May 1 WPR 60-day clock was triggered March 2. White House argues ceasefire terminated it. Hegseth argued the same before Congress Thursday. Democratic senators formally disagree \u2014 sets up a potential constitutional confrontation over the conflict's legal authorization.",
+            "Rate market: No meaningful repricing of the 'no cuts until Sept 2027+' path despite Apple blowout and S&P records. The 10Y yield remains elevated at 4.41%."
+          ],
+          "market_impact": {
+            "session": "Fri May 1",
+            "text": "Hawkish pushback from Hammack/Kashkari caps the bond rally that would normally accompany a risk-on equity day. 10Y holding near 4.41% limits how much rate-sensitive names (banks, utilities, homebuilders) can participate in the rally. The rate-path-vs-earnings tension is the defining macro setup for May."
+          },
+          "sources": [
+            {
+              "label": "24/7 Wall St \u2014 Hammack/Kashkari push back on dovish FOMC read, May 1",
+              "url": "https://247wallst.com/investing/2026/05/01/sp-500s-strong-may-footing-powered-by-apple-sandisk-and-easing-oil/"
+            },
+            {
+              "label": "CNBC \u2014 War Powers Resolution deadline, White House ceasefire argument, May 1",
+              "url": "https://www.cnbc.com/2026/05/01/oil-prices-today-brent-wti-us-iran-war-trump-war-powers-deadline.html"
+            },
+            {
+              "label": "CBS News \u2014 Hegseth, War Powers, gas $4.39, CENTCOM strike plan",
+              "url": "https://www.cbsnews.com/live-updates/iran-war-trump-oil-prices-hegseth-costs-strait-of-hormuz/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "consumer-sentiment",
+      "type": "narrative_card",
+      "tag": "Econ Data",
+      "headline": "Consumer Sentiment at Record Low Even as Stocks Hit Records \u2014 Dangerous Divergence",
+      "body": "The final University of Michigan Consumer Sentiment survey for April, released Friday, showed sentiment holding at record-low levels even as markets hit all-time highs and the ceasefire removed near-term war fears. This divergence between equity markets and consumer psychology is notable. Energy prices near $4/gallon nationally and elevated food costs from supply chain disruptions are hitting households in ways that don't show up in headline index performance. Energy Secretary Wright acknowledged on CNN Sunday that gas prices below $3/gallon 'might not happen until next year.' The Q4 2025 GDP revision to 0.5% from 1.4% remains a warning about the reliability of advance estimates."
+    }
+  ],
+  "catalyst_calendar": [
+    {
+      "date": "2026-04-28",
+      "date_label": "Monday Apr 28",
+      "time": null,
+      "event": "Iran Talks / Hormuz Overnight Developments",
+      "impact": "high",
+      "flag": "MONITOR",
+      "tags": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "body": "Trump canceled the Witkoff/Kushner Islamabad trip Sunday AM. Monday's open reflected weekend repricing of the geopolitical premium. Watch for any Truth Social posts from Trump on Iran, any Iranian response to the cancellation, and whether Araghchi's Oman visit yields a back-channel signal."
+    },
+    {
+      "date": "2026-04-28",
+      "date_label": "Tuesday Apr 28 \u2014 10:00 ET",
+      "time": "10:00 ET",
+      "event": "Conference Board Consumer Confidence \u2014 April",
+      "impact": "medium",
+      "flag": null,
+      "tags": [
+        "Econ Data"
+      ],
+      "body": "March reading came in at 91.8, fractionally above 91.0 prior but with a weak Expectations sub-index. April's reading will reflect the Iran conflict, oil shock, and ceasefire period. A further decline below 90 would strengthen the recession-risk narrative heading into Thursday's GDP print."
+    },
+    {
+      "date": "2026-04-28",
+      "date_label": "Tuesday Apr 28 \u2014 After Close",
+      "time": "After Close",
+      "event": "Microsoft Q3 FY26 Earnings",
+      "impact": "high",
+      "flag": "COMPLETED",
+      "tags": [
+        "Earnings"
+      ],
+      "body": "Result: Revenue $82.9B (+18%), Azure +40% (crushed 37-38% guidance, re-accelerated from 39%), AI annual run rate $37B (+123% YoY). Capex $31.9B \u2014 below $34.9B estimate. Nadella: 'Our AI business surpassed $37B run rate.' Directly neutralized the OpenAI miss narrative. Stock +3-4% AH."
+    },
+    {
+      "date": "2026-04-29",
+      "date_label": "Wednesday Apr 29 \u2014 10:00 AM ET",
+      "time": "10:00 AM ET",
+      "event": "Senate Banking Committee: Kevin Warsh Fed Chair Confirmation Vote",
+      "impact": "high",
+      "flag": "COMPLETED",
+      "tags": [
+        "Fed"
+      ],
+      "body": "Result: Voted 13-11 along strict party lines \u2014 all 13 Republicans yes, all 11 Democrats no. Warsh advances to full Senate confirmation vote, expected within weeks. Powell congratulated Warsh in his final press conference remarks. EY-Parthenon expects Warsh confirmed before Powell's May 15 term end, chairing the June FOMC."
+    },
+    {
+      "date": "2026-04-29",
+      "date_label": "Wednesday Apr 29 \u2014 2:00 PM ET",
+      "time": "2:00 PM ET",
+      "event": "FOMC Rate Decision + Powell Press Conference",
+      "impact": "high",
+      "flag": "COMPLETED",
+      "tags": [
+        "Fed"
+      ],
+      "body": "Result: Fed held 3.50\u20133.75% in a dramatic 8-4 split \u2014 widest dissent in years. Miran dissented wanting a cut; Hammack, Kashkari, and Logan dissented wanting the easing bias removed. Powell announced staying as Fed Governor: 'Trump's legal attacks have left me no choice.' 10Y surged 5+ bps to 4.41%. Core PCE 3.2% printed next morning validated the hawkish dissenters retroactively."
+    },
+    {
+      "date": "2026-04-29",
+      "date_label": "Wednesday Apr 29 \u2014 After Close",
+      "time": "After Close",
+      "event": "Alphabet, Meta, Amazon, Microsoft Q1 Earnings \u2014 AI Capex Triple-Header",
+      "impact": "high",
+      "flag": "COMPLETED",
+      "tags": [
+        "Earnings"
+      ],
+      "body": "Results: Microsoft: Azure +40% (beat 37-38% guide, re-accelerated), AI run rate $37B (+123%), capex below estimates \u2014 stock +3-4% AH. Alphabet: Cloud +63%, revenue +22% (best since 2022), net income +81% \u2014 stock +6-7% AH. Meta: revenue +33%, EPS +62%, BUT Q2 guide flat + capex raised to $125-145B \u2014 stock \u22125% AH. Amazon: AWS +28%, softer Q2 guidance, $16.8B Anthropic gain inflated headline \u2014 stock \u22123% AH."
+    },
+    {
+      "date": "2026-04-30",
+      "date_label": "Thursday Apr 30 \u2014 8:30 ET",
+      "time": "8:30 ET",
+      "event": "Q1 2026 GDP Advance Estimate + Core PCE March",
+      "impact": "high",
+      "flag": "JUST PRINTED",
+      "tags": [
+        "Econ Data",
+        "Fed"
+      ],
+      "body": "Results (8:30 ET today): Q1 GDP advance estimate: 2.0% annualized \u2014 beats 0.5% Q4, misses 2.3% consensus. Core PCE March: 3.2% YoY \u2014 sharply accelerating from 2.7% February. PCE headline 3.5% (from 2.8%). The combination is the stagflation configuration: growth below consensus, inflation re-accelerating. FOMC hawkish dissenters from yesterday are retroactively validated by the PCE acceleration."
+    },
+    {
+      "date": "2026-04-30",
+      "date_label": "Thursday Apr 30 \u2014 After Close",
+      "time": "After Close",
+      "event": "Apple Q2 FY26 Earnings",
+      "impact": "high",
+      "flag": "COMPLETED",
+      "tags": [
+        "Earnings"
+      ],
+      "body": "Result: Revenue $111.18B (+17%, March quarter record, first time Q2 crossed $100B). EPS $2.01 vs $1.95 est. iPhone $57B (+22%, March record). Services $30.98B all-time high. Mac $8.4B. Gross margin 49.3% vs 48.4% est. Q3 guidance: 14-17% growth vs 9.5% est. $100B buyback authorized. Dividend raised to $0.27 (+4%). Cook: 'best March quarter ever.' Stock +3.5% Fri. Cook did not bring Ternus on the call. Supply constraints flagged for Q3 (memory crunch per Cook)."
+    },
+    {
+      "date": "2026-05-01",
+      "date_label": "Friday May 1 \u2014 10:00 ET",
+      "time": "10:00 ET",
+      "event": "University of Michigan Final Consumer Sentiment + ISM Manufacturing",
+      "impact": "medium",
+      "flag": "TODAY",
+      "tags": [
+        "Econ Data"
+      ],
+      "body": "ISM Manufacturing PMI \u2014 a below-50 reading confirms goods sector contraction under the oil shock. Paired with Thursday's GDP 2.0% print. UMich Final Consumer Sentiment \u2014 record-low readings have been consistent; any bounce would be notable given S&P at all-time highs and Apple blowout."
+    },
+    {
+      "date": "all_week",
+      "date_label": "All Week",
+      "time": "Continuous",
+      "event": "Iran / Hormuz / UAE-OPEC Headlines \u2014 Continuous",
+      "impact": "high",
+      "flag": "Updated",
+      "tags": [
+        "Geopolitical",
+        "Energy"
+      ],
+      "body": "Iran submitted a formal Hormuz-bypass proposal Monday (reopen strait, defer nuclear talks). US skeptical \u2014 Rubio says nuclear issue is non-negotiable upfront. Brent $111, WTI $98+, gas $4.18 national average. No face-to-face meetings currently scheduled. UAE exits OPEC effective May 1. UN Security Council called Monday for urgent Hormuz reopening. The ceasefire's status, any ship seizures, and any response from Trump on the Iranian proposal are continuous catalysts. Oil can move 3\u20137% on a single development."
+    }
+  ],
+  "market_snapshot": {
+    "as_of": "2026-05-01T11:30:00-04:00",
+    "indexes": [
+      {
+        "label": "S&P 500",
+        "value": "7,207+",
+        "note": "Thu record close (+1.02%, first above 7,200) | May 1 +0.54%",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq",
+        "value": "Record",
+        "note": "Thu record close (+0.89%) | May 1 +0.69%",
+        "direction": "up"
+      },
+      {
+        "label": "Dow Jones",
+        "value": "+850pts",
+        "note": "Thu +1.62% | May 1 +0.37%",
+        "direction": "up"
+      },
+      {
+        "label": "Russell 2000",
+        "value": "+2.1%",
+        "note": "Thu outperformer | May 1 +2.21% \u2014 broadening signal",
+        "direction": "up"
+      },
+      {
+        "label": "S&P April",
+        "value": "+10%",
+        "note": "Best month since November 2020",
+        "direction": "up"
+      },
+      {
+        "label": "10Y Yield",
+        "value": "~4.41%",
+        "note": "Holding elevated \u2014 Hammack/Kashkari pushing back Fri",
+        "direction": "down"
+      }
+    ],
+    "macro_fed": [
+      {
+        "label": "Fed Funds Rate",
+        "value": "3.50\u20133.75%",
+        "note": "Held \u2014 8-4 split Wed",
+        "direction": "neutral"
+      },
+      {
+        "label": "First Cut Priced",
+        "value": "Sept 2027+",
+        "note": "Hawkish dissenters publicly pushing back Fri",
+        "direction": "down"
+      },
+      {
+        "label": "Core PCE (March)",
+        "value": "3.2% YoY",
+        "note": "Printed Thu Apr 30 \u2014 accelerated from 2.7% Feb",
+        "direction": "down"
+      },
+      {
+        "label": "Q1 GDP",
+        "value": "2.0%",
+        "note": "Advance estimate \u2014 beats Q4 0.5%, misses 2.3% consensus",
+        "direction": "neutral"
+      },
+      {
+        "label": "Warsh",
+        "value": "Advanced 13-11",
+        "note": "Party-line Senate Banking \u2014 full Senate vote pending",
+        "direction": "neutral"
+      },
+      {
+        "label": "Powell",
+        "value": "Stays as Governor",
+        "note": "Votes alongside Warsh starting June FOMC",
+        "direction": "neutral"
+      }
+    ],
+    "energy_volatility": [
+      {
+        "label": "WTI Crude",
+        "value": "~$100",
+        "note": "Fell ~5% Fri on Iran revised proposal \u2014 was $103+ Thu",
+        "direction": "up"
+      },
+      {
+        "label": "Brent Crude",
+        "value": "~$107",
+        "note": "Fell ~3% Fri \u2014 peaked $126.41 Thu (4-year high)",
+        "direction": "up"
+      },
+      {
+        "label": "National Gas",
+        "value": "$4.39/gal",
+        "note": "New war-era high Thu \u2014 up 42-44% since war began Feb 28",
+        "direction": "down"
+      },
+      {
+        "label": "Hormuz Status",
+        "value": "CLOSED",
+        "note": "Revised Iran proposal delivered Fri \u2014 US reviewing",
+        "direction": "neutral"
+      },
+      {
+        "label": "Gold",
+        "value": "~$4,614",
+        "note": "Holding near recent levels",
+        "direction": "neutral"
+      },
+      {
+        "label": "Apple (AAPL)",
+        "value": "~$271",
+        "note": "+3.5% Fri after blowout Q2 \u2014 $100B buyback, div +4%",
+        "direction": "up"
+      }
+    ]
+  },
+  "stories_to_track": {
+    "geopolitical_macro": [
+      {
+        "label": "Iran \u2014 Revised proposal delivered to Pakistan Fri; US reviewing. Trump: 'no one knows' status. CENTCOM prepared strike plan as backup",
+        "status": "REVISED PROPOSAL \u2014 WATCH",
+        "direction": "neutral"
+      },
+      {
+        "label": "Hormuz \u2014 Oil -5% on Fri proposal news (WTI $100, Brent $107). Brent hit $126.41 four-year high Thu before settling. Still closed",
+        "status": "CLOSED / OIL -5% FRI",
+        "direction": "neutral"
+      },
+      {
+        "label": "War Powers Resolution \u2014 May 1 deadline TODAY. White House argues ceasefire terminated clock. Democrats dispute",
+        "status": "DEADLINE TODAY",
+        "direction": "down"
+      },
+      {
+        "label": "UAE exited OPEC May 1 \u2014 now in effect. First major Gulf exit since Qatar 2019",
+        "status": "IN EFFECT",
+        "direction": "down"
+      },
+      {
+        "label": "Fed dissenters \u2014 Hammack/Kashkari pushed back Friday on dovish FOMC read, citing oil inflation. 10Y holding 4.41%",
+        "status": "HAWKISH PUSHBACK",
+        "direction": "down"
+      },
+      {
+        "label": "Israel-Lebanon ceasefire \u2014 fraying; IDF still striking south; Hezbollah firing drones",
+        "status": "FRAYING",
+        "direction": "neutral"
+      }
+    ],
+    "sector_stock_signals": [
+      {
+        "label": "Apple \u2014 $111.18B rev (+17%), EPS $2.01 beat, Q3 guide 14-17% vs 9.5% est, $100B buyback, Services all-time record $31B",
+        "status": "BLOWOUT BEAT",
+        "direction": "up"
+      },
+      {
+        "label": "S&P 500 April +10% \u2014 best month since Nov 2020. S&P and Nasdaq hit record closes Thursday",
+        "status": "BULL CONFIRMED",
+        "direction": "up"
+      },
+      {
+        "label": "SanDisk \u2014 Revenue $5.95B, EPS $23.41 vs $14.50 est, gross margin ~78%. Datacenter AI storage inflection",
+        "status": "MASSIVE BEAT",
+        "direction": "up"
+      },
+      {
+        "label": "XOM/CVX beat estimates but profits -45%/-36% \u2014 hedging losses from oil surge since war. Gas $4.39/gallon",
+        "status": "BEAT / PROFITS DOWN",
+        "direction": "neutral"
+      },
+      {
+        "label": "Russell 2000 +2.21% Friday \u2014 first sign of broadening beyond mega-cap. Watch for May confirmation",
+        "status": "BROADENING SIGNAL",
+        "direction": "up"
+      },
+      {
+        "label": "Meta -7.5% Thu \u2014 capex raised, Q2 guide soft. Microsoft -3.8%. Nvidia -3%. AI spend debate not over",
+        "status": "LAGGARDS",
+        "direction": "down"
+      },
+      {
+        "label": "10Y yield 4.41% \u2014 Hammack/Kashkari pushing back Friday. Rate-sensitive sectors limited upside despite equity records",
+        "status": "ELEVATED / WATCH",
+        "direction": "down"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "bull",
+      "label": "A",
+      "case": "Bull",
+      "color": "green",
+      "headline": "Bull Case: Iran Blinks, Hormuz Cracks Open \u2014 Mag-7 Earnings Confirm AI ROI",
+      "body": "Araghchi's Oman visit produces a back-channel signal that Iran is prepared to reopen Hormuz under a modified framework. Trump reverses the talk-cancellation or frames it as a negotiating tactic. Oil drops $10\u2013$15 on the news, WTI falls back to $82\u2013$86 range. Simultaneously, Wed night's Alphabet/Meta/Amazon triple-header produces clean beat-and-raise results with AI revenue clearly accelerating vs. capex. Thursday's GDP comes in at 1.5%+ with core PCE holding at 2.7% \u2014 not good, but not worse. Fed reads as able to cut once in late 2026. Nasdaq pushes through 25,500. S&P targets 7,400\u20137,500 by Friday.",
+      "updates": [
+        {
+          "timestamp": "Fri May 1",
+          "label": "Update \u2014 Fri May 1 \u2014 Bull Case Largely Triggered",
+          "text": "Iran sent revised proposal (oil -5%) \u2713, Apple blowout beat-and-raise \u2713, S&P and Nasdaq at all-time highs \u2713, Russell broadening \u2713, April best month since 2020 \u2713. The bull case did not require full Hormuz reopening \u2014 just diplomatic re-engagement plus earnings confirmation. Both arrived. Hormuz remains closed (key miss vs. full bull case), and Core PCE 3.2% prevents the Fed flexibility scenario. Bull case is ~70% realized."
+        }
+      ]
+    },
+    {
+      "id": "base",
+      "label": "B",
+      "case": "Base",
+      "color": "amber",
+      "headline": "Base Case: Ceasefire Holds Fragilly \u2014 Earnings Mixed \u2014 Fed Stays on Hold",
+      "body": "Trump's talk cancellation is absorbed as posturing, not breakdown. Iran makes no new military moves in Hormuz. Oil stays range-bound $92\u2013$100. Wednesday earnings are mixed: 2 of 3 hyperscalers beat, 1 (likely Alphabet or Amazon) disappoints on cloud margins. FOMC holds at 3.50\u20133.75% and Powell's language is deliberately ambiguous. Q1 GDP comes in at 0.8\u20131.2%, soft but not contractionary. Core PCE at 2.7\u20132.8%, confirming stickiness but not acceleration. Market consolidates: S&P flat to +1%, Nasdaq -0.5 to +1%."
+    },
+    {
+      "id": "bear",
+      "label": "C",
+      "case": "Bear",
+      "color": "red",
+      "headline": "Bear Case: Talks Collapse Fully \u2014 GDP Miss + PCE Hot = Stagflation Signal",
+      "body": "Trump's cancellation is not reversed. Iran retaliates by announcing expanded control of Hormuz transit. A naval incident pushes Brent to $110\u2013$120. GDP advance estimate comes in below 0.5%, and March core PCE accelerates to 2.9\u20133.0% on oil pass-through. This is the stagflation configuration: growth slowing, inflation re-accelerating, Fed hands tied. Mag-7 earnings miss top-line estimates. S&P breaks below 6,900, VIX spikes to 28\u201332.",
+      "updates": [
+        {
+          "timestamp": "Tue Apr 28",
+          "label": "Update \u2014 Tue Apr 28 \u2014 Bear Triggers Stacking",
+          "text": "Multiple bear-case conditions already in play: Brent $111 (bear range $110\u2013$120 \u2713), Trump cool on Iran proposal (talks stalled \u2713), OpenAI miss (AI capex ROI crack \u2713), UAE exits OPEC \u2713, no Fed cuts until Sept 2027 \u2713."
+        },
+        {
+          "timestamp": "Wed Apr 29 AM",
+          "label": "Update \u2014 Wed Apr 29 AM \u2014 Diplomatic Path Now Closed",
+          "text": "Trump 'No More Mr. Nice Guy' and Rubio's authority-question framing closed the near-term diplomatic path. Brent entered the bear scenario range ($115 vs $110\u2013$120). GDP + PCE were the final binaries."
+        },
+        {
+          "timestamp": "Thu Apr 30 AM",
+          "label": "Update \u2014 Thu Apr 30 AM \u2014 Partial Bear / Partial Neutralization",
+          "text": "GDP 2.0% avoids the sub-0.5% bear case floor \u2014 the economy is not in freefall. But Core PCE 3.2% (from 2.7%) is the highest level in years driven by energy pass-through, confirming the stagflation pressure the bear case described. The hyperscaler beats (Alphabet, MSFT) partially neutralized the AI capex thesis risk. Net: bear case partially in play but not fully triggered \u2014 the regime sits between base and bear. The revised Iranian proposal expected Friday is the remaining potential catalyst in either direction."
+        }
+      ]
+    }
+  ],
+  "key_questions": [
+    {
+      "number": 1,
+      "question": "Does Trump reverse his Islamabad cancellation or does Iran present a new, modified framework through Oman's mediation channel that gets talks back on track this week?",
+      "status": "answered",
+      "update_label": "Answered \u2014 Talks Blocked",
+      "answer": "Iran submitted a formal proposal (reopen Hormuz, defer nuclear talks). Rubio rejected it on nuclear grounds AND questioned whether Araghchi had authority to make the offer. Trump confirmed formal rejection to Axios Wednesday: 'there will never be a deal unless they agree there will be no nuclear weapons.' Bessent's 'pumping will soon collapse' confirms the US strategy is economic strangulation. Revised Iranian proposal expected Friday via Pakistan."
+    },
+    {
+      "number": 2,
+      "question": "Does Q1 2026 GDP advance estimate come in above 1.0% \u2014 confirming the economy is withstanding the oil shock \u2014 or below 0.5%, echoing the Q4 2025 revision pattern?",
+      "status": "answered",
+      "update_label": "Answered \u2014 2.0%",
+      "answer": "GDP advance estimate: 2.0% annualized \u2014 beats 0.5% Q4, misses 2.3% consensus. Economy not in freefall. Government spending (shutdown recovery, war expenditures) and data center investment carrying growth. Consumer demand weak. GDP is likely to be revised \u2014 the Q4 revision precedent from 1.4% to 0.5% applies."
+    },
+    {
+      "number": 3,
+      "question": "Does March core PCE accelerate above 2.8%, confirming oil pass-through has reached consumer prices and pushing the \"higher for longer\" Fed narrative forward?",
+      "status": "answered",
+      "update_label": "Answered \u2014 3.2% YoY",
+      "answer": "Core PCE rose to 3.2% YoY (from 2.7% Feb) \u2014 well above 2.8% threshold. PCE headline 3.5% (from 2.8%). Energy pass-through confirmed. Strongest quarterly acceleration in core PCE since the 2022 inflation peak. The FOMC hawkish dissenters (Hammack/Kashkari/Logan) who wanted the easing bias removed are now validated by this print."
+    },
+    {
+      "number": 4,
+      "question": "Do Alphabet, Meta, and Amazon show that AI revenue is accelerating fast enough to validate hyperscaler capex \u2014 or does any one of the three disappoint on cloud margins while maintaining high spend?",
+      "status": "answered",
+      "update_label": "Answered \u2014 Mixed",
+      "answer": "Alphabet: clean beat (Cloud +63%, revenue +22% best since 2022). Microsoft: Azure re-accelerated to 40%, AI run rate $37B (+123%). Both strongly validated the thesis. Meta: beat EPS but flat Q2 revenue guide while raising capex to $125\u2013145B \u2014 the exact capex-without-acceleration scenario this question identified. Amazon: AWS +28% but softer Q2 guidance; Anthropic $16.8B gain inflated the headline. Net: AI capex ROI partially validated, not fully resolved. The question remains open for Q2 reporting."
+    },
+    {
+      "number": 5,
+      "question": "Does Powell's press conference language Wednesday signal the FOMC is keeping rate-cut optionality for later 2026, or does the statement shift toward a \"higher for longer\" stance that prices out the remaining cut in the dot plot?",
+      "status": "answered",
+      "update_label": "Answered \u2014 Hawkish Split",
+      "answer": "Hold delivered 8-4 split. Three hawkish dissenters (Hammack/Kashkari/Logan) wanted the easing bias removed \u2014 not to cut, but to signal rates stay higher for longer. Miran wanted a cut. Powell announced staying as Fed Governor: 'Trump's legal attacks have left me no choice.' Warsh advanced 13-11. 10Y surged 5+ bps to 4.41%. CME FedWatch: no cuts until September 2027+ confirmed. Core PCE 3.2% this morning validates the hawkish dissent position retroactively."
+    },
+    {
+      "number": 6,
+      "question": "Does the Hormuz dual-blockade situation produce a kinetic incident \u2014 ship-vs-ship \u2014 that forces market reassessment of ceasefire durability and drives a >5% oil spike in a single session?",
+      "status": "partially_answered",
+      "update_label": "Partially Answered \u2014 Revised Proposal Sent",
+      "answer": "No kinetic incident materialized through end of April. Iran sent a revised proposal via Pakistan Friday \u2014 oil fell ~5% on de-escalation hopes. The threat of a kinetic incident has not gone away (CENTCOM prepared a strike plan; IRGC continues kinetic threat language) but the diplomatic re-engagement on Friday reduces the immediate probability of an incident this weekend."
+    },
+    {
+      "number": 7,
+      "question": "Does Apple provide any guidance on the CEO transition timeline or product roadmap that signals whether the post-Cook era is a catalyst or a risk?",
+      "status": "answered",
+      "update_label": "Answered \u2014 Blowout Beat",
+      "answer": "Apple Q2 FY26: Revenue $111.18B (+17%, March record), EPS $2.01 vs $1.95 est, iPhone $57B (+22%), Services $30.98B all-time high, gross margin 49.3% vs 48.4% est. Q3 guide 14-17% vs 9.5% expected \u2014 the biggest positive surprise of the call. $100B buyback, dividend to $0.27 (+4%). Cook did not bring Ternus on the call \u2014 CEO transition commentary minimal. Supply constraints (memory crunch) flagged for Q3 as the primary risk. Stock +3.5% Friday."
+    }
+  ],
+  "research_sources": [
+    {
+      "label": "CNN \u2014 Trump rejects Iran proposal; Iran-Ukraine timetable; Day 61 Apr 29",
+      "url": "https://www.cnn.com/2026/04/29/world/live-news/iran-war-peace-proposal-trump"
+    },
+    {
+      "label": "CNBC \u2014 FOMC live: Powell stays, 8-4 vote, Warsh advances Apr 29",
+      "url": "https://www.cnbc.com/2026/04/29/fed-meeting-today-live-updates-warsh-powell.html"
+    },
+    {
+      "label": "Federal Reserve \u2014 FOMC Statement Apr 29, 2026 (official 8-4 vote breakdown)",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm"
+    },
+    {
+      "label": "InvestmentNews \u2014 MSFT/META/GOOGL/AMZN Q1 2026 earnings recap",
+      "url": "https://www.investmentnews.com/equities/microsoft-meta-alphabet-amazon-report-earnings-should-investors-be-concerned/266374"
+    },
+    {
+      "label": "NBC News \u2014 Big Tech earnings beat but fell short of sky-high AI expectations",
+      "url": "https://www.nbcnews.com/business/markets/big-tech-ai-earnings-alphabet-meta-amazon-microsoft-rcna342796"
+    },
+    {
+      "label": "Benzinga \u2014 Q1 GDP 2.0%, Core PCE 3.2% \u2014 Apr 30 8:39am",
+      "url": "https://www.benzinga.com/markets/macro-economic-events/26/04/52168494/us-gdp-q1-pce-inflation-march-2026"
+    },
+    {
+      "label": "Kiplinger \u2014 April Fed meeting recap: Powell stays, hawkish split vote Apr 29",
+      "url": "https://www.kiplinger.com/news/live/fed-meeting-updates-and-commentary-april-2026"
+    },
+    {
+      "label": "Trading Economics \u2014 Brent crude $116.53 Wed high (+4.74%)",
+      "url": "https://tradingeconomics.com/commodity/brent-crude-oil"
+    },
+    {
+      "label": "CNBC \u2014 Stock market Wed Apr 29 closes; 10Y 4.41%",
+      "url": "https://www.cnbc.com/2026/04/28/stock-market-today-live-updates.html"
+    },
+    {
+      "label": "ABC7 \u2014 Ghalibaf 'Next stop 140'; IRGC escalation; Bessent Apr 29",
+      "url": "https://abc7.com/live-updates/iran-war-today-trump-straight-of-hormuz-us-ceasefire-talks/18979096/"
+    }
+  ]
+}

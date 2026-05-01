@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Report } from '@/types/report';
-import { supabase } from '@/lib/supabase';
+import { useLiveReport } from '@/hooks/useLiveReport';
+import DynamicReport from '@/components/DynamicReport';
 import './ReportViewer.css';
 
 interface ReportViewerProps {
@@ -11,36 +12,12 @@ interface ReportViewerProps {
 }
 
 export default function ReportViewer({ report, onClose }: ReportViewerProps) {
-  const [htmlContent, setHtmlContent] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchHtml() {
-      try {
-        setLoading(true);
-        // Fetch the file content directly from storage
-        const { data, error } = await supabase.storage
-          .from('reports')
-          .download(report.file_path);
-
-        if (error) throw error;
-        
-        const text = await data.text();
-        setHtmlContent(text);
-      } catch (err) {
-        console.error('Error fetching report content:', err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchHtml();
-  }, [report.file_path]);
+  const { liveReport, loading, error } = useLiveReport(report.id);
 
   return (
     <div className="report-viewer-overlay animate-fade-in">
-      <div className="report-viewer-container glass-panel">
-        <div className="report-viewer-header">
+      <div className="report-viewer-container glass-panel" style={{ display: 'flex', flexDirection: 'column', height: '90vh', width: '90vw', maxWidth: '1200px' }}>
+        <div className="report-viewer-header" style={{ flexShrink: 0 }}>
           <div className="report-info">
             <h2>{report.title}</h2>
             <p className="mono text-xs opacity-60">{report.last_updated_display}</p>
@@ -50,18 +27,15 @@ export default function ReportViewer({ report, onClose }: ReportViewerProps) {
             <button className="btn btn-close mono text-[10px]" onClick={onClose}>TERMINATE SESSION</button>
           </div>
         </div>
-        <div className="report-content">
+        <div className="report-content" style={{ flex: 1, overflowY: 'auto', padding: '2rem', backgroundColor: 'var(--bg-main)' }}>
           {loading ? (
-            <div className="viewer-loading mono">Downloading tactical data...</div>
-          ) : htmlContent ? (
-            <iframe 
-              srcDoc={htmlContent} 
-              title={report.title}
-              className="report-iframe"
-              sandbox="allow-popups allow-scripts allow-forms allow-same-origin"
-            />
+            <div className="viewer-loading mono animate-pulse">Downloading tactical data...</div>
+          ) : error ? (
+            <div className="viewer-error mono text-danger">Failed to download intelligence data: {error}</div>
+          ) : liveReport ? (
+            <DynamicReport data={liveReport} />
           ) : (
-            <div className="viewer-error mono">Failed to download intelligence data.</div>
+            <div className="viewer-error mono text-danger">Intelligence file corrupted or missing.</div>
           )}
         </div>
       </div>

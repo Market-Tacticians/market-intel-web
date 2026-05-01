@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 
-export function useLiveReport() {
+export function useLiveReport(initialReportId?: string) {
   const [liveReport, setLiveReport] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -9,12 +9,15 @@ export function useLiveReport() {
   useEffect(() => {
     async function fetchLiveReport() {
       try {
-        // 1. Fetch the master report where status = 'live'
-        const { data: reportData, error: reportError } = await supabase
-          .from('reports')
-          .select('*')
-          .eq('status', 'live')
-          .single();
+        setLoading(true);
+        // 1. Fetch the master report (either by ID or the active live one)
+        let query = supabase.from('reports').select('*');
+        if (initialReportId) {
+          query = query.eq('id', initialReportId);
+        } else {
+          query = query.eq('status', 'live');
+        }
+        const { data: reportData, error: reportError } = await query.single();
 
         if (reportError) throw reportError;
         if (!reportData) {
@@ -147,7 +150,7 @@ export function useLiveReport() {
     }
 
     fetchLiveReport();
-  }, []);
+  }, [initialReportId]);
 
   return { liveReport, loading, error };
 }
