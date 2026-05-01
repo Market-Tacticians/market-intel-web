@@ -1,0 +1,749 @@
+{
+  "meta": {
+    "title": "Weekly Market Intelligence Brief",
+    "week_of": "2026-05-04",
+    "period_covered": "May 4 - May 8, 2026",
+    "last_updated": "2026-05-01T11:30:00-04:00",
+    "update_version": 1,
+    "sources": [
+      "CNBC",
+      "Yahoo Finance",
+      "NPR",
+      "Wikipedia",
+      "FactSet",
+      "Trading Economics",
+      "The Hill",
+      "CNN Business",
+      "Al Jazeera",
+      "Charles Schwab",
+      "Fidelity",
+      "J.P. Morgan Asset Management",
+      "Oilprice.com",
+      "Fortune",
+      "CBS News",
+      "J.P. Morgan Global Research",
+      "House of Commons Library",
+      "Sterling Capital"
+    ]
+  },
+
+  "regime": {
+    "label": "Risk-On (Cautious)",
+    "color": "green",
+    "description": "The S&P 500 sealed its best April in five years — up 10% for the month — and the Nasdaq confirmed a new closing record on Thursday, driven by genuine earnings-powered institutional buying rather than purely technical short-covering. However, the advance rests on a precarious foundation: Brent crude above $111, U.S. CPI at a near two-year high of 3.3%, and a Strait of Hormuz that remains effectively closed with no credible diplomatic path to resolution in the near term. Market breadth has improved but only half of S&P 500 stocks trade above their 50-day moving averages, and decliners still lead advancers at the stock level by 1.5:1, confirming that index gains are being driven by a concentrated subset of large-cap AI-beneficiary and defense-adjacent names. The Fed held rates for the third consecutive meeting on an 8-4 dissent — the widest split since 1992 — with three regional presidents explicitly rejecting the statement's easing bias, signaling that the rate-cut path is closing, not opening. Kevin Warsh has Senate Banking Committee clearance and is days from assuming the chair, inheriting a committee that will actively resist premature cuts and has already signaled opposition to his stated policy preferences. The regime is risk-on, but oil inflation, a fractured and hawkish-leaning FOMC, and an unresolved Hormuz deadlock with active military escalation risk make it cautious — the market is one headline away from a rapid regime shift.",
+    "updated": "2026-05-01T11:30:00-04:00"
+  },
+
+  "dominant_narratives": [
+    {
+      "id": "iran-hormuz-blockade",
+      "type": "dominant_narrative_card",
+      "tag": "Geopolitical",
+      "headline": "Iran-U.S. Dual Blockade Deadlocks: Diplomatic Reset Attempted, Military Escalation Option Briefed",
+      "summary": "The Strait of Hormuz remains effectively closed — the dominant market force since February 28 — and this week produced no breakthrough. Iran delivered an updated peace proposal via Pakistan on Friday, pulling oil temporarily off its $114 Thursday spike, but no formal talks have been scheduled and core demands remain irreconcilable in the near term.",
+      "body": "The Strait of Hormuz dual blockade — Iran controlling passage from inside, the U.S. Navy enforcing a counter-blockade of Iranian ports since April 13 — held firm through the week with no resolution in sight. Peace talks collapsed again after Trump canceled the planned Islamabad summit on Saturday, and Iran's Supreme Leader Mojtaba Khamenei publicly ruled out surrendering nuclear or missile capabilities, making the core U.S. demand a non-starter near-term. Iran subsequently delivered what Trump described as a 'much better' proposal via Pakistani intermediaries on Friday, causing WTI to fall roughly $4 from Thursday's high, but the specific terms remain undisclosed and no resumption of formal negotiations has been scheduled. The structural supply situation has deteriorated further: the IEA has described the shock as unprecedented, and analysts warned that the final tanker shipments from the Persian Gulf before the closure have now reached their destinations — meaning acute energy shortages could materialize for European and Asian importers within weeks. Critically, Axios reported mid-week that Trump was briefed by CENTCOM chief Admiral Brad Cooper on 'expanded military options,' including a plan for a short, intense new wave of strikes — materially raising the tail risk. U.S. crude exports have surged to record levels as American producers fill part of the gap, but volume cannot substitute for full Persian Gulf throughput. California gasoline hit $6.01 per gallon this week, up 30% since the war began February 28.",
+      "bullets": [
+        "Dual blockade holding firm: U.S. Navy enforcing counter-blockade of Iranian ports since Apr 13; Iran blocking all non-friendly commercial shipping through the strait since Apr 18.",
+        "Iran peace proposal delivered Friday via Pakistan — WTI fell ~$4 on the news. No terms disclosed, no talks scheduled, and Supreme Leader Khamenei ruled out nuclear and missile concessions.",
+        "CENTCOM briefed Trump on expanded military strike options this week, including a short intense wave of strikes — the highest escalation signal since the ceasefire took effect."
+      ],
+      "market_impact": {
+        "session": "All Week",
+        "text": "Energy is the linchpin of the entire macro regime: oil above $110 keeps CPI elevated, chains the Fed's hands, pressures consumer spending, and maintains a geopolitical risk premium across all asset classes. A credible Hormuz reopening is the single largest upside catalyst available to the market; a military escalation is the single largest downside shock."
+      },
+      "sources": [
+        {
+          "label": "Wikipedia — 2026 Strait of Hormuz Crisis (comprehensive timeline)",
+          "url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis"
+        },
+        {
+          "label": "NPR — Deadlock over Iran nuclear program and Hormuz cripples peace efforts (Apr 28-29)",
+          "url": "https://www.npr.org/2026/04/28/nx-s1-5802283/iran-middle-east-updates"
+        },
+        {
+          "label": "CNBC — Trump discussed Iran Hormuz proposal with national security team (Apr 27)",
+          "url": "https://www.cnbc.com/2026/04/27/trump-iran-war-strait-of-hormuz-rubio.html"
+        },
+        {
+          "label": "Al Jazeera — How long can Iran survive the US naval blockade?",
+          "url": "https://www.aljazeera.com/news/2026/4/24/how-long-can-iran-survive-the-uss-hormuz-blockade"
+        },
+        {
+          "label": "Trading Economics — Brent Crude prices live (May 1, 2026)",
+          "url": "https://tradingeconomics.com/commodity/brent-crude-oil"
+        }
+      ]
+    },
+    {
+      "id": "fed-warsh-transition",
+      "type": "narrative_card",
+      "tag": "Fed",
+      "headline": "Powell's Final FOMC: 8-4 Hold Exposes Deep Committee Fracture; Warsh Advances to Senate Floor",
+      "summary": "Wednesday's FOMC meeting — almost certainly Powell's last as chair — produced the most divided vote since 1992. The committee held rates at 3.50%-3.75% by an 8-4 margin, with three dissenters explicitly opposing the statement's easing bias, signaling that much of the committee believes rate cuts are increasingly off the table given energy-driven inflation.",
+      "body": "The April FOMC split was more consequential than the headline hold. Four members dissented, but in two distinct directions: Governor Stephen Miran voted to cut 25 basis points, while three regional presidents — Hammack (Cleveland), Kashkari (Minneapolis), and Logan (Dallas) — voted against the statement specifically because it retained language suggesting rates could move lower, arguing that the Middle East war has changed the inflation calculus sufficiently to remove any easing bias. This is the clearest signal yet that the committee is not moving in the direction the Trump administration explicitly demands. Powell confirmed he will remain on the Board of Governors — term extends to 2028 — in a non-chair capacity, positioning himself as a defender of institutional independence rather than a disruptive presence. Hours before the rate decision, the Senate Banking Committee advanced Kevin Warsh's nomination 13-11 on party lines, clearing the path to full Senate confirmation in time for the June 16-17 FOMC meeting. Warsh has pledged to eliminate forward guidance, reform the regional reserve banks, and support lower rates — all positions that will face active resistance from the three hawkish dissenters. Rate-cut probability for the June meeting is essentially zero on CME FedWatch, and most economists now forecast no cuts until late 2026 or 2027.",
+      "bullets": [
+        "8-4 hold — most divided FOMC vote since 1992. Three dissenters wanted to remove easing bias entirely; one wanted an immediate cut. Warsh inherits a fractured committee.",
+        "Senate Banking Committee advanced Warsh 13-11 on party lines — first Fed chair nominee advanced without bipartisan support. Full Senate vote expected before May 15.",
+        "Rate-cut probability for June: essentially zero. Economists now forecast no cuts until late 2026 or 2027 as energy-driven CPI blocks the easing path."
+      ],
+      "market_impact": {
+        "session": "Next Week",
+        "text": "Rate-sensitive sectors — real estate, utilities, financials — remain under structural pressure. The Warsh confirmation and his first public statement as chair-designate will be the next major Fed communication event; any signal on June FOMC direction or changes to press conference format will move markets."
+      },
+      "sources": [
+        {
+          "label": "Yahoo Finance — Fed live updates: 8-4 hold, Warsh advances (Apr 29)",
+          "url": "https://finance.yahoo.com/economy/policy/live/fed-meeting-live-updates-federal-reserve-holds-interest-rates-steady-in-powells-final-meeting-as-chair-111906007.html"
+        },
+        {
+          "label": "The Hill — Federal Reserve holds rates, Warsh nears confirmation",
+          "url": "https://thehill.com/business/5855524-federal-reserve-interest-rates/"
+        },
+        {
+          "label": "CNN Business — Powell confirms he will step aside, remain as governor",
+          "url": "https://www.cnn.com/2026/04/29/business/live-news/federal-reserve-interest-rate"
+        },
+        {
+          "label": "CNBC Analysis — The Warsh revolution is coming. Powell won't stand in the way.",
+          "url": "https://www.cnbc.com/2026/04/29/fed-powell-warsh-interest-rates.html"
+        }
+      ]
+    },
+    {
+      "id": "q1-earnings-ai-dividing-line",
+      "type": "narrative_card",
+      "tag": "Earnings",
+      "headline": "Q1 Earnings: 84% Beat Rate, 15% Blended Growth; AI ROI Becomes the Market's New Sorting Mechanism",
+      "summary": "Q1 2026 earnings are delivering at an exceptional pace — 84% of reporters beating EPS estimates with 15.1% blended growth — and this is the primary force allowing equities to hold all-time highs against a $110 oil backdrop. But market reactions have bifurcated sharply around AI capital spending: companies demonstrating near-term monetization are rewarded; those spending without clear incremental returns are punished.",
+      "body": "With roughly half the S&P 500 reported, Q1 2026 is tracking as the sixth consecutive quarter of double-digit earnings growth. The 84% EPS beat rate is above both the 5-year average of 78% and the 10-year average of 76%, and the aggregate surprise factor of 12.3% is nearly double the historical norm. This is the earnings story that has allowed market participants to look past $110 oil and a Fed on pause. The AI fault line is now the dominant market-reaction variable: Alphabet surged after demonstrating accelerating AI monetization, while Meta fell 9% after raising full-year capex guidance to $125-145 billion without sufficient evidence of near-term revenue returns — analysts called it spending without incremental ROI. Caterpillar's near-10% gain on Thursday, driven by record backlog and raised annual guidance, confirmed that AI infrastructure buildout is lifting the entire industrial complex. Qualcomm surged 16% on a strong beat, suggesting chip demand is broadening. Apple impressed with a 3.3% EPS beat. Full-year 2026 consensus EPS growth has been revised upward to 18.6% from pre-season estimates of approximately 12.5%. The earnings floor under this market is real and durable — but it is not immune to an energy shock or a stagflation print that forces multiple compression.",
+      "bullets": [
+        "84% EPS beat rate vs. 78% 5-year average; blended growth rate 15.1% — sixth straight quarter of double-digit expansion.",
+        "AI monetization rewarded (Alphabet up), AI spending without ROI punished (Meta -9%). This is the new fault line that will define sector leadership through year-end.",
+        "Full-year 2026 EPS growth consensus revised to 18.6% from pre-season 12.5% — a significant upward revision that justifies current index levels."
+      ],
+      "market_impact": {
+        "session": "Next Week",
+        "text": "The mega-cap wave is behind us; AMD, Arm Holdings, Disney, and Uber are next week's pivotal prints. AMD and ARM provide the AI semiconductor demand data point before Nvidia reports May 20. Disney is the leading consumer health read under $6 gas. NFP on Friday is the macro event that could most directly re-rate the risk premium."
+      },
+      "sources": [
+        {
+          "label": "FactSet — S&P 500 Earnings Season Update, April 24 2026",
+          "url": "https://insight.factset.com/sp-500-earnings-season-update-april-24-2026"
+        },
+        {
+          "label": "CNBC — Stock market news April 30: S&P hits ATH on Caterpillar, Alphabet beats",
+          "url": "https://www.cnbc.com/2026/04/29/stock-market-today-live-updates.html"
+        },
+        {
+          "label": "Schwab — May Starts Merrily on Apple Earnings, Peace Hopes (May 1)",
+          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+        }
+      ]
+    },
+    {
+      "id": "energy-supply-shock",
+      "type": "narrative_card",
+      "tag": "Energies",
+      "headline": "Oil Near 4-Year Highs: Final Pre-Closure Tankers Have Arrived — Acute Shortage Phase Begins",
+      "summary": "WTI closed the week near $105 and Brent near $111 — up roughly 77% year-over-year. The structural supply shock is now entering its most acute phase: the final tanker shipments from the Persian Gulf before the Hormuz closure have reached their destinations, meaning European and Asian shortages can materialize within weeks without a diplomatic breakthrough.",
+      "body": "Crude oil posted a second consecutive weekly gain, reaching an intraweek high of $114 Brent on Thursday following the Axios report that Trump was briefed on expanded military options in Iran, before retreating Friday on the peace proposal signal. The broader trajectory is clear: with the Strait of Hormuz effectively closed since February 28, global oil supply has been operating on pre-closure inventories. Those inventories are now exhausted at the destination level. Analysts at Kpler and TankerTrackers confirm that Iranian storage capacity at Kharg Island is approaching limits and that production cuts are likely to accelerate into May. ISM Manufacturing prices-paid surged to 84.6 this week — the highest since April 2022 — as companies reported both energy costs and tariff charges compounding simultaneously. California gasoline averaged $6.01 per gallon, a 30% increase since the war began. The energy sector itself is negative year-to-date on the equity side despite surging commodity prices — markets are pricing in demand destruction from the war's economic spillover and consumer retrenchment. U.S. crude exports have surged to record levels as the global market turns to American producers, providing support to domestic production but not fully substituting for Persian Gulf volumes.",
+      "bullets": [
+        "WTI ~$105 / Brent ~$111 — 77% year-over-year increase. 52-week WTI high: $117.63. The peak has not yet been set if Hormuz remains closed.",
+        "ISM prices-paid at 84.6, highest since April 2022 — energy and tariff cost inflation compounding simultaneously across manufacturing.",
+        "Final pre-closure tanker shipments have now reached destinations — the acute shortage phase for European and Asian importers begins this week."
+      ],
+      "market_impact": {
+        "session": "All Week",
+        "text": "High oil directly maintains elevated CPI, blocks the Fed's easing path, and pressures consumer discretionary spending. A Hormuz reopening would be a deflationary shock — immediately re-opening the rate-cut probability window and triggering rotation into rate-sensitive sectors. Every $10 decline in Brent is estimated to reduce CPI by approximately 0.2-0.3 percentage points over the following quarter."
+      },
+      "sources": [
+        {
+          "label": "Trading Economics — WTI Crude Oil prices live (May 1, 2026)",
+          "url": "https://tradingeconomics.com/commodity/crude-oil"
+        },
+        {
+          "label": "Fortune — Current price of oil as of April 30, 2026",
+          "url": "https://fortune.com/article/price-of-oil-04-30-2026/"
+        },
+        {
+          "label": "CNBC — Stock market today live updates (May 1, 2026)",
+          "url": "https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html"
+        }
+      ]
+    },
+    {
+      "id": "metals-safe-haven-demand",
+      "type": "narrative_card",
+      "tag": "Metals & Commodities",
+      "headline": "Gold Near $4,625 — Safe-Haven Premium Intact as Equities and Precious Metals Rise Together",
+      "summary": "Gold futures ended the week near $4,625 per troy ounce, consolidating after pushing toward multi-year highs on a combination of geopolitical safe-haven demand, inflation hedging, and continued central bank accumulation. The unusual feature of the current market: gold and equities have been rising simultaneously, reflecting dual demand from different investor pools with different primary concerns.",
+      "body": "Gold's simultaneous rise with equities is a structural feature of this market, not an anomaly — institutional buyers are hedging Iran tail risk and inflation with gold while equity investors bet on earnings resilience and AI productivity gains. Silver futures are near $74.50, tracking precious metals strength with added industrial demand volatility. The gold-silver ratio remains elevated, which historically signals that safe-haven demand is dominating over industrial demand — industrial metals like copper are slightly weaker this week, consistent with global growth caution rather than expansion. J.P. Morgan maintains a 2026 year-end gold target of $6,300 per troy ounce. CPI at 3.3% in March and rising energy prices keep real yields ambiguous — not clearly high enough to crush gold's appeal as a non-yielding asset, but not low enough to send it dramatically higher in the near term. The DXY dollar index has weakened toward 98, providing additional tailwind for commodity prices broadly. The Warsh nomination initially caused gold to fall 9% when announced — markets temporarily interpreted it as a sign of more aggressive rate cuts — before gold stabilized as the committee's hawkish dissents made clear that Warsh's rate-cutting ambitions face structural resistance.",
+      "bullets": [
+        "Gold ~$4,625/oz, Silver ~$74.50/oz — both near multi-year highs, driven by geopolitical safe-haven demand and inflation hedging.",
+        "Gold-silver ratio elevated: safe-haven demand dominating over industrial signals; copper slightly weaker, suggesting cautious global growth expectations.",
+        "DXY near 98 and weakening — further dollar softness would add fuel to the precious metals rally."
+      ],
+      "market_impact": {
+        "session": "All Week",
+        "text": "Gold is the clearest cross-asset confirmation that the geopolitical risk premium remains elevated. A Hormuz breakthrough would likely trigger a sharp gold selloff as safe-haven premium unwinds. Any military escalation or diplomatic breakdown would send gold toward $5,000 resistance. Watch the dollar for the near-term directional cue."
+      },
+      "sources": [
+        {
+          "label": "J.P. Morgan Global Research — Gold price predictions 2026 and beyond",
+          "url": "https://www.jpmorgan.com/insights/global-research/commodities/gold-prices"
+        },
+        {
+          "label": "CBS News — Is gold still a safe haven now that inflation is rising again? (Apr 2026)",
+          "url": "https://www.cbsnews.com/news/gold-safe-haven-with-inflation-rising-april-2026/"
+        },
+        {
+          "label": "Investing.com — Brent Oil Futures Price Today",
+          "url": "https://www.investing.com/commodities/brent-oil"
+        }
+      ]
+    },
+    {
+      "id": "flows-positioning",
+      "type": "narrative_card",
+      "tag": "Flows",
+      "headline": "April's Rally Was Institutionally Driven — But Narrow Breadth Is the Structural Warning",
+      "summary": "The S&P 500's 10% April gain appears driven by genuine institutional re-engagement rather than primarily short-covering, with corporate insider buying in technology hitting a 15-year high in early April. However, market breadth remains concerning: only 50% of S&P 500 stocks trade above their 50-day moving averages, and decliners lead advancers by 1.5:1 at the individual stock level.",
+      "body": "The quality of April's rally matters for how durable it is. Institutional buying — rather than forced short-covering — provides a more stable foundation for sustained gains because institutional holders have longer time horizons and higher pain tolerance. Corporate insiders in technology bought shares at a 15-year-high pace in early April, a signal that companies themselves viewed the Iran-driven pullback as a buying opportunity with intact long-term fundamentals. JPMorgan raised its year-end S&P 500 target to 7,600 from 7,200, citing the 'follow the winners' regime. VIX closed Thursday at 16.89 — below 17 for the first time in two weeks — indicating that hedging demand is declining as the rally confirms. However, the breadth picture tells a more cautious story: the index is at all-time highs but only half of its constituent stocks are above their own 50-day moving averages, and decliners still outnumber advancers by 1.5:1 on a weekly basis. This means the all-time high is being set by a concentrated subset of large-cap names — primarily AI-beneficiary mega-caps and defense-adjacent industrials — while the broader market is not participating at the same rate. This concentration makes the index more vulnerable to a disruption in those specific names.",
+      "bullets": [
+        "Corporate insider buying in technology hit a 15-year high in early April — companies signaled the Iran pullback was a buying opportunity, not a structural break.",
+        "VIX at 16.89 — below 17 for first time in two weeks, indicating declining hedging demand as the rally confirms at record levels.",
+        "Only 50% of S&P 500 stocks above 50-day moving averages; decliners lead advancers 1.5:1 — narrow breadth makes the index vulnerable to a shock in its concentrated leaders."
+      ],
+      "market_impact": {
+        "session": "Next Week",
+        "text": "Institutional-quality buying is more supportive than short-covering for sustaining the rally through the remainder of earnings season. However, narrow breadth with decliners leading at the stock level means there is limited support underneath the index if the mega-cap AI leaders disappoint or if NFP prints an unexpected stagflation signal."
+      },
+      "sources": [
+        {
+          "label": "Sterling Capital — Weekly Market Recap (as of Apr 24, 2026)",
+          "url": "https://sterlingcapital.com/weeklymarketrecap/"
+        },
+        {
+          "label": "CNBC — Stock market today: May starts, April recap (May 1, 2026)",
+          "url": "https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html"
+        },
+        {
+          "label": "Schwab — May Starts Merrily: breadth and flows commentary",
+          "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+        }
+      ]
+    }
+  ],
+
+  "catalyst_calendar": [
+    {
+      "date": "2026-05-04",
+      "date_label": "Monday May 4",
+      "time": "10:00 ET",
+      "event": "ISM April Manufacturing PMI",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Econ Data"],
+      "body": "The S&P Global flash read came in at 54.0, but the prices-paid subindex surged to 84.6 — the highest since April 2022 — as companies reported simultaneous tariff and energy cost inflation. The ISM version will confirm or contradict this reading. A prices-paid reading above 80 is a direct threat to the Fed's easing bias and strengthens the case of the three hawkish FOMC dissenters heading into the June meeting."
+    },
+    {
+      "date": "2026-05-04",
+      "date_label": "Monday May 4 — After Close",
+      "time": "After Close",
+      "event": "Palantir (PLTR) Q1 Earnings",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Earnings", "Geopolitical"],
+      "body": "Palantir is the leading bellwether for government AI contract spending and defense intelligence technology. With the Iran war expanding defense and intelligence budgets, PLTR is positioned for a strong quarter on the government side. The market will focus on commercial AIP platform momentum and any government contract commentary related to the conflict. Expect significant after-hours movement."
+    },
+    {
+      "date": "2026-05-05",
+      "date_label": "Tuesday May 5",
+      "time": null,
+      "event": "ISM April Services PMI",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Econ Data"],
+      "body": "Services sector health is the critical buffer for an economy under energy price stress — services represent roughly 80% of U.S. GDP. A reading above 55 signals consumer and business services resilience; a read below 50 would be the first contraction signal and would dramatically reprice recession risk. The employment component within services provides an early directional read on Friday's NFP."
+    },
+    {
+      "date": "2026-05-05",
+      "date_label": "Tuesday May 5 — After Close",
+      "time": "After Close",
+      "event": "Advanced Micro Devices (AMD) Q1 Earnings",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Earnings"],
+      "body": "AMD is the most important AI semiconductor print of the week — Nvidia does not report until May 20. The Street is watching GPU data center revenue trajectory and whether AMD is gaining market share in AI training and inference workloads. Any guidance cut on data center revenue would be a material shock to the AI sector broadly; strong guidance with export restriction commentary would add a China trade variable. This print will move the entire semiconductor complex after-hours."
+    },
+    {
+      "date": "2026-05-05",
+      "date_label": "Tuesday May 5 — After Close",
+      "time": "After Close",
+      "event": "Arm Holdings (ARM) Q1 Earnings",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Earnings"],
+      "body": "ARM is the foundational IP behind mobile and increasingly data center chip architecture. Its royalty revenue trajectory signals whether the AI buildout is broadening to mobile AI and edge computing beyond the hyperscaler core. Any slowdown in licensing and royalty growth would ripple across the semiconductor complex. Together with AMD, this print will define the AI semiconductor narrative heading into Nvidia's May 20 report."
+    },
+    {
+      "date": "2026-05-06",
+      "date_label": "Wednesday May 6 — 8:15 AM ET",
+      "time": "08:15 ET",
+      "event": "ADP April Private Payrolls",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Econ Data"],
+      "body": "ADP provides the market's first hard data point on April employment before Friday's official NFP. In a week where NFP is the defining macro catalyst, an ADP print significantly above or below 150,000 will pre-condition positioning and rate expectations going into the weekend. Watch the services vs. goods sector split for early evidence of Iran-war consumer impact on service-sector hiring."
+    },
+    {
+      "date": "2026-05-06",
+      "date_label": "Wednesday May 6 — After Close",
+      "time": "After Close",
+      "event": "Walt Disney (DIS) Q1 Earnings",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Earnings"],
+      "body": "Disney is the leading consumer spending bellwether of the week. Theme park attendance, streaming subscriber growth, and advertising revenue are all operating under the pressure of $6 gasoline squeezing household discretionary budgets. Park attendance guidance and streaming churn data will tell the market whether the U.S. consumer is beginning to retrench meaningfully under the energy inflation burden. A guidance cut from Disney would be a canary for broader consumer discretionary sector positioning."
+    },
+    {
+      "date": "2026-05-06",
+      "date_label": "Wednesday May 6 — After Close",
+      "time": "After Close",
+      "event": "Uber Technologies (UBER) Q1 Earnings",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Earnings"],
+      "body": "High gasoline prices cut both ways for Uber: driver costs rise, but demand for ride-sharing may increase as consumers substitute away from personal vehicle use. Gross bookings growth, take rate, and pricing power commentary in a high-inflation environment are the primary market focuses. Any commentary on autonomous vehicle deployment acceleration — potentially driven by the energy shock — would be a high-value data point for the sector."
+    },
+    {
+      "date": "2026-05-07",
+      "date_label": "Thursday May 7 — After Close",
+      "time": "After Close",
+      "event": "McDonald's (MCD) Q1 Earnings",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Earnings"],
+      "body": "McDonald's is the quintessential trade-down consumer proxy. Under sustained high energy costs, its value positioning should attract customers trading down from sit-down restaurants — a constructive signal for MCD but a bearish read for the broader consumer discretionary sector. Same-store sales and U.S. traffic counts provide real-time consumer health data across income cohorts and geographic regions where energy affordability stress is highest."
+    },
+    {
+      "date": "2026-05-08",
+      "date_label": "Friday May 8 — 8:30 AM ET",
+      "time": "08:30 ET",
+      "event": "April Nonfarm Payrolls (NFP)",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Econ Data", "Fed"],
+      "body": "The week's defining macro event. A print above 200,000 confirms labor market resilience and removes rate-cut pressure entirely for the summer; a print below 100,000 with wages still elevated would deliver a formal stagflation data point — high inflation plus weakening labor — that traps the Fed and forces rapid portfolio re-positioning across asset classes. The unemployment rate and wages component will be equally important: rising wages accelerate the energy-inflation spiral, while falling wages signal demand destruction that may eventually require a policy response. This is the single most important data release for the June FOMC calculus."
+    },
+    {
+      "date": "2026-05-08",
+      "date_label": "Friday May 8 — 10:00 AM ET",
+      "time": "10:00 ET",
+      "event": "May University of Michigan Consumer Sentiment (Preliminary)",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Econ Data"],
+      "body": "Consumer confidence has been under sustained pressure from $6 gasoline and war-related uncertainty. A preliminary read below 65 would signal meaningful deterioration in household spending intent and compound any weak NFP data into a broader demand-destruction narrative. The inflation expectations sub-components — particularly the 5-to-10 year measure — are watched closely by the Fed as a leading indicator of whether energy-driven inflation is becoming entrenched in long-run household expectations."
+    },
+    {
+      "date": "all_week",
+      "date_label": "All Week",
+      "time": "Continuous",
+      "event": "Iran-U.S. Diplomatic Channel via Pakistan — Continuous",
+      "impact": "high",
+      "flag": null,
+      "tags": ["Geopolitical", "Energies"],
+      "body": "Iran's updated peace proposal was delivered to U.S. officials via Pakistan on Friday. Any confirmed resumption of formal talks, acceptance of a framework, or announcement of a Hormuz reopening commitment would be an immediate multi-percent market mover — sharp risk-on, oil selloff, gold unwind. Conversely, any military escalation following the CENTCOM expanded-options briefing — new U.S. strikes on Iran, Iranian attacks on additional shipping, or a formal breakdown of the ceasefire — would be an immediate and severe risk-off event. This story can move markets at any hour of the trading week."
+    },
+    {
+      "date": "all_week",
+      "date_label": "All Week",
+      "time": "Continuous",
+      "event": "Kevin Warsh Senate Confirmation Floor Vote — Continuous",
+      "impact": "medium",
+      "flag": null,
+      "tags": ["Fed"],
+      "body": "The Senate Banking Committee advanced Warsh 13-11 on party lines. Full Senate floor vote is expected before May 15 — Powell's last day as chair. Confirmation is essentially assured given the Republican Senate majority, but any procedural delay or unexpected Republican defection would extend the transition uncertainty. Warsh's first public statement as confirmed chair-designate will be parsed closely for signals on June FOMC communication style changes and forward guidance policy."
+    }
+  ],
+
+  "market_snapshot": {
+    "as_of": "2026-05-01T11:30:00-04:00",
+    "indexes": [
+      {
+        "label": "S&P 500",
+        "value": "~7,252",
+        "note": "+10% in April — best month in 5 years. New ATH set Thursday Apr 30 at 7,209.",
+        "direction": "up"
+      },
+      {
+        "label": "Nasdaq Composite",
+        "value": "~25,163",
+        "note": "New closing record Apr 30 at 24,892. Tech and communication services led April.",
+        "direction": "up"
+      },
+      {
+        "label": "Dow Jones Industrial Average",
+        "value": "~49,667",
+        "note": "Caterpillar +10% Thursday carried the Dow to near 50,000. Industrial leadership broadening.",
+        "direction": "up"
+      },
+      {
+        "label": "Russell 2000",
+        "value": "~2,808",
+        "note": "Lagging large-cap meaningfully. Breadth concern: small-cap not confirming the ATH.",
+        "direction": "neutral"
+      },
+      {
+        "label": "VIX",
+        "value": "~16.78",
+        "note": "Below 17 for first time in 2 weeks — market pricing out near-term shock despite $111 oil.",
+        "direction": "up"
+      },
+      {
+        "label": "10Y Treasury Yield",
+        "value": "~4.41%",
+        "note": "Near threshold for equity multiple pressure. Hawkish FOMC dissents are a ceiling risk.",
+        "direction": "neutral"
+      }
+    ],
+    "macro_fed": [
+      {
+        "label": "Fed Funds Rate",
+        "value": "3.50–3.75%",
+        "note": "Third consecutive hold. No June cut priced. Next meeting June 16-17 under Warsh.",
+        "direction": "neutral"
+      },
+      {
+        "label": "Rate Cut Probability (Jun)",
+        "value": "~0%",
+        "note": "CME FedWatch shows essentially zero probability of a cut at the June meeting.",
+        "direction": "down"
+      },
+      {
+        "label": "CPI (March 2026)",
+        "value": "3.3% YoY",
+        "note": "Near 2-year high. Energy inflation primary driver. April print due mid-May.",
+        "direction": "down"
+      },
+      {
+        "label": "ISM Mfg. Prices Paid",
+        "value": "84.6",
+        "note": "Highest since April 2022. Tariffs and energy costs compounding simultaneously.",
+        "direction": "down"
+      },
+      {
+        "label": "U.S. Retail Sales (March)",
+        "value": "+1.7% MoM",
+        "note": "Strong but partly inflated by higher gas prices — not all real spending growth.",
+        "direction": "neutral"
+      },
+      {
+        "label": "Fed Chair",
+        "value": "Warsh Pending",
+        "note": "Senate Banking approved 13-11. Powell exits May 15. Warsh chairs June 16-17.",
+        "direction": "neutral"
+      }
+    ],
+    "energy_volatility": [
+      {
+        "label": "WTI Crude",
+        "value": "~$105/bbl",
+        "note": "+77% YoY. Eased Friday on Iran peace signal from $111 intraweek high.",
+        "direction": "down"
+      },
+      {
+        "label": "Brent Crude",
+        "value": "~$111/bbl",
+        "note": "~$40/bbl above pre-conflict level. IEA: unprecedented supply shock in progress.",
+        "direction": "down"
+      },
+      {
+        "label": "Natural Gas",
+        "value": "~$2.78/MMBtu",
+        "note": "Holding elevated. European LNG demand stress rising as final Gulf shipments land.",
+        "direction": "down"
+      },
+      {
+        "label": "Gold",
+        "value": "~$4,625/oz",
+        "note": "Safe-haven and inflation hedge demand intact. JPM 2026 target: $6,300/oz.",
+        "direction": "up"
+      },
+      {
+        "label": "Silver",
+        "value": "~$74.50/oz",
+        "note": "Tracking gold; industrial component adds volatility. Gold-silver ratio elevated.",
+        "direction": "up"
+      },
+      {
+        "label": "DXY (Dollar Index)",
+        "value": "~98.0",
+        "note": "Dollar weakening — supportive tailwind for gold and commodity prices broadly.",
+        "direction": "down"
+      },
+      {
+        "label": "California Gas Price",
+        "value": "$6.01/gallon",
+        "note": "+30% since Feb 28 war start. Highest in the nation. Consumer stress is real.",
+        "direction": "down"
+      }
+    ]
+  },
+
+  "stories_to_track": {
+    "geopolitical_macro": [
+      {
+        "label": "Iran updated peace proposal — Pakistani back-channel active, terms undisclosed, no talks scheduled",
+        "status": "UNRESOLVED",
+        "direction": "neutral"
+      },
+      {
+        "label": "CENTCOM expanded military options briefed to Trump — renewed strike risk elevated this week",
+        "status": "ESCALATING",
+        "direction": "down"
+      },
+      {
+        "label": "Trump 60-day War Powers Act deadline — legal challenge building; administration claims ceasefire satisfies",
+        "status": "WATCH",
+        "direction": "neutral"
+      },
+      {
+        "label": "UAE exits OPEC — structural shift in cartel production dynamics and Gulf alignment",
+        "status": "WATCH",
+        "direction": "down"
+      },
+      {
+        "label": "European and Asian energy shortages — final pre-closure tanker shipments have arrived at destinations",
+        "status": "ESCALATING",
+        "direction": "down"
+      },
+      {
+        "label": "Kevin Warsh Senate floor confirmation vote — expected before May 15, Powell exit date",
+        "status": "PENDING",
+        "direction": "neutral"
+      },
+      {
+        "label": "April NFP — stagflation vs. resilience verdict arrives Friday May 8",
+        "status": "PENDING",
+        "direction": "neutral"
+      }
+    ],
+    "sector_stock_signals": [
+      {
+        "label": "AMD earnings May 5 AMC — AI GPU demand trajectory and data center market share vs. Nvidia",
+        "status": "PENDING",
+        "direction": "neutral"
+      },
+      {
+        "label": "Arm Holdings earnings May 5 AMC — mobile AI royalty demand and edge computing buildout signals",
+        "status": "PENDING",
+        "direction": "neutral"
+      },
+      {
+        "label": "Disney earnings May 6 AMC — consumer health read: theme parks and streaming under $6 gas",
+        "status": "PENDING",
+        "direction": "neutral"
+      },
+      {
+        "label": "Meta AI capex overhang — $125-145B guidance raised serious ROI questions; sector watching next quarter",
+        "status": "FRAYING",
+        "direction": "down"
+      },
+      {
+        "label": "Caterpillar record backlog confirmed — AI infrastructure buildout lifting industrial complex broadly",
+        "status": "STRONG BEAT",
+        "direction": "up"
+      },
+      {
+        "label": "S&P 500 breadth: only 50% of stocks above 50-day MA; decliners leading advancers 1.5:1",
+        "status": "WATCH",
+        "direction": "neutral"
+      },
+      {
+        "label": "Qualcomm +16% on Q1 beat — AI chip demand broadening beyond hyperscaler core to mobile",
+        "status": "RISING",
+        "direction": "up"
+      }
+    ]
+  },
+
+  "scenarios": [
+    {
+      "id": "bull",
+      "label": "A",
+      "case": "Bull",
+      "color": "green",
+      "headline": "Bull Case: Hormuz Talks Resume + AMD Confirms AI Cycle + NFP Shows Resilience Without Wage Spike",
+      "body": "Iran and the U.S. reach formal agreement on a ceasefire framework or credible Hormuz reopening timeline through the Pakistani back-channel. Brent crude sells off sharply toward $90-95 per barrel, immediately reducing CPI forward expectations and re-opening the rate-cut probability window for Warsh's June FOMC debut. AMD and ARM both deliver strong results with bullish guidance, confirming that AI semiconductor demand is broadening beyond hyperscalers and that the capital spending cycle has not peaked. NFP prints 175,000-200,000 with contained wage growth, confirming labor market resilience without adding to the wage-inflation spiral. This combination drives a broad market breakout above 7,300 on the S&P 500, rotation into rate-sensitive sectors — financials, real estate, utilities — and a pullback in gold as risk-off premium unwinds. Market breadth improves sharply as small-caps and financials join the advance and the current index concentration narrows."
+    },
+    {
+      "id": "base",
+      "label": "B",
+      "case": "Base",
+      "color": "amber",
+      "headline": "Base Case: Diplomatic Deadlock Continues, Earnings Carry the Market; NFP Keeps Fed on Hold",
+      "body": "Diplomatic channels remain open but produce no formal agreement on Hormuz, keeping oil in the $100-115 range through the week. AMD delivers inline-to-slightly-better results without a blowout upside guide, sustaining the AI semiconductor narrative without dramatically expanding it. Disney's results reflect modest consumer stress at the margin — slight park attendance softness, streaming churn uptick — but no collapse. NFP prints 125,000-175,000 — slowing but not alarming — removing immediate recession fear without unlocking rate-cut probability. The S&P 500 consolidates near record highs in a narrow range, digesting April's extraordinary rally with sector rotation rather than a broad advance or coordinated retreat. Warsh is confirmed without incident and delivers a cautious, non-committal first statement on policy direction. VIX stays 15-18 and the bull market continues but remains concentrated in AI-capex winners and earnings-confirmed names."
+    },
+    {
+      "id": "bear",
+      "label": "C",
+      "case": "Bear",
+      "color": "red",
+      "headline": "Bear Case: Military Escalation or Stagflation Shock Forces Rapid Regime Reassessment",
+      "body": "Trump authorizes expanded military strikes on Iran following the CENTCOM briefing, causing Brent to spike toward $125-130 and equity futures to gap down 2-3% on the open. Alternatively, NFP prints below 100,000 while ISM prices-paid remains above 80 — a formal stagflation data point that traps the Fed between rising inflation and deteriorating employment, forcing the market to price out any easing path for 2026 entirely. A third path: AMD disappoints on data center guidance, breaking the AI-capex narrative that has functioned as the primary earnings floor for the index. Any single trigger in isolation is manageable; any two arriving in the same week would force a rapid and disorderly de-risking event. VIX spikes above 25, gold surges toward $5,000, and the S&P 500 retests the 7,000 level. Defensive sectors and energy equities outperform on a relative basis while mega-cap tech faces multiple compression even as earnings fundamentals remain intact."
+    }
+  ],
+
+  "key_questions": [
+    {
+      "number": 1,
+      "question": "Does Iran's updated peace proposal produce a formal resumption of talks with a credible Hormuz reopening commitment, or does the diplomatic channel stall again — and does oil hold above $100 or break lower?",
+      "status": "unanswered"
+    },
+    {
+      "number": 2,
+      "question": "Does AMD confirm that AI GPU demand is broadening and accelerating (bull case for the AI spending cycle), or does it signal data center capex is beginning to moderate (bear case for AI sector leadership)?",
+      "status": "unanswered"
+    },
+    {
+      "number": 3,
+      "question": "Does April NFP print above 150,000 with contained wages (labor resilience intact, Fed stays on hold comfortably), or below 100,000 with rising wages (stagflation signal, Fed trapped)?",
+      "status": "unanswered"
+    },
+    {
+      "number": 4,
+      "question": "Does Disney's report confirm that U.S. consumer spending is holding up under $6 gasoline, or does it show meaningful discretionary pullback in theme park attendance and streaming — a canary for the broader consumer sector?",
+      "status": "unanswered"
+    },
+    {
+      "number": 5,
+      "question": "Does S&P 500 market breadth improve — decliners-to-advancers ratio narrowing and small-caps participating — or does the index hold all-time highs on increasingly narrow leadership that signals vulnerability?",
+      "status": "unanswered"
+    },
+    {
+      "number": 6,
+      "question": "Does Warsh's Senate floor confirmation happen on schedule before May 15, and does his first public statement as chair-designate signal any immediate changes to Fed communication style or June FOMC direction?",
+      "status": "unanswered"
+    },
+    {
+      "number": 7,
+      "question": "Does Trump authorize new military action against Iran following the CENTCOM expanded-options briefing, or does the administration's receipt of Iran's updated proposal maintain the ceasefire framework through the week?",
+      "status": "unanswered"
+    }
+  ],
+
+  "research_sources": [
+    {
+      "label": "Wikipedia — 2026 Strait of Hormuz Crisis (full chronological timeline)",
+      "url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "Wikipedia — 2026 United States Naval Blockade of Iran",
+      "url": "https://en.wikipedia.org/wiki/2026_United_States_naval_blockade_of_Iran",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "NPR — Deadlock over Iran nuclear program and Hormuz cripples peace efforts (Apr 28-29)",
+      "url": "https://www.npr.org/2026/04/28/nx-s1-5802283/iran-middle-east-updates",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "CNBC — Trump discussed Iran Hormuz proposal with national security team (Apr 27)",
+      "url": "https://www.cnbc.com/2026/04/27/trump-iran-war-strait-of-hormuz-rubio.html",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "Al Jazeera — How long can Iran survive the US naval blockade?",
+      "url": "https://www.aljazeera.com/news/2026/4/24/how-long-can-iran-survive-the-uss-hormuz-blockade",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "House of Commons Library — Israel/US-Iran conflict 2026: Reopening the Strait of Hormuz",
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10636/",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "Yahoo Finance — Fed live updates: 8-4 hold, Warsh advances (Apr 29)",
+      "url": "https://finance.yahoo.com/economy/policy/live/fed-meeting-live-updates-federal-reserve-holds-interest-rates-steady-in-powells-final-meeting-as-chair-111906007.html",
+      "tag": "Fed"
+    },
+    {
+      "label": "The Hill — Federal Reserve holds rates, Warsh nears confirmation (Apr 29)",
+      "url": "https://thehill.com/business/5855524-federal-reserve-interest-rates/",
+      "tag": "Fed"
+    },
+    {
+      "label": "CNN Business — Powell confirms he will step aside, remain as governor (Apr 29)",
+      "url": "https://www.cnn.com/2026/04/29/business/live-news/federal-reserve-interest-rate",
+      "tag": "Fed"
+    },
+    {
+      "label": "CNBC — The Warsh revolution is coming. Powell won't stand in the way. (Apr 29)",
+      "url": "https://www.cnbc.com/2026/04/29/fed-powell-warsh-interest-rates.html",
+      "tag": "Fed"
+    },
+    {
+      "label": "CBS News — Federal Reserve holds rates steady, Powell vows to remain as governor",
+      "url": "https://www.cbsnews.com/news/federal-reserve-fomc-meeting-today-rate-decision-jerome-powell-kevin-warsh/",
+      "tag": "Fed"
+    },
+    {
+      "label": "FactSet — S&P 500 Earnings Season Update, April 24 2026",
+      "url": "https://insight.factset.com/sp-500-earnings-season-update-april-24-2026",
+      "tag": "Earnings"
+    },
+    {
+      "label": "CNBC — Stock market news April 30: S&P ATH on Caterpillar, Alphabet beats",
+      "url": "https://www.cnbc.com/2026/04/29/stock-market-today-live-updates.html",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Schwab — May Starts Merrily on Apple Earnings, Peace Hopes (May 1, 2026)",
+      "url": "https://www.schwab.com/learn/story/stock-market-update-open",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Sterling Capital — Weekly Market Recap (as of Apr 24, 2026)",
+      "url": "https://sterlingcapital.com/weeklymarketrecap/",
+      "tag": "Flows"
+    },
+    {
+      "label": "J.P. Morgan Asset Management — Weekly Market Recap (Apr 27, 2026)",
+      "url": "https://am.jpmorgan.com/content/dam/jpm-am-aem/americas/us/en/insights/market-insights/wmr/weekly_market_recap.pdf",
+      "tag": "Flows"
+    },
+    {
+      "label": "Trading Economics — WTI Crude Oil prices live (May 1, 2026)",
+      "url": "https://tradingeconomics.com/commodity/crude-oil",
+      "tag": "Energies"
+    },
+    {
+      "label": "Trading Economics — Brent Crude prices live (May 1, 2026)",
+      "url": "https://tradingeconomics.com/commodity/brent-crude-oil",
+      "tag": "Energies"
+    },
+    {
+      "label": "Fortune — Current price of oil as of April 30, 2026",
+      "url": "https://fortune.com/article/price-of-oil-04-30-2026/",
+      "tag": "Energies"
+    },
+    {
+      "label": "J.P. Morgan Global Research — Gold price predictions 2026 and beyond",
+      "url": "https://www.jpmorgan.com/insights/global-research/commodities/gold-prices",
+      "tag": "Metals & Commodities"
+    },
+    {
+      "label": "CBS News — Is gold still a safe haven now that inflation is rising again? (Apr 2026)",
+      "url": "https://www.cbsnews.com/news/gold-safe-haven-with-inflation-rising-april-2026/",
+      "tag": "Metals & Commodities"
+    },
+    {
+      "label": "Fidelity — Stock market outlook April 2026",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/stock-market-outlook",
+      "tag": "Econ Data"
+    }
+  ]
+}

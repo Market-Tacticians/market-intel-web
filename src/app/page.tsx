@@ -8,7 +8,7 @@ import ReportList from '@/components/ReportList';
 import ReportViewer from '@/components/ReportViewer';
 import DynamicReport from '@/components/DynamicReport';
 import { useReports } from '@/hooks/useReports';
-import { useJsonReports } from '@/hooks/useJsonReports';
+import { useLiveReport } from '@/hooks/useLiveReport';
 import { Report } from '@/types/report';
 
 export default function Home() {
@@ -19,11 +19,7 @@ export default function Home() {
   const [archiveDate, setArchiveDate] = useState<string>(format(new Date(), 'yyyy-MM-dd'));
 
   const { reports, loading, error } = useReports();
-  const { jsonReports, loading: jsonLoading } = useJsonReports();
-
-  const latestJsonReport = useMemo(() => {
-    return jsonReports.length > 0 ? jsonReports[0].report_data : null;
-  }, [jsonReports]);
+  const { liveReport, loading: liveLoading, error: liveError } = useLiveReport();
 
   // --- Logic for Calendar ---
   const activeDates = useMemo(() => {
@@ -71,10 +67,12 @@ export default function Home() {
           ) : activeTab === 'template' ? (
             /* --- TEMPLATE MOCKUP VIEW --- */
             <div className="tab-template animate-fade-in p-8 overflow-y-auto h-full">
-              {jsonLoading ? (
+              {liveLoading ? (
                 <div className="p-20 text-center mono animate-pulse">FETCHING STRUCTURED INTEL...</div>
+              ) : liveError ? (
+                <div className="p-20 text-center mono text-danger">ERROR LOADING LIVE REPORT: {liveError}</div>
               ) : (
-                <DynamicReport data={latestJsonReport} />
+                <DynamicReport data={liveReport} />
               )}
             </div>
           ) : (
