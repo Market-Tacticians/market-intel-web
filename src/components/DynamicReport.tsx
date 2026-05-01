@@ -51,7 +51,8 @@ export default function DynamicReport({ data }: DynamicReportProps) {
     const t = (tag || '').toLowerCase();
     if (t.includes('geo')) return 'tag-geo';
     if (t.includes('fed') || t.includes('monetary')) return 'tag-fed';
-    if (t.includes('oil') || t.includes('energy')) return 'tag-oil';
+    if (t.includes('oil') || t.includes('energy')) return 'tag-energies';
+    if (t.includes('metal') || t.includes('commod')) return 'tag-metals-commodities';
     if (t.includes('earn')) return 'tag-earnings';
     if (t.includes('data') || t.includes('econ')) return 'tag-data';
     if (t.includes('flow') || t.includes('posit')) return 'tag-flow';

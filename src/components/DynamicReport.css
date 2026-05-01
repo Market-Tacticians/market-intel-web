@@ -68,16 +68,24 @@
 :root {
 
   /* ── Backgrounds (darkest → lightest surface) ── */
-  --bg:        #080b10;   /* Page background. Near-black with a cold blue tint. */
-  --surface:   #0f1318;   /* Cards, masthead, footer. One visible step above page. */
-  --surface2:  #151a22;   /* Nested/inset elements: textareas, update sub-cards, source lists. */
-  --border:    #1e2530;   /* Default border on all cards and dividers. Quiet but visible. */
-  --border-hi: #2a3344;   /* Emphasized border. Used at the joint between story-thread parts. */
+  --bg: #080b10;
+  /* Page background. Near-black with a cold blue tint. */
+  --surface: #0f1318;
+  /* Cards, masthead, footer. One visible step above page. */
+  --surface2: #151a22;
+  /* Nested/inset elements: textareas, update sub-cards, source lists. */
+  --border: #1e2530;
+  /* Default border on all cards and dividers. Quiet but visible. */
+  --border-hi: #2a3344;
+  /* Emphasized border. Used at the joint between story-thread parts. */
 
   /* ── Text hierarchy ── */
-  --text:       #d0d7e0;  /* Default body text. Cool gray, high readability. */
-  --text-dim:   #6b7a8d;  /* Secondary text: timestamps, card sub-labels, placeholder text. */
-  --text-bright:#f0f4f8;  /* Emphasis text: headlines, card titles, active data values. */
+  --text: #d0d7e0;
+  /* Default body text. Cool gray, high readability. */
+  --text-dim: #6b7a8d;
+  /* Secondary text: timestamps, card sub-labels, placeholder text. */
+  --text-bright: #f0f4f8;
+  /* Emphasis text: headlines, card titles, active data values. */
 
   /* ── Semantic colors ──
      RULE: Color = meaning. Never decorative.
@@ -88,23 +96,25 @@
      Blue   → Fed / monetary policy content only
      Purple → Flows / positioning content only
   ── */
-  --green:      #22c55e;
-  --green-dim:  rgba(34,  197, 94,  0.12);   /* Tag backgrounds, answer boxes */
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  /* Tag backgrounds, answer boxes */
 
-  --red:        #ef4444;
-  --red-dim:    rgba(239, 68,  68,  0.12);   /* Update badge bg, market-impact box */
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.12);
+  /* Update badge bg, market-impact box */
 
-  --amber:      #f59e0b;
-  --amber-dim:  rgba(245, 158, 11,  0.12);
+  --amber: #f59e0b;
+  --amber-dim: rgba(245, 158, 11, 0.12);
 
-  --blue:       #3b82f6;
-  --blue-dim:   rgba(59,  130, 246, 0.12);
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.12);
 
-  --cyan:       #06b6d4;
-  --cyan-dim:   rgba(6,   182, 212, 0.10);
+  --cyan: #06b6d4;
+  --cyan-dim: rgba(6, 182, 212, 0.10);
 
-  --purple:     #a855f7;
-  --purple-dim: rgba(168, 85,  247, 0.10);
+  --purple: #a855f7;
+  --purple-dim: rgba(168, 85, 247, 0.10);
 }
 
 
@@ -112,19 +122,21 @@
    2. RESET + BASE
    ============================================================ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background:  var(--bg);
-  color:       var(--text);
+  background: var(--bg);
+  color: var(--text);
   font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
-  font-size:   .84rem;
+  font-size: .84rem;
   line-height: 1.7;
-  min-height:  100vh;
+  min-height: 100vh;
 }
 
 
@@ -136,8 +148,17 @@ body {
 
 /* Used on: .regime-dot, .timestamp-badge .ts-dot, .update-dot.live, .pulse (inside update badge) */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1;   transform: scale(1);   }
-  50%      { opacity: 0.5; transform: scale(1.3); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
 }
 
 
@@ -151,28 +172,28 @@ body {
    ============================================================ */
 
 .masthead {
-  padding:       28px 32px 22px;
+  padding: 28px 32px 22px;
   border-bottom: 1px solid var(--border);
-  background:    var(--surface);
+  background: var(--surface);
 }
 
 .masthead-row {
-  display:         flex;
-  align-items:     flex-start;
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  gap:             16px;
-  flex-wrap:       wrap;
-  margin-bottom:   8px;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
 /* The "▶" glyph before the title uses .accent */
 .masthead h1 {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      1.1rem;
-  font-weight:    700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color:          var(--text-bright);
+  color: var(--text-bright);
 }
 
 .accent {
@@ -181,47 +202,47 @@ body {
 
 /* The subtitle line below the h1 — week range and section list */
 .subtitle {
-  font-size:      .78rem;
-  color:          var(--text-dim);
-  font-family:    'IBM Plex Mono', monospace;
+  font-size: .78rem;
+  color: var(--text-dim);
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* Timestamp badge — top right of masthead. Shows meta.last_updated */
 .timestamp-badge {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .68rem;
-  color:          var(--text-dim);
-  background:     var(--surface2);
-  border:         1px solid var(--border);
-  border-radius:  5px;
-  padding:        4px 10px;
-  white-space:    nowrap;
-  display:        flex;
-  align-items:    center;
-  gap:            6px;
-  flex-shrink:    0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  color: var(--text-dim);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 /* Pulsing cyan dot — signals "this brief is live/current" */
 .timestamp-badge .ts-dot {
-  width:      6px;
-  height:     6px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--cyan);
   flex-shrink: 0;
-  animation:  pulse-dot 2s ease-in-out infinite;
+  animation: pulse-dot 2s ease-in-out infinite;
 }
 
 .timestamp-badge .ts-label {
-  color:          var(--text-dim);
-  font-size:      .6rem;
+  color: var(--text-dim);
+  font-size: .6rem;
   text-transform: uppercase;
   letter-spacing: .5px;
-  margin-right:   2px;
+  margin-right: 2px;
 }
 
 .timestamp-badge .ts-value {
-  color:       var(--text-bright);
+  color: var(--text-bright);
   font-weight: 600;
 }
 
@@ -239,7 +260,7 @@ body {
 
    Risk-On (Strong)   → --green  | border: rgba(34,197,94,0.2)
    Risk-On (Cautious) → --amber  | border: default --border
-   Range-Bound        → --amber  | border: default --border
+   Neutral            → --amber  | border: default --border
    Risk-Off (Cautious)→ --red    | border: rgba(239,68,68,0.35)
    Risk-Off (Strong)  → --red    | border: rgba(239,68,68,0.5)
 
@@ -252,38 +273,38 @@ body {
    ============================================================ */
 
 .regime-banner {
-  display:      flex;
-  align-items:  center;
-  gap:          12px;
-  padding:      12px 32px;
-  border-top:   1px solid;
-  border-bottom:1px solid;
-  font-family:  'IBM Plex Sans', sans-serif;
-  flex-wrap:    wrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 32px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  font-family: 'IBM Plex Sans', sans-serif;
+  flex-wrap: wrap;
 }
 
 .regime-dot {
-  width:        10px;
-  height:       10px;
-  border-radius:50%;
-  flex-shrink:  0;
-  animation:    pulse-dot 2s ease-in-out infinite;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
   /* background set via inline style */
 }
 
 .regime-label {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .78rem;
-  font-weight:    700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .78rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .8px;
-  flex-shrink:    0;
+  flex-shrink: 0;
   /* color set via inline style */
 }
 
 .regime-desc {
   font-size: .82rem;
-  color:     var(--text);
+  color: var(--text);
 }
 
 
@@ -293,8 +314,8 @@ body {
 
 .container {
   max-width: 1280px;
-  margin:    0 auto;
-  padding:   0 32px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 section {
@@ -303,33 +324,33 @@ section {
 
 /* Horizontal rule between sections */
 .divider {
-  border:     none;
+  border: none;
   border-top: 1px solid var(--border);
 }
 
 /* Every section starts with this title bar.
    The cyan bar on the left is a ::before pseudo-element. */
 .section-title {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .78rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .78rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.6px;
-  color:          var(--cyan);
-  margin-bottom:  16px;
-  display:        flex;
-  align-items:    center;
-  gap:            10px;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .section-title::before {
-  content:      '';
-  display:      block;
-  width:        3px;
-  height:       14px;
-  background:   var(--cyan);
-  border-radius:2px;
-  flex-shrink:  0;
+  content: '';
+  display: block;
+  width: 3px;
+  height: 14px;
+  background: var(--cyan);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
 
@@ -343,30 +364,59 @@ section {
    Tag → Color pair:
      .tag-geo      → red-dim  / red     (geopolitical)
      .tag-fed      → blue-dim / blue    (Fed / monetary policy)
-     .tag-oil      → amber-dim/ amber   (energy / oil)
+     .tag-energies → amber-dim/ amber   (energy / oil)
+     .tag-metals-commodities → amber-dim/ amber (metals / commodities)
      .tag-earnings → green-dim/ green   (earnings / corporate)
      .tag-data     → cyan-dim / cyan    (economic data)
      .tag-flow     → purple-dim/purple  (flows / positioning)
    ============================================================ */
 
 .tag {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .65rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .5px;
-  padding:        2px 8px;
-  border-radius:  4px;
-  display:        inline-block;
-  white-space:    nowrap;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  white-space: nowrap;
 }
 
-.tag-geo      { background: var(--red-dim);    color: var(--red);    }
-.tag-fed      { background: var(--blue-dim);   color: var(--blue);   }
-.tag-oil      { background: var(--amber-dim);  color: var(--amber);  }
-.tag-earnings { background: var(--green-dim);  color: var(--green);  }
-.tag-data     { background: var(--cyan-dim);   color: var(--cyan);   }
-.tag-flow     { background: var(--purple-dim); color: var(--purple); }
+.tag-geo {
+  background: var(--red-dim);
+  color: var(--red);
+}
+
+.tag-fed {
+  background: var(--blue-dim);
+  color: var(--blue);
+}
+
+.tag-energies {
+  background: var(--amber-dim);
+  color: var(--amber);
+}
+
+.tag-metals-commodities {
+  background: var(--amber-dim);
+  color: var(--amber);
+}
+
+.tag-earnings {
+  background: var(--green-dim);
+  color: var(--green);
+}
+
+.tag-data {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+}
+
+.tag-flow {
+  background: var(--purple-dim);
+  color: var(--purple);
+}
 
 
 /* ============================================================
@@ -381,15 +431,15 @@ section {
    ============================================================ */
 
 .inline-update {
-  background:     var(--red);
-  color:          #fff;
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .6rem;
-  font-weight:    600;
+  background: var(--red);
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .5px;
-  padding:        2px 7px;
-  border-radius:  3px;
+  padding: 2px 7px;
+  border-radius: 3px;
 }
 
 
@@ -408,28 +458,28 @@ section {
    ============================================================ */
 
 .narrative-card {
-  background:    var(--surface);
-  border:        1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding:       22px 26px;
+  padding: 22px 26px;
   margin-bottom: 14px;
 }
 
 .narrative-card h3 {
-  font-family:   'IBM Plex Sans', sans-serif;
-  font-size:     1rem;
-  font-weight:   700;
-  color:         var(--text-bright);
-  display:       flex;
-  align-items:   center;
-  gap:           8px;
-  flex-wrap:     wrap;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
 .narrative-card p {
-  color:       var(--text);
-  font-size:   .84rem;
+  color: var(--text);
+  font-size: .84rem;
   line-height: 1.75;
 }
 
@@ -468,36 +518,36 @@ section {
 /* Part 1: condensed original card
    Flat bottom edge connects to the timeline below */
 .story-thread .narrative-card.condensed {
-  border-radius:  10px 10px 0 0;
-  border-bottom:  none;
-  margin-bottom:  0;
+  border-radius: 10px 10px 0 0;
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 /* Part 2: timeline container
    Flat top edge connects to the condensed card above.
    Thicker top border (--border-hi) marks the joint. */
 .update-timeline {
-  background:    var(--surface);
-  border:        1px solid var(--border);
-  border-top:    2px solid var(--border-hi);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--border-hi);
   border-radius: 0 0 10px 10px;
-  padding:       0 18px 14px;
+  padding: 0 18px 14px;
 }
 
 /* Vertical rail — the left-side connecting line */
 .update-timeline-rail {
-  position:     relative;
+  position: relative;
   padding-left: 24px;
 }
 
 .update-timeline-rail::before {
-  content:       '';
-  position:      absolute;
-  left:          5px;
-  top:           0;
-  bottom:        0;
-  width:         2px;
-  background:    var(--border);
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
   border-radius: 2px;
 }
 
@@ -512,32 +562,36 @@ section {
      Row 2 (.update-trigger-headline): the update headline
    The headline is ALWAYS visible (not hidden inside .update-body). */
 .update-trigger {
-  display:       flex;
-  flex-direction:column;
-  gap:           4px;
-  cursor:        pointer;
-  list-style:    none;
-  padding:       0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  list-style: none;
+  padding: 0;
 }
-.update-trigger::-webkit-details-marker { display: none; }
+
+.update-trigger::-webkit-details-marker {
+  display: none;
+}
 
 .update-trigger-top {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         8px;
-  flex-wrap:   wrap;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 /* The dot on the timeline rail.
    Plain dot = older update.
    .live dot = newest update (red + glow + pulse handled separately). */
 .update-dot {
-  width:         10px;
-  height:        10px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background:    var(--border-hi);
-  flex-shrink:   0;
-  margin-left:   -24px;  /* pulls dot onto the rail */
+  background: var(--border-hi);
+  flex-shrink: 0;
+  margin-left: -24px;
+  /* pulls dot onto the rail */
 }
 
 .update-dot.live {
@@ -548,44 +602,44 @@ section {
 /* Badge next to the dot — shows update label ("Update 1", "Live Update", etc.)
    Contains an optional .pulse span for the live state. */
 .update-badge {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .65rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .5px;
-  background:     var(--red-dim);
-  color:          var(--red);
-  border:         1px solid rgba(239,68,68,0.3);
-  padding:        2px 8px;
-  border-radius:  3px;
-  display:        flex;
-  align-items:    center;
-  gap:            4px;
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 2px 8px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* The animated red dot inside the live badge */
 .update-badge .pulse {
-  display:       inline-block;
-  width:         6px;
-  height:        6px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background:    var(--red);
-  animation:     pulse-dot 1.5s ease-in-out infinite;
+  background: var(--red);
+  animation: pulse-dot 1.5s ease-in-out infinite;
 }
 
 /* Timestamp — "Mon–Tue Apr 28" etc. */
 .update-timestamp {
   font-family: 'IBM Plex Mono', monospace;
-  font-size:   .65rem;
-  color:       var(--text-dim);
+  font-size: .65rem;
+  color: var(--text-dim);
 }
 
 /* Chevron — rotates 180° when <details> is open */
 .update-chevron {
-  font-size:   .6rem;
-  color:       var(--text-dim);
+  font-size: .6rem;
+  color: var(--text-dim);
   margin-left: auto;
-  transition:  transform .2s;
+  transition: transform .2s;
 }
 
 [open] .update-chevron {
@@ -595,18 +649,18 @@ section {
 /* The headline — always visible, whether collapsed or open.
    Part of <summary>, NOT inside .update-body. */
 .update-trigger-headline {
-  font-family:  'IBM Plex Sans', sans-serif;
-  font-size:    .84rem;
-  font-weight:  600;
-  color:        var(--text-bright);
-  line-height:  1.4;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.4;
 }
 
 /* Body content — only visible when <details> is open */
 .update-body {
-  padding:     10px 0 6px;
-  color:       var(--text);
-  font-size:   .83rem;
+  padding: 10px 0 6px;
+  color: var(--text);
+  font-size: .83rem;
   line-height: 1.75;
 }
 
@@ -617,44 +671,44 @@ section {
 /* Bullet list inside update body.
    Uses → (red arrow) instead of standard bullet. */
 .bullet-list {
-  list-style:  none;
-  margin:      8px 0 10px;
-  padding-left:14px;
+  list-style: none;
+  margin: 8px 0 10px;
+  padding-left: 14px;
 }
 
 .bullet-list li {
-  padding:  3px 0;
+  padding: 3px 0;
   position: relative;
 }
 
 .bullet-list li::before {
-  content:  '→';
-  color:    var(--red);
+  content: '→';
+  color: var(--red);
   position: absolute;
-  left:     -14px;
-  font-size:.75rem;
-  top:      5px;
+  left: -14px;
+  font-size: .75rem;
+  top: 5px;
 }
 
 /* Market impact box — red-tinted, always at the bottom of each update body
    JSON: updates[].market_impact.text */
 .market-impact {
-  background:    var(--red-dim);
-  border:        1px solid rgba(239,68,68,0.2);
-  border-left:   3px solid var(--red);
+  background: var(--red-dim);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-left: 3px solid var(--red);
   border-radius: 6px;
-  padding:       10px 14px;
-  margin-top:    10px;
+  padding: 10px 14px;
+  margin-top: 10px;
 }
 
 .market-impact-label {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .65rem;
-  font-weight:    700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color:          var(--red);
-  margin-bottom:  4px;
+  color: var(--red);
+  margin-bottom: 4px;
 }
 
 
@@ -689,46 +743,48 @@ section {
 }
 
 .sources-toggle {
-  display:        flex;
-  align-items:    center;
-  gap:            6px;
-  padding:        6px 12px;
-  background:     var(--surface2);
-  border:         1px solid var(--border);
-  border-radius:  6px;
-  cursor:         pointer;
-  user-select:    none;
-  list-style:     none;
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .68rem;
-  font-weight:    600;
-  color:          var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: .5px;
-  transition:     border-color .15s, color .15s;
-  width:          fit-content;
+  transition: border-color .15s, color .15s;
+  width: fit-content;
 }
 
-.sources-toggle::-webkit-details-marker { display: none; }
+.sources-toggle::-webkit-details-marker {
+  display: none;
+}
 
 .sources-toggle:hover {
   border-color: var(--cyan);
-  color:        var(--cyan);
+  color: var(--cyan);
 }
 
 .sources-count {
-  background:    var(--border-hi);
-  color:         var(--text-dim);
-  padding:       1px 6px;
+  background: var(--border-hi);
+  color: var(--text-dim);
+  padding: 1px 6px;
   border-radius: 3px;
-  font-size:     .6rem;
-  font-weight:   700;
+  font-size: .6rem;
+  font-weight: 700;
 }
 
 .sources-chevron {
   margin-left: 4px;
-  transition:  transform .2s;
-  font-size:   .6rem;
+  transition: transform .2s;
+  font-size: .6rem;
 }
 
 .sources-drawer[open] .sources-chevron {
@@ -737,22 +793,22 @@ section {
 
 .sources-drawer[open] .sources-toggle {
   border-color: var(--cyan);
-  color:        var(--cyan);
+  color: var(--cyan);
 }
 
 .sources-list {
-  padding:       10px 14px;
-  margin-top:    6px;
-  background:    var(--surface2);
-  border:        1px solid var(--border);
+  padding: 10px 14px;
+  margin-top: 6px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  list-style:    none;
+  list-style: none;
 }
 
 .sources-list li {
-  padding:       4px 0;
-  font-size:     .72rem;
-  line-height:   1.5;
+  padding: 4px 0;
+  font-size: .72rem;
+  line-height: 1.5;
   border-bottom: 1px solid var(--border);
 }
 
@@ -761,22 +817,22 @@ section {
 }
 
 .sources-list a {
-  color:          var(--cyan);
-  text-decoration:none;
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .68rem;
-  word-break:     break-all;
+  color: var(--cyan);
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .68rem;
+  word-break: break-all;
 }
 
 .sources-list a:hover {
   text-decoration: underline;
-  color:           var(--text-bright);
+  color: var(--text-bright);
 }
 
 .sources-list .source-label {
-  color:       var(--text-dim);
+  color: var(--text-dim);
   font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
-  font-size:   .72rem;
+  font-size: .72rem;
 }
 
 
@@ -809,87 +865,96 @@ section {
 
 /* Vertical line runs down the left side */
 .timeline {
-  position:     relative;
+  position: relative;
   padding-left: 28px;
 }
 
 .timeline::before {
-  content:       '';
-  position:      absolute;
-  left:          4px;
-  top:           8px;
-  bottom:        8px;
-  width:         2px;
-  background:    var(--border);
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border);
   border-radius: 2px;
 }
 
 .tl-item {
-  position:       relative;
+  position: relative;
   padding-bottom: 22px;
 }
 
 /* Dot on the vertical line */
 .tl-item::before {
-  content:       '';
-  position:      absolute;
-  left:          -28px;
-  top:           6px;
-  width:         10px;
-  height:        10px;
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 
-.tl-item.high::before   { background: var(--red);      box-shadow: 0 0 6px rgba(239,68,68,0.5); }
-.tl-item.medium::before { background: var(--amber);    }
-.tl-item.low::before    { background: var(--text-dim); }
+.tl-item.high::before {
+  background: var(--red);
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
+.tl-item.medium::before {
+  background: var(--amber);
+}
+
+.tl-item.low::before {
+  background: var(--text-dim);
+}
 
 .tl-date {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .65rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color:          var(--text-dim);
-  margin-bottom:  4px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
 }
 
 .tl-title {
-  font-family:   'IBM Plex Sans', sans-serif;
-  font-size:     .9rem;
-  font-weight:   700;
-  color:         var(--text-bright);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text-bright);
   margin-bottom: 4px;
-  display:       flex;
-  align-items:   center;
-  gap:           8px;
-  flex-wrap:     wrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .tl-body {
-  font-size:     .82rem;
-  color:         var(--text);
-  line-height:   1.7;
+  font-size: .82rem;
+  color: var(--text);
+  line-height: 1.7;
   margin-bottom: 6px;
 }
 
 .tl-tags {
-  display:   flex;
-  gap:       6px;
+  display: flex;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-top:4px;
+  margin-top: 4px;
 }
 
 /* Optional update note inline in a calendar item (propagated update) */
 .tl-update-note {
-  background:    var(--red-dim);
-  border-left:   3px solid var(--red);
+  background: var(--red-dim);
+  border-left: 3px solid var(--red);
   border-radius: 4px;
-  padding:       6px 10px;
-  margin-top:    8px;
-  font-size:     .8rem;
-  color:         var(--text);
-  line-height:   1.6;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: .8rem;
+  color: var(--text);
+  line-height: 1.6;
 }
 
 
@@ -899,16 +964,16 @@ section {
 
 /* Three-column grid — Market Snapshot cards */
 .grid-3 {
-  display:               grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:                   14px;
+  gap: 14px;
 }
 
 /* Two-column grid — Stories to Track cards */
 .grid-2 {
-  display:               grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap:                   16px;
+  gap: 16px;
 }
 
 
@@ -935,33 +1000,33 @@ section {
    ============================================================ */
 
 .card {
-  background:    var(--surface);
-  border:        1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding:       18px 22px;
+  padding: 18px 22px;
 }
 
 /* Card header — Mono, dim, uppercase */
 .card h4 {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .72rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .72rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color:          var(--text-dim);
-  margin-bottom:  12px;
-  display:        flex;
-  align-items:    center;
-  gap:            8px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* One data row: label on left, value on right */
 .stat-row {
-  display:         flex;
+  display: flex;
   justify-content: space-between;
-  align-items:     flex-start;
-  padding:         7px 0;
-  border-bottom:   1px solid var(--border);
+  align-items: flex-start;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .stat-row:last-child {
@@ -969,44 +1034,55 @@ section {
 }
 
 .stat-label {
-  font-family:  'IBM Plex Sans', sans-serif;
-  font-size:    .78rem;
-  color:        var(--text-dim);
-  flex:         1;
-  padding-right:12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .78rem;
+  color: var(--text-dim);
+  flex: 1;
+  padding-right: 12px;
 }
 
 .stat-val {
-  font-family:  'IBM Plex Mono', monospace;
-  font-size:    .82rem;
-  font-weight:  600;
-  text-align:   right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .82rem;
+  font-weight: 600;
+  text-align: right;
 }
 
-.stat-val.up      { color: var(--green); }
-.stat-val.down    { color: var(--red);   }
-.stat-val.neutral { color: var(--amber); }
-.stat-val.flat    { color: var(--text);  }
+.stat-val.up {
+  color: var(--green);
+}
+
+.stat-val.down {
+  color: var(--red);
+}
+
+.stat-val.neutral {
+  color: var(--amber);
+}
+
+.stat-val.flat {
+  color: var(--text);
+}
 
 /* Optional sub-note inside a stat value cell */
 .stat-update-note {
-  display:       block;
-  font-size:     .68rem;
-  color:         var(--text-dim);
-  border-top:    1px solid var(--border);
-  padding-top:   3px;
-  margin-top:    3px;
-  font-weight:   400;
+  display: block;
+  font-size: .68rem;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 3px;
+  margin-top: 3px;
+  font-weight: 400;
 }
 
 /* Stories to Track rows — dot + label + status */
 .watchlist-item {
-  display:       flex;
-  align-items:   flex-start;
-  gap:           10px;
-  padding:       7px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 7px 0;
   border-bottom: 1px solid var(--border);
-  font-size:     .82rem;
+  font-size: .82rem;
 }
 
 .watchlist-item:last-child {
@@ -1014,28 +1090,36 @@ section {
 }
 
 .w-dot {
-  width:         8px;
-  height:        8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  flex-shrink:   0;
-  margin-top:    5px;
+  flex-shrink: 0;
+  margin-top: 5px;
 }
 
-.w-dot.up      { background: var(--green); }
-.w-dot.down    { background: var(--red);   }
-.w-dot.neutral { background: var(--amber); }
+.w-dot.up {
+  background: var(--green);
+}
+
+.w-dot.down {
+  background: var(--red);
+}
+
+.w-dot.neutral {
+  background: var(--amber);
+}
 
 .w-label {
-  flex:  1;
+  flex: 1;
   color: var(--text);
 }
 
 .w-status {
   font-family: 'IBM Plex Mono', monospace;
-  font-size:   .65rem;
-  color:       var(--text-dim);
+  font-size: .65rem;
+  color: var(--text-dim);
   white-space: nowrap;
-  padding-left:8px;
+  padding-left: 8px;
 }
 
 
@@ -1089,47 +1173,47 @@ section {
    ============================================================ */
 
 .scenario {
-  background:    var(--surface);
-  border:        1px solid var(--border);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding:       22px 26px;
+  padding: 22px 26px;
   margin-bottom: 14px;
 }
 
 .scenario-header {
-  display:       flex;
-  align-items:   center;
-  gap:           12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
 .scenario-icon {
-  width:           28px;
-  height:          28px;
-  border-radius:   6px;
-  font-family:     'IBM Plex Mono', monospace;
-  font-size:       .85rem;
-  font-weight:     700;
-  display:         flex;
-  align-items:     center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-shrink:     0;
+  flex-shrink: 0;
   /* background and color set via inline style per scenario case */
 }
 
 .scenario h4 {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .78rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .78rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color:          var(--text-bright);
+  color: var(--text-bright);
 }
 
 .scenario p {
-  font-size:     .84rem;
-  color:         var(--text);
-  line-height:   1.75;
+  font-size: .84rem;
+  color: var(--text);
+  line-height: 1.75;
   margin-bottom: 10px;
 }
 
@@ -1141,28 +1225,28 @@ section {
    Uses the same red-tinted market-impact box pattern for visual consistency
    with the story thread update system. */
 .scenario-update-note {
-  background:    var(--red-dim);
-  border:        1px solid rgba(239,68,68,0.2);
-  border-left:   3px solid var(--red);
+  background: var(--red-dim);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-left: 3px solid var(--red);
   border-radius: 6px;
-  padding:       10px 14px;
-  margin-top:    12px;
+  padding: 10px 14px;
+  margin-top: 12px;
 }
 
 .scenario-update-label {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .65rem;
-  font-weight:    700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color:          var(--red);
-  margin-bottom:  4px;
+  color: var(--red);
+  margin-bottom: 4px;
 }
 
 .scenario-update-note p {
-  font-size:     .83rem;
-  color:         var(--text);
-  line-height:   1.75;
+  font-size: .83rem;
+  color: var(--text);
+  line-height: 1.75;
   margin-bottom: 0;
 }
 
@@ -1219,10 +1303,10 @@ section {
    ============================================================ */
 
 .question-block p {
-  font-size:     .84rem;
-  color:         var(--text);
-  line-height:   1.8;
-  padding:       8px 0;
+  font-size: .84rem;
+  color: var(--text);
+  line-height: 1.8;
+  padding: 8px 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -1235,44 +1319,44 @@ section {
 .q-answered,
 .q-badge-partial,
 .q-badge-updated {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .62rem;
-  font-weight:    700;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .62rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .5px;
-  padding:        2px 8px;
-  border-radius:  3px;
-  margin-left:    6px;
-  white-space:    nowrap;
-  display:        inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 6px;
+  white-space: nowrap;
+  display: inline-block;
   vertical-align: middle;
 }
 
 /* Unanswered — dim, no color signal */
 .q-unanswered {
   background: var(--border);
-  color:      var(--text-dim);
+  color: var(--text-dim);
 }
 
 /* Answered — green */
 .q-answered {
-  background:   var(--green-dim);
-  color:        var(--green);
-  border:       1px solid rgba(34,197,94,0.3);
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 /* Partially answered — amber */
 .q-badge-partial {
-  background:   var(--amber-dim);
-  color:        var(--amber);
-  border:       1px solid rgba(245,158,11,0.3);
+  background: var(--amber-dim);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 /* Updated (new context added) — amber */
 .q-badge-updated {
-  background:   var(--amber-dim);
-  color:        var(--amber);
-  border:       1px solid rgba(245,158,11,0.3);
+  background: var(--amber-dim);
+  color: var(--amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 /* ── Answer / update content block ──
@@ -1280,23 +1364,23 @@ section {
    NEVER render this block when there is no content to show.
    display:block ensures it breaks to its own line below the question. */
 .q-answer {
-  display:       block;
-  background:    var(--green-dim);
-  border:        1px solid rgba(34,197,94,0.2);
-  border-left:   3px solid var(--green);
+  display: block;
+  background: var(--green-dim);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-left: 3px solid var(--green);
   border-radius: 6px;
-  padding:       8px 12px;
-  margin-top:    6px;
-  font-size:     .78rem;
-  color:         var(--text);
-  line-height:   1.75;
-  font-family:   'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  padding: 8px 12px;
+  margin-top: 6px;
+  font-size: .78rem;
+  color: var(--text);
+  line-height: 1.75;
+  font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
 }
 
 /* Partial / updated variant — amber tint */
 .q-answer.partial {
-  background:  var(--amber-dim);
-  border-color:rgba(245,158,11,0.2);
+  background: var(--amber-dim);
+  border-color: rgba(245, 158, 11, 0.2);
   border-left: 3px solid var(--amber);
 }
 
@@ -1311,19 +1395,19 @@ section {
    ============================================================ */
 
 .notes-area textarea {
-  width:         100%;
-  min-height:    140px;
-  background:    var(--surface2);
-  border:        1px solid var(--border);
+  width: 100%;
+  min-height: 140px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  color:         var(--text);
-  font-family:   'IBM Plex Sans', sans-serif;
-  font-size:     .84rem;
-  line-height:   1.7;
-  padding:       14px 16px;
-  resize:        vertical;
-  outline:       none;
-  transition:    border-color .15s;
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: .84rem;
+  line-height: 1.7;
+  padding: 14px 16px;
+  resize: vertical;
+  outline: none;
+  transition: border-color .15s;
 }
 
 .notes-area textarea:focus {
@@ -1335,49 +1419,49 @@ section {
 }
 
 .notes-actions {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         10px;
-  margin-top:  10px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 /* Base button */
 .btn {
-  font-family:    'IBM Plex Mono', monospace;
-  font-size:      .7rem;
-  font-weight:    600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .7rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .5px;
-  padding:        7px 16px;
-  border-radius:  6px;
-  border:         1px solid var(--border);
-  background:     transparent;
-  color:          var(--text-dim);
-  cursor:         pointer;
-  transition:     all .15s;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all .15s;
 }
 
 .btn:hover {
   border-color: var(--cyan);
-  color:        var(--cyan);
+  color: var(--cyan);
 }
 
 /* Primary button — Save Notes */
 .btn-primary {
-  background:   var(--cyan-dim);
+  background: var(--cyan-dim);
   border-color: var(--cyan);
-  color:        var(--cyan);
+  color: var(--cyan);
 }
 
 .btn-primary:hover {
-  background: rgba(6,182,212,0.2);
+  background: rgba(6, 182, 212, 0.2);
 }
 
 /* "Saved ✓" confirmation text */
 #saveStatus {
   font-family: 'IBM Plex Mono', monospace;
-  font-size:   .68rem;
-  color:       var(--green);
+  font-size: .68rem;
+  color: var(--green);
   margin-left: 4px;
 }
 
@@ -1387,17 +1471,17 @@ section {
    ============================================================ */
 
 footer {
-  background:      var(--surface);
-  border-top:      1px solid var(--border);
-  padding:         18px 32px;
-  font-family:     'IBM Plex Mono', monospace;
-  font-size:       .65rem;
-  color:           var(--text-dim);
-  display:         flex;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 18px 32px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .65rem;
+  color: var(--text-dim);
+  display: flex;
   justify-content: space-between;
-  align-items:     center;
-  flex-wrap:       wrap;
-  gap:             8px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 
@@ -1408,10 +1492,21 @@ footer {
    ============================================================ */
 
 @media (max-width: 768px) {
-  .container      { padding: 0 16px; }
-  .masthead       { padding: 20px 16px; }
-  .regime-banner  { padding: 12px 16px; }
-  .grid-2         { grid-template-columns: 1fr; }
+  .container {
+    padding: 0 16px;
+  }
+
+  .masthead {
+    padding: 20px 16px;
+  }
+
+  .regime-banner {
+    padding: 12px 16px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -1423,7 +1518,7 @@ footer {
 @media print {
   body {
     background: #fff;
-    color:      #111;
+    color: #111;
   }
 
   .masthead,
@@ -1433,7 +1528,7 @@ footer {
   .scenario,
   .notes-area {
     border-color: #ccc;
-    background:   #fafafa;
+    background: #fafafa;
   }
 }
 
