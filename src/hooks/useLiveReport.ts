@@ -91,18 +91,16 @@ export function useLiveReport() {
             updated: regimes.updated_at
           } : null,
           dominant_narratives: narratives?.map(n => ({
-            id: n.id,
+            id: n.narrative_id,
             type: n.type,
             tag: n.tag,
             headline: n.headline,
             summary: n.summary,
             body: n.body,
             bullets: n.bullets || [],
-            market_impact: n.market_impact_text ? {
-              session: n.market_impact_session,
-              text: n.market_impact_text
-            } : null
-            // Note: If you add nested updates or sources to narratives later, you'd map them here
+            market_impact: n.market_impact || null,
+            sources: n.sources || [],
+            updates: n.updates || []
           })) || [],
           catalyst_calendar: catalysts?.map(c => ({
             date: c.date_str,

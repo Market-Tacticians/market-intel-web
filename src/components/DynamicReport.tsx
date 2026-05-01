@@ -223,7 +223,44 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                       <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>
                       {narrative.headline}
                     </h3>
+                    {narrative.summary && (
+                      <p className="narrative-summary mb-3" style={{ fontWeight: 600, color: 'var(--text-bright)' }}>
+                        {narrative.summary}
+                      </p>
+                    )}
                     <p>{narrative.body}</p>
+                    
+                    {narrative.bullets && narrative.bullets.length > 0 && (
+                      <ul className="bullet-list">
+                        {narrative.bullets.map((b: string, bIdx: number) => (
+                          <li key={bIdx}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                    
+                    {narrative.market_impact && (
+                      <div className="market-impact">
+                        <div className="market-impact-label">Market Impact — {narrative.market_impact.session}</div>
+                        <p>{narrative.market_impact.text}</p>
+                      </div>
+                    )}
+                    
+                    {narrative.sources && narrative.sources.length > 0 && (
+                      <details className="sources-drawer">
+                        <summary className="sources-toggle">
+                          Sources <span className="sources-count">{narrative.sources.length}</span>
+                          <span className="sources-chevron">▾</span>
+                        </summary>
+                        <ul className="sources-list">
+                          {narrative.sources.map((s: any, sIdx: number) => (
+                            <li key={sIdx}>
+                              <span className="source-label">{s.label}</span><br />
+                              <a href={s.url} target="_blank" rel="noopener">{s.url}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
                   </div>
                 );
               })}
