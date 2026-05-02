@@ -9,6 +9,20 @@ export async function GET(
     // Next.js 15 requires params to be awaited
     const { id } = await params;
 
+    // 1. Check if the ID belongs to an archived snapshot first
+    if (id !== 'live') {
+      const { data: snapshotData, error: snapshotError } = await supabase
+        .from('report_snapshots')
+        .select('report_json')
+        .eq('id', id)
+        .single();
+        
+      if (!snapshotError && snapshotData && snapshotData.report_json) {
+        return NextResponse.json({ success: true, data: snapshotData.report_json });
+      }
+    }
+
+    // 2. Fall back to assembling the live/relational report
     let query = supabase.from('reports').select('*');
     if (id === 'live') {
       query = query.eq('status', 'live');

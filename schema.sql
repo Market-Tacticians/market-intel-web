@@ -195,3 +195,27 @@ create policy "Service Role Full Access" on public.report_sources for all to ser
 create policy "Public Read Access" on public.report_sources for select to anon using (true);
 create index if not exists idx_report_sources_report_id on public.report_sources (report_id);
 create index if not exists idx_report_sources_order on public.report_sources (report_id, sort_order);
+
+-- ==========================================
+-- ARCHIVE SNAPSHOTS SCHEMA
+-- ==========================================
+
+-- 10. Report Snapshots Table (For Mid-Week Versioning)
+create table if not exists public.report_snapshots (
+  id uuid default gen_random_uuid() primary key,
+  original_report_id uuid references public.reports(id) on delete cascade not null,
+  title text not null,
+  week_of date not null,
+  update_version int not null,
+  generated_at timestamptz not null,
+  report_json jsonb not null,
+  created_at timestamptz default now()
+);
+
+alter table public.report_snapshots enable row level security;
+create policy "Service Role Full Access" on public.report_snapshots for all to service_role using (true) with check (true);
+create policy "Public Read Access" on public.report_snapshots for select to anon using (true);
+
+create index if not exists idx_report_snapshots_original_id on public.report_snapshots (original_report_id);
+create index if not exists idx_report_snapshots_week_of on public.report_snapshots (week_of desc);
+create index if not exists idx_report_snapshots_generated_at on public.report_snapshots (generated_at desc);

@@ -10,17 +10,20 @@ export function useReports() {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      // Fetch archived reports, joining with report_regimes to get the regime label
+      
+      // Fetch from report_snapshots table
+      // We only select the columns we need for the list to save bandwidth.
+      // We can query inside the report_json JSONB to get the regime label and period_covered.
       const { data, error } = await supabase
-        .from('reports')
+        .from('report_snapshots')
         .select(`
           id,
           title,
           week_of,
-          period_covered,
+          update_version,
           generated_at,
-          status,
-          report_regimes ( label )
+          report_json->meta->>period_covered,
+          report_json->regime->>label
         `)
         .order('generated_at', { ascending: false });
 
@@ -30,7 +33,7 @@ export function useReports() {
         const dateObj = new Date(row.generated_at);
         const calendarDate = dateObj.toISOString().split('T')[0];
         
-        // Format last_updated_display (e.g. "Fri Apr 24, 2026 | 4:30 PM ET")
+        // Format last_updated_display
         const options: Intl.DateTimeFormatOptions = { 
           weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
           hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
@@ -45,10 +48,10 @@ export function useReports() {
           last_updated_at: row.generated_at,
           last_updated_display: displayDate,
           period_label: row.period_covered || `Week of ${row.week_of}`,
-          status_label: row.status.toUpperCase(),
-          file_path: '', // deprecated
+          status_label: `ARCHIVE v${row.update_version || 1}`,
+          file_path: '',
           metadata: {
-            regime_label: row.report_regimes ? row.report_regimes.label : 'N/A'
+            regime_label: row.label || 'N/A'
           }
         };
       });
