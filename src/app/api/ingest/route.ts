@@ -17,20 +17,11 @@ export async function POST(request: Request) {
     }
 
     // 1. Mark existing 'live' reports as 'archived'
-    // We archive any existing live report for the same week_of
-    const weekOf = body.meta.week_of;
-    if (weekOf) {
-        await supabaseAdmin
-          .from('reports')
-          .update({ status: 'archived' })
-          .eq('status', 'live')
-          .eq('week_of', weekOf);
-    } else {
-        await supabaseAdmin
-          .from('reports')
-          .update({ status: 'archived' })
-          .eq('status', 'live');
-    }
+    // We unconditionally archive any existing live report before inserting the new one.
+    await supabaseAdmin
+      .from('reports')
+      .update({ status: 'archived' })
+      .eq('status', 'live');
 
     // 2. Insert new 'live' report
     const { data: reportData, error: reportError } = await supabaseAdmin
@@ -206,7 +197,20 @@ export async function POST(request: Request) {
       }
     }
 
-    return NextResponse.json({ success: true, message: "Report ingested successfully!", report_id: reportId });
+    // 11. Create a Snapshot of the newly ingested report (v1)
+    // The incoming body is already perfectly formatted as the full JSON
+    const { error: snapshotError } = await supabaseAdmin.from('report_snapshots').insert({
+      original_report_id: reportId,
+      title: body.meta.title,
+      week_of: body.meta.week_of,
+      update_version: body.meta.update_version || 1,
+      generated_at: body.meta.last_updated || body.meta.generated,
+      report_json: body
+    });
+
+    if (snapshotError) throw snapshotError;
+
+    return NextResponse.json({ success: true, message: "Report ingested and snapshotted successfully!", report_id: reportId });
   } catch (error: any) {
     console.error('Ingestion error:', error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

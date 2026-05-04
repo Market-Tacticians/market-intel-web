@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function testIngestion() {
-  const filePath = path.join(__dirname, '../JSON Examples/initialization-brief-test.json');
+  const filePath = path.join(__dirname, '../JSON Examples/market_intelligence_brief_05-03-26.json');
   console.log(`Reading JSON file from: ${filePath}`);
 
   const rawData = fs.readFileSync(filePath, 'utf8');
