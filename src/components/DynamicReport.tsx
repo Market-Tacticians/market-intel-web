@@ -10,8 +10,17 @@ interface DynamicReportProps {
 export default function DynamicReport({ data }: DynamicReportProps) {
   const [userNote, setUserNote] = useState('');
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [inspectedItems, setInspectedItems] = useState<Set<string>>(new Set());
 
   if (!data) return <div className="p-20 text-center mono opacity-40">NO INTEL DATA LOADED</div>;
+
+  const handleInspect = (id: string) => {
+    setInspectedItems(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+  };
 
   const intel = data;
 
@@ -96,29 +105,87 @@ export default function DynamicReport({ data }: DynamicReportProps) {
     }
   };
 
+  // --- TOC Calculation ---
+  const navItems = [];
+  const generatedAt = intel.meta?.generated;
+
+  if (intel.dominant_narratives && intel.dominant_narratives.length > 0) {
+    const narrativeItems = intel.dominant_narratives.map((n: any) => ({
+      id: `narrative-${n.tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      label: n.tag,
+      hasUpdate: n.updates && n.updates.length > 0
+    }));
+    const uniqueTags = new Map();
+    narrativeItems.forEach((item: any) => {
+      if (!uniqueTags.has(item.label)) uniqueTags.set(item.label, item);
+      else if (item.hasUpdate) uniqueTags.get(item.label).hasUpdate = true;
+    });
+    navItems.push({
+      id: 'narratives-section',
+      label: 'Dominant Narratives',
+      hasUpdate: Array.from(uniqueTags.values()).some(t => t.hasUpdate),
+      children: Array.from(uniqueTags.values())
+    });
+  }
+
+  if (intel.catalyst_calendar && intel.catalyst_calendar.length > 0) {
+    const dayGroups = new Map();
+    intel.catalyst_calendar.forEach((c: any) => {
+      const key = c.date;
+      const label = c.date_label.split(' — ')[0];
+      const hasUpdate = c.updates && c.updates.length > 0;
+      if (!dayGroups.has(key)) {
+        dayGroups.set(key, { id: `catalyst-${key}`, label, hasUpdate });
+      } else if (hasUpdate) {
+        dayGroups.get(key).hasUpdate = true;
+      }
+    });
+    navItems.push({
+      id: 'catalyst-calendar',
+      label: 'Catalyst Calendar',
+      hasUpdate: Array.from(dayGroups.values()).some(d => d.hasUpdate),
+      children: Array.from(dayGroups.values())
+    });
+  }
+
+  if (intel.market_snapshot) {
+    navItems.push({
+      id: 'market-snapshot',
+      label: 'Market Snapshot',
+      hasUpdate: intel.market_snapshot.as_of && intel.market_snapshot.as_of !== generatedAt,
+      children: []
+    });
+  }
+
+  if (intel.stories_to_track) {
+    navItems.push({
+      id: 'stories-to-track',
+      label: 'Stories to Track',
+      hasUpdate: intel.stories_to_track.as_of && intel.stories_to_track.as_of !== generatedAt,
+      children: []
+    });
+  }
+
+  if (intel.scenarios && intel.scenarios.length > 0) {
+    navItems.push({
+      id: 'scenarios',
+      label: 'Scenario Planning',
+      hasUpdate: intel.scenarios.some((s: any) => s.updates && s.updates.length > 0),
+      children: []
+    });
+  }
+
+  if (intel.key_questions && intel.key_questions.length > 0) {
+    navItems.push({
+      id: 'key-questions',
+      label: 'Key Questions',
+      hasUpdate: intel.key_questions.some((q: any) => q.updates && q.updates.length > 0),
+      children: []
+    });
+  }
+
   return (
     <div className="report-root">
-      {/* Tactical HUD */}
-      <div className="tactical-hud-v2">
-        <div className="hud-label-v2 mono text-[10px] opacity-40 uppercase">Interactive HUD // Mode: Analysis</div>
-        <div className="hud-controls-v2">
-          <button 
-            className={`hud-btn-v2 ${isBookmarked ? 'active' : ''}`}
-            onClick={() => setIsBookmarked(!isBookmarked)}
-          >
-            {isBookmarked ? 'NODE_SAVED' : 'SAVE_NODE'}
-          </button>
-          <button className="hud-btn-v2">EXPORT_INTEL</button>
-        </div>
-        <div className="hud-notes-v2 mt-4">
-          <textarea 
-            placeholder="ADD TACTICAL NOTE..." 
-            value={userNote}
-            onChange={(e) => setUserNote(e.target.value)}
-          />
-        </div>
-      </div>
-
       <div className="briefing-container">
         {/* Masthead */}
         <header className="masthead">
@@ -150,9 +217,11 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Dominant Narratives */}
           {intel.dominant_narratives && (
             <section>
-              <div className="section-title">Dominant Narratives</div>
+              <div id="narratives-section" className="section-title">Dominant Narratives</div>
               {intel.dominant_narratives.map((narrative: any, idx: number) => {
                 const hasUpdates = narrative.updates && narrative.updates.length > 0;
+                const tagSlug = narrative.tag.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                const isFirstOfTag = intel.dominant_narratives.findIndex((n: any) => n.tag === narrative.tag) === idx;
                 
                 if (hasUpdates) {
                   const originalTray = {
@@ -169,7 +238,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                   const allTrays = [originalTray, ...narrative.updates];
 
                   return (
-                    <div key={idx} className="story-thread">
+                    <div key={idx} id={isFirstOfTag ? `narrative-${tagSlug}` : undefined} className="story-thread">
                       <div className="narrative-card condensed">
                         <h3>
                           <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>
@@ -249,7 +318,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                 }
 
                 return (
-                  <div key={idx} className="narrative-card">
+                  <div key={idx} id={isFirstOfTag ? `narrative-${tagSlug}` : undefined} className="narrative-card">
                     <h3>
                       <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>
                       {narrative.headline}
@@ -303,10 +372,12 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Catalyst Calendar */}
           {intel.catalyst_calendar && (
             <section>
-              <div className="section-title">Catalyst Calendar</div>
+              <div id="catalyst-calendar" className="section-title">Catalyst Calendar</div>
               <div className="timeline">
-                {intel.catalyst_calendar.map((c: any, idx: number) => (
-                  <div key={idx} className={`tl-item ${c.impact}`}>
+                {intel.catalyst_calendar.map((c: any, idx: number) => {
+                  const isFirstOfDay = intel.catalyst_calendar.findIndex((cal: any) => cal.date === c.date) === idx;
+                  return (
+                  <div key={idx} id={isFirstOfDay ? `catalyst-${c.date}` : undefined} className={`tl-item ${c.impact}`}>
                     <div className="tl-date">{c.date_label}</div>
                     <div className="tl-title">
                       {c.event}
@@ -326,7 +397,8 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                       </div>
                     ))}
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           )}
@@ -336,7 +408,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Market Snapshot */}
           {intel.market_snapshot && (
             <section>
-              <div className="section-title">
+              <div id="market-snapshot" className="section-title">
                 Market Snapshot
                 {intel.market_snapshot.as_of && (
                   <span style={{ marginLeft: 'auto', fontSize: '.65rem', color: 'var(--text-dim)', fontWeight: 'normal', letterSpacing: '1px' }}>
@@ -381,7 +453,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Stories to Track */}
           {intel.stories_to_track && (
             <section>
-              <div className="section-title">
+              <div id="stories-to-track" className="section-title">
                 Stories to Track
                 {intel.stories_to_track.as_of && (
                   <span style={{ marginLeft: 'auto', fontSize: '.65rem', color: 'var(--text-dim)', fontWeight: 'normal', letterSpacing: '1px' }}>
@@ -433,7 +505,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Scenarios */}
           {intel.scenarios && (
             <section>
-              <div className="section-title">Scenarios</div>
+              <div id="scenarios" className="section-title">Scenarios</div>
               {intel.scenarios.map((s: any, idx: number) => (
                 <div key={idx} className="scenario">
                   <div className="scenario-header">
@@ -461,7 +533,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Key Questions */}
           {intel.key_questions && (
             <section>
-              <div className="section-title">Key Questions</div>
+              <div id="key-questions" className="section-title">Key Questions</div>
               <div className="card">
                 <div className="question-block">
                   {intel.key_questions.map((q: any, idx: number) => (
@@ -497,6 +569,37 @@ export default function DynamicReport({ data }: DynamicReportProps) {
         </footer>
       </div>
 
+      <div className="navigation-sidebar">
+        <div className="nav-header">NAVIGATION</div>
+        <ul className="nav-list">
+          {navItems.map((item: any) => {
+            const hasUninspectedChildUpdate = item.children && item.children.some((c: any) => c.hasUpdate && !inspectedItems.has(c.id));
+            const showParentDot = item.hasUpdate && !inspectedItems.has(item.id) && (item.children.length === 0 || hasUninspectedChildUpdate);
+
+            return (
+            <li key={item.id} className="nav-group">
+              <a href={`#${item.id}`} className="nav-link parent" onClick={() => handleInspect(item.id)}>
+                {item.label}
+                {showParentDot && <span className="update-dot-amber"><span className="pulse" /></span>}
+              </a>
+              {item.children.length > 0 && (
+                <ul className="nav-sublist">
+                  {item.children.map((child: any) => (
+                    <li key={child.id}>
+                      <a href={`#${child.id}`} className="nav-link child" onClick={() => handleInspect(child.id)}>
+                        {child.label}
+                        {child.hasUpdate && !inspectedItems.has(child.id) && <span className="update-dot-amber"><span className="pulse" /></span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+            );
+          })}
+        </ul>
+      </div>
+
       <style jsx>{`
         .report-root {
           display: flex;
@@ -505,6 +608,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           width: 100%;
           min-height: 100%;
           background: var(--bg);
+          scroll-behavior: smooth;
         }
 
         .briefing-container {
@@ -513,55 +617,85 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           padding-bottom: 40px;
         }
 
-        .tactical-hud-v2 {
+        .navigation-sidebar {
           position: sticky;
           top: 0;
           width: 240px;
           flex-shrink: 0;
-          padding: 16px;
-          border-right: 1px solid var(--border);
-          background: var(--surface);
-          height: calc(100vh - 40px);
+          padding: 32px 16px 16px 24px;
+          border-left: 1px solid var(--border);
+          height: 100vh;
+          overflow-y: auto;
           display: flex;
           flex-direction: column;
         }
 
-        .hud-btn-v2 {
-          width: 100%;
-          background: var(--surface2);
-          border: 1px solid var(--border);
-          color: var(--text-dim);
+        .nav-header {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 10px;
-          padding: 8px;
-          margin-top: 8px;
-          text-align: left;
-          cursor: pointer;
-          transition: all 0.2s;
+          color: var(--text-dim);
+          text-transform: uppercase;
+          margin-bottom: 16px;
+          letter-spacing: 1px;
         }
 
-        .hud-btn-v2:hover {
-          border-color: var(--cyan);
+        .nav-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .nav-group {
+          margin-bottom: 12px;
+        }
+
+        .nav-sublist {
+          display: none;
+          list-style: none;
+          padding-left: 12px;
+          margin-top: 6px;
+          border-left: 1px solid var(--border);
+        }
+
+        .nav-group:hover .nav-sublist {
+          display: block;
+        }
+
+        .nav-link {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          text-decoration: none;
+          color: var(--text-dim);
+          font-size: 13px;
+          padding: 4px 0;
+          transition: color 0.2s;
+        }
+
+        .nav-link.parent {
+          font-weight: 600;
+          color: var(--text);
+        }
+
+        .nav-link:hover {
           color: var(--text-bright);
         }
 
-        .hud-btn-v2.active {
-          border-color: var(--cyan);
-          background: var(--cyan-dim);
-          color: var(--cyan);
+        .update-dot-amber {
+          width: 8px;
+          height: 8px;
+          background: var(--amber);
+          border-radius: 50%;
+          display: inline-block;
+          position: relative;
         }
 
-        .hud-notes-v2 textarea {
-          width: 100%;
-          flex: 1;
-          min-height: 200px;
-          background: var(--bg);
-          border: 1px solid var(--border);
-          padding: 10px;
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 11px;
-          color: var(--text);
-          resize: none;
+        .update-dot-amber .pulse {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background: var(--amber);
+          animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
         footer {
@@ -577,14 +711,15 @@ export default function DynamicReport({ data }: DynamicReportProps) {
 
         @media (max-width: 1024px) {
           .report-root {
-            flex-direction: column;
+            flex-direction: column-reverse;
           }
-          .tactical-hud-v2 {
+          .navigation-sidebar {
             position: static;
             width: 100%;
             height: auto;
-            border-right: none;
+            border-left: none;
             border-bottom: 1px solid var(--border);
+            padding: 16px;
           }
           footer {
             flex-direction: column;
