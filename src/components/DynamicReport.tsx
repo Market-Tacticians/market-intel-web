@@ -152,65 +152,96 @@ export default function DynamicReport({ data }: DynamicReportProps) {
             <section>
               <div className="section-title">Dominant Narratives</div>
               {intel.dominant_narratives.map((narrative: any, idx: number) => {
-                const isThread = narrative.type === 'story_thread';
+                const hasUpdates = narrative.updates && narrative.updates.length > 0;
                 
-                if (isThread) {
+                if (hasUpdates) {
+                  const originalTray = {
+                    is_original: true,
+                    label: 'Original Brief',
+                    timestamp: intel.meta?.generated || intel.meta?.last_updated || '',
+                    headline: narrative.headline,
+                    body: narrative.body,
+                    bullets: narrative.bullets,
+                    market_impact: narrative.market_impact,
+                    sources: narrative.sources
+                  };
+                  
+                  const allTrays = [originalTray, ...narrative.updates];
+
                   return (
                     <div key={idx} className="story-thread">
                       <div className="narrative-card condensed">
-                        <h3><span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span> {narrative.headline}</h3>
-                        <p>{narrative.body}</p>
+                        <h3>
+                          <span className={`tag ${getTagClass(narrative.tag)}`}>{narrative.tag}</span>
+                          {narrative.headline}
+                        </h3>
+                        {narrative.summary ? (
+                          <p className="narrative-summary mb-3" style={{ fontWeight: 600, color: 'var(--text-bright)' }}>
+                            {narrative.summary}
+                          </p>
+                        ) : (
+                          <p>{narrative.body}</p>
+                        )}
                       </div>
+
                       <div className="update-timeline">
                         <div className="update-timeline-rail">
-                          {narrative.updates?.map((update: any, uIdx: number) => (
-                            <details key={uIdx} className="update-entry" open={update.is_live}>
-                              <summary className="update-trigger">
-                                <div className="update-trigger-top">
-                                  <div className={`update-dot ${update.is_live ? 'live' : ''}`} />
-                                  <span className="update-badge">
-                                    {update.is_live && <span className="pulse" />}
-                                    {update.label}
-                                  </span>
-                                  <span className="update-timestamp">{update.timestamp}</span>
-                                  <span className="update-chevron">▾</span>
-                                </div>
-                                <div className="update-trigger-headline">{update.headline}</div>
-                              </summary>
-                              <div className="update-body">
-                                <p>{update.body}</p>
-                                {update.bullets && (
-                                  <ul className="bullet-list">
-                                    {update.bullets.map((b: string, bIdx: number) => (
-                                      <li key={bIdx}>{b}</li>
-                                    ))}
-                                  </ul>
-                                )}
-                                {update.market_impact && (
-                                  <div className="market-impact">
-                                    <div className="market-impact-label">Market Impact — {update.market_impact.session}</div>
-                                    <p>{update.market_impact.text}</p>
+                          {allTrays.map((tray: any, tIdx: number) => {
+                            const isLive = tIdx === allTrays.length - 1;
+                            const updateLabel = tray.label || (isLive ? 'LIVE UPDATE' : `UPDATE ${tIdx}`);
+                            const tsStr = tray.is_original ? tray.timestamp : (tray.timestamp ? new Date(tray.timestamp).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '') : '');
+
+                            return (
+                              <details key={tIdx} className="update-entry" open={isLive}>
+                                <summary className="update-trigger">
+                                  <div className="update-trigger-top">
+                                    <div className={`update-dot ${isLive ? 'live' : ''}`} />
+                                    <span className="update-badge">
+                                      {isLive && <span className="pulse" />}
+                                      {updateLabel}
+                                    </span>
+                                    {tsStr && <span className="update-timestamp">{tsStr}</span>}
+                                    <span className="update-chevron">▾</span>
                                   </div>
-                                )}
-                                {update.sources && update.sources.length > 0 && (
-                                  <details className="sources-drawer">
-                                    <summary className="sources-toggle">
-                                      Sources <span className="sources-count">{update.sources.length}</span>
-                                      <span className="sources-chevron">▾</span>
-                                    </summary>
-                                    <ul className="sources-list">
-                                      {update.sources.map((s: any, sIdx: number) => (
-                                        <li key={sIdx}>
-                                          <span className="source-label">{s.label}</span><br />
-                                          <a href={s.url} target="_blank" rel="noopener">{s.url}</a>
-                                        </li>
+                                  {!tray.is_original && tray.headline && (
+                                    <div className="update-trigger-headline">{tray.headline}</div>
+                                  )}
+                                </summary>
+                                <div className="update-body">
+                                  <p>{tray.body}</p>
+                                  {tray.bullets && tray.bullets.length > 0 && (
+                                    <ul className="bullet-list">
+                                      {tray.bullets.map((b: string, bIdx: number) => (
+                                        <li key={bIdx}>{b}</li>
                                       ))}
                                     </ul>
-                                  </details>
-                                )}
-                              </div>
-                            </details>
-                          ))}
+                                  )}
+                                  {tray.market_impact && (
+                                    <div className="market-impact">
+                                      <div className="market-impact-label">Market Impact — {tray.market_impact.session}</div>
+                                      <p>{tray.market_impact.text}</p>
+                                    </div>
+                                  )}
+                                  {tray.sources && tray.sources.length > 0 && (
+                                    <details className="sources-drawer">
+                                      <summary className="sources-toggle">
+                                        Sources <span className="sources-count">{tray.sources.length}</span>
+                                        <span className="sources-chevron">▾</span>
+                                      </summary>
+                                      <ul className="sources-list">
+                                        {tray.sources.map((s: any, sIdx: number) => (
+                                          <li key={sIdx}>
+                                            <span className="source-label">{s.label}</span><br />
+                                            <a href={s.url} target="_blank" rel="noopener">{s.url}</a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </details>
+                                  )}
+                                </div>
+                              </details>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -289,6 +320,11 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                         ))}
                       </div>
                     )}
+                    {c.updates && c.updates.map((upd: any, uIdx: number) => (
+                      <div key={uIdx} className="tl-update-note">
+                        {upd.text}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
@@ -300,7 +336,14 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Market Snapshot */}
           {intel.market_snapshot && (
             <section>
-              <div className="section-title">Market Snapshot</div>
+              <div className="section-title">
+                Market Snapshot
+                {intel.market_snapshot.as_of && (
+                  <span style={{ marginLeft: 'auto', fontSize: '.65rem', color: 'var(--text-dim)', fontWeight: 'normal', letterSpacing: '1px' }}>
+                    AS OF: {new Date(intel.market_snapshot.as_of).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '')}
+                  </span>
+                )}
+              </div>
               <div className="grid-3">
                 <div className="card">
                   <h4>Global Indexes</h4>
@@ -338,14 +381,28 @@ export default function DynamicReport({ data }: DynamicReportProps) {
           {/* Stories to Track */}
           {intel.stories_to_track && (
             <section>
-              <div className="section-title">Stories to Track</div>
+              <div className="section-title">
+                Stories to Track
+                {intel.stories_to_track.as_of && (
+                  <span style={{ marginLeft: 'auto', fontSize: '.65rem', color: 'var(--text-dim)', fontWeight: 'normal', letterSpacing: '1px' }}>
+                    AS OF: {new Date(intel.stories_to_track.as_of).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '')}
+                  </span>
+                )}
+              </div>
               <div className="grid-2">
                 <div className="card">
                   <h4>Geopolitical & Macro</h4>
                   {intel.stories_to_track.geopolitical_macro?.map((row: any, i: number) => (
                     <div key={i} className="watchlist-item">
                       <div className={`w-dot ${row.direction}`}></div>
-                      <span className="w-label">{row.label}</span>
+                      <div className="w-label">
+                        <div>{row.label}</div>
+                        {row.updates && row.updates.map((u: any, uIdx: number) => (
+                          <div key={uIdx} style={{ fontSize: '.72rem', color: 'var(--amber)', marginTop: 4, lineHeight: 1.4 }}>
+                            ↳ {u.text}
+                          </div>
+                        ))}
+                      </div>
                       <span className="w-status">{row.status}</span>
                     </div>
                   ))}
@@ -355,7 +412,14 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                   {intel.stories_to_track.sector_stock_signals?.map((row: any, i: number) => (
                     <div key={i} className="watchlist-item">
                       <div className={`w-dot ${row.direction}`}></div>
-                      <span className="w-label">{row.label}</span>
+                      <div className="w-label">
+                        <div>{row.label}</div>
+                        {row.updates && row.updates.map((u: any, uIdx: number) => (
+                          <div key={uIdx} style={{ fontSize: '.72rem', color: 'var(--amber)', marginTop: 4, lineHeight: 1.4 }}>
+                            ↳ {u.text}
+                          </div>
+                        ))}
+                      </div>
                       <span className="w-status">{row.status}</span>
                     </div>
                   ))}
@@ -379,12 +443,14 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                     <h4>{s.case} Case: {s.headline}</h4>
                   </div>
                   <p>{s.body}</p>
-                  {s.update && (
-                    <div className="scenario-update-note">
-                      <div className="scenario-update-label">{s.update.label}</div>
-                      <p>{s.update.text}</p>
-                    </div>
-                  )}
+                  {s.updates && s.updates.map((upd: any, uIdx: number) => {
+                    return (
+                      <div key={uIdx} className="scenario-update-note" style={{ background: getColorDim(s.color), borderColor: getColorDim(s.color), borderLeftColor: getColor(s.color) }}>
+                        <div className="scenario-update-label" style={{ color: getColor(s.color) }}>{upd.headline}</div>
+                        <p>{upd.body}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               ))}
             </section>
@@ -407,8 +473,15 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                           {q.update_label || statusToLabel(q.status)}
                         </span>
                       </p>
-                      {q.answer && <span className="q-answer">{q.answer}</span>}
-                      {q.update && <span className="q-answer partial">{q.update}</span>}
+                      {q.updates && q.updates.map((upd: any, uIdx: number) => {
+                        const tsStr = upd.timestamp ? new Date(upd.timestamp).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '') : '';
+                        return (
+                          <span key={`upd-${idx}-${uIdx}`} className="q-answer partial">
+                            {tsStr ? <strong style={{color:'var(--amber)', marginRight: 4}}>{tsStr}:</strong> : null}{upd.text}
+                          </span>
+                        );
+                      })}
+                      {q.answer && <span className={`q-answer ${q.status !== 'answered' ? 'partial' : ''}`}>{q.answer}</span>}
                     </React.Fragment>
                   ))}
                 </div>

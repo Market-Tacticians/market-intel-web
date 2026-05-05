@@ -23,8 +23,10 @@ export function useReports() {
           update_version,
           generated_at,
           report_json->meta->>period_covered,
-          report_json->regime->>label
+          report_json->regime->>label,
+          reports!inner ( status )
         `)
+        .eq('reports.status', 'archived')
         .order('generated_at', { ascending: false });
 
       if (error) throw error;
