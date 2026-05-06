@@ -1,0 +1,1465 @@
+---
+name: market-intelligence-scrub-v2
+description: "How to research, filter, rank, and assemble a professional weekly market intelligence brief for traders. Use this skill whenever the user asks for a market prep, weekly brief, market intelligence report, news roundup for trading, economic calendar summary, \"what do I need to know this week,\" geopolitical risk assessment for markets, or any request to identify the dominant narratives, catalysts, and regime context for a trading week. Also trigger when asked to identify market-moving stories, track developing geopolitical or macro situations, assess risk-on/risk-off conditions, or build a pre-market briefing. This skill covers the research methodology — how to search, what to search for, how to evaluate importance, and how to structure the final output. It does NOT cover updating existing briefs (see the story-update-threading skill for that)."
+---
+ 
+---
+name: market-intelligence-scrub
+description: >
+  How to research, filter, rank, and assemble a professional weekly market intelligence brief for traders.
+  Use this skill whenever the user asks for a market prep, weekly brief, market intelligence report,
+  news roundup for trading, economic calendar summary, "what do I need to know this week," geopolitical
+  risk assessment for markets, or any request to identify the dominant narratives, catalysts, and regime
+  context for a trading week. Also trigger when asked to identify market-moving stories, track developing
+  geopolitical or macro situations, assess risk-on/risk-off conditions, or build a pre-market briefing.
+  This skill covers the research methodology — how to search, what to search for, how to evaluate
+  importance, and how to structure the final output. It does NOT cover updating existing briefs
+  (see the story-update-threading skill for that).
+---
+ 
+# Market Intelligence Scrub
+ 
+## Purpose
+ 
+Produce a weekly market intelligence brief in JSON format that a professional trader can use for pre-market planning. You are not to build an HTML file. The final deliverable is a JSON file formatted according to the instructions in this skill
+The output answers: **What story is the market trading on right now, what catalysts are ahead, and
+what scenarios should I be positioned for?**
+ 
+This is NOT a news summary. It is an intelligence product. The difference:
+- A news summary reports what happened.
+- An intelligence brief tells you what it means, what to watch next, and how to position.
+---
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+## Phase 1: Research Discovery and Narrative Classification
+ 
+Phase 1 determines what the market traded on, which narratives for each category are active, and what evidence supports each category.
+ 
+Do not assume a dominant narrative before research. Begin with broad market action, identify candidate narratives, then test each candidate against category-specific research modules.
+ 
+The goal of Phase 1 is not to assemble the final report. The goal is to create a researched and filtered set of candidate narratives across different categories that can later be assembled into the structured research packet.
+ 
+Each potential narrative for each research module must pass through the same validation process:
+ 
+1. Did the market move in a way that reflects this category?
+2. Did headlines cluster around this category?
+3. Did cross-asset behavior confirm or contradict this category?
+4. Is there a forward catalyst that keeps this category relevant?
+5. Should this category become a dominant narrative, secondary narrative, catalyst item, watchlist item, or be excluded?
+Research Modules in Phase 1
+Economic Data & Fed
+Earnings
+Flow & Positioning
+Energies
+Metals & Commodities
+Geopolitical
+Each Research Module will undergo the Discovery and Validation processes
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Discovery Process (1–2 searches)
+ 
+**Goal:** Establish what the market actually did during the prior week before assigning any narrative explanation. This goal applies to all Research Modules in Phase 1
+ 
+ 
+ 
+```
+Search query patterns:
+“Stock market weekly recap [current month] [current year]”
+“Stock market last week S&P Nasdaq Dow Russell [current month] [current year]”
+“Stock market next week outlook [current month] [current year]”
+```
+ 
+ 
+**Extract from results:**
+Identify the weekly percentage moves for the S&P 500, Nasdaq Composite or Nasdaq 100, Dow Jones Industrial Average, and Russell 2000.
+ 
+Determine which index led, which index lagged, and whether the leadership profile was broad, narrow, defensive, cyclical, tech-led, small-cap-led, or risk-off.
+ 
+Identify any new all-time highs, major breakdowns, failed breakouts, major reversals, or psychologically important index levels.
+ 
+Capture the dominant one-sentence explanation used by financial media, such as “stocks rallied on ___,” “markets fell as ___,” “tech led after ___,” or “small caps lagged because ___.”
+ 
+**Interpretation rule:**
+The broad market move comes before the narrative. Do not impose a theme before checking what the tape actually rewarded or punished.
+ 
+If equities rallied while one theme dominated headlines, treat that theme as the market’s accepted explanation unless stronger evidence contradicts it. If equities sold off while a different theme dominated headlines, use that as the first candidate for the dominant narrative.
+ 
+Use this layer to establish the first-pass regime and narrative candidates. Store the strongest candidate as `[primary market-moving story]` and, if needed, store one secondary candidate as `[secondary market-moving story]` for Layer 2 follow-up.
+ 
+ 
+ 
+ 
+ 
+### Validation Process (2–3 searches)
+ 
+**Goal:** Go deep on the dominant story or stories the market was actually trading on.
+This goal applies to all Research Modules in Phase 1
+ 
+Take the dominant narrative candidates identified in the Discovery Process and search for the underlying story. Do not assume the dominant narrative in advance. The dominant narrative must be discovered from the market move, headline clustering, and cross-asset confirmation.
+ 
+ 
+ 
+```
+Search query patterns (examples — adapt to actual narrative):
+- “[primary market-moving story] latest [current month] [current year]”
+- “[primary market-moving story] timeline”
+- “[primary market-moving story] market impact”
+- "[primary market-moving story] next catalyst”
+- “[secondary market-moving story] latest [current month] [current year]”
+- “[secondary market-moving story] timeline”
+- “[secondary market-moving story] market impact”
+- "[secondary market-moving story] next catalyst”
+```
+ 
+**Extract from results:**
+Identify the full chronology of the story over the past 7 days, including what changed day by day and which developments actually moved markets.
+ 
+Identify the key actors involved, such as governments, central banks, companies, policymakers, executives, regulators, or major market participants.
+ 
+Determine the current status of the story. Is it resolved, escalating, deteriorating, stabilizing, pending, rejected, confirmed, delayed, or still uncertain?
+ 
+Identify the next known catalyst. This may be a meeting, deadline, vote, earnings report, data release, policy decision, court ruling, diplomatic event, or scheduled public statement.
+ 
+Check for weekend or after-hours developments that occurred after the prior market close. These are especially important because they may not be fully priced into the next trading session, thus giving your user an edge for the upcoming day/week.
+ 
+**Critical judgment call:**
+A story is a dominant narrative only if it explains a major portion of the weekly market move or meaningfully changes the forward trading regime.
+ 
+There should usually be only 1–2 dominant narratives in a given week. Everything else is secondary. Do not dilute the brief by treating several unrelated stories as equally important.
+ 
+Use this layer to identify the true narrative hierarchy: dominant narrative, secondary narratives, and background noise. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Research Module 1: Economic Data & Fed (2–3 searches)
+ 
+**Goal:** Establish the scheduled catalyst calendar, recent data surprises, and current rate-path context.
+ 
+```
+Search query patterns:
+- "economic calendar next week United States [date range]"
+- "Fed interest rate outlook [current month] current [year]"
+- "FOMC [current month] [current year]"
+- "[latest major economic release] market reaction [current month] [current year]”
+- “high impact economic data next week [current month] [current year]”
+```
+ 
+ 
+**Extract from results:**
+- LAST WEEK'S DATA: What printed, what was expected, and what the surprise was
+  (CPI, PPI, jobless claims, retail sales, PMI, consumer sentiment, etc)
+- NEXT WEEK'S CALENDAR: Every high-impact release with date, time, and consensus estimate
+- FED POSITIONING: Current rate, market probability of next move, any Fed speaker quotes on the current stance
+- RATE PATH: Is the market pricing cuts, holds, or hikes? Over what timeframe?
+- CROSS-MARKET LINKAGE: Does the dominant narrative from the Discovery and Validation processes reinforce or conflict with the current Fed path?
+**Why this matters even when another narrative dominates:** Dominant market stories can control short-term direction, but economic data and Fed expectations anchor the medium-term trend. A trader needs both. Also, market-moving events can feed into the Fed path by changing inflation risk, growth risk, labor risk, or financial conditions.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Research Module 2: Earnings (1–2 searches)
+ 
+**Goal:** Know which companies report next week and which ones are market-moving.
+ 
+```
+Search query patterns:
+- "earnings reports week [date range] [year]"
+- "earnings playbook next week [year]"
+- “earnings calendar next week [year]”
+```
+ 
+ 
+**Extract from results:**
+- The full list of reporting companies, organized by day
+- Which reports are market-moving:
+  - Mega-cap index movers
+  - Bellwether industrials
+  - Major financials
+  - Consumer-facing companies
+  - Energy and commodity-linked companies
+  - AI, cloud, semiconductor, or technology infrastructure names
+- Any LAST WEEK earnings that created notable moves, especially reports that changed sector tone, index leadership, or macro interpretation
+- For key reports: consensus EPS, revenue, guidance expectations, and the main issue the Street is watching
+**How to decide which earnings to highlight:** A company's earnings matter for the brief if:
+1. It is a mega-cap or high-index-weight company that can move the broader market
+2. It provides a cross-read on an active macro theme, such as consumer strength, energy costs, credit conditions, AI demand, cloud spending, industrial activity, healthcare costs, or transportation demand
+3. It had unusual price action going into the report, creating elevated expectations or downside risk
+4. It can confirm, weaken, or reverse one of the dominant narratives identified in other Research Modules
+### Research Module 3: Flow & Positioning (1 search, often embedded in the Validation Process results)
+ 
+**Goal:** Understand who is buying and selling, and whether positioning is crowded.
+ 
+```
+Search queries:
+- "retail investor flows [month] [year]"
+- “institutional investor position [month] [year]”
+- “equity fund flows ETF flows [month] [year]”
+- “market positioning report [month] [year]
+```
+ 
+ 
+**Extract from results:**
+- Retail vs institutional participation levels
+- Short interest or short squeeze dynamics
+- ETF flows vs single-stock flows
+- Any notable positioning data, especially whether positioning is crowded, under-owned, defensive, speculative, or recovering from prior fear
+- Whether the move appears driven by new buying, short covering, forced de-risking, rotation, or passive/index flows
+**Why this matters:** A rally driven by short covering is different from one driven by new institutional buying. The former is more fragile and can reverse quickly. The latter has more staying power. Flows help define the quality of the move.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Research Module 4: Energies (1–2 searches)
+ 
+**Goal:** Understand whether energy markets are reinforcing, contradicting, or independently changing the market regime.
+ 
+Search query pattern:
+“Oil prices this week [month] [year]”
+“Energy market outlook next week [month] [year]”
+“Crude oil market impact [month] [year]”
+“Natural gas prices market impact [month] [year]”
+ 
+ 
+**Extract from results:**
+- Weekly direction and magnitude for WTI crude, Brent crude, and natural gas when relevant
+- The main driver of the move: supply disruption, demand weakness, inventory data, OPEC/OPEC+ policy, sanctions, shipping risk, refining stress, weather, or geopolitical escalation
+- Whether energy prices are increasing or reducing inflation pressure
+- Whether energy is affecting transportation, consumer discretionary, industrials, airlines, or commodity-linked equities
+- Any upcoming energy catalyst: inventory reports, OPEC/OPEC+ meetings, sanctions deadlines, production decisions, shipping-route developments, or geopolitical events
+**Why this matters:** Energy sits between geopolitics, inflation, consumer pressure, and sector rotation. A move in oil or natural gas can confirm a risk-off tape, complicate the Fed path, pressure margins, or create a sector-specific leadership shift. Treat energy as its own layer when it changes inflation risk, growth expectations, or market leadership.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Research Module 5: Metals & Commodities (1–2 searches)
+ 
+**Goal:** Understand whether metals and broad commodities are signaling inflation pressure, growth demand, safe-haven demand, or stress in the global trade cycle.
+ 
+Search query patterns:
+“Gold silver copper prices this week [month] [year]”
+“Metals market outlook next week [month] [year]”
+“Commodities market recap [month] [year]”
+‘Gold copper market impact [month] [year]”
+ 
+ 
+**Extract from results:**
+- Weekly direction and magnitude for gold, silver, copper, and any other commodity with clear market relevance
+- Whether the move is driven by safe-haven demand, inflation hedging, dollar weakness, real yields, industrial demand, supply disruption, trade policy, or China/global growth expectations
+- Whether precious metals and industrial metals are sending the same signal or diverging
+- Whether metals are confirming or contradicting the dominant equity-market narrative
+- Any upcoming commodity catalyst: central bank demand, mining disruptions, trade restrictions, China data, dollar/yield movement, inventory reports, or major policy decisions
+**Why this matters:** Metals and commodities provide cross-asset confirmation. Gold and silver often reflect safe-haven demand, real-yield pressure, or currency concerns. Copper and industrial commodities reflect growth expectations, manufacturing demand, and global trade conditions. When metals diverge from equities, yields, or the dollar, they can reveal stress or regime change before it is obvious in index performance.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Research Module 6: Geopolitical
+ 
+**Goal:** Establish the active geopolitical narrative, its market transmission channel, and any forward catalyst that could affect risk appetite. 
+ 
+Use this module when broad market action, headline clustering, cross-asset moves, or forward event risk suggest that political, military, diplomatic, trade, sanctions, security, election, or sovereign-risk developments are affecting market behavior.
+ 
+Search query patterns:
+"geopolitical events moving markets [current month] [current year]"
+"geopolitical risks markets this week [current month] [current year]"
+"[latest major geopolitical event] market reaction [current month] [current year]"
+"[active geopolitical event] timeline [current month] [current year]"
+"[active geopolitical event] next catalyst [current month] [current year]" 
+**Extract from results:**
+- ACTIVE GEOPOLITICAL STORY: The main geopolitical event or conflict currently being priced by markets (war, ceasefire, sanctions, tariffs, election shock, shipping disruption, diplomatic breakdown, sovereign-risk event, etc)
+- CURRENT STATUS: Whether the story is escalating, stabilizing, unresolved, entering negotiation, moving toward resolution, or breaking down
+- KEY ACTORS: The governments, policymakers, militaries, institutions, companies, or regional blocs directly involved
+- MARKET TRANSMISSION: How the story affects markets through oil, natural gas, shipping routes, supply chains, defense, sanctions, currencies, Treasury yields, gold, volatility, or broad equity risk appetite
+- NEXT CATALYST: The next known event, deadline, meeting, vote, summit, sanctions decision, military deadline, election result, diplomatic statement, or policy announcement
+- WEEKEND / AFTER-HOURS DEVELOPMENTS: Any developments after the prior market close that may not be fully priced yet
+**Why this matters even when another narrative dominates:** Geopolitical stories can quickly change risk appetite, commodity pricing, inflation expectations, supply-chain assumptions, currency flows, sector leadership, and volatility. Even when geopolitics is not the dominant market narrative, it can act as a regime modifier, scenario risk, or catalyst-calendar item.
+—
+## Phase 2: Filtering — How to Decide What Matters
+ 
+After all research modules are complete, you will have 20–50 discrete data points. Most of them do NOT belong in the brief. Use the filtering framework below to decide what survives.
+ 
+Do not filter too early during the research phase. First gather the information, then apply these tests.
+ 
+### The Three Tests
+ 
+Every item must pass at least ONE of these tests to make it into the brief:
+ 
+**Test 1: Does it move, or plausibly have the ability to move, a major market?**
+ 
+If a story has already caused a meaningful single-session move, or plausibly could, it belongs.
+ 
+Relevant markets include:
+- S&P 500
+- Nasdaq
+- Dow
+- Russell 2000
+- Treasury yields
+- Dollar
+- Oil
+- Gold
+- Major sector ETFs
+- Mega-cap index names
+Examples: Fed rate decision, inflation surprise, labor market shock, war escalation, major policy shift, mega-cap earnings miss, major commodity shock.
+ 
+**Test 2: Does it change the regime?**
+ 
+A regime is the market's operating mode: risk-on, risk-off, range-bound, trending, defensive, speculative, inflation-sensitive, or liquidity-sensitive.
+ 
+If a story could flip or materially alter the regime, it belongs even if it has not moved the market yet.
+ 
+Examples: diplomatic breakthrough, military escalation, oil shock, labor market crack, credit stress, major Fed communication shift, liquidity event, AI/tech leadership breakdown.
+ 
+ 
+ 
+**Test 3: Does it provide a cross-read on another story that passed Tests 1 or 2?**
+ 
+Supporting evidence for the dominant narrative belongs, even if the data point itself is small.
+ 
+Examples:
+- Supporting data that confirms or weakens the dominant macro narrative
+- Company guidance that provides evidence about a broader economic or sector theme
+- Policy commentary that changes the probability or timing of a known catalyst
+- Positioning data that explains the quality of the move
+- Cross-asset confirmation or divergence that changes confidence in the narrative
+### What to Exclude
+ 
+- Stories that are interesting but not market-moving
+- Data releases that have no current market sensitivity
+- Earnings from companies that do not move indexes, sectors, or active macro themes
+- Old news that has been fully priced in, unless it creates a future catalyst
+- Repeated versions of the same story unless the new version changes status, timing, probability, or market impact
+- Opinion/editorial content, unless the speaker is an actor who can directly move markets
+The brief reports what is happening, why it matters, and what the market must price next. It does not collect interesting headlines for their own sake.
+ 
+---
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+## Phase 3: Regime and Classification Pass, Dominant Module Promotion
+ 
+After completing the research modules and before assembling the brief, classify the market state using the evidence collected.
+ 
+This phase has two jobs:
+ 
+1. Classify the overall market regime.
+2. Determine which research module narrative should be promoted as the lead narrative in the final brief.
+All module narratives still remain in the final brief. Dominant module promotion only determines which narrative appears first and carries the primary report emphasis.
+ 
+### Regime Classification
+ 
+Allowed regime labels:
+ 
+- Risk-On (Strong)
+- Risk-On (Cautious)
+- Neutral
+- Risk-Off (Cautious)
+- Risk-Off (Strong)
+Use `Risk-On (Strong)` when equities are broadly advancing, leadership is constructive, volatility is contained, credit/liquidity conditions are supportive, and the dominant module narrative improves forward risk appetite.
+ 
+Use `Risk-On (Cautious)` when equities are advancing but leadership is narrow, event risk remains elevated, or cross-asset signals are mixed.
+ 
+Use `Neutral` when indexes lack direction, leadership rotates without follow-through, and upcoming catalysts are likely to determine the next move.
+ 
+Use `Risk-Off (Cautious)` when equities are under pressure, defensive assets or sectors are bid, volatility or yields are disruptive, or the dominant module narrative creates downside risk without full market liquidation.
+ 
+Use `Risk-Off (Strong)` when the dominant module narrative creates broad de-risking pressure, volatility expands, oil/yields/dollar/credit conditions tighten, or multiple risk factors compress into the same session or week.
+ 
+ 
+ 
+### Dominant Module Promotion
+ 
+Each research module produces its own strongest narrative. After all module narratives are complete, determine which module narrative should function as the lead narrative in the final brief.
+ 
+The promoted dominant module narrative is the one that best explains the current market regime, the prior week’s market behavior, and the most important forward trading risk.
+ 
+Use the following criteria to determine promotion:
+ 
+- Did this module best explain the broad market move?
+- Did this module have the strongest headline clustering across major financial media?
+- Did this module create, confirm, or change the current regime label?
+- Did cross-asset behavior confirm this module’s importance?
+- Does this module contain the most important forward catalyst for the next trading week?
+- Would a trader misunderstand the market if this module were not shown first?
+Only one module narrative should be promoted unless the market is genuinely being driven by two inseparable forces. If two modules are tightly linked, choose the module with the stronger direct market impact and treat the secondary module as supporting context inside its own narrative.
+ 
+Do not promote a module simply because it is dramatic, politically important, or heavily covered in general news. Promotion requires market relevance.
+ 
+Do not promote based on personal judgment alone. Promotion must be supported by market action, headline clustering, cross-asset confirmation, regime impact, or forward catalyst risk.
+ 
+Use this phase only to decide which module narrative should be promoted. The explicit `Dominant Narrative: [true | false]` handoff field is added later during Phase 4 Assembly.
+ 
+ 
+ 
+– -
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+## Phase 4: Assembly — How to Structure the Brief
+ 
+### Required Sections (in this exact order)
+ 
+### Step 1: Metadata / Masthead
+ 
+**Goal:** Create the `meta` object required for the report masthead and database record.
+ 
+This section does not contain market analysis. It defines the report identity, coverage window, update timestamp, update version, and source list.
+ 
+**Required JSON object:**
+ 
+```json
+"meta": {
+  "title": "Weekly Market Intelligence Brief",
+  "week_of": "[YYYY-MM-DD]",
+  "period_covered": "[MMM D – MMM D, YYYY]",
+  "last_updated": "[YYYY-MM-DDTHH:MM:SS-04:00]",
+  "update_version": [number],
+  "sources": [
+    "[Source Name]",
+    "[Source Name]",
+    "[Source Name]"
+  ]
+}
+ 
+Field Rules
+ 
+Meta.title must always be: “Weekly Market Intelligence Brief”
+ 
+Meta.week_of is the starting date of the report week (always a sunday). Format as ISO date: YYYY-MM-DD
+ 
+Meta.period covered is the report coverage range (always from the starting sunday to the next friday. Format using abbreviated month names: MMM D - MMM D, YYY. Example: Apr 28 - May 2, 2026
+ 
+Meta.last_updated is the timestamp for the most recent report generation or update. Use ISO format and the EST timezone: YYY-MM-DDTHH:MM
+ 
+Meta.update_version is the version number for the current week’s report. Always use 1
+ 
+Meta.sources is a clean array of source names used in the research process. Include source names only, not URLs. Deduplicate repeated source names.
+ 
+Do not include
+ 
+Inline styles
+Narrative commentary
+Market interpretation
+Full article URLs inside meta.sources
+Any metadata field not listed above
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 2: Regime Banner
+ 
+**Goal:** Define the current market regime and explain why that regime label is appropriate.
+ 
+This section becomes the report’s regime banner. It should summarize the current operating environment for traders using one fixed regime label and a concise explanation of the evidence supporting that classification.
+ 
+You are responsible for selecting the correct regime label and writing the explanation. 
+ 
+**Required JSON object:**
+ 
+```json
+"regime": {
+"label": "[Risk-On (Strong) | Risk-On (Cautious) | Neutral | Risk-Off (Cautious) | Risk-Off (Strong)]",
+"color": "[green | amber | red]",
+"description": "[4–8 sentence explanation of why this regime label is correct]",
+"updated": "[YYYY-MM-DDTHH:MM:SS-04:00]"
+} 
+ 
+Allowed regime labels and required colors:
+Use exactly one of the following regime labels. The label must match exactly.
+Risk-On (Strong) → green
+Risk-On (Cautious) → green
+Neutral → amber
+Risk-Off (Cautious) → red
+Risk-Off (Strong) → red
+regime.color is not an independent judgment. It must match the selected regime.label.
+ 
+ 
+ 
+ 
+ 
+ 
+Description rules:
+regime.description must be 4–8 sentences.
+The description should explain why the current regime label is correct using the strongest available evidence from the research phase.
+The description should include the main driver of the regime, supporting cross-market confirmation, and any major unresolved tension that prevents a stronger or weaker classification.
+When relevant, include evidence from equities, rates, Fed expectations, economic data, commodities, volatility, earnings, flows, and geopolitical risk.
+Do not simply summarize headlines. Explain how the evidence affects the market’s operating mode.
+Classification guidance:
+Use Risk-On (Strong) when equities are broadly advancing, leadership is constructive, volatility is contained, liquidity conditions are supportive, and the dominant narrative improves forward risk appetite.
+Use Risk-On (Cautious) when equities are advancing or stabilizing, but leadership is narrow, event risk remains elevated, macro data is mixed, or cross-asset signals are not fully supportive.
+Use Neutral when the market lacks clear directional conviction, leadership rotates without follow-through, and upcoming catalysts are likely to determine the next major move.
+Use Risk-Off (Cautious) when equities are under pressure, volatility or defensive positioning is rising, rates, dollar, commodities, credit, or geopolitical risk are creating downside pressure, but the market has not entered broad liquidation.
+Use Risk-Off (Strong) when the dominant narrative creates broad de-risking pressure, volatility expands, multiple risk factors reinforce each other, or cross-asset stress is forcing defensive positioning.
+Timestamp rule:
+regime.updated should match the report’s latest update timestamp unless the regime classification was last changed at a different confirmed time.
+Use ISO format in EST:
+YYYY-MM-DDTHH:MM EST
+### Step 3: Dominant Narratives
+ 
+**Goal:** Create the `dominant_narratives` array from the strongest narrative identified inside each Phase 1 research module.
+ 
+Each research module should produce one completed narrative card for the final brief. Phase 3 determines which module narrative is promoted as the lead narrative. Step 3 records that decision by assigning the correct `type`.
+ 
+**Required JSON array:**
+ 
+```json
+"dominant_narratives": [
+  {
+    "id": "[stable-lowercase-slug]",
+    "type": "[dominant_narrative_card | narrative_card]",
+    "tag": "[Geopolitical | Fed | Energies | Metals & Commodities | Earnings | Flows | Econ Data]",
+    "headline": "[specific story headline]",
+    "summary": "[1–3 sentence condensed explanation of the core narrative]",
+    "body": "[4–8 sentence narrative paragraph]",
+    "bullets": [
+      "[key supporting point]",
+      "[key supporting point]",
+      "[key supporting point]"
+    ],
+    "market_impact": {
+      "session": "[session or timeframe affected]",
+      "text": "[1–2 sentence market impact explanation]"
+    },
+    "sources": [
+      {
+        "label": "[source label]",
+        "url": "[source URL]"
+      }
+    ]
+  }
+]
+ 
+Required fields for each narrative object
+Id
+Type
+Yag
+Headline
+Summary
+Body
+Bullets
+Market_impact
+sources
+Allowed types:
+Use exactly one of the following:
+dominant_narrative_card
+narrative_card
+Use dominant_narrative_card for the one module narrative selected in Phase 3 as the lead narrative.
+Use narrative_card for all other module narratives.
+Only one card should use dominant_narrative_card unless Phase 3 explicitly determined that the market is being driven by two inseparable forces.
+Allowed tags:
+Use exactly one of the following tags for each narrative:
+Geopolitical
+Fed
+Energies
+Metals & Commodities
+Earnings
+Flows
+Econ Data
+ 
+Field rules:
+id should be a stable lowercase slug that describes the card topic. Use short backend-friendly names such as consumer-sentiment, fed-rate-path, energy-inflation-risk, metals-safe-haven-demand, or geopolitical-risk, etc.
+type must be either dominant_narrative_card or narrative_card.
+tag identifies the research module category.
+headline should name the story directly. It should be specific enough that the user understands the market issue without reading the body first. Do not write generic headlines such as “Fed Update,” “Earnings Matter,” or “Geopolitical Risk.”
+summary should preserve the core narrative in condensed form. It should explain the main story in 1–3 sentences.
+body should be one complete paragraph of 4–8 sentences. It should explain what happened, when it happened, why it matters, and how it affects the trading regime or forward market risk. The body should focus on the module’s strongest narrative, not a list of disconnected facts from that category.
+bullets should contain 1–3 concise supporting points from the body. Each bullet should add clarity, evidence, or market relevance. Do not use bullets as a second full narrative.
+market_impact must be an object with:
+Session
+text
+market_impact.session is the reference frame for when the story affected or may affect the market. Acceptable examples include:
+Early Week
+Midweek
+Late Week
+Weekend
+Monday AM
+Monday PM
+Tuesday AM
+Tuesday PM
+Wednesday AM
+Wednesday PM
+Thursday AM
+Thursday PM
+Friday AM
+Friday PM
+Next Week
+market_impact.text should be 1–2 sentences explaining how the narrative affects market behavior, positioning, regime, sector leadership, risk appetite, volatility, rates, commodities, or forward catalyst risk.
+sources must be an array of source objects. Each source object must include:
+label
+url
+label should include the source name and a short description of what the source supports.
+url should be the direct source URL.
+Ordering rule:
+The object with "type": "dominant_narrative_card" must appear first in the dominant_narratives array.
+All other cards should follow in descending order of market impact, regime relevance, and forward catalyst importance.
+Do not automatically order narratives based on their Phase 1 research module number.
+Do not include:
+Unsupported tags
+More than one dominant_narrative_card unless Phase 3 explicitly justified a dual-driver market
+Loose commentary outside the JSON object
+A body shorter than 4 sentences or longer than 8 sentences
+Empty bullets
+Empty market_impact
+Sources without URLs
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 4: Catalyst Calendar
+ 
+**Goal:** Create the `catalyst_calendar` array for the upcoming week’s market-moving events.
+ 
+The catalyst calendar should be a chronological timeline of events for the upcoming week that tells the user what events matter, when they happen, how important they are, and what to watch.
+ 
+This skill creates the initial catalyst calendar only. The flag will always be set to null
+ 
+**Required JSON array:**
+ 
+```json
+"catalyst_calendar": [
+  {
+    "date": "[YYYY-MM-DD or all_week]",
+    "date_label": "[Day Mon DD — Time, or All Week]",
+    "time": "[HH:MM ET | Before Open | After Close | Continuous | null]",
+    "event": "[event name]",
+    "impact": "[high | medium | low]",
+    "flag": null,
+    "tags": [
+      "[Geopolitical | Fed | Energies | Metals & Commodities | Earnings | Flows | Econ Data]"
+    ],
+    "body": "[2–4 sentence briefing explaining why this event matters and what to watch]"
+  }
+]
+ 
+ Required fields for each catalyst object:
+date
+date_label
+time
+event
+impact
+flag
+tags
+body
+Field rules:
+date is the date of the catalyst. Use ISO date format:
+YYY-MM-DD
+For continuous all-week catalysts, use:
+“Date”: “all_week”
+ 
+date_label is the human-readable display label for the event.
+For scheduled events, use the following format:
+Monday Apr 28 — 10:00 ET
+For all-week catalysts, use:
+All Week
+time is the scheduled time of the event. Use HH:MM ET, Before Open, After Close, or Continuous.
+If no specific time is available, use:
+"time": null
+event is the title of the catalyst. It should name the event clearly.
+impact must use one of the allowed impact values.
+flag must always be:
+"flag": null
+tags must be an array of one or more allowed category tags.
+body should be a concise briefing on why the event matters and what to watch.
+Allowed impact values:
+Use exactly one of the following:
+high
+medium
+low
+Use high for events that can directly move indexes, rates, major sectors, commodities, or the current regime.
+Use medium for events that provide important confirmation, cross-read, or positioning context but are less likely to move the full market alone.
+Use low only for background events that may matter later but are unlikely to move markets immediately.
+Allowed tags:
+Use one or more of the following tags:
+Geopolitical
+Fed
+Energies
+Metals & Commodities
+Earnings
+Flows
+Econ Data
+Tags should describe the event’s market category.
+If an event affects more than one category, include multiple tags.
+Continuous catalyst rule:
+Use a continuous catalyst item when a story can move markets at any point during the week rather than at one scheduled time.
+Continuous catalysts include geopolitical headlines, active military or diplomatic negotiations, commodity supply disruptions, shipping-route risk, sanctions decisions, political deadlines, or unresolved policy threats, or other multi day catalytic stories.
+A continuous catalyst must use:
+"date": "all_week",
+"date_label": "All Week",
+"time": "Continuous"
+The event name should clearly end with:
+— Continuous
+Place continuous catalyst items at the end of the calendar unless they are the single most important risk for the entire week.
+Do not duplicate a continuous catalyst as both a dated item and an all-week item unless there is also a specific scheduled event within that story, such as a meeting, vote, deadline, data release, or earnings report.
+Body rules:
+The body should be 2–4 sentences.
+For scheduled events, include what the market expects, what would surprise the market, and what asset classes or sectors are most exposed.
+For continuous catalysts, summarize the current status, why the story remains active, and what kind of development would change the market’s pricing.
+Do not write the body as if the event has already happened unless the initial report is being generated after the event has occurred.
+Ordering rule:
+Order calendar items chronologically.
+Within each day, place high-impact events first, then medium-impact events, then low-impact events.
+Continuous all-week items should usually appear at the end of the timeline.
+Do not include:
+Calendar items with no market relevance
+Opinion-only events unless the speaker can directly move markets
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 5: Market Snapshot & Key Levels
+ 
+**Goal:** Create the `market_snapshot` object using current market levels, macro gauges, policy context, energy readings, volatility gauges, and relevant cross-asset levels.
+ 
+This section should be factual, concise, and data-driven. It should not repeat the full narrative section. Use it to show current levels, directional pressure, and key market gauges as of the latest report update.
+ 
+**Required JSON object:**
+ 
+```json
+"market_snapshot": {
+  "as_of": "[YYYY-MM-DDTHH:MM:SS-04:00]",
+  "indexes": [
+    {
+      "label": "[market or gauge name]",
+      "value": "[current value or null]",
+      "note": "[short context note]",
+      "direction": "[up | down | neutral]"
+    }
+  ],
+  "macro_fed": [
+    {
+      "label": "[macro or Fed gauge]",
+      "value": "[current value or null]",
+      "note": "[short context note]",
+      "direction": "[up | down | neutral]"
+    }
+  ],
+  "energy_volatility": [
+    {
+      "label": "[energy, volatility, commodity, or cross-asset gauge]",
+      "value": "[current value or null]",
+      "note": "[short context note]",
+      "direction": "[up | down | neutral]"
+    }
+  ]
+}
+.
+ 
+ 
+ 
+ 
+Required top-level fields:
+as_of
+indexes
+macro_fed
+energy_volatility
+Each row must include:
+label
+value
+note
+direction
+Field rules:
+as_of is the timestamp for the market snapshot. Use ISO format in EST:
+YYYY-MM-DDTHH:MM EST
+label is the name of the market, gauge, data point, or status item.
+value is the current level, price, percentage, range, policy rate, status, or null if no reliable value is available.
+note is a short context note explaining why the value matters.
+direction represents the market implication of the row, not always the literal price direction.
+Allowed direction values:
+Use exactly one of the following:
+up
+down
+neutral
+Use up when the item is supportive of risk appetite, bullish for the relevant market, or confirming constructive momentum.
+Use down when the item is pressuring risk appetite, bearish for the relevant market, tightening financial conditions, or increasing stress.
+Use neutral when the item is stable, unresolved, balanced, mixed, or not clearly directional.
+Do not use mixed. If a signal is mixed, use neutral and explain the mixed context in note.
+Indexes array:
+Use indexes for major equity indexes and broad risk gauges.
+Common rows include:
+S&P 500
+Nasdaq
+Dow Jones
+Russell 2000
+10Y Treasury Yield
+VIX
+Include current levels, weekly changes, prior close changes, futures context, or risk-gauge context when relevant.
+Macro / Fed array:
+Use macro_fed for macroeconomic data, rate-path information, and Fed policy context.
+Common rows include:
+Fed Funds Rate
+First Cut Priced
+CPI
+Core CPI
+PCE
+Core PCE
+GDP
+Jobs
+Unemployment
+Wages
+Fed speaker or policy status
+Major nomination, confirmation, or policy-transition status when market-relevant
+Energy / Volatility array:
+Use energy_volatility for energy markets, volatility, metals, commodities, and other cross-asset gauges when relevant.
+Common rows include:
+WTI Crude
+Brent Crude
+Natural Gas
+National Gas
+Gold
+Silver
+Copper
+DXY
+Bitcoin, only when risk sentiment or liquidity context makes it relevant
+Geopolitical or supply-chain status items directly tied to energy, commodities, or volatility
+Do not force every commodity into the card. Include only the items that help explain the current regime, dominant narratives, or forward risk.
+Formatting rules:
+Use short labels.
+Use values when available. If no reliable value is available, use "value": null and explain the context in note.
+Keep notes brief. A note should usually be one sentence fragment or concise statement.
+Do not write full paragraphs inside snapshot rows.
+Do not include minor gauges that do not help explain the current regime, dominant narratives, or forward risk.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 6: Stories to Track
+ 
+**Goal:** Create the `stories_to_track` object using unresolved, active, or still-market-relevant items that could affect the next session or the rest of the week.
+ 
+This section is the report watchlist. It should not repeat the full narrative section. Each item should be short, monitorable, and tied to forward market risk.
+ 
+**Required JSON object:**
+ 
+```json
+"stories_to_track": {
+  "geopolitical_macro": [
+    {
+      "label": "[short description of the story or risk to monitor]",
+      "status": "[SHORT UPPERCASE STATUS]",
+      "direction": "[up | down | neutral]"
+    }
+  ],
+  "sector_stock_signals": [
+    {
+      "label": "[short description of the sector or stock signal to monitor]",
+      "status": "[SHORT UPPERCASE STATUS]",
+      "direction": "[up | down | neutral]"
+    }
+  ]
+}
+ 
+Required top-level fields:
+geopolitical_macro
+sector_stock_signals
+Each array should contain 5–7 items.
+Each story object must include:
+label
+status
+direction
+Allowed direction values:
+Use exactly one of the following:
+up
+down
+neutral
+direction should represent the likely market implication of the story, not simply whether the underlying asset or headline is moving higher or lower.
+Use up when the story is supportive of risk appetite, sector strength, earnings strength, liquidity, or constructive momentum.
+Use down when the story is risk-negative, bearish, tightening, inflationary, destabilizing, or pressuring equities.
+Use neutral when the story is unresolved, balanced, pending, or not clearly directional yet.
+geopolitical_macro rules:
+Use geopolitical_macro for active or unresolved items related to:
+Geopolitical risk
+Fed policy
+Economic data
+Inflation
+Rates
+Energy shocks
+Metals and commodities
+Currency pressure
+Sovereign or policy risk
+Major macro catalysts
+sector_stock_signals rules:
+Use sector_stock_signals for active or unresolved items related to:
+Mega-cap earnings
+Sector leadership
+AI / cloud / semiconductors
+Financials
+Consumer stocks
+Energy equities
+Defensive rotation
+Single-stock signals with index or sector relevance
+Label rules:
+label should briefly name the story and include the key fact or risk being monitored.
+The label should be specific enough that the user knows what to watch without reading a full paragraph.
+Do not use generic labels such as Fed, Oil, Earnings, Stocks, or Geopolitical Risk.
+A good label should include the subject, current condition, and why it matters.
+Status rules:
+status should be short, uppercase, and monitorable.
+Status should describe the current condition of the story, not explain the full story.
+Acceptable status examples include:
+PENDING
+TONIGHT
+JUST PRINTED
+COMPLETED
+ESCALATING
+STABILIZING
+REJECTED
+RISING
+FALLING
+WATCH
+UNRESOLVED
+STRONG BEAT
+SOFTER GUIDE
+HAWKISH SPLIT
+STAGFLATION
+FRAYING
+Do not write full sentences in status.
+Formatting rules:
+Keep each label concise but specific.
+Include only stories that remain active, unresolved, or still relevant to forward market risk.
+Do not repeat the full narrative card body.
+Do not include minor stories that have no clear market transmission channel.
+Do not include stale items that are fully resolved unless the resolution still affects the current session or next trading week.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 7: Scenario Planning
+ 
+**Goal:** Create the `scenarios` array for the initial weekly brief.
+ 
+This section defines the three forward paths the market may follow based on the current regime, dominant narratives, catalyst calendar, market snapshot, and unresolved stories to track.
+ 
+This creates the primary scenarios for the week.
+ 
+**Required JSON array:**
+ 
+```json
+"scenarios": [
+  {
+    "id": "bull",
+    "label": "A",
+    "case": "Bull",
+    "color": "green",
+    "headline": "[Bull Case: specific scenario headline]",
+    "body": "[3–5 sentence scenario body]"
+  },
+  {
+    "id": "base",
+    "label": "B",
+    "case": "Base",
+    "color": "amber",
+    "headline": "[Base Case: specific scenario headline]",
+    "body": "[3–5 sentence scenario body]"
+  },
+  {
+    "id": "bear",
+    "label": "C",
+    "case": "Bear",
+    "color": "red",
+    "headline": "[Bear Case: specific scenario headline]",
+    "body": "[3–5 sentence scenario body]"
+  }
+]
+ 
+ 
+ 
+ 
+ 
+ 
+Required scenario count:
+Create exactly three scenarios:
+Bull Case
+Base Case
+Bear Case
+Required fields for each scenario object:
+id
+label
+case
+color
+headline
+body
+Scenario mapping:
+Use the following fixed mapping:
+id: bull
+ label: A
+ case: Bull
+ color: green
+id: base
+ label: B
+ case: Base
+ color: amber
+id: bear
+ label: C
+ case: Bear
+ color: red
+color is not an independent judgment. It must match the selected case.
+Headline rules:
+Each headline should begin with the case name:
+Bull Case:
+Base Case:
+Bear Case:
+The headline should describe the trigger path, not just the direction.
+Do not use generic headlines such as Bull Case, Base Case, or Bear Case by themselves.
+A good scenario headline should identify the main condition that would make that path active.
+Body rules:
+Each scenario body should be 3–5 sentences.
+Each body should describe the trigger conditions, expected market path, and key confirmation signals.
+The body should explain what would need to happen across the dominant narratives, catalysts, rates, commodities, earnings, flows, or cross-asset signals for that scenario to play out.
+Do not provide positioning guidance.
+Do not tell the user what to buy, sell, long, short, enter, exit, or target as a trade recommendation.
+Describe the market path only.
+Base case rule:
+The base case should be the most likely scenario based on the current evidence.
+It should not be the most neutral-sounding scenario by default. It should represent the most probable path given the current regime, dominant module narrative, market snapshot, and upcoming catalysts.
+Bull and bear case rule:
+The bull and bear cases should be roughly balanced in magnitude.
+The bull case should describe the constructive path where risk appetite improves, major risks resolve, or upside catalysts confirm.
+The bear case should describe the adverse path where risks escalate, catalysts disappoint, financial conditions tighten, or the regime deteriorates.
+Do not write three scenarios that are all variations of “things go fine.”
+Do not write three scenarios that are all variations of “things fall apart.”
+ 
+ 
+Do not include:
+More than three scenarios
+Positioning guidance
+Trade recommendations
+Entry, exit, stop, target, or sizing instructions
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+### Step 8: Key Questions
+ 
+**Goal:** Create the initial `key_questions` array using 5–7 questions that will determine whether the bull, base, or bear scenario is playing out.
+ 
+This creates the initial question list. Every question must begin as unanswered. 
+ 
+**Required JSON array:**
+ 
+```json
+"key_questions": [
+  {
+    "number": 1,
+    "question": "[binary, threshold-based, or directly answerable question]",
+    "status": "unanswered"
+  },
+  {
+    "number": 2,
+    "question": "[binary, threshold-based, or directly answerable question]",
+    "status": "unanswered"
+  }
+]
+ 
+Required fields for each question object:
+number
+question
+status
+Initial status rule:
+Every question created in this step must use:
+"status": "unanswered"
+ 
+Question count:
+Create 5–7 numbered questions.
+Questions should be ordered by importance to the current regime, dominant narratives, catalyst calendar, market snapshot, stories to track, and scenario planning.
+Question rules:
+Each question should be answerable by the end of the week, or by the next major catalyst window identified in the catalyst calendar.
+Frame questions as binary, threshold-based, or directly answerable.
+Good question structures include:
+Does [event] happen?
+Does [market / asset / sector] hold above or break below [level]?
+Does [data print] come in above or below [threshold]?
+Does [company / sector] confirm or weaken [narrative]?
+Does [policy actor] signal [specific stance]?
+How does [market] respond to [specific catalyst]?
+Do not write vague open-ended questions such as:
+What will the market do?
+Will things get better?
+What happens next?
+Is the market bullish or bearish?
+Each question should connect directly to the bull, base, or bear scenario. If answering the question would not help determine which scenario is playing out, do not include it.
+Content guidance:
+Questions should focus on unresolved catalysts, threshold levels, market reactions, policy decisions, earnings confirmations, economic data, geopolitical developments, energy/commodity risks, flows, or sector leadership.
+The strongest questions usually come from:
+The dominant narrative card
+The most important secondary narratives
+The catalyst calendar
+The market snapshot
+Stories to track
+The bull/base/bear scenario triggers
+Do not include:
+Fewer than 5 questions
+More than 7 questions
+Vague open-ended questions
+Questions that do not connect to the weekly scenarios
+Questions that cannot realistically be answered by the end of the week or next major catalyst window
+ 
+ ---
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+## Phase 5: Tone & Style
+ 
+### Voice
+Write like a senior analyst briefing a portfolio manager at 6am. Direct. No hedging language.
+No "it remains to be seen." No "only time will tell." State what happened, what it means,
+and what to watch. If something is uncertain, say "this is uncertain because X and Y are in
+tension" — that's useful. "We'll have to wait and see" is not.
+ 
+### Formatting
+- Dark theme, monospace headers, sans-serif body text
+- Color coding: green = positive/bullish, red = negative/bearish, amber = neutral/caution
+- Tags on every narrative card identifying the category
+- No decorative elements. No stock photos. No logos. Trading desks are utilitarian.
+### Length
+- Entire brief: 2,000–4,000 words of content (excluding JSON)
+- Narrative cards: 4–8 sentences each
+- Calendar items: 2–3 sentences each
+- Scenarios: 3–5 sentences each
+- Questions: 1 sentence each 
+---
+ 
+## Source Hierarchy
+ 
+When multiple sources conflict, use this priority order:
+ 
+1. **Official government / central bank releases** (BLS, Fed, Treasury) — these are the data
+2. **Wire services and primary reporting** (Reuters, AP, AFP) — closest to the event
+3. **Major financial media** (CNBC, Bloomberg, WSJ, FT) — best for market-specific context
+4. **Institutional research** (JPMorgan, Goldman, Schwab) — best for flows and positioning
+5. **Wikipedia current event pages** — surprisingly good for chronological timelines of
+   complex, multi-phase events (wars, negotiations); always cross-reference with primary sources
+6. **Social media / Truth Social** — only for direct quotes from principals (e.g., Trump posts)
+Never cite: blogs, forums, opinion columns, social media commentary, promotional content.
+ 
+### Collecting Source URLs
+ 
+**Goal:** Create the `research_sources` array containing the full source list used to build the report.
+ 
+This section should preserve the primary research sources used across the brief. It is separate from `meta.sources`, which only stores clean source names. `research_sources` stores source labels, URLs, and the narrative tag each source supports.
+ 
+**Required JSON array:**
+ 
+```json
+"research_sources": [
+{
+"label": "[source name and short description]",
+"url": "[source URL]",
+"tag": "[Geopolitical | Fed | Energies | Metals & Commodities | Earnings | Flows | Econ Data]"
+},
+{
+"label": "[source name and short description]",
+"url": "[source URL]",
+"tag": "[Geopolitical | Fed | Energies | Metals & Commodities | Earnings | Flows | Econ Data]"
+}
+] 
+ 
+While researching, collect the URL and a one-line label for every article used to build
+each narrative card's content. 
+ 
+**Rules:**
+- Collect sources
+- Use the source's publication name + headline summary as the label (not just the URL)
+- Prefer original sources (e.g., SEC filings for earnings, Census Bureau for retail data)
+- Include 2–5 sources per narrative — enough to verify, not so many it becomes a bibliography
+- Do NOT include sources that were only used for cross-referencing or that didn't contribute
+  directly to that specific update's content
+- The same article may appear for multiple narratives if it was used for both
+---
+ 
+ 
+## Common Mistakes
+ 
+1. **Treating all stories as equally important.** The brief should have a clear hierarchy.
+   One story dominates. Everything else supports or is secondary.
+2. **Writing a news summary instead of an intelligence brief.** Always answer "so what?"
+   and "what next?" — not just "what happened."
+3. **Missing the weekend development.** Saturday and Sunday events that happen after Friday's
+   close are the highest-value content in a Sunday brief because the market hasn't priced them.
+   Always search for these explicitly.
+4. **Ignoring flows and positioning.** A +3% rally means very different things depending on
+   whether it was driven by short covering (fragile) or new institutional buying (durable).
+5. **Vague scenario planning.** "Things could go either way" is useless. Name specific trigger
+   conditions: "If [dominant risk resolves] AND [key data release beats], S&P pushes to [level]." Concrete.
+6. **Not connecting the threads.** Oil → CPI → Fed → Rate path is an example of one connected chain.
+   The brief should make these connections explicit, not leave the reader to assemble them.
+7. **Over-searching.** 5–8 searches is usually enough for a complete brief. Each search should
+   have a specific purpose from the layer framework. Don't search aimlessly.

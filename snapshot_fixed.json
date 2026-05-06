@@ -1,0 +1,1155 @@
+{
+  "meta": {
+    "title": "Weekly Market Intelligence Brief",
+    "sources": [
+      "CNBC – Stock market next week: Outlook for May 4-8, 2026 (earnings calendar, NFP preview, sentiment)",
+      "CNBC – Stock market live updates May 1, 2026 (S&P/Nasdaq all-time highs, Apple earnings, Iran proposal)",
+      "Stock Rover – Weekly Market Brief May 1, 2026 (FOMC, GDP, PCE, durable goods data)",
+      "TheStreet – Stock Market Today May 1, 2026 (Nasdaq 25K record, Iran peace signal, Apple)",
+      "Alain Guillot – Weekly market recap April 27 – May 1, 2026 (index levels, daily narrative, AI capex, earnings growth)",
+      "Investrade – Market Review May 1, 2026 (Exxon, Chevron, ISM prices index, Spirit Airlines)",
+      "Charles Schwab – Market open report May 1 (VIX, breadth, Berkshire, April ISM Manufacturing)",
+      "Wikipedia – 2026 Strait of Hormuz Crisis (full chronological timeline of conflict and closures)",
+      "CNN Live Updates – Trump announces Project Freedom ship escort, Iran warns of ceasefire violation",
+      "CNBC – Trump reviewing 14-point Iranian proposal, would open strait and end blockade",
+      "CBS News Live – Project Freedom military assets, 48 Iranian ships blocked, Lebanon ceasefire violations",
+      "House of Commons Library – Diplomatic efforts to reopen the Strait of Hormuz (UK/France conference, 38-country statement)",
+      "Trading Economics – Brent Crude Oil price history and war-related news May 2026",
+      "Trading Economics – WTI Crude Oil price history and news May 2026",
+      "Trading Economics – Gold price history and Iran-war inflation dynamics May 2026",
+      "Axios – Warsh's Fed challenges after Powell's final FOMC meeting",
+      "Charles Schwab – FOMC May 2026 meeting analysis and Warsh confirmation",
+      "CNBC – Fed live updates April 29: 8-4 vote, hawkish dissents, Powell staying on board",
+      "NAI 500 – Warsh as Fed Chair: rate cut probability analysis and PCE inflation context",
+      "Gotrade News – Big Tech Q1 2026 earnings: AI capex $700B, Alphabet vs Meta market reaction",
+      "Fortune – Microsoft, Meta, Google AI spending divergence and investor reaction",
+      "CNBC – Earnings playbook: Palantir and AMD for week of May 4-8",
+      "Gotrade News – Weekly economic outlook May 4-8: NFP, AMD, Disney, Palantir",
+      "Investing.com – 1 stock to buy, 1 to sell: Palantir and Disney analysis for week of May 4",
+      "Fox News Live – Project Freedom: Iran attacks UAE, ceasefire in question",
+      "CNBC – Oil prices surge as Iran attacks UAE during Project Freedom launch",
+      "Fortune – Iran ceasefire analysis, Brent surges above $114",
+      "Foreign Policy – Project Freedom strains US-Iran ceasefire",
+      "Wikipedia – Operation Project Freedom",
+      "ABC7 – Iran war live updates: UAE intercepting Iranian missiles and drones",
+      "Breaking Defense – Project Freedom unlikely to pay off immediately, analysts say",
+      "Trading Economics – Brent Crude May 4 2026 close data",
+      "Trading Economics – WTI Crude May 4 2026 close data",
+      "Trading Economics – Gold May 4 2026 close data",
+      "Trading Economics – US Stock Market May 4 2026 close data",
+      "TheStreet – Stock Market Today May 4 2026: Nasdaq S&P drop after UAE intercepts Iranian missiles",
+      "CNBC – Palantir Q1 2026 earnings report",
+      "Yahoo Finance – Palantir Q1 2026 earnings revenue surges 85%",
+      "CNBC – Berkshire analysts tepid after annual meeting; Abel signals patience on cash",
+      "CNBC – Greg Abel earns solid first scorecard after Berkshire annual meeting",
+      "Military.com – Project Freedom to use missiles and 15K personnel to open Strait of Hormuz",
+      "Axios – Trump US Navy will escort ships from Strait of Hormuz starting Monday",
+      "Fox News Live – Project Freedom: Iran attacks UAE, ceasefire tested May 4 2026",
+      "Foreign Policy – Project Freedom strains US-Iran ceasefire in Strait of Hormuz",
+      "ABC7 New York – Iran war live updates: UAE intercepting Iranian missiles and drones May 4 2026",
+      "Military.com – Project Freedom: 15K personnel, guided-missile destroyers deployed for Hormuz escort",
+      "Breaking Defense – Project Freedom unlikely to restore mass shipping immediately; analyst risk assessment",
+      "Axios – Trump US Navy to escort ships from Strait of Hormuz starting Monday",
+      "CNBC – Oil prices surge as Iran attacks UAE during Project Freedom: Brent $114, WTI $106",
+      "Fortune – Iran ceasefire analysis May 4: Brent surges above $114, Dow sheds 560 points",
+      "CNBC – Palantir Q1 2026 earnings report: revenue $1.63B, US revenue +104%, guidance raised",
+      "Yahoo Finance – Palantir Q1 2026 earnings: revenue surges 85%, full-year guidance raised to 71% growth",
+      "TheStreet – Stock Market Today May 4 2026: S&P and Nasdaq drop after UAE intercepts Iranian missiles",
+      "CNBC – Berkshire analysts tepid after annual meeting; Greg Abel signals patience on $400B cash pile"
+    ],
+    "week_of": "2026-05-04",
+    "generated": "2026-05-05T03:25:27.315+00:00",
+    "last_updated": "2026-05-05T03:25:27.315+00:00",
+    "period_covered": "May 4 – May 8, 2026",
+    "update_version": 2
+  },
+  "regime": {
+    "color": "amber",
+    "label": "Neutral",
+    "updated": "2026-05-05T03:25:27.315+00:00",
+    "description": "The regime has deteriorated from Risk-On (Cautious) to Neutral following Monday's events. Iran responded to Project Freedom with direct military action — striking UAE oil infrastructure at Fujairah, firing on commercial vessels and Iranian boats were destroyed by CENTCOM. The ceasefire is now structurally questionable: Trump stopped short of declaring it violated but warned Iran would be 'blown off the face of the earth' if it attacked US forces. Brent crude surged 5.8% to close at $114.44 and WTI closed at $106.42, decisively breaching the bear-case trigger level of $115 on an intraday basis. Equity markets fell broadly — Dow -1.13%, S&P 500 -0.41%, Nasdaq -0.19% — with only the Energy sector gaining (+0.95%). VIX spiked to approximately 18.44, up from near 17 at Friday's close. The 10-year Treasury yield rose 6 basis points to 4.44%, the highest of the week. Breadth remained severely narrow. Against this backdrop, Palantir delivered a decisive earnings beat ($1.63B revenue vs $1.54B consensus, +85% YoY) that confirms the AI monetization narrative and provides an offset to geopolitical risk. The regime is now range-bound: the AI earnings backbone prevents a full Risk-Off reclassification, but direct ceasefire violations, an oil hub being struck on UAE soil, and VIX expansion above 18 preclude any Risk-On designation. The base case holds at Neutral pending Tuesday's ISM Services PMI and the Iran diplomatic response."
+  },
+  "dominant_narratives": [
+    {
+      "id": "iran-hormuz-war",
+      "type": "dominant_narrative_card",
+      "tag": "Geopolitical",
+      "headline": "Iran War and Strait of Hormuz Closure Enter Critical Week as Trump Announces 'Project Freedom' Escort Mission",
+      "summary": "The US-Iran war, now in its 65th day, remains the single most important structural variable in global markets. The Strait of Hormuz has been effectively closed since March 4, cutting off roughly 20% of world oil flows. Trump announced Sunday that the US will begin escorting ships through the strait starting Monday, a move Iran has already warned would constitute a ceasefire violation. A 14-point Iranian peace proposal is simultaneously under review, creating a week where military escalation and diplomatic resolution could both accelerate.",
+      "body": "The conflict that began February 28 with Operation Epic Fury — US and Israeli airstrikes on Iran targeting nuclear sites and leadership, resulting in the death of Supreme Leader Khamenei — has entered a pivotal moment. A conditional ceasefire has held since April 7, but the dual blockades remain in place: Iran blocking commercial shipping through the strait, and the US blockading Iranian ports. Shipping traffic is down more than 90%, and approximately 20,000 seafarers remain stranded. On Saturday, Trump confirmed he had received the concept of Iran's 14-point proposal — which would reopen the strait and end the US blockade in exchange for leaving nuclear negotiations for a later phase — but indicated he was not satisfied and was awaiting the exact wording. On Sunday, Trump announced 'Project Freedom,' a US CENTCOM-led mission deploying 15,000 service members, guided-missile destroyers, and over 100 aircraft to escort ships through the strait starting Monday morning. Iran's senior official Ebrahim Azizi immediately warned any such action violates the ceasefire, raising the risk of renewed direct engagement. The war-related supply shock has driven Brent crude from roughly $62 before the conflict to as high as $116 intraweek, a near-60% surge that is the primary transmission channel into inflation, Fed policy, and equity risk appetite. ExxonMobil CEO Darren Woods warned that even after the strait reopens, normalization of oil flows could take one to two months plus additional time to refill depleted government reserves, meaning any near-term diplomatic resolution would not immediately collapse oil prices.",
+      "bullets": [
+        "Trump's 'Project Freedom' escort mission begins Monday — Iran has warned it violates the ceasefire, making this the single most important geopolitical event to monitor at the open.",
+        "Iran's 14-point proposal (open strait, end blockade, nuclear talks deferred) is under review by the Trump administration; the proposal was confirmed formally through Pakistani mediators Saturday.",
+        "Even if a deal is reached this week, ExxonMobil projects one to two months to normalize Gulf oil flows plus additional time for government stockpile rebuilds — oil relief would be structural, not immediate."
+      ],
+      "market_impact": {
+        "text": "The start of 'Project Freedom' Monday creates binary risk at the open: Iranian military response would spike oil, VIX, and defense stocks while hammering equities; Iranian restraint or quiet implementation would extend the peace-deal rally narrative and support further equity gains.",
+        "session": "Monday AM"
+      },
+      "sources": [
+        {
+          "url": "https://www.cnn.com/2026/05/03/world/live-news/iran-war-news",
+          "label": "CNN Live Updates – Trump announces ship escort plan, Iran warns of ceasefire violation"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/05/02/trump-iran-strait-of-hormuz.html",
+          "label": "CNBC – Trump reviewing 14-point Iranian proposal to end war"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+          "label": "Wikipedia – 2026 Strait of Hormuz Crisis (chronological timeline)"
+        },
+        {
+          "url": "https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-lebanon-ceasefire/",
+          "label": "CBS News Live – Project Freedom military assets, 48 Iranian ships blocked"
+        },
+        {
+          "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10636/",
+          "label": "House of Commons Library – Diplomacy around reopening the Strait of Hormuz"
+        }
+      ],
+      "updates": [
+        {
+          "body": "Project Freedom launched Monday as planned and immediately drew an Iranian military response. CENTCOM confirmed it destroyed six to seven Iranian small boats attempting to interfere with shipping. Iran fired cruise missiles and drones at the UAE — striking the Fujairah oil hub, one of the UAE's most important petroleum export facilities — while simultaneously claiming (falsely per CENTCOM) to have struck a US naval vessel. The UAE defense ministry confirmed intercept of 12 ballistic missiles, three cruise missiles and four drones launched from Iran. Saudi Crown Prince MBS condemned the attacks. Israel and Bahrain were placed on high alert. Trump told ABC News the attacks were 'not heavy firing' and stopped short of declaring the ceasefire violated, while simultaneously warning Iran would be 'blown off the face of the earth' if it attacked US forces. Two US-flagged merchant vessels successfully transited the strait under escort, and CENTCOM stated no US navy ships were struck. US officials told Axios the operation is limited — no full naval escorts, but military authorized to strike immediate threats. Analysts at Breaking Defense noted commercial shipping companies remain risk-averse and a single mine or drone strike could take ships offline for months. The 14-point Iranian peace proposal remains under US review and Iran's foreign minister said talks were 'making progress' even as attacks continued.",
+          "bullets": [
+            "Iran struck UAE's Fujairah oil hub with drones and fired cruise missiles — first major infrastructure hit in weeks; UAE intercepted 12 ballistic missiles, 3 cruise missiles, and 4 drones.",
+            "CENTCOM destroyed 6-7 Iranian fast boats; two US-flagged merchant vessels successfully transited the strait; CENTCOM confirmed no US naval ships were struck despite Iranian claims.",
+            "Trump stopped short of declaring ceasefire violated ('not heavy firing') but warned Iran would be 'blown off the face of the earth' if it attacks US forces — ceasefire is structurally in question.",
+            "Iran's foreign minister said talks were 'making progress' even as attacks continued — dual military-diplomatic track remains active; 14-point proposal still under US review."
+          ],
+          "sources": [
+            {
+              "url": "https://www.foxnews.com/live-news/trump-iran-war-hormuz-strait-may-4",
+              "label": "Fox News Live – Iran attacks UAE, ceasefire tested during Project Freedom launch"
+            },
+            {
+              "url": "https://foreignpolicy.com/2026/05/04/us-project-freedom-strait-hormuz-trump-iran-war-strikes-uae-south-korea/",
+              "label": "Foreign Policy – Project Freedom strains US-Iran ceasefire in Strait of Hormuz"
+            },
+            {
+              "url": "https://abc7ny.com/live-updates/iran-war-news-trump-project-freedom-strait-of-hormuz/19037371/",
+              "label": "ABC7 – Iran war live updates: UAE intercepting Iranian missiles and drones May 4 2026"
+            },
+            {
+              "url": "https://breakingdefense.com/2026/05/project-freedom-strait-of-hormuz-risk-us-forces-commercial-ships/",
+              "label": "Breaking Defense – Project Freedom unlikely to restore mass shipping immediately; analysts assess risks"
+            },
+            {
+              "url": "https://www.military.com/project-freedom-to-use-missiles-15k-personnel-to-help-open-strait-of-hormuz",
+              "label": "Military.com – Project Freedom: 15K personnel, guided-missile destroyers deployed for Hormuz escort"
+            }
+          ],
+          "headline": "Iran Responds to Project Freedom with Military Force — UAE Struck, Ceasefire in Question, Bear Case Trigger Approaching",
+          "timestamp": "2026-05-04T21:00:00-04:00",
+          "market_impact": {
+            "text": "The binary risk from Monday has partially resolved into the intermediate case — Iran responded militarily but the ceasefire has not been formally abandoned by either side. Tuesday's session will be driven by overnight diplomatic developments: any formal ceasefire breakdown or Israeli/Bahrain escalation would push oil above $120 and VIX above 25; any Iranian de-escalation signal or progress on the 14-point proposal would send oil back toward $105 and support a partial equity recovery. The Fujairah infrastructure hit introduces a new risk dimension — UAE energy facilities were not previously targeted.",
+            "session": "Tuesday Open"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ai-earnings-capex",
+      "type": "narrative_card",
+      "tag": "Earnings",
+      "headline": "AI Earnings Regime Solidifies at $700B Capex but Market Splits on Payback: Alphabet Wins, Meta Punished",
+      "summary": "Big Tech Q1 earnings confirmed the AI spending supercycle is accelerating — combined hyperscaler capex is now tracking above $700B for 2026. But the market has drawn a clear line: companies demonstrating direct AI revenue conversion (Alphabet, Microsoft) were rewarded; those with opaque payback timelines (Meta) were punished. This monetization-vs-spend split will now be applied to AMD, Palantir, and Arm Holdings this week.",
+      "body": "The four major hyperscalers — Alphabet, Amazon, Meta, and Microsoft — reported Q1 results Tuesday, April 29. All four beat on revenue. Alphabet was the standout, delivering $109.9B in revenue (up 22% YoY), with Google Cloud up 63% to $20B and an $462B cloud backlog that nearly doubled quarter-over-quarter. Alphabet shares initially dipped on a capex guide increase to $180-190B but rallied on the strength of its revenue confirmation. Microsoft reported an AI run rate past $37B, up 123% YoY, with Azure holding strong — shares were essentially flat. Meta posted its fastest revenue growth since 2021 at 33% YoY but fell 6-10% after raising 2026 capex to $125-145B without a clear direct-monetization path visible to investors. Amazon's AWS reaccelerated to 28% YoY growth but capex projections of ~$200B kept sentiment mixed. Apple capped the week on Friday with a fiscal Q2 beat — services revenue continuing to deliver — and shares surged more than 3%, lifting the Nasdaq to an all-time close at 25,114. The aggregate Q1 blended earnings growth rate for the S&P 500 is now 27.1%, the highest since Q4 2021, with 84% of reporting companies beating EPS estimates. The ISM Manufacturing prices index surged to 84.6, the highest since April 2022, signaling that AI infrastructure cost pressures from energy and tariffs are already feeding into corporate cost structures.",
+      "bullets": [
+        "Alphabet's 63% Google Cloud growth and 81% YoY net income jump set the gold standard: AI capex that converts visibly into cloud backlog gets rewarded.",
+        "Meta's 6-10% post-earnings drop encodes the new market rule — capex without visible near-term payback will be discounted, regardless of top-line growth.",
+        "Q1 blended S&P 500 EPS growth of 27.1% is the highest in four years; 84% beat rate is the highest since Q2 2021 — the earnings backdrop remains structurally bullish."
+      ],
+      "market_impact": {
+        "text": "Palantir (Monday) and AMD (Tuesday) will be graded on the same monetization-vs-spend framework — any weakness in commercial AI revenue or data center traction guidance will generate outsized sell reactions given the elevated entry valuations.",
+        "session": "Early Week"
+      },
+      "sources": [
+        {
+          "url": "https://www.heygotrade.com/en/news/big-tech-q1-2026-earnings-ai-capex-spree/",
+          "label": "Gotrade News – Big Tech Q1 2026 earnings capex breakdown"
+        },
+        {
+          "url": "https://fortune.com/2026/04/29/microsoft-meta-google-ai-capex-spending-billions/",
+          "label": "Fortune – Microsoft, Meta, Google AI spending divergence"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/04/29/meta-q1-earnings-report-2026.html",
+          "label": "CNBC – Meta Q1 2026 earnings report detail"
+        },
+        {
+          "url": "https://www.alainguillot.com/weekly-stock-market-recap-april-27-may-1-2026/",
+          "label": "Alain Guillot – Weekly market recap April 27 – May 1"
+        }
+      ],
+      "updates": [
+        {
+          "body": "Palantir reported Q1 2026 results after Monday's close with decisive beats across every key metric. Revenue of $1.633B grew 85% YoY versus $1.54B consensus. US revenue surged 104% to $1.28B; US commercial revenue grew 133% to $595M; US government revenue grew 84% to $687M. Adjusted EPS came in at $0.33 versus $0.28 expected, a 17.86% beat. Adjusted operating income reached $984M at a 60% operating margin. Palantir raised full-year revenue guidance to $7.65-$7.66B (71% YoY growth) from prior $7.18-$7.19B, clearing the $7.27B analyst consensus. Full-year US commercial revenue guidance was raised to over $3.224B (120% YoY growth). Adjusted free cash flow guidance was raised to $4.2-$4.4B. CEO Alex Karp said he expects the US business to double again in 2027. The stock rose 1.4% during Monday's session and added approximately 0.4% in aftermarket trading. This is the clearest possible monetization-vs-spend confirmation: Palantir is on the right side of the AI payback line that the market drew at Meta's expense two weeks ago.",
+          "bullets": [
+            "Revenue of $1.633B grew 85% YoY, beating $1.54B consensus by 5.8%; US revenue grew 104% to $1.28B — the strongest confirmation of AI platform monetization this earnings cycle.",
+            "US commercial revenue of $595M grew 133% YoY; customer count reached 615 US commercial clients (+42% YoY); adjusted operating margin of 60% demonstrates AI software leverage at scale.",
+            "Full-year guidance raised to $7.65-7.66B revenue (71% YoY) and US commercial guidance raised to 120% YoY growth — Karp guided US business to double again in 2027."
+          ],
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/05/04/palantir-pltr-q1-earnings-report-2026.html",
+              "label": "CNBC – Palantir Q1 2026 earnings: revenue $1.63B, US revenue +104%, guidance raised"
+            },
+            {
+              "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-q1-2026-earnings-revenue-205048964.html",
+              "label": "Yahoo Finance – Palantir Q1 2026 earnings: revenue surges 85%, guidance raised"
+            }
+          ],
+          "headline": "Palantir Crushes Q1 Estimates with 85% Revenue Growth and 104% US Revenue Jump — AI Monetization Narrative Definitively Confirmed",
+          "timestamp": "2026-05-04T22:00:00-04:00",
+          "market_impact": {
+            "text": "Palantir's decisive beat resolves Key Question 3 in the affirmative — AI monetization is confirmed at the platform layer, not just the infrastructure layer. This provides a counterweight to geopolitical risk in Tuesday's session: PLTR will likely gap up, and the AI software sector (MSFT, CRM, SNOW) should trade positively. However, the geopolitical context means any PLTR strength may be capped by broader market risk-off pressure from Iran-UAE escalation. AMD reports Tuesday after close and now faces a higher bar — markets will apply the same monetization test Palantir just passed.",
+            "session": "Tuesday Open"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fed-warsh-transition",
+      "type": "narrative_card",
+      "tag": "Fed",
+      "headline": "Most Fractured Fed Vote Since 1992 Signals Warsh Walks Into a Constrained Chair — No Cuts, Possible Hike Pathway Now Visible",
+      "summary": "Powell's final meeting as chair produced an 8-4 vote to hold rates at 3.5%-3.75%, the most divided FOMC outcome in 34 years. Three dissenters voted against the easing bias in the statement — not just the rate decision — sending a direct warning to incoming chair Kevin Warsh that the committee will resist premature cuts. Futures markets now show near-zero probability of a 2026 cut and a rising 9.1% chance of a 2026 hike, up from 0% one week ago.",
+      "body": "The April 29 FOMC decision was unanimous in holding rates but deeply divided on forward guidance. Three hawkish dissenters — Cleveland Fed president Beth Hammack, Minneapolis Fed president Neel Kashkari, and Dallas Fed president Lorie Logan — opposed retaining the easing bias in the statement. A fourth dissenter, Fed Governor Stephen Miran, voted for an immediate 25bp cut. This is the most internal fracture the FOMC has displayed since 1992 and sets up a genuinely constrained policy environment for Warsh. The Senate Banking Committee advanced Warsh's nomination along party lines April 29; a full Senate floor vote is expected the week of May 11 during recess, positioning Warsh to chair the June 16-17 FOMC meeting where updated economic projections and a dot plot will be released. PCE printed at 4.5% and core PCE at 4.3% — both far above the 2% target — driven primarily by energy and tariff pass-through. GDP Q1 came in at 2.0% annualized, above the prior 0.5%, but the gross domestic purchases price index surged to 3.6%. Powell explicitly ruled out hikes 'right now' while leaving the door open, and called out criminal investigation pressure from the administration. His decision to remain on as Governor until 2028 gives him continued voting rights at all FOMC meetings, creating a dual-authority dynamic that markets will need to price. Minneapolis Fed's Kashkari published an essay May 1 stating rates must stay at current levels for an extended period even if the strait reopens quickly, and could require hikes if it remains closed.",
+      "bullets": [
+        "Three hawkish FOMC dissenters opposed the easing bias, not just the rate level — this is a pre-warning to Warsh that consensus for cuts requires inflation to materially subside first.",
+        "PCE at 4.5% and core PCE at 4.3% — both multi-year highs driven by energy and tariffs — make it structurally impossible to cut rates without a significant reversal in energy prices.",
+        "Futures now show 9.1% probability of a 2026 rate hike (up from 0% one week ago) — the market is beginning to price in a stagflation risk pathway."
+      ],
+      "market_impact": {
+        "text": "The June FOMC under Warsh will be the first read on whether the new chair can shift committee direction — until then, the no-cuts regime and rising hike probability keep yield pressure elevated and rate-sensitive equities (real estate, utilities, high-multiple growth) under structural pressure.",
+        "session": "Next Week"
+      },
+      "sources": [
+        {
+          "url": "https://www.axios.com/2026/04/30/fed-warsh-powell-rates",
+          "label": "Axios – Warsh's challenges after Powell's last FOMC meeting"
+        },
+        {
+          "url": "https://www.schwab.com/learn/story/fomc-meeting",
+          "label": "Charles Schwab – FOMC decision analysis and Warsh confirmation"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/05/02/kevin-warsh-federal-reserve-interest-rates-bonds-fixed-income.html",
+          "label": "CNBC – Kevin Warsh, bonds, and Fed rate path"
+        },
+        {
+          "url": "https://nai500.com/blog/2026/05/kevin-warsh-is-about-to-become-fed-chair-any-chance-of-rate-cuts-in-2026/",
+          "label": "NAI 500 – Warsh as Fed Chair and rate cut probability analysis"
+        }
+      ],
+      "updates": []
+    },
+    {
+      "id": "energy-oil-hormuz",
+      "type": "narrative_card",
+      "tag": "Energies",
+      "headline": "Oil Surged 60% Since February War Start, Prices Eased Friday on Peace Hopes but Supply Shock Remains Structural",
+      "summary": "WTI crude traded from roughly $63 before the war to a Friday close near $101 after intraweek peaks above $105-$116 depending on the benchmark. Brent closed Friday near $108 after briefly hitting $114+ Thursday. The easing Friday came on Iran's 14-point proposal news, but the supply shock is structural — ExxonMobil CEO warned normalization takes one to two months post-reopening, and Goldman Sachs-linked estimates see acute shortage risk building globally as transit-supply depletes.",
+      "body": "Oil prices have been the primary transmission channel between the Iran war and the broader macroeconomy throughout the conflict. With the Strait of Hormuz carrying roughly 20% of world oil and 20% of global LNG pre-conflict, the near-complete closure has created what the IEA described as an unprecedented supply shock. Brent briefly traded above $114 Thursday when reports of Trump being briefed on expanded military options against Iran reached markets. WTI crossed $100 on April 28, the first time since June 2022. By Friday, Brent had eased to ~$108 and WTI to ~$101 after Iranian peace proposal news flow. ExxonMobil and Chevron both beat Q1 EPS expectations despite disrupted shipments; Exxon's South American and US production offset Middle East losses. The ISM Manufacturing prices index printed at 84.6 on May 1, the highest since April 2022, confirming energy-driven cost pressures are flowing into manufacturing. US crude exports have surged to record levels as global buyers redirect away from Middle Eastern supply. Trump Sunday announced 'Project Freedom' to escort ships through the strait starting Monday — if successful and undisputed, this would be the first test of whether commercial oil flow can resume before a full diplomatic resolution. OPEC+ agreed to a symbolic June production increase, signaling a business-as-usual stance despite the UAE's departure from the group.",
+      "bullets": [
+        "WTI has risen approximately 60% since the war began February 28 — the gasoline national average is at a 4-year high, directly pressuring consumer spending and CPI.",
+        "ExxonMobil CEO Darren Woods: even after the strait reopens, oil flow normalization takes one to two months, then governments must refill depleted reserves — a second demand wave.",
+        "The ISM Manufacturing prices index hit 84.6 on May 1, the highest since April 2022, confirming energy cost pass-through into manufacturing is already well underway."
+      ],
+      "market_impact": {
+        "text": "Oil direction this week is the single variable most correlated with the geopolitical outcome of 'Project Freedom' — a spike above $115 on Iranian military response would pressure equities and validate the stagflation scenario; a sustained move below $100 on genuine peace progress would be a material tailwind for equities and inflation expectations.",
+        "session": "All Week"
+      },
+      "sources": [
+        {
+          "url": "https://tradingeconomics.com/commodity/brent-crude-oil",
+          "label": "Trading Economics – Brent Crude price history and news"
+        },
+        {
+          "url": "https://tradingeconomics.com/commodity/crude-oil",
+          "label": "Trading Economics – WTI Crude price history and news"
+        },
+        {
+          "url": "https://www.alainguillot.com/stock-market-recap-friday-may-1-2026/",
+          "label": "Alain Guillot – Friday May 1 market recap (ExxonMobil, ISM prices)"
+        },
+        {
+          "url": "https://investrade.com/market-review-may-01-2026/",
+          "label": "Investrade – Week close market review May 1, 2026"
+        }
+      ],
+      "updates": [
+        {
+          "body": "Brent crude surged 5.8% on Monday to close at $114.44 per barrel — its highest level since mid-2022 — while WTI advanced 4.4% to settle at $106.42. The catalyst was Iran's military response to Project Freedom, including drone strikes on the UAE's Fujairah petroleum export hub, one of the most strategically important oil transit points in the region. Iran also fired on commercial vessels and claimed (disputed by CENTCOM) to have struck a US warship. The Fujairah attack introduces a new dimension: Gulf energy infrastructure is now a direct target, elevating the supply disruption risk beyond the strait closure itself. Chevron CEO Mike Wirth, speaking at the Milken Institute on Monday, said that even if the strait reopens tomorrow, normalization will take months — seas must be cleared of mines, hundreds of stranded ships must exit the Gulf, and insurance companies must be comfortable enough to back tanker sailings. National US gas average has risen to $4.46 for regular unleaded per AAA, up from $4.09 a week earlier. Only the Energy sector (S&P 500 energy +0.95%) gained on Monday; APA led with nearly 4% gains, followed by Diamondback and Marathon Petroleum. Oil direction this week remains the single variable most correlated to geopolitical outcome.",
+          "bullets": [
+            "Brent closed at $114.44 and WTI at $106.42 on Monday — the bear case trigger threshold of WTI above $105 has now been breached intraday; sustained close above $115 would confirm bear scenario.",
+            "Iran struck UAE's Fujairah oil hub — the first major Gulf infrastructure hit since the ceasefire; this expands the supply disruption risk beyond the strait to UAE export infrastructure.",
+            "US national gasoline average rose to $4.46/gallon per AAA, up from $4.09 one week ago — energy cost pass-through is now visible at the retail level and accelerating."
+          ],
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/05/04/oil-prices-today-wti-brent-trump-iran-us-hormuz.html",
+              "label": "CNBC – Oil prices surge as Iran attacks UAE during Project Freedom launch: Brent $114, WTI $106"
+            },
+            {
+              "url": "https://fortune.com/2026/05/04/iran-ceasefire-oil-brent-crude-stock-project-freedom-strait-of-hormuz/",
+              "label": "Fortune – Iran ceasefire analysis: Brent surges above $114, Dow sheds 560 points"
+            },
+            {
+              "url": "https://tradingeconomics.com/commodity/brent-crude-oil",
+              "label": "Trading Economics – Brent Crude price close May 4 2026"
+            },
+            {
+              "url": "https://tradingeconomics.com/commodity/crude-oil",
+              "label": "Trading Economics – WTI Crude price close May 4 2026"
+            }
+          ],
+          "headline": "Oil Spikes 5-6% as Iran Strikes UAE Infrastructure — Brent Closes $114.44, WTI $106.42; Bear Case Trigger Zone Reached",
+          "timestamp": "2026-05-04T21:00:00-04:00",
+          "market_impact": {
+            "text": "Oil direction Tuesday is the single binary variable for the broader market. Iran's foreign minister signaled talks are 'making progress' which could provide a de-escalation floor overnight. But the Fujairah infrastructure strike has introduced new upside risk: if Iran targets additional UAE or Saudi energy infrastructure, WTI above $120 becomes the next level and the bear scenario activates fully. Energy equities remain the only long that works in this environment.",
+            "session": "Tuesday Open"
+          }
+        }
+      ]
+    },
+    {
+      "id": "metals-gold-safe-haven",
+      "type": "narrative_card",
+      "tag": "Metals & Commodities",
+      "headline": "Gold Paradox: Down 15% Since War Start Despite Safe-Haven Demand as Energy-Driven Inflation Expectations Push Real Rates Higher",
+      "summary": "Gold closed Friday above $4,600/oz, but is down nearly 15% from its pre-war level — an unusual disconnect for a safe-haven asset during an active military conflict. The explanation is mechanical: the Iran war has driven inflation expectations sharply higher, pushing real yield expectations up and reducing gold's attractiveness on a carry basis. The dollar's decline (two-month lows on May 1 following suspected Bank of Japan intervention) provided some support but was insufficient to reverse the structural inflation-driven headwind.",
+      "body": "Gold's behavior during the Iran conflict is a critical cross-asset signal. Under normal safe-haven demand dynamics, gold should be sharply higher during a major military conflict. The fact that it is down ~15% since the war began tells traders that inflation expectations are dominating the asset class. Brent crude above $108 and PCE at 4.5% have reinforced the view that major central banks — including the Fed — may need to keep rates elevated for longer or even hike, which increases the opportunity cost of holding non-yielding gold. The World Gold Council reported central banks increased gold reserves in Q1, providing a structural support floor. The dollar index hit a two-month low on May 1 following reports of Bank of Japan intervention to support the yen, which rallied sharply from 160.72 — a two-year high — to ~156.54 against the dollar. This dollar weakness provided the short-term lift that pushed gold briefly above $4,600. Looking ahead, if 'Project Freedom' leads to genuine diplomatic progress and oil prices fall materially, gold could see a second-order decline as inflation expectations decompress and real yields firm. Silver has also experienced two consecutive sessions of gains. Copper and industrial metals remain a critical watch given China's role as the largest consumer — the war's impact on global trade routes continues to suppress industrial demand signals.",
+      "bullets": [
+        "Gold down ~15% since February 28 despite active military conflict — this is not normal safe-haven behavior; it reflects inflation driving real rate expectations higher and offsetting geopolitical demand.",
+        "Dollar index at two-month lows after Bank of Japan yen intervention provides gold support, but structural headwind from energy-driven inflation expectations remains dominant.",
+        "Central banks increased gold reserves in Q1 per World Gold Council data, providing a demand floor but insufficient to offset rate-path pressure."
+      ],
+      "market_impact": {
+        "text": "Gold's direction this week will be determined by whether the Iran diplomatic situation produces genuine oil-price relief — a peace deal that collapses oil prices would paradoxically pressure gold by reducing inflation expectations, while renewed military escalation could finally trigger the safe-haven bid the metal has been missing.",
+        "session": "All Week"
+      },
+      "sources": [
+        {
+          "url": "https://tradingeconomics.com/commodity/gold",
+          "label": "Trading Economics – Gold price history and news"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html",
+          "label": "CNBC – Market open May 1, dollar, gold, and Apple earnings"
+        }
+      ],
+      "updates": [
+        {
+          "body": "Gold fell to approximately $4,583-4,584 on Monday despite the most significant escalation in the US-Iran conflict in weeks. The metal is now down approximately 13-15% from its pre-war level and roughly 15% from its February all-time high near $5,418. The pattern is persistent: direct military strikes on Gulf infrastructure, which would historically trigger a massive safe-haven bid in gold, are instead reinforcing the inflation-expectations headwind that has dominated gold's price action since the war began. With Brent at $114.44, PCE at 4.5%, and the FOMC holding at 3.5-3.75% with a 9.1% probability of a hike, the real rate environment is sufficiently hostile to gold that geopolitical fear is being offset. The DXY remains near two-month lows, providing some floor. WGC data confirmed central banks increased reserves in Q1, but structural institutional demand has been insufficient to offset the macro headwinds.",
+          "bullets": [
+            "Gold fell to approximately $4,584 on Monday despite Iran striking UAE oil infrastructure — the safe-haven bid that should accompany direct Gulf military attacks continues to be crowded out by inflation-driven real rate expectations.",
+            "Gold is now down approximately 13-15% since the war began and roughly 15% from its February 2026 ATH of $5,418 — the inflation/real rate dynamic is dominant over geopolitical demand.",
+            "A resolution that causes oil prices to fall materially would paradoxically pressure gold further by reducing inflation expectations; renewed escalation without a Fed pivot remains the only path to a genuine safe-haven bid."
+          ],
+          "sources": [
+            {
+              "url": "https://tradingeconomics.com/commodity/gold",
+              "label": "Trading Economics – Gold price close May 4 2026 and war-period context"
+            }
+          ],
+          "headline": "Gold Fails Safe-Haven Test Again — Falls to $4,584 as Iranian Military Escalation Deepens Inflation Fears Over Safety Demand",
+          "timestamp": "2026-05-04T21:00:00-04:00",
+          "market_impact": {
+            "text": "Gold's behavior this week continues to serve as the clearest indicator of whether inflation expectations or geopolitical fear are dominating sentiment. The fact that direct infrastructure strikes on UAE oil facilities could not sustain a gold bid above $4,600 confirms the inflation-rate-path narrative remains dominant. Watch for a potential decoupling if oil breaches $125+ or if the Fed signals any policy shift.",
+            "session": "All Week"
+          }
+        }
+      ]
+    },
+    {
+      "id": "flows-positioning",
+      "type": "narrative_card",
+      "tag": "Flows",
+      "headline": "Five-Week Rally Fueled by Short Covering and Earnings Momentum — Breadth Narrowing as Market Breadth Diverges from Index Highs",
+      "summary": "The S&P 500's five-week winning streak to all-time highs masks deteriorating breadth — decliners outpaced advancers 1.5-to-1 on a weekly basis, and only 50% of S&P stocks trade above their 50-day and 200-day moving averages. The rally has been driven by a concentrated set of mega-cap AI and earnings winners rather than broad institutional accumulation, making the tape more fragile than headline levels suggest.",
+      "body": "Market breadth data from Schwab shows that while the S&P 500 and Nasdaq set all-time closing highs on May 1, the underlying market is not broadly healthy. Only 50% of S&P 500 constituents trade above their 50-day and 200-day moving averages. The weekly advancer-to-decliner ratio shows decliners leading by 1.5-to-1, an unusual divergence from index-level strength that typically indicates the rally is concentrated rather than broad. VIX closed below 17, a nearly two-week low, suggesting the options market is pricing continued optimism, but low VIX at all-time highs with narrow breadth is historically a setup for abrupt corrections when a catalyst disrupts the concentrated leaders. Retail participation has been elevated throughout the five-week rally, while institutional flows are more mixed. The Avis/Pentwater situation — where a multi-week short squeeze collapsed after Pentwater Capital sold 4.3 million shares — illustrates that short-covering dynamics are a meaningful component of recent individual-name rallies, with less durability than fundamental-buying-driven moves. Berkshire Hathaway's annual meeting Saturday, under new CEO Greg Abel with ~$400B cash (now more than 50% of the portfolio), could generate a bullish signal if Abel signals intent to deploy capital, representing a potential fresh institutional flow catalyst.",
+      "bullets": [
+        "Breadth divergence: decliners outpaced advancers 1.5-to-1 weekly even as S&P and Nasdaq set all-time highs — the rally is concentrated, not broad.",
+        "Only 50% of S&P constituents trade above their 50-day and 200-day moving averages — narrow leadership is a historical precursor to fragility when the concentration unwinds.",
+        "Berkshire Hathaway's $400B cash position (50%+ of portfolio) under new CEO Greg Abel is a potential wildcard — any signal of deployment would be a meaningful institutional flow catalyst."
+      ],
+      "market_impact": {
+        "text": "If Berkshire signals more active capital deployment following Saturday's annual meeting, it could catalyze broader institutional participation and improve breadth; absent that, the concentrated nature of the current rally leaves the tape vulnerable to a sharp reversal if Palantir or AMD disappoint.",
+        "session": "Early Week"
+      },
+      "sources": [
+        {
+          "url": "https://www.schwab.com/learn/story/stock-market-update-open",
+          "label": "Charles Schwab – Market open report May 1, breadth and VIX data"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/05/01/stock-market-next-week-outlook-for-may-4-8-2026.html",
+          "label": "CNBC – Stock market next week outlook May 4-8, 2026"
+        }
+      ],
+      "updates": [
+        {
+          "body": "Greg Abel's first annual meeting as Berkshire CEO produced no positive capital deployment signal. Abel said Berkshire 'is not anxious to deploy capital into subpar opportunities' and signaled patience with the $397B cash pile. Buffett, attending from the audience, acknowledged the investing backdrop was 'not ideal' for deploying cash. First-quarter buybacks totaled just $235M — below analyst expectations — and analysts at CFRA maintained a hold rating. The meeting outcome eliminates the wildcard bullish catalyst this report identified going into the week. On the broader market, Monday's session saw breadth collapse further — only 167 of S&P 500 constituents advanced. Energy (+0.95%) was the only sector in positive territory; Materials (-1.62%) and Industrials (-1.02%) led declines. The VIX expanded from approximately 17 to approximately 18.44. The concentrated-rally dynamic is now exposed to the geopolitical shock, with AI/tech (PLTR +1.4%, tech sector +0.02%) as the only counterweight to broad risk-off pressure.",
+          "bullets": [
+            "Berkshire's Abel signaled patience — 'not anxious to deploy capital into subpar opportunities' — with $397B in cash; Q1 buybacks totaled just $235M, below analyst expectations; no deployment catalyst materializing.",
+            "Monday's S&P breadth: only 167 of 500 constituents advanced; only Energy sector gained; Materials and Industrials led losses — geopolitical risk shock is widening the already-narrow rally.",
+            "VIX expanded to approximately 18.44 from 17 at Friday's close — below the 20-25 threshold that typically signals institutional risk reduction, but the direction is adverse."
+          ],
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2026/05/04/berkshire-analysts-were-tepid-after-annual-meeting-what-abel-can-do-to-win-them.html",
+              "label": "CNBC – Berkshire analysts tepid after annual meeting; Abel signals patience on $400B cash pile"
+            },
+            {
+              "url": "https://www.thestreet.com/latest-news/stock-market-today-may-4-2026-updates",
+              "label": "TheStreet – Stock Market Today May 4 2026: Nasdaq S&P drop after UAE intercepts Iranian missiles"
+            }
+          ],
+          "headline": "Berkshire Signals Patience on $397B Cash — No Deployment Catalyst; Breadth Collapses Further as Geopolitical Risk Returns",
+          "timestamp": "2026-05-04T21:00:00-04:00",
+          "market_impact": {
+            "text": "With the Berkshire deployment catalyst removed and breadth deteriorating further, the concentrated rally is now more exposed than at any point this week. PLTR's strong afterhours print provides a partial AI offset, but if AMD disappoints Tuesday or geopolitical news worsens overnight, the narrow leadership structure becomes a vulnerability. The VIX at 18-19 and rising is the most important breadth signal to monitor.",
+            "session": "Rest of Week"
+          }
+        }
+      ]
+    }
+  ],
+  "catalyst_calendar": [
+    {
+      "body": "Palantir reports after Monday's close. Consensus expects EPS of $0.28 (+115% YoY) on revenue of $1.54B (+74% YoY), with US commercial and government revenue both forecast to jump over 60%. The market is applying the Alphabet/Meta payback test — visible AI platform monetization will be rewarded, opaque spending will be punished. Options market is pricing a +/-9.5% move. Shares enter at ~$143 after a sharp multi-week rally, leaving little room for a miss.",
+      "date": "2026-05-04",
+      "flag": "BEAT",
+      "tags": [
+        "Earnings"
+      ],
+      "time": "After Close",
+      "event": "Palantir Technologies Q1 2026 Earnings (PLTR)",
+      "impact": "high",
+      "updates": [
+        {
+          "text": "REPORTED: Revenue $1.633B (+85% YoY) vs $1.54B consensus. EPS $0.33 adjusted vs $0.28 expected. US revenue +104% to $1.28B. US commercial +133% to $595M. US government +84% to $687M. Operating margin 60%. FY guidance raised to $7.65-7.66B (71% YoY). US commercial guidance raised to 120%+ growth. Stock +1.4% session, ~+0.4% AH. BEAT — AI monetization confirmed.",
+          "timestamp": "2026-05-04T21:30:00-04:00"
+        }
+      ],
+      "date_label": "Monday May 4 — After Close"
+    },
+    {
+      "body": "AMD reports Tuesday after close. Consensus EPS of $1.29 (+34.4% YoY) on revenue of $9.89B (+33.0% YoY). The primary question is MI300X GPU traction in data centers and how much TSMC capacity is being allocated to AMD's Instinct line versus Nvidia. AMD has rallied 88% from early March before pulling back to ~$314. Any weakness in data center revenue guidance or margin commentary will generate a sharp sell-off in the semiconductor complex.",
+      "date": "2026-05-05",
+      "flag": null,
+      "tags": [
+        "Earnings"
+      ],
+      "time": "After Close",
+      "event": "Advanced Micro Devices Q1 2026 Earnings (AMD)",
+      "impact": "high",
+      "updates": [],
+      "date_label": "Tuesday May 5 — After Close"
+    },
+    {
+      "body": "The ISM Services PMI for April releases Tuesday morning. March fell to 54.0 from 56.1 in February, a meaningful deceleration. Watch for whether services activity is holding or beginning to show oil-cost pass-through pressure on margins and business activity. A reading below 52 would validate growing concern about economic softening; above 55 would confirm resilience and push rate-cut odds lower.",
+      "date": "2026-05-05",
+      "flag": null,
+      "tags": [
+        "Econ Data"
+      ],
+      "time": "10:00 ET",
+      "event": "ISM Services PMI April",
+      "impact": "high",
+      "updates": [],
+      "date_label": "Tuesday May 5 — 10:00 ET"
+    },
+    {
+      "body": "JOLTS job openings for March provide an early preview of labor market tightness ahead of Friday's NFP. A significant drop in openings relative to the 178K March payrolls print would signal that the labor market is cooling more than the headline suggested. This is relevant for the Fed's assessment of whether its hold stance is appropriate given stagflation risk.",
+      "date": "2026-05-05",
+      "flag": null,
+      "tags": [
+        "Econ Data"
+      ],
+      "time": "10:00 ET",
+      "event": "JOLTS Job Openings (March)",
+      "impact": "medium",
+      "updates": [],
+      "date_label": "Tuesday May 5 — 10:00 ET"
+    },
+    {
+      "body": "Disney reports Wednesday pre-open, the first earnings under new CEO Josh D'Amaro following the departure of Bob Iger. Consensus expects EPS of $1.49 (+2.8% YoY) on $24.85B revenue, with streaming operating income of ~$500M the key single metric. Options pricing a +/-5.1% move. Analysts have made 19 consecutive downward revisions heading in. This is a dual test: financial metrics AND strategic signal from new leadership — any shift in capital allocation toward parks, streaming, or content IP will move the stock.",
+      "date": "2026-05-06",
+      "flag": null,
+      "tags": [
+        "Earnings"
+      ],
+      "time": "Before Open",
+      "event": "Walt Disney Q2 Fiscal 2026 Earnings (DIS)",
+      "impact": "high",
+      "updates": [],
+      "date_label": "Wednesday May 6 — Before Open"
+    },
+    {
+      "body": "Uber reports Wednesday pre-open. Consensus EPS of $0.69. Uber provides a critical consumer spending cross-read: whether energy-driven price increases at the pump are beginning to deter ride-hailing consumption, and whether the company can maintain profitability as driver acquisition costs remain elevated in a high-fuel-cost environment.",
+      "date": "2026-05-06",
+      "flag": null,
+      "tags": [
+        "Earnings"
+      ],
+      "time": "Before Open",
+      "event": "Uber Technologies Q1 2026 Earnings (UBER)",
+      "impact": "medium",
+      "updates": [],
+      "date_label": "Wednesday May 6 — Before Open"
+    },
+    {
+      "body": "Arm Holdings reports Wednesday after close with consensus EPS of $0.58. Arm's licensing and royalty revenue growth is a barometer for the breadth of the AI chip buildout — if AI demand is filtering down through the semiconductor IP stack beyond the Nvidia-TSMC complex, Arm will confirm it. Any weakness in guidance would raise questions about whether the AI infrastructure build is beginning to plateau.",
+      "date": "2026-05-06",
+      "flag": null,
+      "tags": [
+        "Earnings"
+      ],
+      "time": "After Close",
+      "event": "Arm Holdings Q1 2026 Earnings (ARM)",
+      "impact": "high",
+      "updates": [],
+      "date_label": "Wednesday May 6 — After Close"
+    },
+    {
+      "body": "ADP's private payrolls estimate for April serves as an early guide for Friday's NFP print, where consensus is currently 49,000-50,000 jobs. A significant divergence between ADP and consensus in either direction will move Treasury yields and the dollar heading into the main event Friday.",
+      "date": "2026-05-06",
+      "flag": null,
+      "tags": [
+        "Econ Data"
+      ],
+      "time": "08:15 ET",
+      "event": "ADP Employment Report (April)",
+      "impact": "medium",
+      "updates": [],
+      "date_label": "Wednesday May 6 — 08:15 ET"
+    },
+    {
+      "body": "Weekly jobless claims on Thursday provide the most current read on labor market conditions. In a week where NFP is expected to print at only 49,000 — well below a healthy labor market — any spike in claims would amplify recession concern and put further pressure on rate-cut probability pricing. Conversely, low claims would support the soft-landing narrative.",
+      "date": "2026-05-07",
+      "flag": null,
+      "tags": [
+        "Econ Data"
+      ],
+      "time": "08:30 ET",
+      "event": "Initial Jobless Claims (Week of May 2)",
+      "impact": "medium",
+      "updates": [],
+      "date_label": "Thursday May 7 — 08:30 ET"
+    },
+    {
+      "body": "The single most important scheduled event of the week. Consensus expects 49,000-50,000 jobs added in April — far below the 178,000 March print — and unemployment steady at 4.3%. This would be consistent with a labor market losing momentum against a backdrop of oil-driven inflation. A 'goldilocks' miss in the 50,000-80,000 range would alleviate recession fears without pushing rate-hike odds higher. A miss below 20,000 would trigger significant growth-scare positioning. A surprise above 100,000 would be stagflationary: strong labor contradicting the inflation-fighting rationale for cuts while confirming inflation persistence. Michigan Consumer Sentiment preliminary (May) releases simultaneously — watch for forward inflation expectations embedded in the survey.",
+      "date": "2026-05-08",
+      "flag": null,
+      "tags": [
+        "Econ Data",
+        "Fed"
+      ],
+      "time": "08:30 ET",
+      "event": "April Nonfarm Payrolls and Unemployment Rate",
+      "impact": "high",
+      "updates": [],
+      "date_label": "Friday May 8 — 08:30 ET"
+    },
+    {
+      "body": "Trump's 'Project Freedom' ship escort mission through the Strait of Hormuz begins Monday. Iran has warned any US interference violates the ceasefire. The 14-point Iranian diplomatic proposal is simultaneously under review by the Trump administration. Any Iranian military response to the escort mission, any breakdown or breakthrough in diplomatic negotiations, or any new CENTCOM military action announcement will be an immediate market-moving catalyst. Oil prices, VIX, defense stocks, energy equities, and broad equity risk appetite will all respond to this story in real time throughout the week.",
+      "date": "all_week",
+      "flag": "ESCALATED",
+      "tags": [
+        "Geopolitical",
+        "Energies"
+      ],
+      "time": "Continuous",
+      "event": "Iran War / Project Freedom / Strait of Hormuz Negotiations — Continuous",
+      "impact": "critical",
+      "updates": [
+        {
+          "text": "Project Freedom launched Monday. Iran responded with military force: struck UAE Fujairah oil hub, fired on commercial vessels, disputed claims of striking a US warship (denied by CENTCOM). CENTCOM destroyed 6-7 Iranian fast boats. Two US-flagged merchant ships successfully transited. Ceasefire has not been formally declared violated by either side. Trump: attacks were 'not heavy firing.' Iranian FM said talks 'making progress.' Israel and Bahrain placed on high alert. The story has escalated from a binary watch into active multi-front military-diplomatic risk.",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "date_label": "All Week"
+    }
+  ],
+  "market_snapshot": {
+    "as_of": "2026-05-05T03:25:27.315+00:00",
+    "indexes": [
+      {
+        "note": "Down 0.41% Monday; pulled back from record close Friday as Iran-UAE escalation drove oil spike; only Energy sector positive; breadth collapsed to 167 advancers of 500",
+        "label": "S&P 500",
+        "value": "7,200.75",
+        "direction": "down"
+      },
+      {
+        "note": "Down 0.19% Monday; tech sector +0.02% barely positive; Palantir +1.4% provided partial offset; PLTR beat afterhours a positive signal for Tuesday",
+        "label": "Nasdaq Composite",
+        "value": "25,067.80",
+        "direction": "down"
+      },
+      {
+        "note": "Down 1.13% or 557 points Monday; worst performing major index; Home Depot -3.5%, Nike -2.95%, Boeing -2.64% led declines; fell back below 49K level",
+        "label": "Dow Jones Industrial Average",
+        "value": "48,941.90",
+        "direction": "down"
+      },
+      {
+        "note": "Down 0.60% Monday; small caps underperforming on geopolitical risk and rising yields; still short of 52-week record high",
+        "label": "Russell 2000",
+        "value": "2,801.80",
+        "direction": "down"
+      },
+      {
+        "note": "Spiked from ~17 Friday to ~18.44 Monday on Iran-UAE military escalation; rising but still below the 20-25 institutional risk-reduction threshold; trend adverse",
+        "label": "VIX",
+        "value": "~18.44",
+        "direction": "up"
+      },
+      {
+        "note": "Rose 6 basis points Monday to ~4.44%; highest of the week; mortgage rates also jumped 8bps to 6.52%; renewed inflation fears from oil spike driving yield pressure",
+        "label": "10Y Treasury Yield",
+        "value": "~4.44%",
+        "direction": "down"
+      }
+    ],
+    "macro_fed": [
+      {
+        "note": "Held unchanged for third consecutive meeting; 8-4 vote, most fractured since 1992",
+        "label": "Fed Funds Rate",
+        "value": "3.50% – 3.75%",
+        "direction": "neutral"
+      },
+      {
+        "note": "Futures pricing has shifted sharply; hike probability rose to 9.1% from 0% in one week",
+        "label": "Next Cut Priced",
+        "value": "<10% probability by year-end",
+        "direction": "down"
+      },
+      {
+        "note": "Far above 2% target; driven by energy pass-through; highest level in nearly three years",
+        "label": "PCE (Fed preferred)",
+        "value": "4.5%",
+        "direction": "down"
+      },
+      {
+        "note": "Sustained elevation prevents any near-term policy pivot; energy and tariffs are the primary drivers",
+        "label": "Core PCE",
+        "value": "4.3%",
+        "direction": "down"
+      },
+      {
+        "note": "Above prior 0.5% but below 2.2% estimate; growth holding but inflation inside GDP also elevated",
+        "label": "GDP Q1 2026",
+        "value": "2.0% SAAR",
+        "direction": "neutral"
+      },
+      {
+        "note": "Blowout print well above 60K consensus; April expected 49K — a sharp deceleration",
+        "label": "March NFP",
+        "value": "+178K",
+        "direction": "neutral"
+      },
+      {
+        "note": "Expected to hold at 4.3% in April; any uptick would accelerate growth-scare narrative",
+        "label": "Unemployment Rate",
+        "value": "4.3%",
+        "direction": "neutral"
+      },
+      {
+        "note": "Powell steps down as chair May 15; remains on board as governor; Warsh likely to chair June FOMC",
+        "label": "Fed Chair Transition",
+        "value": "May 15 — Warsh takes over",
+        "direction": "neutral"
+      }
+    ],
+    "energy_volatility": [
+      {
+        "note": "Surged 4.4% Monday to $106.42 as Iran struck UAE infrastructure; bear case trigger threshold of $105 breached intraday; sustained move above $115 confirms bear scenario",
+        "label": "WTI Crude",
+        "value": "~$106.42/bbl",
+        "direction": "up"
+      },
+      {
+        "note": "Surged 5.8% Monday to $114.44, highest since mid-2022; UAE Fujairah oil hub struck; intraday high reached $115+; diplomacy is only near-term containment mechanism",
+        "label": "Brent Crude",
+        "value": "~$114.44/bbl",
+        "direction": "up"
+      },
+      {
+        "note": "Fell from ~$4,600 Friday to ~$4,584 Monday despite Iran-UAE military strikes; safe-haven bid absent for fifth consecutive escalation event; inflation/real rate dynamic dominant; down ~13% since war start",
+        "label": "Gold",
+        "value": "~$4,584/oz",
+        "direction": "down"
+      },
+      {
+        "note": "Held near two-month lows Monday; geopolitical pressure kept dollar from safe-haven rally; DXY down roughly 10% under current administration per analyst estimates",
+        "label": "DXY (US Dollar Index)",
+        "value": "Near two-month lows",
+        "direction": "down"
+      },
+      {
+        "note": "Highest since April 2022; energy and tariff cost pass-through is already flowing into manufacturing input costs",
+        "label": "ISM Manufacturing Prices Paid",
+        "value": "84.6",
+        "direction": "down"
+      },
+      {
+        "note": "Project Freedom launched; ceasefire structurally questioned after Iran fired on UAE; 2 US-flagged ships transited; Fujairah oil hub struck; full commercial shipping resumption remains weeks away at minimum",
+        "label": "Strait of Hormuz",
+        "value": "MILITARILY CONTESTED — Day 65",
+        "direction": "down"
+      }
+    ]
+  },
+  "stories_to_track": {
+    "as_of": "2026-05-05T03:25:27.315+00:00",
+    "geopolitical_macro": [
+      {
+        "label": "Project Freedom escort mission — Iran's first military response or restraint Monday determines risk-on/off tone for the week",
+        "status": "ESCALATED — CEASEFIRE IN QUESTION",
+        "updates": [
+          {
+            "text": "Iran responded militarily. Struck UAE Fujairah oil hub, fired on commercial vessels, disputed hit on US warship (denied by CENTCOM). CENTCOM destroyed 6-7 Iranian fast boats. Two US-flagged ships transited successfully. Trump stopped short of declaring ceasefire violated. Ceasefire status: structurally in question but technically intact as of close.",
+            "timestamp": "2026-05-04T21:00:00-04:00"
+          }
+        ],
+        "direction": "down"
+      },
+      {
+        "label": "Iran 14-point peace proposal — Trump reviewing language; nuclear deferral framework could open strait before formal resolution",
+        "status": "DUAL-TRACK ACTIVE",
+        "updates": [
+          {
+            "text": "Iran's FM said talks are 'making progress' even as military attacks proceeded Monday. Dual military-diplomatic track remains active. US sent an amended draft to Iran on Sunday. 14-point framework still under review — no breakthrough announced.",
+            "timestamp": "2026-05-04T21:00:00-04:00"
+          }
+        ],
+        "direction": "neutral"
+      },
+      {
+        "label": "War Powers Act 60-day deadline — Trump declared hostilities 'terminated' via ceasefire; Senate may push for formal authorization or drawdown",
+        "status": "UNRESOLVED",
+        "updates": [],
+        "direction": "down"
+      },
+      {
+        "label": "Kevin Warsh Senate confirmation vote — expected week of May 11; once confirmed, June FOMC becomes a live policy event",
+        "status": "ADVANCING",
+        "updates": [],
+        "direction": "neutral"
+      },
+      {
+        "label": "PCE / Stagflation pathway — 4.5% PCE + sub-50K NFP would be textbook stagflation print, pressuring equities and extending the rate hold",
+        "status": "STAGFLATION RISK",
+        "updates": [],
+        "direction": "down"
+      },
+      {
+        "label": "Bank of Japan yen intervention — Yen at 156.54 after 160.72 high; sustained yen strength pressures Japanese exporters and global carry-trade unwind risk",
+        "status": "WATCH",
+        "updates": [],
+        "direction": "neutral"
+      },
+      {
+        "label": "Lebanon ceasefire stability — Hezbollah and Israeli forces both claimed attacks on May 1 despite ceasefire; 73 killed since April 30; escalation risk remains a secondary regional variable",
+        "status": "FRAYING",
+        "updates": [],
+        "direction": "down"
+      }
+    ],
+    "sector_stock_signals": [
+      {
+        "label": "Palantir AI monetization test — commercial US revenue growth (last quarter: +137% YoY to $507M) is the single most important number for the AI software thesis Monday night",
+        "status": "CONFIRMED BEAT",
+        "updates": [
+          {
+            "text": "REPORTED AND CRUSHED: US commercial revenue $595M, +133% YoY. Total revenue $1.633B, +85% YoY. EPS $0.33 vs $0.28 expected. 60% operating margin. FY guidance raised to $7.65-7.66B. AI monetization confirmed — Palantir is firmly on the rewarded side of the capex payback line.",
+            "timestamp": "2026-05-04T22:00:00-04:00"
+          }
+        ],
+        "direction": "up"
+      },
+      {
+        "label": "AMD MI300X data center traction — confirmation of GPU market share versus Nvidia; TSMC allocation signal for the semiconductor complex",
+        "status": "TUESDAY AC",
+        "updates": [],
+        "direction": "neutral"
+      },
+      {
+        "label": "Disney first report under CEO D'Amaro — streaming profitability ($500M operating income target) and any strategic pivot will define sentiment on the legacy media complex",
+        "status": "WEDNESDAY AM",
+        "updates": [],
+        "direction": "neutral"
+      },
+      {
+        "label": "AI capex ROI divergence — Alphabet rewarded, Meta punished; Palantir/AMD/Arm results will further define which side of the capex payback line the market draws",
+        "status": "DEVELOPING",
+        "updates": [],
+        "direction": "neutral"
+      },
+      {
+        "label": "Berkshire Hathaway $400B cash deployment signal — new CEO Abel's first annual meeting commentary on capital allocation could catalyze institutional flows",
+        "status": "NO CATALYST — PATIENCE SIGNALED",
+        "updates": [
+          {
+            "text": "Abel signaled patience — 'not anxious to deploy capital into subpar opportunities.' Buffett said the environment is 'not ideal' for deploying cash. Q1 buybacks totaled only $235M, below analyst expectations. CFRA maintained hold. No deployment catalyst was provided. The wildcard bullish scenario did not materialize.",
+            "timestamp": "2026-05-04T09:00:00-04:00"
+          }
+        ],
+        "direction": "neutral"
+      },
+      {
+        "label": "Spirit Airlines liquidation — down 62% Friday to $0.52; contagion risk to mid-tier airline sector; consumer travel demand signal",
+        "status": "COLLAPSING",
+        "updates": [],
+        "direction": "down"
+      },
+      {
+        "label": "Market breadth divergence — decliners outpacing advancers 1.5-to-1 weekly despite record index closes; watch for breadth improvement or continued narrowing under earnings volatility",
+        "status": "NARROWING",
+        "updates": [],
+        "direction": "neutral"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "bull",
+      "body": "Iran exercises restraint in response to the Monday escort mission, and negotiations advance meaningfully on the 14-point proposal framework — markets interpret this as a credible path to reopening the strait within weeks. WTI crude falls back below $90, inflation expectations begin to decompress, and the Fed's stagflation risk pathway fades. Simultaneously, Palantir and AMD both report strong beats with clear AI revenue confirmation, extending the earnings-driven rally into the broader semiconductor and software complex. NFP Friday comes in at 70,000-100,000 — enough to confirm labor resilience without reinforcing the inflation narrative. The S&P 500 extends its record run toward 7,500+, VIX drops below 15, and the rate-cut probability curve shifts back toward at least one 2026 easing as oil relief removes the inflation floor.",
+      "case": "Bull",
+      "color": "green",
+      "label": "A",
+      "updates": [
+        {
+          "body": "The bull case required Iran to exercise restraint during Project Freedom. That condition was not met — Iran struck UAE infrastructure and fired on commercial vessels. While the ceasefire has not formally collapsed and diplomatic talks remain nominally active, the 'Project Freedom proceeds without escalation' trigger has been invalidated for Monday. The bull case can only be reactivated by a genuine diplomatic breakthrough in the coming 48-72 hours — either Iranian restraint Tuesday or a material advance on the 14-point framework that produces credible oil-price relief. Palantir's strong beat partially sustains the earnings-side of the bull case, but the geopolitical precondition has not been met. Bull case probability: materially reduced.",
+          "headline": "Bull Case Probability Reduced — Iran Response Eliminates 'No Escalation' Path for This Week",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "headline": "Bull Case: Iran Accepts Framework, Project Freedom Opens the Strait Without Incident, AI Earnings Confirm Monetization"
+    },
+    {
+      "id": "base",
+      "body": "The escort mission proceeds Monday without an overt Iranian military response, but the diplomatic situation remains unresolved — no deal is announced this week, and oil prices stay in the $100-$110 range. Palantir delivers a beat on AI metrics but guidance language is cautious; AMD confirms data center strength but faces margin questions from energy-driven component costs. NFP prints in the 30,000-60,000 range, consistent with a labor market that is softening but not collapsing. The S&P 500 trades within 7,100-7,300, earnings volatility increases dispersion significantly across individual names, and the market waits for the June FOMC as the next definitive catalyst. The regime stays at Risk-On (Cautious) — equities hold record levels but breadth does not improve.",
+      "case": "Base",
+      "color": "amber",
+      "label": "B",
+      "updates": [
+        {
+          "body": "The base case described a scenario where the escort mission proceeds without an overt Iranian military response and oil stays in the $100-$110 range. Iran did respond militarily, but the ceasefire has not formally collapsed, Trump has not ordered renewed combat operations, and talks remain nominally active. Oil closed at $114.44 — at the top edge of the base case's $100-$110 band. The base case now requires: (1) ceasefire holding through Tuesday without formal breakdown, (2) Iran restraint on further infrastructure strikes, and (3) oil retreating back into the $100-$110 range on diplomatic progress. Palantir's beat supports the earnings portion of the base case. The S&P 500 at 7,200 is within the 7,100-7,300 range identified in the base case. This remains the most probable scenario for the week, but it is operating at the stressed upper boundary of its defined parameters.",
+          "headline": "Base Case Is the Current Operating Environment — Ceasefire Technically Intact, Oil in $110-$115 Range, Mixed Earnings Week",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "headline": "Base Case: Project Freedom Proceeds Without Escalation, Earnings Mixed, NFP Weak but Labor Holds — Range-Bound Week with Elevated Volatility"
+    },
+    {
+      "id": "bear",
+      "body": "Iran responds to Monday's escort mission with military action — an attack on US naval assets, a drone strike on a Gulf facility, or a new escalation in Lebanon — triggering an immediate oil spike above $120 and a VIX surge above 30. Simultaneously, Palantir or AMD misses on AI revenue metrics, puncturing the earnings-driven rally narrative at its most extended point. NFP Friday prints below 20,000 alongside a PCE reaffirmation, confirming a stagflationary macro environment where growth is slowing and inflation remains entrenched. The FOMC's 9.1% hike probability rises sharply as markets begin pricing a policy error scenario. The S&P 500 sells off toward 6,800-6,900, the 10-year yield rises toward 4.7%, gold finally sees its safe-haven bid as the conflict re-escalates, and the rally from early April is partially reversed as institutional risk reduction accelerates.",
+      "case": "Bear",
+      "color": "red",
+      "label": "C",
+      "updates": [
+        {
+          "body": "The bear case required Iran to respond militarily to Project Freedom. That trigger was met Monday — Iran struck UAE infrastructure, fired on commercial vessels, and the ceasefire is structurally in question. WTI intraday breached $106 and Brent closed at $114.44. The bear case's specific oil trigger was WTI above $115 on a sustained basis; that threshold was approached but not definitively sustained at close. The Dow fell 557 points (-1.13%). However, key bear case elements remain incomplete: (1) Palantir beat strongly, partially sustaining the AI narrative rather than puncturing it; (2) the S&P 500 at 7,200 has not yet sold off toward 6,800-6,900; (3) the 10-year yield is at 4.44%, not yet toward 4.7%. The ceasefire not formally breaking has prevented the full bear scenario from activating. Bear case probability is elevated versus Friday but the scenario is partially rather than fully triggered. The next 24-48 hours — particularly any new Iranian infrastructure attacks or US response — will determine whether this escalates into the full bear scenario or stabilizes at the stressed base case.",
+          "headline": "Bear Case Partially Triggered — Iran Responded Militarily and Oil Breached $114; Full Bear Requires Ceasefire Collapse or Sustained $115+ Oil",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "headline": "Bear Case: Iran Responds Militarily to Project Freedom, AI Earnings Disappoint, NFP + PCE Confirm Stagflation"
+    }
+  ],
+  "key_questions": [
+    {
+      "answer": "Iran responded militarily — struck UAE Fujairah oil hub and fired on vessels — but stopped short of triggering a formal ceasefire collapse. Trump declined to call it a violation. The escort mission partially succeeded (2 US ships transited); the ceasefire is structurally questioned but technically intact as of Monday's close.",
+      "number": 1,
+      "status": "partially_answered",
+      "updates": [
+        {
+          "text": "Iran responded militarily to Project Freedom. Struck UAE Fujairah oil hub, fired on commercial vessels, disputed US warship hit. CENTCOM destroyed 6-7 Iranian fast boats. Trump stopped short of calling it a ceasefire violation. Military response occurred; full combat resumption did not. Answer is partial — Iran escalated but ceasefire technically holds as of Monday close.",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "question": "Does Iran respond militarily to 'Project Freedom' on Monday, or does it allow the escort mission to proceed without escalation?",
+      "update_label": "Iran Escalated — Ceasefire Technically Intact"
+    },
+    {
+      "answer": null,
+      "number": 2,
+      "status": "unanswered",
+      "updates": [],
+      "question": "Does the Trump administration accept a version of Iran's 14-point proposal this week, providing a credible timeline for strait reopening?",
+      "update_label": null
+    },
+    {
+      "answer": "Palantir decisively confirmed the AI monetization narrative with an 85% revenue beat, 133% US commercial growth, and raised guidance. Palantir is on the rewarded side of the capex payback line. AMD reports Tuesday — the semiconductor monetization side of this question remains open.",
+      "number": 3,
+      "status": "partially_answered",
+      "updates": [
+        {
+          "text": "Palantir Q1 results confirmed the AI monetization narrative definitively. Revenue +85% YoY to $1.633B, beating consensus by 5.8%. US commercial revenue +133% YoY. Operating margin 60%. Guidance raised across all metrics. Palantir is firmly in the 'AI monetization confirmed' category, opposite Meta. AMD reports Tuesday.",
+          "timestamp": "2026-05-04T22:00:00-04:00"
+        }
+      ],
+      "question": "Do Palantir and AMD confirm the AI monetization narrative with US commercial revenue beats and strong guidance, or do they join Meta in the 'capex without clear payback' camp?",
+      "update_label": "Palantir Confirms AI Monetization — AMD Still Pending"
+    },
+    {
+      "answer": null,
+      "number": 4,
+      "status": "unanswered",
+      "updates": [],
+      "question": "Does Friday's April NFP print above 50,000 — alleviating soft-landing fears — or does it miss badly enough to shift the narrative from 'cautious regime' to active stagflation pricing?",
+      "update_label": null
+    },
+    {
+      "answer": "WTI breached $105 to close at $106.42 and Brent closed at $114.44 — the bear case threshold range has been reached. WTI has not yet sustained a close above $115, which would confirm the full bear scenario. Status: bear trigger zone entered; full confirmation pending Tuesday's session and overnight diplomatic developments.",
+      "number": 5,
+      "status": "partially_answered",
+      "updates": [
+        {
+          "text": "WTI closed at $106.42 on Monday, breaching the $105 bear-case trigger level. Brent closed at $114.44 after an intraday spike toward $115+. The bear case threshold of WTI sustained above $115 was approached but not definitively held at close. Oil direction Tuesday is critical.",
+          "timestamp": "2026-05-04T21:00:00-04:00"
+        }
+      ],
+      "question": "Does WTI crude hold below $105 through the week (supporting the base case) or spike above $115 on renewed military escalation (confirming the bear case trigger)?",
+      "update_label": "Bear Trigger Breached Intraday — Watching for Sustained Close Above $115"
+    },
+    {
+      "answer": null,
+      "number": 6,
+      "status": "unanswered",
+      "updates": [],
+      "question": "Does Disney's first earnings report under CEO Josh D'Amaro hit the $500M streaming operating income target and signal a clear strategic direction that stabilizes legacy media sentiment?",
+      "update_label": null
+    },
+    {
+      "answer": null,
+      "number": 7,
+      "status": "unanswered",
+      "updates": [],
+      "question": "Does the ISM Services PMI for April hold above 53, confirming services sector resilience against oil-cost pressure, or does it break below 52 and add to recession-risk concerns?",
+      "update_label": null
+    }
+  ],
+  "research_sources": [
+    {
+      "url": "https://www.cnbc.com/2026/05/01/stock-market-next-week-outlook-for-may-4-8-2026.html",
+      "label": "CNBC – Stock market next week: Outlook for May 4-8, 2026 (earnings calendar, NFP preview, sentiment)"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/04/30/stock-market-today-live-updates.html",
+      "label": "CNBC – Stock market live updates May 1, 2026 (S&P/Nasdaq all-time highs, Apple earnings, Iran proposal)"
+    },
+    {
+      "url": "https://www.stockrover.com/homepage/rovers-weekly-market-brief-05-01-2026/",
+      "label": "Stock Rover – Weekly Market Brief May 1, 2026 (FOMC, GDP, PCE, durable goods data)"
+    },
+    {
+      "url": "https://www.thestreet.com/latest-news/stock-market-today-may-1-2026-updates",
+      "label": "TheStreet – Stock Market Today May 1, 2026 (Nasdaq 25K record, Iran peace signal, Apple)"
+    },
+    {
+      "url": "https://www.alainguillot.com/weekly-stock-market-recap-april-27-may-1-2026/",
+      "label": "Alain Guillot – Weekly market recap April 27 – May 1, 2026 (index levels, daily narrative, AI capex, earnings growth)"
+    },
+    {
+      "url": "https://investrade.com/market-review-may-01-2026/",
+      "label": "Investrade – Market Review May 1, 2026 (Exxon, Chevron, ISM prices index, Spirit Airlines)"
+    },
+    {
+      "url": "https://www.schwab.com/learn/story/stock-market-update-open",
+      "label": "Charles Schwab – Market open report May 1 (VIX, breadth, Berkshire, April ISM Manufacturing)"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis",
+      "label": "Wikipedia – 2026 Strait of Hormuz Crisis (full chronological timeline of conflict and closures)"
+    },
+    {
+      "url": "https://www.cnn.com/2026/05/03/world/live-news/iran-war-news",
+      "label": "CNN Live Updates – Trump announces Project Freedom ship escort, Iran warns of ceasefire violation"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/05/02/trump-iran-strait-of-hormuz.html",
+      "label": "CNBC – Trump reviewing 14-point Iranian proposal, would open strait and end blockade"
+    },
+    {
+      "url": "https://www.cbsnews.com/live-updates/iran-war-trump-strait-of-hormuz-israel-lebanon-ceasefire/",
+      "label": "CBS News Live – Project Freedom military assets, 48 Iranian ships blocked, Lebanon ceasefire violations"
+    },
+    {
+      "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-10636/",
+      "label": "House of Commons Library – Diplomatic efforts to reopen the Strait of Hormuz (UK/France conference, 38-country statement)"
+    },
+    {
+      "url": "https://tradingeconomics.com/commodity/brent-crude-oil",
+      "label": "Trading Economics – Brent Crude Oil price history and war-related news May 2026"
+    },
+    {
+      "url": "https://tradingeconomics.com/commodity/crude-oil",
+      "label": "Trading Economics – WTI Crude Oil price history and news May 2026"
+    },
+    {
+      "url": "https://tradingeconomics.com/commodity/gold",
+      "label": "Trading Economics – Gold price history and Iran-war inflation dynamics May 2026"
+    },
+    {
+      "url": "https://www.axios.com/2026/04/30/fed-warsh-powell-rates",
+      "label": "Axios – Warsh's Fed challenges after Powell's final FOMC meeting"
+    },
+    {
+      "url": "https://www.schwab.com/learn/story/fomc-meeting",
+      "label": "Charles Schwab – FOMC May 2026 meeting analysis and Warsh confirmation"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/04/29/fed-meeting-today-live-updates-warsh-powell.html",
+      "label": "CNBC – Fed live updates April 29: 8-4 vote, hawkish dissents, Powell staying on board"
+    },
+    {
+      "url": "https://nai500.com/blog/2026/05/kevin-warsh-is-about-to-become-fed-chair-any-chance-of-rate-cuts-in-2026/",
+      "label": "NAI 500 – Warsh as Fed Chair: rate cut probability analysis and PCE inflation context"
+    },
+    {
+      "url": "https://www.heygotrade.com/en/news/big-tech-q1-2026-earnings-ai-capex-spree/",
+      "label": "Gotrade News – Big Tech Q1 2026 earnings: AI capex $700B, Alphabet vs Meta market reaction"
+    },
+    {
+      "url": "https://fortune.com/2026/04/29/microsoft-meta-google-ai-capex-spending-billions/",
+      "label": "Fortune – Microsoft, Meta, Google AI spending divergence and investor reaction"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/05/03/earnings-playbook-palantir-and-advanced-micro-devices-usher-in-the-next-week-of-reports.html",
+      "label": "CNBC – Earnings playbook: Palantir and AMD for week of May 4-8"
+    },
+    {
+      "url": "https://www.heygotrade.com/en/news/weekly-economic-outlook-2026-05-04/",
+      "label": "Gotrade News – Weekly economic outlook May 4-8: NFP, AMD, Disney, Palantir"
+    },
+    {
+      "url": "https://www.investing.com/analysis/1-stock-to-buy-1-stock-to-sell-this-week-palantir-walt-disney-200679561",
+      "label": "Investing.com – 1 stock to buy, 1 to sell: Palantir and Disney analysis for week of May 4"
+    },
+    {
+      "url": null,
+      "label": "Fox News Live – Project Freedom: Iran attacks UAE, ceasefire in question"
+    },
+    {
+      "url": null,
+      "label": "CNBC – Oil prices surge as Iran attacks UAE during Project Freedom launch"
+    },
+    {
+      "url": null,
+      "label": "Fortune – Iran ceasefire analysis, Brent surges above $114"
+    },
+    {
+      "url": null,
+      "label": "Foreign Policy – Project Freedom strains US-Iran ceasefire"
+    },
+    {
+      "url": null,
+      "label": "Wikipedia – Operation Project Freedom"
+    },
+    {
+      "url": null,
+      "label": "ABC7 – Iran war live updates: UAE intercepting Iranian missiles and drones"
+    },
+    {
+      "url": null,
+      "label": "Breaking Defense – Project Freedom unlikely to pay off immediately, analysts say"
+    },
+    {
+      "url": null,
+      "label": "Trading Economics – Brent Crude May 4 2026 close data"
+    },
+    {
+      "url": null,
+      "label": "Trading Economics – WTI Crude May 4 2026 close data"
+    },
+    {
+      "url": null,
+      "label": "Trading Economics – Gold May 4 2026 close data"
+    },
+    {
+      "url": null,
+      "label": "Trading Economics – US Stock Market May 4 2026 close data"
+    },
+    {
+      "url": null,
+      "label": "TheStreet – Stock Market Today May 4 2026: Nasdaq S&P drop after UAE intercepts Iranian missiles"
+    },
+    {
+      "url": null,
+      "label": "CNBC – Palantir Q1 2026 earnings report"
+    },
+    {
+      "url": null,
+      "label": "Yahoo Finance – Palantir Q1 2026 earnings revenue surges 85%"
+    },
+    {
+      "url": null,
+      "label": "CNBC – Berkshire analysts tepid after annual meeting; Abel signals patience on cash"
+    },
+    {
+      "url": null,
+      "label": "CNBC – Greg Abel earns solid first scorecard after Berkshire annual meeting"
+    },
+    {
+      "url": null,
+      "label": "Military.com – Project Freedom to use missiles and 15K personnel to open Strait of Hormuz"
+    },
+    {
+      "url": null,
+      "label": "Axios – Trump US Navy will escort ships from Strait of Hormuz starting Monday"
+    },
+    {
+      "url": "https://www.foxnews.com/live-news/trump-iran-war-hormuz-strait-may-4",
+      "label": "Fox News Live – Project Freedom: Iran attacks UAE, ceasefire tested May 4 2026"
+    },
+    {
+      "url": "https://foreignpolicy.com/2026/05/04/us-project-freedom-strait-hormuz-trump-iran-war-strikes-uae-south-korea/",
+      "label": "Foreign Policy – Project Freedom strains US-Iran ceasefire in Strait of Hormuz"
+    },
+    {
+      "url": "https://abc7ny.com/live-updates/iran-war-news-trump-project-freedom-strait-of-hormuz/19037371/",
+      "label": "ABC7 New York – Iran war live updates: UAE intercepting Iranian missiles and drones May 4 2026"
+    },
+    {
+      "url": "https://www.military.com/project-freedom-to-use-missiles-15k-personnel-to-help-open-strait-of-hormuz",
+      "label": "Military.com – Project Freedom: 15K personnel, guided-missile destroyers deployed for Hormuz escort"
+    },
+    {
+      "url": "https://breakingdefense.com/2026/05/project-freedom-strait-of-hormuz-risk-us-forces-commercial-ships/",
+      "label": "Breaking Defense – Project Freedom unlikely to restore mass shipping immediately; analyst risk assessment"
+    },
+    {
+      "url": "https://www.axios.com/2026/05/03/trump-us-navy-iran-ships-strait-hormuz",
+      "label": "Axios – Trump US Navy to escort ships from Strait of Hormuz starting Monday"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/05/04/oil-prices-today-wti-brent-trump-iran-us-hormuz.html",
+      "label": "CNBC – Oil prices surge as Iran attacks UAE during Project Freedom: Brent $114, WTI $106"
+    },
+    {
+      "url": "https://fortune.com/2026/05/04/iran-ceasefire-oil-brent-crude-stock-project-freedom-strait-of-hormuz/",
+      "label": "Fortune – Iran ceasefire analysis May 4: Brent surges above $114, Dow sheds 560 points"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/05/04/palantir-pltr-q1-earnings-report-2026.html",
+      "label": "CNBC – Palantir Q1 2026 earnings report: revenue $1.63B, US revenue +104%, guidance raised"
+    },
+    {
+      "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-q1-2026-earnings-revenue-205048964.html",
+      "label": "Yahoo Finance – Palantir Q1 2026 earnings: revenue surges 85%, full-year guidance raised to 71% growth"
+    },
+    {
+      "url": "https://www.thestreet.com/latest-news/stock-market-today-may-4-2026-updates",
+      "label": "TheStreet – Stock Market Today May 4 2026: S&P and Nasdaq drop after UAE intercepts Iranian missiles"
+    },
+    {
+      "url": "https://www.cnbc.com/2026/05/04/berkshire-analysts-were-tepid-after-annual-meeting-what-abel-can-do-to-win-them.html",
+      "label": "CNBC – Berkshire analysts tepid after annual meeting; Greg Abel signals patience on $400B cash pile"
+    }
+  ]
+}

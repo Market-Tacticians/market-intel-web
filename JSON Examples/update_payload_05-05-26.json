@@ -1,0 +1,447 @@
+{
+  "meta_update": {
+    "sources": [
+      "CNN Live – Trump pauses Project Freedom citing Pakistan mediation and Iran deal progress",
+      "NBC News – Trump pauses Project Freedom in Strait of Hormuz citing progress on Iran deal",
+      "ABC7 – Iran war live updates: Trump says Project Freedom paused May 5 2026",
+      "CNBC – Oil prices fall after US says Iran ceasefire remains in place despite UAE attacks",
+      "Trading Economics – Brent Crude price close May 5 2026",
+      "Trading Economics – WTI Crude price close May 5 2026",
+      "Yahoo Finance – S&P 500 Nasdaq Dow close May 5 2026 / VIX close",
+      "TheStreet – Stock Market Today May 5 2026: small-caps and tech lead recovery",
+      "Yahoo Finance – AMD Q1 2026 earnings: revenue up 38% on AI chip demand",
+      "Investing.com – AMD Q1 2026 earnings call transcript: beat and raise",
+      "Investing.com – AMD Q1 2026 slides: data center surge drives 38% revenue growth",
+      "Trading Economics – ISM Services PMI April 2026: 53.6",
+      "Forex Factory – US Services PMI 53.6 April 2026 ISM report",
+      "BLS – JOLTS Job Openings March 2026: 6.87M",
+      "Indeed Hiring Lab – March 2026 JOLTS Report analysis",
+      "Spectrum Local News – US job openings unchanged 6.9M March but hiring improved"
+    ]
+  },
+
+  "regime_update": {
+    "label": "Risk-On (Cautious)",
+    "color": "green",
+    "description": "The regime recovers from Neutral back to Risk-On (Cautious) following Tuesday's material de-escalation signal and strong earnings confirmations. Trump paused Project Freedom Tuesday evening, citing Pakistani mediation and 'great progress toward a complete and final agreement' with Iran — the naval blockade stays in force but the military escort mission is suspended. Defense Secretary Hegseth confirmed the ceasefire is 'not over,' and JCS Chair Caine said Iranian attacks remain 'below the threshold of restarting major combat operations.' Brent crude fell 4% to $109.87 and WTI fell 4% to $102.27, pulling oil back inside the base-case range. Equities recovered broadly: S&P +0.81% to 7,259.22, Nasdaq +1.03% to 25,326.13, Dow +0.73% to 49,298.25, Russell +1.75%. VIX fell to 17.45. AMD delivered a decisive Q1 beat — $10.3B revenue (+38% YoY), data center +57% YoY, Q2 guidance $11.2B — confirming the AI semiconductor monetization narrative alongside Monday's Palantir result. ISM Services PMI April printed 53.6, holding expansion and within threshold. The dual AI earnings confirmations (Palantir + AMD) and a credible diplomatic pause on Project Freedom restore the cautious optimism posture. However, the ceasefire remains technically fragile — it has been violated by both sides — the naval blockade persists, oil is still near $110, and PCE at 4.5% continues to block any Fed easing. The regime is cautiously positive but structurally constrained."
+  },
+
+  "dominant_narrative_updates": [
+    {
+      "narrative_id": "iran-hormuz-war",
+      "tag": "Geopolitical",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Trump Pauses Project Freedom — Diplomatic Track Revived, Ceasefire Technically Intact, Deal Window Opens",
+        "body": "In a significant pivot, President Trump announced Tuesday evening that Project Freedom — the military ship escort mission through the Strait of Hormuz — is being paused 'for a short period of time' at the request of Pakistan and other countries to allow for finalization of a 'complete and final agreement' with Iran. The naval blockade of Iranian ports remains in full force. Defense Secretary Hegseth confirmed the ceasefire is 'not over,' and JCS Chairman Gen. Dan Caine told reporters that Iran's attacks since the ceasefire began — including Monday's strikes — number more than 10 incidents but remain 'below the threshold of restarting major combat operations.' Trump, pressed on what Iran would need to do to violate the ceasefire, replied: 'They know what not to do more importantly.' Iran's Foreign Minister Araghchi traveled to Beijing Tuesday, where China urged de-escalation. Gulf Arab states — Bahrain, Saudi Arabia, UAE, Kuwait, and Qatar — co-authored a new UNSC resolution expected to go to a vote 'in coming days,' designed to be narrower than the previous US-drafted resolution vetoed by Russia and China, and aimed at winning Asian country support. Secretary of State Rubio confirmed the ceasefire is still a 'defensive operation,' said nuclear questions will be addressed in negotiations, and confirmed US forces will continue to shoot down drones and missiles that threaten US assets. The Project Freedom pause creates a diplomatic window, but the structural constraints remain: the naval blockade is still active, the strait is still not commercially open, and the 14-point framework has not been formally accepted.",
+        "bullets": [
+          "Trump paused Project Freedom Tuesday evening citing 'great progress toward a complete and final agreement' — naval blockade remains, but the military escort mission that triggered Monday's Iranian military response is suspended.",
+          "Ceasefire formally intact: Hegseth confirmed 'not over,' JCS Chair Caine confirmed Iran's 10+ ceasefire attacks remain 'below the threshold of restarting major combat operations.'",
+          "Iran FM Araghchi traveled to Beijing; Gulf Arab states co-authored a new narrower UNSC resolution targeting Asian country support — multilateral diplomatic pressure is building around a deal.",
+          "Structural constraints persist: naval blockade active, strait not commercially open, 14-point framework not formally accepted — the pause creates space but resolves nothing yet."
+        ],
+        "market_impact": {
+          "session": "Wednesday Open",
+          "text": "The Project Freedom pause is the most significant de-escalation signal since the ceasefire began, and oil's $4-5 retreat validates its market impact. Wednesday's session will be supported by this diplomatic development alongside AMD's strong afterhours print. The key watch is whether Iran responds to the pause with de-escalation or tests the ceasefire further. Disney and Uber report Wednesday pre-open; ADP employment also at 08:15 ET. Any overnight news of Iranian restraint would further consolidate the base-case regime."
+        },
+        "sources": [
+          {
+            "label": "CNN Live – Trump pauses Project Freedom citing Pakistan mediation and Iran deal progress",
+            "url": "https://www.cnn.com/2026/05/05/world/live-news/iran-war-news"
+          },
+          {
+            "label": "NBC News – Trump pauses Project Freedom in Strait of Hormuz citing Iran deal progress",
+            "url": "https://www.nbcnews.com/world/iran/us-iran-war-trump-open-hormuz-attacks-ships-ceasefire-rcna343604"
+          },
+          {
+            "label": "ABC7 – Iran war live updates: Trump says Project Freedom paused May 5 2026",
+            "url": "https://abc7.com/live-updates/iran-war-news-trump-project-freedom-strait-of-hormuz/19037371/"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "ai-earnings-capex",
+      "tag": "Earnings",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "AMD Confirms AI Semiconductor Monetization with 57% Data Center Growth — Both Sides of Key Question 3 Now Answered",
+        "body": "AMD reported Q1 2026 results after Tuesday's close with a decisive beat-and-raise. Revenue of $10.3B grew 38% YoY, beating $9.85B consensus by more than 4%. Data center revenue of $5.78B grew 57% YoY — above the $5.56B analyst estimate — driven by strong demand for EPYC CPUs and Instinct GPUs in AI infrastructure buildouts. Non-GAAP EPS of $1.37 beat $1.27 estimates by 7.9%, a 43% increase YoY. Q2 2026 guidance was set at $11.2B revenue (+46% YoY, +9% QoQ), significantly above the prior $10-10.5B analyst estimate range. Gross margin guidance expanded to approximately 56%. CEO Lisa Su cited 'accelerating demand for AI infrastructure' and described Data Center as 'the primary driver of our revenue and earnings growth.' Stock rose approximately 4% afterhours to $352. The result complements Palantir's Monday beat: together, they confirm AI monetization across both the platform/software layer (Palantir) and the silicon/infrastructure layer (AMD). Neither company is in Meta's 'capex without visible payback' camp. The AI earnings thesis is now doubly confirmed heading into the Arm Holdings report Wednesday and Nvidia's May 20 earnings.",
+        "bullets": [
+          "AMD Q1 revenue $10.3B (+38% YoY), beating $9.85B consensus; data center $5.78B (+57% YoY) — GPU and CPU demand for AI infrastructure is accelerating, not plateauing.",
+          "Q2 guidance $11.2B (+46% YoY) significantly above the $10-10.5B consensus range; gross margin expanding to ~56% — AMD is on the rewarded side of the AI capex payback test.",
+          "Palantir + AMD together confirm AI monetization at both the software platform layer and the semiconductor infrastructure layer — the two-week AI earnings picture is now structurally bullish."
+        ],
+        "market_impact": {
+          "session": "Wednesday Open",
+          "text": "AMD's +4% afterhours move will lift the semiconductor complex at Wednesday's open — NVDA, TSMC, and Broadcom should trade positively. Arm Holdings reports Wednesday evening and now faces elevated expectations. The 'AI monetization confirmed' narrative is solidifying as the dominant earnings regime narrative for the remaining week."
+        },
+        "sources": [
+          {
+            "label": "Yahoo Finance – AMD Q1 2026 earnings: revenue up 38% on AI chip demand; Q2 guide $11.2B",
+            "url": "https://finance.yahoo.com/markets/stocks/articles/amd-q1-2026-earnings-revenue-203331768.html"
+          },
+          {
+            "label": "Investing.com – AMD Q1 2026 earnings call transcript: data center surge, beat and raise",
+            "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-amds-q1-2026-earnings-surpass-expectations-stock-rises-93CH-4661423"
+          },
+          {
+            "label": "Investing.com – AMD Q1 2026 slides: 57% data center revenue growth, $11.2B Q2 guidance",
+            "url": "https://www.investing.com/news/company-news/amd-q1-2026-slides-data-center-surge-drives-38-revenue-growth-93CH-4661476"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "energy-oil-hormuz",
+      "tag": "Energies",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Oil Retreats 4% on Project Freedom Pause and Ceasefire-Intact Confirmation — Brent $109.87, WTI $102.27; Bear Trigger Receding",
+        "body": "Brent crude fell approximately 4% on Tuesday to close at $109.87 per barrel, while WTI declined approximately 4% to $102.27. The decline was driven by Trump's announcement pausing Project Freedom and Hegseth's confirmation that the ceasefire remains in place despite Monday's military exchanges. Both benchmarks have pulled back inside the base-case range ($100-$110 for WTI, $108-$115 for Brent). The bear-trigger threshold of sustained WTI above $115 has not been reached. Goldman Sachs warned in a Monday note that global oil inventories at approximately 101 days of demand could fall to 98 days by end of May, and noted localized shortages in naphtha, LPG, and jet fuel are building in South Africa, India, Thailand, and Taiwan. Chevron CEO Wirth separately cautioned that fuel shortages are a 'growing concern in some regions.' The US national gasoline average edged higher to $4.48 per AAA. Iraq is reportedly offering steep discounts for crude requiring Hormuz transit, signaling that the physical market is still severely dislocated despite the price pullback.",
+        "bullets": [
+          "Brent closed at $109.87 and WTI at $102.27 Tuesday — both back inside base-case range; Project Freedom pause removed the immediate military escalation premium from Monday's close.",
+          "Goldman Sachs: global oil stocks at 101 days of demand, could fall to 98 days by end of May; localized shortages building in naphtha, LPG, and jet fuel across Asia and Africa.",
+          "US national gas average rose to $4.48/gallon per AAA — even with the oil price retreat, retail-level energy cost pass-through continues to inch higher."
+        ],
+        "market_impact": {
+          "session": "Wednesday Open",
+          "text": "Oil retreating into the base-case range removes the most acute bear-trigger pressure for Wednesday's session. The structural supply shock remains — Goldman's inventory depletion data confirms the problem is not solved by a diplomatic pause. Any breakdown in the Iran talks or resumption of Project Freedom would reprice oil quickly back toward $114+. Watch Iran's reaction to the pause announcement as the overnight directional signal."
+        },
+        "sources": [
+          {
+            "label": "CNBC – Oil prices fall after US says Iran ceasefire remains in place despite UAE attacks",
+            "url": "https://www.cnbc.com/2026/05/05/oil-prices-today-wti-brent-iran-war-trump-hormuz.html"
+          },
+          {
+            "label": "Trading Economics – Brent Crude price close May 5 2026",
+            "url": "https://tradingeconomics.com/commodity/brent-crude-oil"
+          },
+          {
+            "label": "Trading Economics – WTI Crude price close May 5 2026",
+            "url": "https://tradingeconomics.com/commodity/crude-oil"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "flows-positioning",
+      "tag": "Flows",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Broad Recovery Tuesday — All Sectors Positive Except Communications; Breadth Improvement as Geopolitical Risk Premium Recedes",
+        "body": "Tuesday's session reversed Monday's concentrated selloff. S&P 500 +0.81% to 7,259.22, Dow +0.73% to 49,298.25, Nasdaq +1.03% to 25,326.13, Russell 2000 +1.75% to 2,844.98. All sectors advanced except Communications. Technology was the best performer, adding over 2%. Materials rebounded from Monday's -1.62% worst sector showing. Micron Technology surged 10%, surpassing $700B market cap, boosted by HBM demand for AI and sold-out 2026 order book, adding to the AMD/Palantir AI confirmation narrative. Breadth improved materially from Monday's 167/500 advancers. VIX fell to 17.45 from 18.44, partially unwinding Monday's geopolitical spike. The 10-year Treasury yield eased from 4.44% to approximately 4.38% as oil's retreat reduced near-term inflation fear. The Russell 2000 outperformance (+1.75%) is a notable breadth signal — small-cap strength is more consistent with a broad-participation recovery than a concentrated mega-cap bounce.",
+        "bullets": [
+          "S&P +0.81%, Dow +0.73%, Nasdaq +1.03%, Russell 2000 +1.75% Tuesday — the Russell outperformance signals broadening participation, not just mega-cap bounce.",
+          "VIX fell to 17.45 from 18.44; 10Y yield eased to ~4.38% from 4.44% — both confirming the geopolitical risk premium partial unwind as oil retreated and Project Freedom was paused.",
+          "Micron +10% on HBM AI demand and sold-out 2026 order book reinforces the semiconductor AI trade, adding breadth to the PLTR/AMD confirmation cluster."
+        ],
+        "market_impact": {
+          "session": "Wednesday Open",
+          "text": "Tuesday's broad recovery with improved breadth is a constructive signal heading into Disney, Uber, and Arm Holdings reports Wednesday. AMD's +4% afterhours should provide a positive open for the semiconductor sector. The key Thursday/Friday catalysts — jobless claims and NFP — remain the week's most important macro events for regime confirmation."
+        },
+        "sources": [
+          {
+            "label": "TheStreet – Stock Market Today May 5 2026: small-caps and tech lead recovery as oil retreats",
+            "url": "https://www.thestreet.com/latest-news/stock-market-today-may-5-2026-updates"
+          }
+        ]
+      }
+    }
+  ],
+
+  "catalyst_calendar_updates": [
+    {
+      "event": "Iran War / Project Freedom / Strait of Hormuz Negotiations — Continuous",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Project Freedom PAUSED. Trump announced Tuesday evening the military escort mission is suspended 'for a short period' at Pakistan's request while deal negotiations advance. Naval blockade remains. Hegseth: ceasefire 'not over.' Caine: Iran's 10+ ceasefire attacks 'below threshold of restarting major combat.' Iran FM in Beijing. Gulf Arabs co-authored new narrower UNSC resolution. Diplomatic deal window now open."
+      },
+      "new_flag": "PAUSED — DEAL WINDOW OPEN",
+      "new_impact": "high"
+    },
+    {
+      "event": "Advanced Micro Devices Q1 2026 Earnings (AMD)",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "REPORTED: Revenue $10.3B (+38% YoY) vs $9.85B consensus. EPS $1.37 vs $1.27 expected (+9.6% beat). Data center $5.78B (+57% YoY). Q2 guidance $11.2B (+46% YoY), significantly above $10-10.5B consensus. Gross margin expanding to ~56%. Stock +4% AH to ~$352. BEAT — AI semiconductor monetization confirmed."
+      },
+      "new_flag": "BEAT"
+    },
+    {
+      "event": "ISM Services PMI April",
+      "update": {
+        "timestamp": "2026-05-05T10:15:00-04:00",
+        "text": "PRINTED: 53.6 vs 53.7 expected, down from 54.0 March. 22nd consecutive month in expansion. Business activity +2pts to 55.9 (resilient). New orders sharply lower to 53.5 (-7.1pts, sharpest drop in 3 years). Employment contracted second consecutive month (48.0). Prices held at 70.7 (highest since 2022). Services sector holding but demand pipeline weakening. Key question 7 threshold: above 53 — narrowly met."
+      },
+      "new_flag": "PRINTED — EXPANSION BUT WEAKENING"
+    },
+    {
+      "event": "JOLTS Job Openings (March)",
+      "update": {
+        "timestamp": "2026-05-05T10:05:00-04:00",
+        "text": "PRINTED: 6.87M openings, essentially flat vs 6.92M prior and above 6.835M estimate. Hires rose to 5.6M — best since February 2024. Layoffs ticked up. Quits rate moved to 2.0%. Labor market steady pre-Iran-war impact: openings flat, hires improving. Economist Carl Weinberg warned picture will change as economy adjusts to $100+ oil, higher inflation, and possible monetary tightening."
+      },
+      "new_flag": "PRINTED — STEADY"
+    }
+  ],
+
+  "market_snapshot_updates": {
+    "as_of": "2026-05-05T16:30:00-04:00",
+    "updates": [
+      {
+        "category": "indexes",
+        "label": "S&P 500",
+        "new_value": "7,259.22",
+        "new_direction": "up",
+        "new_note": "Up 0.81% Tuesday; broad recovery on Project Freedom pause and AMD beat; all sectors positive except communications; S&P back above 7,250 level"
+      },
+      {
+        "category": "indexes",
+        "label": "Nasdaq Composite",
+        "new_value": "25,326.13",
+        "new_direction": "up",
+        "new_note": "Up 1.03% Tuesday; tech best sector (+2%+); AMD +4% AH, Micron +10% intraday on HBM AI demand; AI semiconductor confirmation narrative solidifying"
+      },
+      {
+        "category": "indexes",
+        "label": "Dow Jones Industrial Average",
+        "new_value": "49,298.25",
+        "new_direction": "up",
+        "new_note": "Up 0.73% or 356 points Tuesday; retook 49K level; partially reversed Monday's 557-point drop; industrials and materials rebounded alongside energy retreat"
+      },
+      {
+        "category": "indexes",
+        "label": "Russell 2000",
+        "new_value": "2,844.98",
+        "new_direction": "up",
+        "new_note": "Up 1.75% Tuesday — best performer of the major indexes; small-cap outperformance signals broadening market participation, a constructive breadth improvement vs Monday"
+      },
+      {
+        "category": "indexes",
+        "label": "VIX",
+        "new_value": "~17.45",
+        "new_direction": "down",
+        "new_note": "Fell from 18.44 Monday to 17.45 Tuesday; partial unwind of geopolitical risk premium on Project Freedom pause; still above Friday's ~17 level — tail risk not fully priced out"
+      },
+      {
+        "category": "indexes",
+        "label": "10Y Treasury Yield",
+        "new_value": "~4.38%",
+        "new_direction": "down",
+        "new_note": "Eased from 4.44% Monday as oil retreat reduced near-term inflation fear; remains elevated vs pre-week levels; structural yield pressure from PCE and hawkish Fed dissents intact"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "WTI Crude",
+        "new_value": "~$102.27/bbl",
+        "new_direction": "down",
+        "new_note": "Fell ~4% Tuesday to $102.27 on Project Freedom pause and ceasefire-intact confirmation; back inside base-case range; bear trigger ($115 sustained) not activated"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Brent Crude",
+        "new_value": "~$109.87/bbl",
+        "new_direction": "down",
+        "new_note": "Fell ~4% Tuesday to $109.87; pulled back from Monday's $114.44 close; Goldman Sachs warned inventory depletion building; retail gas average rose to $4.48/gallon despite crude pullback"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Gold",
+        "new_value": "~$4,567/oz",
+        "new_direction": "up",
+        "new_note": "Rebounded modestly Tuesday as VIX pulled back and dollar held near lows; still down ~13% from war start; safe-haven dynamic remains suppressed by inflation/real rate headwind"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Strait of Hormuz",
+        "new_value": "PROJECT FREEDOM PAUSED — Day 66",
+        "new_direction": "up",
+        "new_note": "Project Freedom escort mission suspended by Trump pending deal finalization; naval blockade remains active; ceasefire intact per Hegseth; diplomatic deal window now open; strait still not commercially open"
+      },
+      {
+        "category": "macro_fed",
+        "label": "March NFP",
+        "new_value": "+178K",
+        "new_direction": "neutral",
+        "new_note": "March JOLTS confirms the pre-war labor market: 6.87M openings (flat), hires rose to 5.6M (best since Feb 2024). April NFP consensus revised up slightly to ~57K per FactSet from 49-50K; Friday print is the week's key macro event"
+      }
+    ]
+  },
+
+  "stories_to_track_updates": [
+    {
+      "category": "geopolitical_macro",
+      "label": "Project Freedom escort mission — Iran's first military response or restraint Monday determines risk-on/off tone for the week",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Project Freedom PAUSED Tuesday evening. Trump cited Pakistani mediation and 'great progress' toward a deal. Naval blockade stays. Ceasefire intact per Hegseth. Iran FM in Beijing. Diplomatic resolution window now open for 48-72 hours. This is the most significant de-escalation move since the ceasefire was declared."
+      },
+      "new_status": "PAUSED — DEAL WINDOW OPEN",
+      "new_direction": "up"
+    },
+    {
+      "category": "geopolitical_macro",
+      "label": "Iran 14-point peace proposal — Trump reviewing language; nuclear deferral framework could open strait before formal resolution",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Active. Trump paused Project Freedom explicitly to allow deal to be 'finalized and signed.' Iran FM in Beijing signaling multilateral engagement. Gulf Arab states co-authored new UNSC resolution. Rubio confirmed nuclear enrichment will be addressed in negotiations. The 14-point framework or a variant is the active deal structure being worked toward."
+      },
+      "new_status": "ACTIVE — DEAL BEING FINALIZED",
+      "new_direction": "up"
+    },
+    {
+      "category": "sector_stock_signals",
+      "label": "AMD MI300X data center traction — confirmation of GPU market share versus Nvidia; TSMC allocation signal for the semiconductor complex",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "REPORTED AND CRUSHED: Data center revenue $5.78B (+57% YoY). Total revenue $10.3B (+38%). EPS $1.37 vs $1.27. Q2 guidance $11.2B (+46% YoY). Stock +4% AH. CEO Su: 'AI infrastructure demand accelerating.' AMD is on the rewarded side of the AI payback line alongside Palantir."
+      },
+      "new_status": "CONFIRMED BEAT",
+      "new_direction": "up"
+    },
+    {
+      "category": "sector_stock_signals",
+      "label": "AI capex ROI divergence — Alphabet rewarded, Meta punished; Palantir/AMD/Arm results will further define which side of the capex payback line the market draws",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Palantir confirmed Monday (software/platform). AMD confirmed Tuesday (semiconductor/infrastructure). Both are firmly on the rewarded side of the capex payback line. Arm Holdings reports Wednesday — the AI IP licensing stack is the final test of how broadly the monetization narrative extends beyond the top-tier players."
+      },
+      "new_status": "TWO OF THREE CONFIRMED — ARM PENDING",
+      "new_direction": "up"
+    }
+  ],
+
+  "scenario_updates": [
+    {
+      "id": "bull",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Bull Case Partially Reactivated — Diplomatic Pause and Dual AI Beats Restore Bull Preconditions",
+        "body": "The bull case required Iranian restraint and diplomatic progress — both are now showing partial evidence. The Project Freedom pause is the closest thing to an Iran-accepts-framework signal the market has seen. It does not constitute a deal, but it establishes the diplomatic preconditions. WTI falling toward $102 begins to approach (though has not reached) the bull case's WTI below $90 oil-relief threshold. Palantir and AMD both delivered the AI earnings confirmations required by the bull case. NFP still pending Friday. The bull case is partially reactivated — not confirmed, but the probability has risen materially from its Monday post-escalation low. Full activation requires: (1) a formal deal announcement this week or concrete strait reopening signal, and (2) Friday NFP in the 70K-100K range. Both remain uncertain."
+      }
+    },
+    {
+      "id": "base",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Base Case Now the Primary Operating Regime — Oil Back in Range, Earnings Beat, Ceasefire Intact",
+        "body": "The base case has fully reasserted itself as the operating environment. Oil is back inside the $100-$110 WTI range. Palantir and AMD beat on the AI earnings side. The ceasefire is intact. The Project Freedom pause creates diplomatic space without resolving the underlying situation. The S&P 500 at 7,259 is within the 7,100-7,300 base case band and has recovered toward the upper boundary. The base case originally anticipated the regime staying at Risk-On (Cautious) — consistent with the updated regime call. The key remaining base case condition to monitor is NFP Friday: a 30K-60K print would fully confirm the base case labor outlook. The base case remains the highest probability scenario."
+      }
+    },
+    {
+      "id": "bear",
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "headline": "Bear Case Probability Significantly Reduced — Diplomatic Pause Removes Primary Trigger; Structural Risks Remain",
+        "body": "The bear case required Iran to respond militarily to Project Freedom AND sustained WTI above $115 AND AI earnings disappointments. Monday saw the military response, and oil briefly approached the trigger, but Tuesday's Project Freedom pause removes the most immediate bear-case catalyst. WTI retreating to $102 moves oil well below the $115 sustained bear trigger. Both Palantir and AMD beat, removing the 'AI earnings puncture' condition. The bear case is not invalidated — the ceasefire has been violated 10+ times, the naval blockade persists, PCE is at 4.5%, and NFP could disappoint badly Friday. But the immediate probability has decreased materially. Bear case is demoted to tail risk unless Iran escalates again, the deal collapses, or NFP prints below 20K."
+      }
+    }
+  ],
+
+  "key_questions_updates": [
+    {
+      "number": 1,
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Updated status: Iran responded militarily Monday, but the ceasefire held. Project Freedom was then paused by Trump Tuesday pending a deal. Hegseth confirmed ceasefire 'not over.' Iran's 10+ ceasefire attacks remain below the threshold of resuming major combat. The question has now evolved — escalation occurred but de-escalation followed within 24 hours."
+      },
+      "new_status": "updated",
+      "new_update_label": "Iran Escalated Then De-escalated — Ceasefire Intact, Project Freedom Paused",
+      "new_answer": "Iran responded militarily Monday (struck UAE, fired on vessels). The ceasefire was tested but held. Trump paused Project Freedom Tuesday to create diplomatic space, and Hegseth confirmed the ceasefire is not over. The binary has resolved into the intermediate outcome: military exchange without ceasefire collapse, now followed by a deal window being opened."
+    },
+    {
+      "number": 2,
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "Project Freedom pause announced with Trump citing 'great progress toward a complete and final agreement.' Naval blockade stays. Iran FM in Beijing. Gulf Arab UNSC resolution drafted. Trump has explicitly signaled a deal is close but not finalized. A credible timeline for strait reopening is approaching but not yet confirmed this week."
+      },
+      "new_status": "partially_answered",
+      "new_update_label": "Deal Progress Signaled — Project Freedom Paused Pending Finalization",
+      "new_answer": "The Trump administration has not formally accepted the 14-point proposal but paused Project Freedom explicitly to allow a 'complete and final agreement' to be finalized and signed. This is the strongest signal yet of impending acceptance of a framework, but no agreement has been signed and no credible strait reopening timeline has been formally announced."
+    },
+    {
+      "number": 3,
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "AMD Q1 results confirmed the AI semiconductor monetization narrative: data center +57% YoY to $5.78B, total revenue +38%, EPS beat, Q2 guidance raised to $11.2B. Combined with Palantir's Monday beat, both key names confirmed the AI monetization narrative. Arm Holdings reports Wednesday."
+      },
+      "new_status": "partially_answered",
+      "new_update_label": "Palantir and AMD Both Confirmed — AI Monetization Narrative Doubly Validated",
+      "new_answer": "Both Palantir (software/platform) and AMD (semiconductor/infrastructure) delivered decisive beats confirming the AI monetization narrative. Neither joined Meta in the 'capex without visible payback' camp. Arm Holdings reports Wednesday — the AI IP licensing layer of the semiconductor stack is the remaining data point for full narrative confirmation."
+    },
+    {
+      "number": 5,
+      "update": {
+        "timestamp": "2026-05-05T21:30:00-04:00",
+        "text": "WTI fell to $102.27 Tuesday on Project Freedom pause — back inside the base-case range and well below the $115 sustained bear trigger. The bear trigger was approached intraday Monday but never held. Oil direction is now dependent on whether the diplomatic pause holds or breaks down. Base case is reasserting."
+      },
+      "new_status": "updated",
+      "new_update_label": "Oil Retreated to $102 — Bear Trigger Receding as Diplomatic Pause Takes Effect",
+      "new_answer": "WTI retreated to $102.27 after touching near $107 Monday, staying below the $115 sustained bear-trigger threshold throughout. The base case oil range ($100-$110) has reasserted. Key question 5 is now tracking: will the diplomatic deal window produced by the Project Freedom pause hold oil in the base range, or does a breakdown push WTI back above $115?"
+    },
+    {
+      "number": 7,
+      "update": {
+        "timestamp": "2026-05-05T10:15:00-04:00",
+        "text": "ISM Services PMI April printed 53.6 — above the 53 threshold set in this question, narrowly affirming services sector resilience. However, new orders fell sharply (-7.1pts), employment contracted for a second month, and prices paid held at 70.7. The headline threshold was met but the internals show deteriorating demand pipeline that warrants monitoring."
+      },
+      "new_status": "partially_answered",
+      "new_update_label": "Services PMI 53.6 — Threshold Met but New Orders Signal Demand Softening",
+      "new_answer": "ISM Services PMI April printed 53.6 — above the 53 resilience threshold and in expansion for the 22nd consecutive month, confirming headline services resilience. However, new orders fell 7.1 points (sharpest drop in 3 years), employment contracted for a second month, and prices paid held at 70.7 (highest since 2022). The sector is holding but the leading indicators within the report suggest the oil-cost pressure is beginning to bite demand."
+    }
+  ],
+
+  "research_sources_update": [
+    {
+      "label": "CNN Live – Trump pauses Project Freedom citing Pakistan mediation and Iran deal progress May 5 2026",
+      "url": "https://www.cnn.com/2026/05/05/world/live-news/iran-war-news",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "NBC News – Trump pauses Project Freedom in Strait of Hormuz citing progress on Iran deal",
+      "url": "https://www.nbcnews.com/world/iran/us-iran-war-trump-open-hormuz-attacks-ships-ceasefire-rcna343604",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "ABC7 – Iran war live updates: Trump says Project Freedom paused, ceasefire intact May 5 2026",
+      "url": "https://abc7.com/live-updates/iran-war-news-trump-project-freedom-strait-of-hormuz/19037371/",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "CNBC – Oil prices fall after US says Iran ceasefire remains in place despite UAE attacks",
+      "url": "https://www.cnbc.com/2026/05/05/oil-prices-today-wti-brent-iran-war-trump-hormuz.html",
+      "tag": "Energies"
+    },
+    {
+      "label": "Yahoo Finance – AMD Q1 2026 earnings: revenue up 38% on AI chip demand; Q2 guide $11.2B",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-q1-2026-earnings-revenue-203331768.html",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Investing.com – AMD Q1 2026 earnings call transcript: 57% data center growth, beat and raise",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-amds-q1-2026-earnings-surpass-expectations-stock-rises-93CH-4661423",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Trading Economics – ISM Services PMI April 2026: 53.6, prices 70.7, new orders weaken",
+      "url": "https://tradingeconomics.com/united-states/non-manufacturing-pmi",
+      "tag": "Econ Data"
+    },
+    {
+      "label": "BLS – JOLTS Job Openings March 2026: 6.87M flat, hires rose to 5.6M",
+      "url": "https://www.bls.gov/news.release/jolts.nr0.htm",
+      "tag": "Econ Data"
+    },
+    {
+      "label": "TheStreet – Stock Market Today May 5 2026: small-caps and tech lead recovery, oil retreats",
+      "url": "https://www.thestreet.com/latest-news/stock-market-today-may-5-2026-updates",
+      "tag": "Flows"
+    },
+    {
+      "label": "Indeed Hiring Lab – March 2026 JOLTS Report: stable but tech and government openings declining",
+      "url": "https://www.hiringlab.org/2026/05/05/march-2026-jolts-report-stable-depending-on-what-you-do/",
+      "tag": "Econ Data"
+    }
+  ]
+}

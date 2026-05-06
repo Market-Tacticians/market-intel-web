@@ -10,10 +10,23 @@ export function useReports() {
   const fetchReports = async () => {
     try {
       setLoading(true);
-      
-      // Fetch from report_snapshots table
-      // We only select the columns we need for the list to save bandwidth.
-      // We can query inside the report_json JSONB to get the regime label and period_covered.
+
+      // Step 1: Get the newest snapshot ID — this is the current live state and
+      // should NOT appear in the archive. Everything older than this is archive-eligible.
+      const { data: newestData } = await supabase
+        .from('report_snapshots')
+        .select('id')
+        .order('generated_at', { ascending: false })
+        .limit(1)
+        .single();
+
+      const newestId = newestData?.id ?? '';
+
+      // Step 2: Fetch all snapshots except the newest.
+      // This includes prior-week snapshots (from archived reports) AND
+      // within-week snapshots (from the current live report), which is the
+      // intended archive behavior: when a new update comes in, the previous
+      // snapshot becomes visible here.
       const { data, error } = await supabase
         .from('report_snapshots')
         .select(`
@@ -23,10 +36,9 @@ export function useReports() {
           update_version,
           generated_at,
           report_json->meta->>period_covered,
-          report_json->regime->>label,
-          reports!inner ( status )
+          report_json->regime->>label
         `)
-        .eq('reports.status', 'archived')
+        .neq('id', newestId)
         .order('generated_at', { ascending: false });
 
       if (error) throw error;
@@ -35,7 +47,6 @@ export function useReports() {
         const dateObj = new Date(row.generated_at);
         const calendarDate = dateObj.toISOString().split('T')[0];
         
-        // Format last_updated_display
         const options: Intl.DateTimeFormatOptions = { 
           weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
           hour: 'numeric', minute: '2-digit', timeZoneName: 'short'

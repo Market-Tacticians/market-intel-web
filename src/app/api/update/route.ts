@@ -68,14 +68,17 @@ export async function POST(request: Request) {
         .eq('report_id', reportId);
     }
 
-    // 3. Dominant Narratives Updates
     if (body.dominant_narrative_updates && Array.isArray(body.dominant_narrative_updates)) {
       for (const u of body.dominant_narrative_updates) {
+        // Claude indexes update IDs (e.g. "iran-hormuz-war-2") to track sequence.
+        // Strip the trailing -N suffix to find the base narrative record in the DB.
+        const baseNarrativeId = u.narrative_id.replace(/-\d+$/, '');
+
         const { data: nData } = await supabaseAdmin
           .from('report_narratives')
           .select('id, updates')
           .eq('report_id', reportId)
-          .eq('narrative_id', u.narrative_id)
+          .eq('narrative_id', baseNarrativeId)
           .single();
 
         if (nData) {
@@ -85,6 +88,8 @@ export async function POST(request: Request) {
             .from('report_narratives')
             .update({ updates: currentUpdates, updated_at: updateTimestamp })
             .eq('id', nData.id);
+        } else {
+          console.warn(`[update] No narrative found for id="${baseNarrativeId}" (from Claude id="${u.narrative_id}") — skipping`);
         }
       }
     }
