@@ -105,6 +105,44 @@ export default function DynamicReport({ data }: DynamicReportProps) {
     }
   };
 
+  // --- Timestamp Formatters ---
+  const formatFullDateTimeET = (dateStr: string) => {
+    if (!dateStr) return 'N/A';
+    try {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      const datePart = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', month: 'long', day: 'numeric', year: 'numeric' }).format(d);
+      let timePart = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }).format(d);
+      return `${datePart}, ${timePart.toLowerCase().replace(' ', '')} ET`;
+    } catch {
+      return dateStr;
+    }
+  };
+
+  const formatDayTimeET = (dateStr: string) => {
+    if (!dateStr) return '';
+    try {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      return new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: '2-digit' }).format(d).replace(/,/g, '');
+    } catch {
+      return dateStr;
+    }
+  };
+
+  const formatDayDateTimeET = (dateStr: string) => {
+    if (!dateStr) return '';
+    try {
+      const d = new Date(dateStr);
+      if (isNaN(d.getTime())) return dateStr;
+      const datePart = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric' }).format(d);
+      const timePart = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }).format(d);
+      return `${datePart}, ${timePart} ET`;
+    } catch {
+      return dateStr;
+    }
+  };
+
   // --- TOC Calculation ---
   const navItems = [];
   const generatedAt = intel.meta?.generated;
@@ -194,7 +232,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
             <div className="timestamp-badge">
               <span className="ts-dot" />
               <span className="ts-label">Last Updated</span>
-              <span className="ts-value">{intel.meta?.generated || intel.meta?.last_updated || 'N/A'}</span>
+              <span className="ts-value">{formatFullDateTimeET(intel.meta?.last_updated || intel.meta?.generated)}</span>
             </div>
           </div>
           <p className="subtitle">
@@ -227,7 +265,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                   const originalTray = {
                     is_original: true,
                     label: 'Original Brief',
-                    timestamp: intel.meta?.generated || intel.meta?.last_updated || '',
+                    timestamp: intel.meta?.generated, // use generated_at so it stays fixed to original creation
                     headline: narrative.headline,
                     body: narrative.body,
                     bullets: narrative.bullets,
@@ -258,7 +296,7 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                           {allTrays.map((tray: any, tIdx: number) => {
                             const isLive = tIdx === allTrays.length - 1;
                             const updateLabel = tray.label || (isLive ? 'LIVE UPDATE' : `UPDATE ${tIdx}`);
-                            const tsStr = tray.is_original ? tray.timestamp : (tray.timestamp ? new Date(tray.timestamp).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '') : '');
+                            const tsStr = tray.timestamp ? formatDayTimeET(tray.timestamp) : '';
 
                             return (
                               <details key={tIdx} className="update-entry" open={isLive}>
@@ -391,11 +429,20 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                         ))}
                       </div>
                     )}
-                    {c.updates && c.updates.map((upd: any, uIdx: number) => (
-                      <div key={uIdx} className="tl-update-note">
-                        {upd.text}
-                      </div>
-                    ))}
+                    {c.updates && c.updates.map((upd: any, uIdx: number) => {
+                      const isLatest = uIdx === c.updates.length - 1;
+                      return (
+                        <details key={uIdx} open={isLatest} style={{ marginTop: '8px', background: 'var(--surface2)', padding: '8px 12px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+                          <summary style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.7rem', fontWeight: 600, color: 'var(--amber)', listStyle: 'none' }}>
+                            <span>{upd.timestamp ? formatDayDateTimeET(upd.timestamp) : `Update ${uIdx + 1}`}</span>
+                            <span style={{ transition: 'transform 0.2s', transform: isLatest ? 'rotate(180deg)' : 'none' }}>▾</span>
+                          </summary>
+                          <div style={{ marginTop: '8px', fontSize: '0.8rem', color: 'var(--text)' }}>
+                            {upd.text}
+                          </div>
+                        </details>
+                      );
+                    })}
                   </div>
                   );
                 })}
@@ -469,11 +516,20 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                       <div className={`w-dot ${row.direction}`}></div>
                       <div className="w-label">
                         <div>{row.label}</div>
-                        {row.updates && row.updates.map((u: any, uIdx: number) => (
-                          <div key={uIdx} style={{ fontSize: '.72rem', color: 'var(--amber)', marginTop: 4, lineHeight: 1.4 }}>
-                            ↳ {u.text}
-                          </div>
-                        ))}
+                        {row.updates && row.updates.map((u: any, uIdx: number) => {
+                          const isLatest = uIdx === row.updates.length - 1;
+                          return (
+                            <details key={uIdx} open={isLatest} style={{ marginTop: 6, background: 'var(--surface2)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+                              <summary style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '.72rem', color: 'var(--amber)', fontWeight: 600, listStyle: 'none' }}>
+                                <span>↳ {u.timestamp ? formatDayDateTimeET(u.timestamp) : `Update ${uIdx + 1}`}</span>
+                                <span style={{ transition: 'transform 0.2s', transform: isLatest ? 'rotate(180deg)' : 'none', fontSize: '0.6rem' }}>▾</span>
+                              </summary>
+                              <div style={{ fontSize: '.72rem', color: 'var(--text)', marginTop: '6px', lineHeight: 1.4 }}>
+                                {u.text}
+                              </div>
+                            </details>
+                          );
+                        })}
                       </div>
                       <span className="w-status">{row.status}</span>
                     </div>
@@ -486,11 +542,20 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                       <div className={`w-dot ${row.direction}`}></div>
                       <div className="w-label">
                         <div>{row.label}</div>
-                        {row.updates && row.updates.map((u: any, uIdx: number) => (
-                          <div key={uIdx} style={{ fontSize: '.72rem', color: 'var(--amber)', marginTop: 4, lineHeight: 1.4 }}>
-                            ↳ {u.text}
-                          </div>
-                        ))}
+                        {row.updates && row.updates.map((u: any, uIdx: number) => {
+                          const isLatest = uIdx === row.updates.length - 1;
+                          return (
+                            <details key={uIdx} open={isLatest} style={{ marginTop: 6, background: 'var(--surface2)', padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border)' }}>
+                              <summary style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '.72rem', color: 'var(--amber)', fontWeight: 600, listStyle: 'none' }}>
+                                <span>↳ {u.timestamp ? formatDayDateTimeET(u.timestamp) : `Update ${uIdx + 1}`}</span>
+                                <span style={{ transition: 'transform 0.2s', transform: isLatest ? 'rotate(180deg)' : 'none', fontSize: '0.6rem' }}>▾</span>
+                              </summary>
+                              <div style={{ fontSize: '.72rem', color: 'var(--text)', marginTop: '6px', lineHeight: 1.4 }}>
+                                {u.text}
+                              </div>
+                            </details>
+                          );
+                        })}
                       </div>
                       <span className="w-status">{row.status}</span>
                     </div>
@@ -512,15 +577,24 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                     <div className="scenario-icon" style={{ background: getColorDim(s.color), color: getColor(s.color) }}>
                       {s.label}
                     </div>
-                    <h4>{s.case} Case: {s.headline}</h4>
+                    <h4>{s.headline}</h4>
                   </div>
                   <p>{s.body}</p>
                   {s.updates && s.updates.map((upd: any, uIdx: number) => {
+                    const isLatest = uIdx === s.updates.length - 1;
                     return (
-                      <div key={uIdx} className="scenario-update-note" style={{ background: getColorDim(s.color), borderColor: getColorDim(s.color), borderLeftColor: getColor(s.color) }}>
-                        <div className="scenario-update-label" style={{ color: getColor(s.color) }}>{upd.headline}</div>
-                        <p>{upd.body}</p>
-                      </div>
+                      <details key={uIdx} open={isLatest} className="scenario-update-note" style={{ background: getColorDim(s.color), borderColor: getColorDim(s.color), borderLeftColor: getColor(s.color) }}>
+                        <summary style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', listStyle: 'none' }}>
+                          <div className="scenario-update-label" style={{ color: getColor(s.color), margin: 0 }}>
+                            {upd.timestamp && <span style={{ marginRight: 8, opacity: 0.8 }}>{formatDayTimeET(upd.timestamp)}</span>}
+                            {upd.headline}
+                          </div>
+                          <span style={{ transition: 'transform 0.2s', transform: isLatest ? 'rotate(180deg)' : 'none', color: getColor(s.color), fontSize: '0.7rem' }}>▾</span>
+                        </summary>
+                        <div style={{ marginTop: '8px' }}>
+                          <p style={{ margin: 0 }}>{upd.body}</p>
+                        </div>
+                      </details>
                     );
                   })}
                 </div>
@@ -546,11 +620,18 @@ export default function DynamicReport({ data }: DynamicReportProps) {
                         </span>
                       </p>
                       {q.updates && q.updates.map((upd: any, uIdx: number) => {
-                        const tsStr = upd.timestamp ? new Date(upd.timestamp).toLocaleDateString('en-US', { weekday: 'short', hour: 'numeric', minute: '2-digit' }).replace(/,/g, '') : '';
+                        const tsStr = upd.timestamp ? formatDayTimeET(upd.timestamp) : '';
+                        const isLatest = uIdx === q.updates.length - 1;
                         return (
-                          <span key={`upd-${idx}-${uIdx}`} className="q-answer partial">
-                            {tsStr ? <strong style={{color:'var(--amber)', marginRight: 4}}>{tsStr}:</strong> : null}{upd.text}
-                          </span>
+                          <details key={`upd-${idx}-${uIdx}`} open={isLatest} className="q-answer partial" style={{ display: 'block', marginTop: '8px' }}>
+                            <summary style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between', listStyle: 'none' }}>
+                              <strong style={{ color:'var(--amber)' }}>{tsStr ? `${tsStr}` : `Update ${uIdx + 1}`}</strong>
+                              <span style={{ transition: 'transform 0.2s', transform: isLatest ? 'rotate(180deg)' : 'none', color: 'var(--amber)', fontSize: '0.7rem' }}>▾</span>
+                            </summary>
+                            <div style={{ marginTop: '6px', color: 'var(--amber)', fontWeight: 'normal' }}>
+                              {upd.text}
+                            </div>
+                          </details>
                         );
                       })}
                       {q.answer && <span className={`q-answer ${q.status !== 'answered' ? 'partial' : ''}`}>{q.answer}</span>}
@@ -726,6 +807,9 @@ export default function DynamicReport({ data }: DynamicReportProps) {
             gap: 12px;
             text-align: center;
           }
+        }
+        details > summary::-webkit-details-marker {
+          display: none;
         }
       `}</style>
     </div>
