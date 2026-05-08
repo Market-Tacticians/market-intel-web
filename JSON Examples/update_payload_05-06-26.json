@@ -1,0 +1,486 @@
+{
+  "meta_update": {
+    "sources": [
+      "CNBC – Dow surges 600 points, S&P 500 posts first close above 7,300 as traders hope for Iran deal",
+      "CNN Live – Iran reviewing US proposal; Iran expected to deliver response to mediators Thursday",
+      "ABC News Live – Iran live updates: US and Iran closing in on one-page MoU; Trump says deal 'not certain'",
+      "CBS News Live – Trump threatens Iran strikes, says too soon for new direct talks after 'great progress'",
+      "Axios – US and Iran closing in on one-page memo to end war; moratorium on nuclear enrichment",
+      "Charles Schwab – Market update open May 6: crude down 7%, AMD +18%, Disney +4%, ADP 109K",
+      "TheStreet – Stock Market Today May 6 2026: Nasdaq rises 2%, S&P 500 and Russell 2000 set new records",
+      "Arm Newsroom – Arm delivers record-breaking Q4 FY2026 and full-year results: $1.49B revenue, $4.92B FY",
+      "Investing.com – Arm Holdings Q4 FY2026 earnings call transcript: record EPS $0.60, data center royalties doubled",
+      "Investing.com – Arm Q4 FY2026 slides: $15B chip revenue target, >$9 EPS by 2031",
+      "Sherwood News – Arm Holdings surges after reporting doubling of demand for AI CPUs",
+      "Yahoo Finance – Arm Q4 earnings call highlights: data center royalties doubled, Arm AGI CPU $2B+ demand",
+      "CNBC – Disney Q2 FY2026 earnings: revenue $25.17B beats, streaming income $590M beats $500M target",
+      "TheStreet – Disney +6% after Q2 beat: CFO says consumer strong, H2 bookings quite strong",
+      "Yahoo Finance – Uber Q1 2026 earnings: EPS $0.73 beat, trips +20%, gross bookings +14%",
+      "Trading Economics – WTI crude intraday May 6 2026: approaching $100 on deal hopes",
+      "Trading Economics – Brent crude intraday May 6 2026: ~$108 on MoU reports",
+      "Yahoo Finance – VIX and futures May 7 2026 pre-market: VIX 16.20, WTI $91.46"
+    ]
+  },
+
+  "regime_update": {
+    "label": "Risk-On (Cautious)",
+    "color": "green",
+    "description": "The regime remains at Risk-On (Cautious) and is approaching its upper boundary following Wednesday's developments. The S&P 500 closed at a new record of 7,365.12 (+1.46%), the Nasdaq set a new record at 25,838.94 (+2.02%), and the Dow crossed 49,900 for the first time. The catalyst was Axios reporting the US and Iran are closing in on a one-page MoU to end the war — a moratorium on nuclear enrichment plus arrangements on the strait. Oil fell approximately 7% on the day toward $94-101/bbl, the largest single-day decline since the war began. Arm Holdings reported record Q4 FY2026 results ($1.49B revenue, data center royalties more than doubled), completing the AI earnings confirmation sequence across software (Palantir), silicon (AMD), and IP (Arm). Disney beat on revenue and streaming income ($590M vs $500M target); Uber demonstrated consumer resilience (+6%); ADP April payrolls printed 109K, well above consensus, setting up an upside risk to Friday's NFP. Three factors prevent upgrading to full Risk-On: (1) Trump explicitly said a deal is 'not certain' and characterized Iran agreement as 'a big assumption'; (2) Israel struck Beirut for the first time since the Lebanon ceasefire — a Hezbollah complication that could broaden the conflict; (3) the MoU has not been signed and Iran's formal response is expected Thursday. If the MoU is signed, oil drops toward $85-90, and NFP prints above 50K, a full Risk-On upgrade is warranted."
+  },
+
+  "dominant_narrative_updates": [
+    {
+      "narrative_id": "iran-hormuz-war",
+      "tag": "Geopolitical",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "US and Iran Closing in on One-Page MoU — Iran Response Due Thursday, Deal 'Not Certain' Per Trump, Lebanon Complicates",
+        "body": "Axios reported Wednesday, citing sources, that the US and Iran are closing in on a one-page memorandum of understanding that would bring a resolution to the conflict. The MoU would include a moratorium on nuclear enrichment and arrangements on the Strait of Hormuz. An Iranian foreign ministry spokesperson told CNBC that Iran was evaluating the US proposal. Iran is expected to hand its response to mediators on Thursday. Trump said the US has had 'very good talks' over the past 24 hours but cautioned that a deal is 'not certain' and called Iranian agreement 'a big assumption.' Trump said Iran 'can't have nuclear weapons' and added they have 'agreed to that, among other things.' The US has the situation 'very much under control,' Trump told military mothers at the White House. More than 40 nations have assembled around the international maritime force framework for Hormuz. Germany dispatched a minesweeping vessel to the Mediterranean. Pakistan's PM Sharif praised the Project Freedom pause. Complicating the picture: Israel struck Beirut Wednesday evening for the first time since the Lebanon ceasefire, targeting the Hezbollah Radwan force commander. The strike was coordinated with the US in advance. Netanyahu confirmed 'full coordination' with Trump on Iran nuclear goals. The Beirut strike introduces new risk — Lebanon complication is the primary wild card preventing a clean deal pathway. Iran's formal response Thursday is the single most important market event of the week.",
+        "bullets": [
+          "Axios: US and Iran closing in on a one-page MoU — moratorium on nuclear enrichment plus Hormuz arrangements; Iran expected to deliver response to mediators Thursday — this is the most advanced deal signal of the entire conflict.",
+          "Trump: 'very good talks' over 24 hours but deal is 'not certain' and Iranian agreement is 'a big assumption' — cautioned markets against front-running the announcement.",
+          "Israel struck Beirut for first time since Lebanon ceasefire — targeted Hezbollah Radwan commander, coordinated with US; Lebanon fraying is the primary complication in a clean deal pathway.",
+          "40+ nations assembling maritime force; Germany dispatched minesweeper; multilateral pressure on both sides is at its highest point since the war began."
+        ],
+        "market_impact": {
+          "session": "Thursday Open",
+          "text": "Iran's formal response to the MoU Thursday is the single binary event that determines the week's regime. A positive response — even partial acceptance — would push oil toward $85-90, send VIX below 15, and likely take equities to new records above 7,400. A rejection or new military action would reprice the geopolitical risk premium sharply back in, reversing Wednesday's gains. The Lebanon Beirut strike is a secondary risk: if Hezbollah retaliates significantly, it could complicate the Iran deal track even if Tehran is inclined to accept."
+        },
+        "sources": [
+          {
+            "label": "CNN Live – Iran reviewing US proposal; response expected to mediators Thursday May 6 2026",
+            "url": "https://www.cnn.com/2026/05/06/world/live-news/iran-war-trump-strait-of-hormuz"
+          },
+          {
+            "label": "ABC News Live – US and Iran closing in on one-page MoU; Trump says deal 'not certain'",
+            "url": "https://abcnews.com/International/live-updates/iran-live-updates-ukmto-reports-attacks-2-ships/?id=132626582"
+          },
+          {
+            "label": "CBS News Live – Trump says US has 'very good talks' with Iran; Netanyahu confirms coordination",
+            "url": "https://www.cbsnews.com/live-updates/iran-war-trump-progress-peace-deal-strait-of-hormuz/"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "ai-earnings-capex",
+      "tag": "Earnings",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Arm Completes the AI Earnings Trifecta — Data Center Royalties Doubled, AGI CPU Has $2B+ Orders, Long-Term $9 EPS Target Set",
+        "body": "Arm Holdings reported record Q4 FY2026 results Wednesday after close, completing the AI earnings confirmation sequence across all three layers of the stack — software/platform (Palantir), silicon/accelerators (AMD), and IP/architecture (Arm). Q4 revenue reached $1.49B (+20% YoY), above guidance midpoint, the company's highest quarterly revenue ever. Full-year FY2026 revenue was $4.92B (+23% YoY), the third consecutive year of 20%+ growth since going public. Licensing revenue rose 29% YoY to $819M, driven by demand for the Arm platform. Royalty revenue grew 11% to $671M — but the critical signal was that data center royalties more than doubled year-over-year. Non-GAAP EPS reached a record $0.60. CEO Rene Haas said demand for the newly launched Arm AGI CPU has more than doubled since its late-March launch, with over $2B in customer demand across FY2027 and FY2028. 'Soon the data center will be Arm's largest business.' The company set long-term targets of $15B in chip revenue and non-GAAP EPS above $9 by fiscal 2031, projecting 20% royalty revenue CAGR from 2026-2031 versus 14% from 2022-2026. Stock surged approximately 6.78% Thursday morning. Combined with AMD's 16-18% session rally Wednesday and the Palantir/AMD afterhours beats, the AI earnings narrative is now structurally confirmed across every layer of the technology stack.",
+        "bullets": [
+          "Arm Q4 FY2026: revenue $1.49B (+20% YoY), record high; data center royalties more than doubled YoY; non-GAAP EPS record $0.60 — AI IP stack confirms the same monetization thesis as AMD and Palantir.",
+          "Arm AGI CPU demand more than doubled since late-March launch to over $2B across FY2027-FY2028 — 'Soon the data center will be Arm's largest business' — a structural market share shift in CPU compute.",
+          "Long-term targets: $15B chip revenue + $9 non-GAAP EPS by fiscal 2031 at 20% royalty CAGR — the highest investor day targets Arm has published; stock +6.78% Thursday morning."
+        ],
+        "market_impact": {
+          "session": "Thursday Open",
+          "text": "Arm's result completes the AI earnings trifecta. The entire semiconductor and software AI complex — NVDA, TSMC, MSFT, PLTR, AMD, ARM — now has confirmed monetization across multiple reporting quarters. The next major test is Nvidia on May 20. Until then, the AI earnings narrative is structurally supportive. The $2B AGI CPU demand figure specifically challenges Intel's remaining CPU franchise in data centers and validates AMD's CPU dominance narrative from Tuesday's call."
+        },
+        "sources": [
+          {
+            "label": "Arm Newsroom – Arm delivers record Q4 FY2026 results: $1.49B revenue, data center royalties doubled",
+            "url": "https://newsroom.arm.com/news/arm-q4-fye26-results"
+          },
+          {
+            "label": "Investing.com – Arm Holdings Q4 FY2026 earnings call transcript: AGI CPU $2B+ demand, $9 EPS target",
+            "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-arm-holdings-reports-record-q4-fy2026-results-93CH-4665853"
+          },
+          {
+            "label": "Investing.com – Arm Q4 FY2026 slides: $15B chip revenue target, >$9 EPS by 2031",
+            "url": "https://www.investing.com/news/company-news/arm-q4-fy2026-slides-15b-chip-revenue-target-9-eps-by-2031-93CH-4665934"
+          },
+          {
+            "label": "Sherwood News – Arm surges after doubling of demand for AI CPUs since late March",
+            "url": "https://sherwood.news/markets/arm-holdings-q4-earnings-report-q1-guidance-cpu-data-center-ai-boom/"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "energy-oil-hormuz",
+      "tag": "Energies",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Oil Falls 7% Wednesday on MoU Reports — WTI Approaching $91-94, Largest Single-Day Drop Since War Began",
+        "body": "Oil fell approximately 7% on Wednesday — the largest single-day decline since the Iran war began — as Axios reported the US and Iran were closing in on a one-page MoU. WTI fell from approximately $102 to approach $94-101/bbl intraday, with pre-Thursday futures showing WTI at approximately $91.46. Brent fell from $109.87 to approximately $108 intraday. The MoU reports represent the first credible signed-deal signal of the conflict, driving the market to begin pricing in a potential supply recovery. If oil sustains a move into the $85-90 WTI range, it would represent the largest oil-driven relief in the macro environment since the war began and would materially decompress inflation expectations. Goldman Sachs' inventory depletion warning remains structurally valid — even if a deal is signed, normalization of supply takes weeks to months. The APA Group, Diamondback, and energy sector broadly gave back some of Monday's gains as oil retreated. The US national gas average stood near $4.46-4.48/gallon but should begin to ease if oil stays below $95.",
+        "bullets": [
+          "Oil fell approximately 7% Wednesday — the largest single-day drop since the war began — on MoU reports; WTI approaching $91-94 pre-Thursday, Brent near $108; if sustained, this begins to decompress the inflation pipeline.",
+          "Pre-Thursday futures: WTI ~$91.46, Brent ~$108 — if these hold at open, oil is approaching the bull-case territory (WTI below $90) for the first time since early March.",
+          "Even with a deal, supply normalization takes weeks to months per ExxonMobil and Chevron CEO guidance — the oil relief is structural, not immediate; do not expect rapid gasoline price relief."
+        ],
+        "market_impact": {
+          "session": "Thursday and Beyond",
+          "text": "Oil at $91 pre-Thursday represents a genuine macro regime inflection if sustained. PCE at 4.5% was driven primarily by energy pass-through — WTI sustainably below $90 would begin to mechanically reduce the inflation trajectory and bring the Fed's rate-hold rationale into question. This is the most significant oil development in terms of macro impact since the war began. Watch for Warsh's first public comments on whether oil relief changes the rate path."
+        },
+        "sources": [
+          {
+            "label": "Charles Schwab – Market update May 6: crude down 7% on deal hopes toward $94",
+            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          },
+          {
+            "label": "CNBC – Dow surges 600 points, S&P first close above 7,300 as traders hope for Iran deal",
+            "url": "https://www.cnbc.com/2026/05/05/stock-market-today-live-updates.html"
+          },
+          {
+            "label": "Yahoo Finance – Futures pre-Thursday: VIX 16.20, WTI $91.46, Brent $108",
+            "url": "https://finance.yahoo.com/quote/%5EGSPC/history/"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "metals-gold-safe-haven",
+      "tag": "Metals & Commodities",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Gold Finally Gets Its Bid — Up 3%+ Pre-Thursday as MoU Signals Oil Collapse and Dollar Softens",
+        "body": "Gold is surging in pre-Thursday trading, up approximately 3.14% to $4,712 per troy ounce in pre-market futures. This is the first meaningful safe-haven plus inflation-relief bid gold has seen since the war began. The dynamic is now reversing: if oil falls toward $85-90 and a deal is signed, inflation expectations will decompress, real yields should ease as the rate-hike probability retreats, and the dollar may soften further — all of which are constructive for gold. Additionally, a post-war reconstruction signal could trigger physical demand from central banks accelerating purchases. The pre-Thursday $4,712 print represents a potential breakout from the war-period downtrend. If sustained, it would be the first time gold has benefited from a war-related development rather than suffered from the inflation it created.",
+        "bullets": [
+          "Gold up ~3.14% to $4,712 pre-Thursday — the first sustained geopolitical/inflation-relief bid of the entire war period; the dominant macro driver for gold is beginning to shift from rate-path headwind to deal-relief tailwind.",
+          "If the MoU is signed and oil sustains a move toward $85-90, gold's real rate headwind compresses — the same mechanism that suppressed gold during the war (oil-driven inflation) now reverses as oil falls.",
+          "Bitcoin also rising (+2.73% pre-Thursday) alongside gold — risk assets and stores of value both bidding simultaneously, a strong risk-appetite signal."
+        ],
+        "market_impact": {
+          "session": "Thursday and Beyond",
+          "text": "Gold's move is the clearest cross-asset confirmation that the MoU narrative is being taken seriously across asset classes. This is not a safe-haven bid — it is a deal-relief bid. If gold holds $4,700+ and oil sustains below $95, the macro regime has materially shifted and the Fed's rate-hold rationale begins to erode in real time."
+        },
+        "sources": [
+          {
+            "label": "Yahoo Finance – Futures pre-Thursday May 7: Gold $4,712, +3.14%",
+            "url": "https://finance.yahoo.com/quote/%5EGSPC/history/"
+          }
+        ]
+      }
+    },
+    {
+      "narrative_id": "flows-positioning",
+      "tag": "Flows",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "S&P 500 First Close Above 7,300 as Peace Deal Narrative Drives Record Session — ADP 109K Sets Up NFP Upside Risk Friday",
+        "body": "Wednesday's session was the strongest of the week by a wide margin. S&P 500 closed at 7,365.12 (+1.46%), a new all-time record. Nasdaq closed at 25,838.94 (+2.02%), a new record. Dow closed at 49,910.59 (+1.24%, +612 points), approaching 50K for the first time. AMD surged 16-18% intraday on Tuesday's afterhours beat, leading the semiconductor complex higher; Arm rallied 13% during Wednesday's session on AMD's result ahead of its own earnings. Disney +6.24% on earnings beat. Uber +6% on its own beat. VIX fell further to approximately 16.20 pre-Thursday open, approaching the sub-15 bull case threshold. The RSI for the S&P 500 is above 70, Schwab flagged as technically overbought — a mean-reversion risk if the MoU narrative fails to materialize Thursday. ADP April private payrolls printed 109K — well above the ~57K NFP consensus — introducing genuine upside risk to Friday's report. The services sector dominated ADP gains; lower-paying services employment far outpaced goods-producing jobs, a potentially stagflationary jobs-mix signal even as the headline was strong. New York Fed researchers released data showing lower-income households (under $40K) cut real gasoline consumption by 7% during the March price spike while high-income households barely adjusted — a K-shaped energy-cost dynamic that reinforces consumer bifurcation.",
+        "bullets": [
+          "S&P 500 first close above 7,300 at 7,365.12 (+1.46%), Nasdaq new record at 25,838.94 (+2.02%), Dow first close above 49,900 at 49,910.59 — all driven by MoU narrative, AMD, Disney, and Uber beats.",
+          "ADP April: 109K private payrolls vs ~57K NFP consensus — introduces significant upside risk to Friday's report; if NFP prints 80K-120K it would validate the labor market and provide structural support for the bull case.",
+          "VIX at 16.20 pre-Thursday, approaching bull case sub-15 threshold; S&P RSI above 70 (technically overbought) — a structural caution signal that the rally needs MoU confirmation to sustain rather than correct."
+        ],
+        "market_impact": {
+          "session": "Thursday Open",
+          "text": "The market is now pricing in a high-probability deal scenario. If the MoU is not signed or Iran rejects it Thursday, the reversal could be sharp — the rally from 7,200 to 7,365 in two days is priced on diplomatic optimism. ADP's 109K print adds genuine labor market strength to the bull case ahead of Friday's NFP. The pre-Thursday setup is the most bullish of the week but also the most exposed to a negative headline."
+        },
+        "sources": [
+          {
+            "label": "CNBC – Dow surges 600 points, S&P first close above 7,300: Iran deal hopes drive record session",
+            "url": "https://www.cnbc.com/2026/05/05/stock-market-today-live-updates.html"
+          },
+          {
+            "label": "TheStreet – Stock Market Today May 6: Nasdaq rises 2%, S&P and Russell set new records on Iran deal hopes",
+            "url": "https://www.thestreet.com/latest-news/stock-market-today-may-6-2026-updates"
+          },
+          {
+            "label": "Charles Schwab – Market update open May 6: ADP 109K, AMD +18%, crude -7%",
+            "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+          }
+        ]
+      }
+    }
+  ],
+
+  "catalyst_calendar_updates": [
+    {
+      "event": "Iran War / Project Freedom / Strait of Hormuz Negotiations — Continuous",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "DEAL IMMINENT BUT NOT SIGNED. Axios reported US and Iran closing in on a one-page MoU: moratorium on nuclear enrichment + Hormuz arrangements. Iran expected to deliver response to mediators Thursday. Trump: 'very good talks,' deal 'not certain,' Iranian agreement 'a big assumption.' Israel struck Beirut (Hezbollah Radwan commander) Wednesday — first since Lebanon ceasefire, coordinated with US. Iran's Thursday response is the single most important event of the week."
+      },
+      "new_flag": "MOU IMMINENT — IRAN RESPONSE THURSDAY",
+      "new_impact": "critical"
+    },
+    {
+      "event": "Walt Disney Q2 Fiscal 2026 Earnings (DIS)",
+      "update": {
+        "timestamp": "2026-05-06T08:00:00-04:00",
+        "text": "REPORTED: Revenue $25.17B vs $24.78B expected — BEAT. Streaming operating income $590M — BEAT the $500M key question threshold. FY2026 adjusted EPS guidance +12% maintained. FY2027 double-digit EPS growth guided. Buyback raised to $8B. CFO: consumer 'strong,' H2 bookings 'quite strong.' Not immune to further fuel price spikes. Stock +6.24% Wednesday. BEAT — Key Question 6 answered affirmatively."
+      },
+      "new_flag": "BEAT"
+    },
+    {
+      "event": "Uber Technologies Q1 2026 Earnings (UBER)",
+      "update": {
+        "timestamp": "2026-05-06T08:00:00-04:00",
+        "text": "REPORTED: EPS $0.73 beat consensus. Trips +20% YoY to 3.6B. MAPCs +17% to 199M. Gross bookings +14% YoY. Consumer resilience confirmed — no evidence of energy-cost demand destruction in ride-hailing. Stock +6% Wednesday. BEAT — Consumer cross-read: strong."
+      },
+      "new_flag": "BEAT"
+    },
+    {
+      "event": "Arm Holdings Q1 2026 Earnings (ARM)",
+      "update": {
+        "timestamp": "2026-05-06T22:00:00-04:00",
+        "text": "REPORTED (Q4 FY2026): Revenue $1.49B (+20% YoY), record high, above guidance midpoint. Licensing +29% to $819M. Royalty +11% to $671M; data center royalties more than doubled YoY. Non-GAAP EPS record $0.60. FY2026 full-year $4.92B (+23%). Arm AGI CPU demand doubled to $2B+ since March launch. Long-term targets: $15B chip revenue + $9 EPS by 2031. Stock +6.78% Thursday AM. BEAT — AI IP trifecta complete."
+      },
+      "new_flag": "BEAT"
+    },
+    {
+      "event": "ADP Employment Report (April)",
+      "update": {
+        "timestamp": "2026-05-06T08:15:00-04:00",
+        "text": "PRINTED: 109K private payrolls in April — significantly above consensus of ~62K and well above the ~57K NFP estimate. Services sector dominated; lower-paying services far outpaced goods-producing jobs. Introduces upside risk to Friday's NFP. Labor market holding before full Iran-war economic impact registered."
+      },
+      "new_flag": "PRINTED — 109K, ABOVE CONSENSUS"
+    }
+  ],
+
+  "market_snapshot_updates": {
+    "as_of": "2026-05-06T21:30:00-04:00",
+    "updates": [
+      {
+        "category": "indexes",
+        "label": "S&P 500",
+        "new_value": "7,365.12",
+        "new_direction": "up",
+        "new_note": "First close above 7,300 — new all-time record Wednesday (+1.46%); driven by Iran MoU reports, AMD +16-18%, Disney +6.24%, Uber +6%; RSI now above 70, technically overbought"
+      },
+      {
+        "category": "indexes",
+        "label": "Nasdaq Composite",
+        "new_value": "25,838.94",
+        "new_direction": "up",
+        "new_note": "New all-time record close Wednesday (+2.02%); AMD, Arm, and semiconductor complex led; Nasdaq up approximately 3% on the week heading into Thursday"
+      },
+      {
+        "category": "indexes",
+        "label": "Dow Jones Industrial Average",
+        "new_value": "49,910.59",
+        "new_direction": "up",
+        "new_note": "Up 612 points Wednesday (+1.24%), approaching 50K milestone for first time; Disney +6.24% and Nvidia +4.78% led Dow gainers"
+      },
+      {
+        "category": "indexes",
+        "label": "Russell 2000",
+        "new_value": "~2,870+",
+        "new_direction": "up",
+        "new_note": "Continued advance Wednesday; small-cap outperformance through the week confirms broadening participation; Russell 2000 futures +1.80% pre-Thursday open"
+      },
+      {
+        "category": "indexes",
+        "label": "VIX",
+        "new_value": "~16.20",
+        "new_direction": "down",
+        "new_note": "Fell further Wednesday, approximately 16.20 pre-Thursday open; approaching the sub-15 bull-case threshold; directional confirmation of risk premium unwind"
+      },
+      {
+        "category": "indexes",
+        "label": "10Y Treasury Yield",
+        "new_value": "~4.30%",
+        "new_direction": "down",
+        "new_note": "Continued to ease as oil dropped and inflation expectations decompressed on MoU news; structural Fed hold rationale beginning to soften at the margin"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "WTI Crude",
+        "new_value": "~$91.46/bbl",
+        "new_direction": "down",
+        "new_note": "Fell approximately 7% Wednesday on MoU reports; pre-Thursday futures at ~$91.46 — approaching bull-case territory (below $90) for first time since early March; largest single-day decline since war began"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Brent Crude",
+        "new_value": "~$108/bbl",
+        "new_direction": "down",
+        "new_note": "Down from $114.44 Monday to ~$108 Wednesday; if MoU signed Thursday, target range $95-100; Goldman inventory depletion data means supply relief takes weeks even post-deal"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Gold",
+        "new_value": "~$4,712/oz",
+        "new_direction": "up",
+        "new_note": "Up approximately 3.14% pre-Thursday to $4,712; first genuine post-war gold bid — deal-relief dynamic reversing the inflation-headwind suppression; potential breakout from war-period downtrend"
+      },
+      {
+        "category": "energy_volatility",
+        "label": "Strait of Hormuz",
+        "new_value": "MOU IMMINENT — Day 67",
+        "new_direction": "up",
+        "new_note": "US and Iran closing in on one-page MoU per Axios; Iran expected to respond Thursday; Project Freedom paused; naval blockade active; 40+ nations assembled for maritime force; Lebanon Beirut strike complicates"
+      }
+    ]
+  },
+
+  "stories_to_track_updates": [
+    {
+      "category": "geopolitical_macro",
+      "label": "Iran 14-point peace proposal — Trump reviewing language; nuclear deferral framework could open strait before formal resolution",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "Evolved into one-page MoU framework. Axios reported US and Iran closing in on document that would include moratorium on nuclear enrichment and Hormuz arrangements. Iran expected to respond to mediators Thursday. Trump confirmed 'very good talks' over 24 hours. Iran has 'its finger on the trigger' per Iranian parliamentary official — caution warranted. Deal not certain per Trump."
+      },
+      "new_status": "MOU IMMINENT — IRAN RESPONSE THURSDAY",
+      "new_direction": "up"
+    },
+    {
+      "category": "geopolitical_macro",
+      "label": "Lebanon ceasefire stability — Hezbollah and Israeli forces both claimed attacks on May 1 despite ceasefire",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "ESCALATED. Israel struck Beirut Wednesday for first time since Lebanon ceasefire — targeted Hezbollah Radwan force commander, coordinated with US in advance. Netanyahu: 'full coordination' with Trump. Hezbollah confirmed it attacked Israeli soldiers in two locations in 'defense of Lebanon.' Lebanon complication is the single factor most likely to derail Iran deal negotiations — Iran has historically conditioned Hormuz deals on Lebanon outcomes."
+      },
+      "new_status": "ESCALATED — BEIRUT STRIKE",
+      "new_direction": "down"
+    },
+    {
+      "category": "sector_stock_signals",
+      "label": "AI capex ROI divergence — Alphabet rewarded, Meta punished; Palantir/AMD/Arm results will further define which side of the capex payback line the market draws",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "RESOLVED. Palantir (software/platform), AMD (silicon/accelerators), Arm (IP/architecture) all confirmed. The three-layer AI earnings trifecta is complete — monetization confirmed at every level of the stack. The market has drawn a clear line: if you can show AI revenue, you are rewarded. Nvidia May 20 is the capstone."
+      },
+      "new_status": "TRIFECTA COMPLETE — NVIDIA MAY 20 IS CAPSTONE",
+      "new_direction": "up"
+    },
+    {
+      "category": "sector_stock_signals",
+      "label": "Disney first report under CEO D'Amaro — streaming profitability ($500M operating income target) and any strategic pivot will define sentiment on the legacy media complex",
+      "update": {
+        "timestamp": "2026-05-06T08:30:00-04:00",
+        "text": "REPORTED: Revenue $25.17B beat ($24.78B expected). Streaming operating income $590M — beat the $500M target. FY2026 EPS +12% guidance maintained. FY2027 double-digit EPS growth. Buyback raised to $8B. CFO: consumer 'strong.' Stock +6.24%. Legacy media sentiment stabilized — streaming profitability path confirmed under new leadership."
+      },
+      "new_status": "CONFIRMED BEAT — STREAMING $590M",
+      "new_direction": "up"
+    },
+    {
+      "category": "geopolitical_macro",
+      "label": "PCE / Stagflation pathway — 4.5% PCE + sub-50K NFP would be textbook stagflation print, pressuring equities and extending the rate hold",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "ADP 109K meaningfully reduces the sub-50K NFP tail risk. If oil sustains below $95 post-MoU, the energy pass-through component of PCE begins to mechanically reverse — the stagflation pathway is losing its primary inflation driver. ADP jobs-mix caveat: services dominated at lower-paying jobs, goods-producing employment weak — quality of jobs matters. Stagflation risk is receding but not eliminated until PCE actually turns."
+      },
+      "new_status": "RECEDING — ADP 109K AND OIL COLLAPSE REDUCE BOTH LEGS",
+      "new_direction": "up"
+    }
+  ],
+
+  "scenario_updates": [
+    {
+      "id": "bull",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Bull Case Substantially Reactivated — MoU Imminent, Oil at $91, AI Trifecta Complete, ADP 109K",
+        "body": "The bull case is substantially reactivated. The MoU report is the closest thing to the Iran-accepts-framework condition the bull case required. Oil at $91 pre-Thursday is approaching the bull case's WTI below $90 threshold. Palantir, AMD, and Arm have all delivered the AI earnings confirmations required. ADP's 109K print sets up an NFP beat that would validate labor resilience. The S&P at 7,365 is above the bull case's 7,300+ extension zone. Full activation of the bull case now requires: (1) Iran formally accepts or signals acceptance of the MoU Thursday — not just evaluating it; (2) NFP Friday prints above 50K and ideally in the 70K-120K range; (3) oil sustains below $95 on the signed deal. All three are plausible within 48 hours. Bull probability is at its highest point since the week began."
+      }
+    },
+    {
+      "id": "base",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Base Case Upper Boundary Exceeded — Market Trading Through Base Case Range Toward Bull Case",
+        "body": "The S&P 500 at 7,365 has moved above the base case's 7,100-7,300 range. The base case oil band of $100-$110 WTI has been broken to the downside with WTI at $91. The base case has effectively been surpassed by events — the market is now pricing something closer to the bull case scenario. If the MoU is not signed Thursday and markets reprice, the base case band (7,100-7,300 S&P, $100-$110 WTI) would reassert as the landing zone. Base case remains the floor scenario, not the current operating environment."
+      }
+    },
+    {
+      "id": "bear",
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "headline": "Bear Case Now a Low-Probability Tail — Requires MoU Collapse, Lebanese Escalation, and NFP Miss Simultaneously",
+        "body": "The bear case has receded significantly. Oil at $91 is the inverse of the bear case trigger. AI earnings have beaten across the board. The MoU is close to signature. For the bear case to re-engage: (1) Iran rejects the MoU Thursday AND (2) the Lebanon Beirut strike triggers a broader Hezbollah escalation AND (3) NFP misses badly Friday below 20K. All three conditions would need to coincide. The Lebanon complication is the most credible bear-case pathway — if Hezbollah responds forcefully to the Beirut strike and Iran conditions its deal acceptance on Lebanon outcomes, the entire diplomatic track could stall. Bear probability: lowest since the week began, but not eliminated."
+      }
+    }
+  ],
+
+  "key_questions_updates": [
+    {
+      "number": 2,
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "Axios reported US and Iran closing in on a one-page MoU: moratorium on nuclear enrichment and Hormuz arrangements. Iran evaluating US proposal and expected to respond to mediators Thursday. Trump confirmed 'very good talks' over 24 hours and said Iran has 'agreed' to no nuclear weapons 'among other things.' Deal not formally signed and 'not certain' per Trump."
+      },
+      "new_status": "approaching_answered",
+      "new_update_label": "One-Page MoU Imminent — Iran Response Expected Thursday",
+      "new_answer": "The Trump administration has not yet formally accepted the 14-point proposal but is negotiating a one-page MoU that would include a moratorium on nuclear enrichment and Hormuz arrangements. Iran is expected to deliver its response to mediators Thursday. This is the closest the conflict has come to a signed framework — but not yet a signed agreement with a credible strait-reopening timeline."
+    },
+    {
+      "number": 4,
+      "update": {
+        "timestamp": "2026-05-06T08:15:00-04:00",
+        "text": "ADP April payrolls printed 109K — significantly above the ~57K NFP consensus. Introduces upside risk to Friday's report. If NFP beats consensus by a comparable magnitude, it would confirm labor market resilience and the soft-landing narrative. FactSet consensus is approximately 57K; ADP historically diverges from NFP but directional signal is constructive."
+      },
+      "new_status": "partially_answered",
+      "new_update_label": "ADP 109K Sets Up NFP Upside Risk — Report Friday",
+      "new_answer": "ADP April printed 109K, well above the ~57K NFP consensus. The labor market is showing resilience before the full Iran-war economic impact registers. A Friday NFP beat above 70K would confirm soft-landing, push the stagflation narrative further into the background, and support the bull case. A miss below 30K despite ADP's strength would be a significant negative surprise."
+    },
+    {
+      "number": 5,
+      "update": {
+        "timestamp": "2026-05-06T21:30:00-04:00",
+        "text": "WTI fell to approximately $91-94 Wednesday on MoU reports — pre-Thursday futures at $91.46. The $115 sustained bear trigger was never reached; oil is now approaching the bull case threshold (below $90). The bear case trigger question is now fully resolved in the negative — the sustained $115+ oil scenario did not materialize."
+      },
+      "new_status": "answered",
+      "new_update_label": "Bear Trigger Not Activated — Oil Approaching Bull Case Territory",
+      "new_answer": "WTI held below $115 sustained throughout the week and has now fallen to approximately $91 on MoU reports, approaching bull-case territory (below $90). The bear case trigger for sustained WTI above $115 was not activated. Oil's trajectory is now the inverse of the bear scenario — the question has definitively resolved in favor of the base/bull case outcome."
+    },
+    {
+      "number": 6,
+      "update": {
+        "timestamp": "2026-05-06T08:30:00-04:00",
+        "text": "Disney Q2 FY2026: streaming operating income $590M — beat the $500M key question threshold by $90M. Revenue $25.17B beat expectations. CFO confirmed consumer 'strong' and H2 bookings 'quite strong.' Strategic direction under CEO D'Amaro maintains prior trajectory with raised buyback. Key question 6 answered affirmatively."
+      },
+      "new_status": "answered",
+      "new_update_label": "Disney $590M Streaming — Key Question 6 Fully Answered",
+      "new_answer": "Disney delivered streaming operating income of $590M in Q2 FY2026, beating the $500M target by $90M. Revenue beat expectations at $25.17B. CFO said the consumer is 'strong' and H2 bookings are 'quite strong.' Under new CEO D'Amaro, Disney maintained prior guidance and raised buybacks to $8B. Legacy media streaming profitability is confirmed — key question 6 answered affirmatively."
+    }
+  ],
+
+  "research_sources_update": [
+    {
+      "label": "CNBC – Dow surges 600 points, S&P first close above 7,300 on Iran deal hopes May 6 2026",
+      "url": "https://www.cnbc.com/2026/05/05/stock-market-today-live-updates.html",
+      "tag": "Flows"
+    },
+    {
+      "label": "CNN Live – Iran reviewing US proposal; response to mediators expected Thursday May 6 2026",
+      "url": "https://www.cnn.com/2026/05/06/world/live-news/iran-war-trump-strait-of-hormuz",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "ABC News Live – US-Iran one-page MoU nearing; Trump says deal not certain May 6 2026",
+      "url": "https://abcnews.com/International/live-updates/iran-live-updates-ukmto-reports-attacks-2-ships/?id=132626582",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "CBS News Live – Trump says very good talks with Iran; Netanyahu targets Beirut, confirms US coordination",
+      "url": "https://www.cbsnews.com/live-updates/iran-war-trump-progress-peace-deal-strait-of-hormuz/",
+      "tag": "Geopolitical"
+    },
+    {
+      "label": "Charles Schwab – Market update open May 6: crude -7%, AMD +18%, ADP 109K, deal hopes drive rally",
+      "url": "https://www.schwab.com/learn/story/stock-market-update-open",
+      "tag": "Flows"
+    },
+    {
+      "label": "TheStreet – Stock Market Today May 6 2026: Nasdaq +2%, S&P new records on Iran deal narrative",
+      "url": "https://www.thestreet.com/latest-news/stock-market-today-may-6-2026-updates",
+      "tag": "Flows"
+    },
+    {
+      "label": "Arm Newsroom – Arm Q4 FY2026 record results: $1.49B revenue, data center royalties doubled, AGI CPU $2B+ demand",
+      "url": "https://newsroom.arm.com/news/arm-q4-fye26-results",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Investing.com – Arm Q4 FY2026 earnings transcript: record EPS $0.60, $15B chip revenue target by 2031",
+      "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-arm-holdings-reports-record-q4-fy2026-results-93CH-4665853",
+      "tag": "Earnings"
+    },
+    {
+      "label": "CNBC – Disney Q2 FY2026 earnings: revenue $25.17B beats, streaming $590M beats $500M target",
+      "url": "https://www.cnbc.com/amp/2026/05/06/disney-dis-earnings-q2-2026.html",
+      "tag": "Earnings"
+    },
+    {
+      "label": "Yahoo Finance – Arm Q4 FY2026 earnings highlights: data center royalties doubled, AGI CPU demand",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/arm-q4-earnings-call-highlights-225942093.html",
+      "tag": "Earnings"
+    }
+  ]
+}

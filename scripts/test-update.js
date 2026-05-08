@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function testUpdate() {
-  const filePath = path.join(__dirname, '../JSON Examples/update_payload_05-05-26.json');
+  const filePath = path.join(__dirname, '../JSON Examples/update_payload_05-06-26.json');
   console.log(`Reading JSON patch file from: ${filePath}`);
 
   const rawData = fs.readFileSync(filePath, 'utf8');

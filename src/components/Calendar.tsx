@@ -29,7 +29,16 @@ export default function Calendar({
   reportCounts = {},
   variant = 'large'
 }: CalendarProps) {
-  const [currentMonth, setCurrentMonth] = useState(new Date(2026, 3, 1));
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    if (selectedDate) {
+      const d = new Date(selectedDate);
+      if (!isNaN(d.getTime())) {
+        return startOfMonth(d);
+      }
+    }
+    return startOfMonth(new Date());
+  });
+
 
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(monthStart);
