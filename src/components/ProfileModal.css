@@ -140,6 +140,10 @@
   min-height: 1px;
 }
 
+.row.is-poc {
+  border-bottom: 1px solid rgba(234, 179, 8, 0.8);
+}
+
 .is-poc .bar {
   background-color: rgba(234, 179, 8, 0.4);
   border-right: 1px solid rgba(234, 179, 8, 0.8);
@@ -151,6 +155,54 @@
 
 .row.is-poc:hover .bar {
   background-color: rgba(234, 179, 8, 0.6);
+}
+
+.row.is-vah, .row.is-val {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+}
+
+.row.is-open::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-size: 8px;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.row.is-close::after {
+  content: '◀';
+  position: absolute;
+  right: 0;
+  color: var(--danger);
+  font-size: 8px;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.row.is-high::after {
+  content: '▲';
+  position: absolute;
+  right: 8px;
+  color: var(--text-primary);
+  font-size: 8px;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.row.is-low::after {
+  content: '▼';
+  position: absolute;
+  right: 8px;
+  color: var(--text-primary);
+  font-size: 8px;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .count-tooltip {

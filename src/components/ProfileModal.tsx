@@ -20,6 +20,9 @@ interface ProfileRow {
   low_price: number;
   close_price: number;
   total_volume: number;
+  poc_price: number;
+  vah_price: number;
+  val_price: number;
   tpo_profile: Record<string, number>;
   is_complete: boolean;
 }
@@ -139,19 +142,19 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
         totalTpo += count;
       });
 
-      // Find POC
-      Object.entries(aggCounts).forEach(([priceStr, count]) => {
-        if (count > pocCount) {
-          pocCount = count;
-          pocPrice = parseFloat(priceStr);
-        }
-      });
+      const getBucket = (p: number) => p !== undefined && p !== null ? parseFloat((Math.floor(p / interval) * interval).toFixed(6)) : null;
 
       return {
         ...p,
         aggCounts,
-        pocPrice,
-        totalTpo
+        totalTpo,
+        aggPoc: getBucket(p.poc_price),
+        aggVah: getBucket(p.vah_price),
+        aggVal: getBucket(p.val_price),
+        aggOpen: getBucket(p.open_price),
+        aggClose: getBucket(p.close_price),
+        aggHigh: getBucket(p.high_price),
+        aggLow: getBucket(p.low_price)
       };
     });
   }, [profiles, sharedAxis]);
@@ -224,9 +227,15 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                       <div className="status uppercase text-[10px] text-muted">
                         {profile.is_complete ? 'Complete' : 'Developing'}
                       </div>
-                      <div className="stats mt-2 text-[10px]">
-                        <div>Vol: {profile.total_volume.toLocaleString()}</div>
-                        <div>POC: {profile.pocPrice.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                      <div className="stats mt-2 text-[10px] grid grid-cols-2 gap-1">
+                        <div>Open: {profile.open_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>High: {profile.high_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>Low: {profile.low_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>Close: {profile.close_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>POC: {profile.poc_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>Vol: {profile.total_volume?.toLocaleString()}</div>
+                        <div>VAH: {profile.vah_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                        <div>VAL: {profile.val_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
                       </div>
                     </div>
                     <div className="histogram-wrapper">
@@ -235,10 +244,25 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                         const priceKey = parseFloat(price.toFixed(6));
                         const count = profile.aggCounts[priceKey] || 0;
                         const widthPct = sharedAxis.globalMaxCount > 0 ? (count / sharedAxis.globalMaxCount) * 100 : 0;
-                        const isPoc = priceKey === profile.pocPrice && count > 0;
+                        const isPoc = priceKey === profile.aggPoc;
+                        const isVah = priceKey === profile.aggVah;
+                        const isVal = priceKey === profile.aggVal;
+                        const isOpen = priceKey === profile.aggOpen;
+                        const isClose = priceKey === profile.aggClose;
+                        const isHigh = priceKey === profile.aggHigh;
+                        const isLow = priceKey === profile.aggLow;
+                        
+                        let classNames = ['row'];
+                        if (isPoc) classNames.push('is-poc');
+                        if (isVah) classNames.push('is-vah');
+                        if (isVal) classNames.push('is-val');
+                        if (isOpen) classNames.push('is-open');
+                        if (isClose) classNames.push('is-close');
+                        if (isHigh) classNames.push('is-high');
+                        if (isLow) classNames.push('is-low');
 
                         return (
-                          <div key={priceKey} className={`row ${isPoc ? 'is-poc' : ''}`}>
+                          <div key={priceKey} className={classNames.join(' ')}>
                             <div className="bar-container">
                               {count > 0 && (
                                 <div className="bar" style={{ width: `${widthPct}%` }}></div>
