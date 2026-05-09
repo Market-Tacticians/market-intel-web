@@ -340,7 +340,7 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                                   )}
                                   {count > 0 && (
                                     <div className="count-tooltip">
-                                      {count.toLocaleString()} TPO ({((count / profile.totalTpo) * 100).toFixed(1)}%)
+                                      {priceKey.toFixed(baseTick < 1 ? (baseTick < 0.01 ? 3 : 2) : 0)} | {count.toLocaleString()} TPO ({((count / profile.totalTpo) * 100).toFixed(1)}%)
                                     </div>
                                   )}
                                 </div>
