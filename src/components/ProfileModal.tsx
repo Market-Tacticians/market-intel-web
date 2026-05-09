@@ -102,7 +102,7 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
     // Step 3: Create the shared array of prices
     const prices: number[] = [];
     for (let p = snapMax; p >= snapMin - 0.000001; p -= interval) {
-      prices.push(p);
+      prices.push(parseFloat(p.toFixed(6)));
     }
 
     // Step 4: Find global max count for scaling the bars visually relative to each other
@@ -142,7 +142,10 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
         totalTpo += count;
       });
 
-      const getBucket = (p: number) => p !== undefined && p !== null ? parseFloat((Math.floor(p / interval) * interval).toFixed(6)) : null;
+      const getBucket = (p: number | null | undefined) => {
+        if (p === undefined || p === null) return null;
+        return parseFloat((Math.floor(p / interval + 0.000001) * interval).toFixed(6));
+      };
 
       return {
         ...p,
@@ -197,25 +200,34 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
             <div className="profiles-container">
               {/* Left Price Axis */}
               <div className="price-axis">
-                {sharedAxis.prices.map((price, index) => {
-                  const labelHeight = 14; 
-                  const containerHeight = 650;
-                  const rowCount = sharedAxis.prices.length;
-                  const labelStep = Math.max(1, Math.ceil((labelHeight * rowCount) / containerHeight));
-                  
-                  // Show label if it aligns with step, or if it's the very top/bottom
-                  const showLabel = (index % labelStep === 0) || index === 0 || index === rowCount - 1;
-                  const decimals = baseTick < 0.01 ? 3 : baseTick < 0.1 ? 2 : 2;
-                  // For aggregations > 1 tick, standardizing on 0 decimals was requested but for instruments like CL (0.01) we need decimals. 
-                  // So we will dynamically adjust based on the interval magnitude.
-                  const dispDecimals = sharedAxis.interval! >= 1 ? 0 : decimals;
-                  
-                  return (
-                    <div key={price} className="axis-label" style={{ visibility: showLabel ? 'visible' : 'hidden' }}>
-                      {price.toFixed(dispDecimals)}
-                    </div>
-                  );
-                })}
+                <div className="histogram-inner">
+                  {(() => {
+                    const rowCount = sharedAxis.prices.length;
+                    if (rowCount === 0) return null;
+                    const labelHeight = 14; 
+                    const containerHeight = 650;
+                    const labelStep = Math.max(1, Math.ceil((labelHeight * rowCount) / containerHeight));
+                    const decimals = baseTick < 0.01 ? 3 : baseTick < 0.1 ? 2 : 2;
+                    const dispDecimals = sharedAxis.interval! >= 1 ? 0 : decimals;
+                    
+                    const labels = [];
+                    for (let i = 0; i < rowCount; i++) {
+                      if (i % labelStep === 0 || i === 0 || i === rowCount - 1) {
+                        labels.push(
+                          <div key={sharedAxis.prices[i]} className="axis-label" style={{ 
+                            position: 'absolute',
+                            top: `${(i / rowCount) * 100}%`,
+                            height: `${(1 / rowCount) * 100}%`,
+                            width: '100%'
+                          }}>
+                            {sharedAxis.prices[i].toFixed(dispDecimals)}
+                          </div>
+                        );
+                      }
+                    }
+                    return labels;
+                  })()}
+                </div>
               </div>
 
               {/* Profiles Grid */}
@@ -239,43 +251,75 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                       </div>
                     </div>
                     <div className="histogram-wrapper">
-                      {sharedAxis.prices.map(price => {
-                        // Fix float issues
-                        const priceKey = parseFloat(price.toFixed(6));
-                        const count = profile.aggCounts[priceKey] || 0;
-                        const widthPct = sharedAxis.globalMaxCount > 0 ? (count / sharedAxis.globalMaxCount) * 100 : 0;
-                        const isPoc = priceKey === profile.aggPoc;
-                        const isVah = priceKey === profile.aggVah;
-                        const isVal = priceKey === profile.aggVal;
-                        const isOpen = priceKey === profile.aggOpen;
-                        const isClose = priceKey === profile.aggClose;
-                        const isHigh = priceKey === profile.aggHigh;
-                        const isLow = priceKey === profile.aggLow;
-                        
-                        let classNames = ['row'];
-                        if (isPoc) classNames.push('is-poc');
-                        if (isVah) classNames.push('is-vah');
-                        if (isVal) classNames.push('is-val');
-                        if (isOpen) classNames.push('is-open');
-                        if (isClose) classNames.push('is-close');
-                        if (isHigh) classNames.push('is-high');
-                        if (isLow) classNames.push('is-low');
+                      <div className="histogram-inner">
+                        {(() => {
+                          const rowCount = sharedAxis.prices.length;
+                          if (rowCount === 0) return null;
 
-                        return (
-                          <div key={priceKey} className={classNames.join(' ')}>
-                            <div className="bar-container">
-                              {count > 0 && (
-                                <div className="bar" style={{ width: `${widthPct}%` }}></div>
-                              )}
-                              {count > 0 && (
-                                <div className="count-tooltip">
-                                  {count.toLocaleString()} TPO ({((count / profile.totalTpo) * 100).toFixed(1)}%)
+                          const renderIndices = new Set<number>();
+                          const getIndex = (p: number | null | undefined) => {
+                            if (p === null || p === undefined) return -1;
+                            // Safe index calculation
+                            const maxP = sharedAxis.prices[0];
+                            const idx = Math.round((maxP - p) / sharedAxis.interval!);
+                            return (idx >= 0 && idx < rowCount) ? idx : -1;
+                          };
+
+                          Object.keys(profile.aggCounts).forEach(priceStr => {
+                            const p = parseFloat(priceStr);
+                            const idx = getIndex(p);
+                            if (idx !== -1) renderIndices.add(idx);
+                          });
+
+                          [profile.aggPoc, profile.aggVah, profile.aggVal, profile.aggOpen, profile.aggClose, profile.aggHigh, profile.aggLow].forEach(p => {
+                            const idx = getIndex(p);
+                            if (idx !== -1) renderIndices.add(idx);
+                          });
+
+                          return Array.from(renderIndices).map(idx => {
+                            const priceKey = sharedAxis.prices[idx];
+                            // Fix float issues
+                            const count = profile.aggCounts[parseFloat(priceKey.toFixed(6))] || 0;
+                            const widthPct = sharedAxis.globalMaxCount > 0 ? (count / sharedAxis.globalMaxCount) * 100 : 0;
+                            const isPoc = priceKey === profile.aggPoc;
+                            const isVah = priceKey === profile.aggVah;
+                            const isVal = priceKey === profile.aggVal;
+                            const isOpen = priceKey === profile.aggOpen;
+                            const isClose = priceKey === profile.aggClose;
+                            const isHigh = priceKey === profile.aggHigh;
+                            const isLow = priceKey === profile.aggLow;
+                            
+                            let classNames = ['row'];
+                            if (isPoc) classNames.push('is-poc');
+                            if (isVah) classNames.push('is-vah');
+                            if (isVal) classNames.push('is-val');
+                            if (isOpen) classNames.push('is-open');
+                            if (isClose) classNames.push('is-close');
+                            if (isHigh) classNames.push('is-high');
+                            if (isLow) classNames.push('is-low');
+
+                            return (
+                              <div key={priceKey} className={classNames.join(' ')} style={{
+                                position: 'absolute',
+                                top: `${(idx / rowCount) * 100}%`,
+                                height: `${(1 / rowCount) * 100}%`,
+                                width: '100%'
+                              }}>
+                                <div className="bar-container">
+                                  {count > 0 && (
+                                    <div className="bar" style={{ width: `${widthPct}%` }}></div>
+                                  )}
+                                  {count > 0 && (
+                                    <div className="count-tooltip">
+                                      {count.toLocaleString()} TPO ({((count / profile.totalTpo) * 100).toFixed(1)}%)
+                                    </div>
+                                  )}
                                 </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })}
+                              </div>
+                            );
+                          });
+                        })()}
+                      </div>
                     </div>
                   </div>
                 ))}
