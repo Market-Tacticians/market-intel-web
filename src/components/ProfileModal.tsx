@@ -23,6 +23,8 @@ interface ProfileRow {
   poc_price: number;
   vah_price: number;
   val_price: number;
+  open_regime: string;
+  close_regime: string;
   tpo_profile: Record<string, number>;
   is_complete: boolean;
 }
@@ -162,6 +164,15 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
     });
   }, [profiles, sharedAxis]);
 
+  const getRegimeColorClass = (regime: string | null | undefined) => {
+    if (!regime) return '';
+    const lower = regime.toLowerCase();
+    if (lower.includes('neutral')) return 'neutral';
+    if (lower.includes('risk-on')) return 'risk-on';
+    if (lower.includes('risk-off')) return 'risk-off';
+    return '';
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content glass-panel">
@@ -235,11 +246,25 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                 {aggregatedProfiles.map((profile, pIdx) => (
                   <div key={profile.id} className="profile-column">
                     <div className="profile-header mono">
-                      <div className="date text-accent">{profile.session_date}</div>
-                      <div className="status uppercase text-[10px] text-muted">
-                        {profile.is_complete ? 'Complete' : 'Developing'}
+                      <div className="flex justify-between items-center">
+                        <div className="date text-accent text-[15px]">{profile.session_date}</div>
+                        <div className="status uppercase text-xs text-muted">
+                          {profile.is_complete ? 'Complete' : 'Developing'}
+                        </div>
                       </div>
-                      <div className="stats mt-2 text-[10px] grid grid-cols-2 gap-1">
+                      
+                      <div className="regimes mt-3 flex justify-between text-[11px] uppercase tracking-wider">
+                        <div className="text-left">
+                          <span className="text-muted block mb-1">Open Regime</span>
+                          <span className={`regime-badge ${getRegimeColorClass(profile.open_regime)}`}>{profile.open_regime || 'N/A'}</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-muted block mb-1">Close Regime</span>
+                          <span className={`regime-badge ${getRegimeColorClass(profile.close_regime)}`}>{profile.close_regime || 'N/A'}</span>
+                        </div>
+                      </div>
+
+                      <div className="stats mt-3 text-xs grid grid-cols-2 gap-1.5 border-t border-[rgba(255,255,255,0.1)] pt-2.5">
                         <div>Open: {profile.open_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
                         <div>High: {profile.high_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
                         <div>Low: {profile.low_price?.toFixed(baseTick < 1 ? 2 : 0)}</div>
@@ -286,17 +311,21 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                             const isVal = priceKey === profile.aggVal;
                             const isOpen = priceKey === profile.aggOpen;
                             const isClose = priceKey === profile.aggClose;
-                            const isHigh = priceKey === profile.aggHigh;
-                            const isLow = priceKey === profile.aggLow;
                             
                             let classNames = ['row'];
                             if (isPoc) classNames.push('is-poc');
                             if (isVah) classNames.push('is-vah');
                             if (isVal) classNames.push('is-val');
                             if (isOpen) classNames.push('is-open');
-                            if (isClose) classNames.push('is-close');
-                            if (isHigh) classNames.push('is-high');
-                            if (isLow) classNames.push('is-low');
+                            if (isClose) {
+                              if (profile.close_price > profile.open_price) {
+                                classNames.push('is-close-up');
+                              } else if (profile.close_price < profile.open_price) {
+                                classNames.push('is-close-down');
+                              } else {
+                                classNames.push('is-close-flat');
+                              }
+                            }
 
                             return (
                               <div key={priceKey} className={classNames.join(' ')} style={{

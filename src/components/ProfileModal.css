@@ -13,8 +13,8 @@
 }
 
 .modal-content {
-  width: 95vw;
-  max-width: 1400px;
+  width: 98vw;
+  max-width: 1800px;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@
   flex-direction: column;
   border-right: 1px solid var(--border);
   padding-right: 8px;
-  padding-top: 137px; /* Offset to align with histograms under their headers (125px header + 12px padding) */
+  padding-top: 197px; /* Offset to align with histograms under their headers (185px header + 12px padding) */
   margin-bottom: 12px; /* For scrollbar */
 }
 
@@ -101,7 +101,7 @@
   padding: 12px;
   border-bottom: 1px solid var(--border);
   background: rgba(15, 15, 20, 0.95); /* Opaque background to hide any encroaching elements */
-  height: 125px;
+  height: 185px;
   flex-shrink: 0;
   z-index: 10;
   position: relative;
@@ -171,44 +171,69 @@
   content: '▶';
   position: absolute;
   left: 0;
-  color: var(--success);
+  color: #ffffff;
   font-size: 8px;
   z-index: 5;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.row.is-close::after {
+.row.is-close-up::after {
   content: '◀';
   position: absolute;
   right: 0;
-  color: var(--danger);
+  color: #22c55e;
   font-size: 8px;
   z-index: 5;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.row.is-high::after {
-  content: '▲';
+.row.is-close-down::after {
+  content: '◀';
   position: absolute;
-  right: 8px;
-  color: var(--text-primary);
+  right: 0;
+  color: #ef4444;
   font-size: 8px;
   z-index: 5;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.row.is-low::after {
-  content: '▼';
+.row.is-close-flat::after {
+  content: '◀';
   position: absolute;
-  right: 8px;
-  color: var(--text-primary);
+  right: 0;
+  color: #ffffff;
   font-size: 8px;
   z-index: 5;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.regime-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border-left: 2px solid transparent;
+}
+
+.regime-badge.neutral {
+  background: rgba(234, 179, 8, 0.15);
+  border-left-color: #eab308;
+  color: #eab308;
+}
+
+.regime-badge.risk-on {
+  background: rgba(34, 197, 94, 0.15);
+  border-left-color: #22c55e;
+  color: #22c55e;
+}
+
+.regime-badge.risk-off {
+  background: rgba(239, 68, 68, 0.15);
+  border-left-color: #ef4444;
+  color: #ef4444;
 }
 
 .count-tooltip {
