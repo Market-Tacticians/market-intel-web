@@ -68,7 +68,7 @@
   flex-direction: column;
   border-right: 1px solid var(--border);
   padding-right: 8px;
-  padding-top: 85px; /* Offset to align with histograms under their headers */
+  padding-top: 137px; /* Offset to align with histograms under their headers (125px header + 12px padding) */
   margin-bottom: 12px; /* For scrollbar */
 }
 
@@ -102,9 +102,11 @@
 .profile-header {
   padding: 12px;
   border-bottom: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.2);
-  height: 73px;
+  background: rgba(15, 15, 20, 0.95); /* Opaque background to hide any encroaching elements */
+  height: 125px;
   flex-shrink: 0;
+  z-index: 10;
+  position: relative;
 }
 
 .histogram-wrapper {
