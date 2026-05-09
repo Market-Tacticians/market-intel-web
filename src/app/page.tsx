@@ -10,10 +10,12 @@ import DynamicReport from '@/components/DynamicReport';
 import { useReports } from '@/hooks/useReports';
 import { useLiveReport } from '@/hooks/useLiveReport';
 import { Report } from '@/types/report';
+import ProfileModal from '@/components/ProfileModal';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>('archive');
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
+  const [selectedSymbol, setSelectedSymbol] = useState<string | null>(null);
   
   // Archive specific state
   const [archiveDate, setArchiveDate] = useState<string>(format(new Date(), 'yyyy-MM-dd'));
@@ -45,9 +47,11 @@ export default function Home() {
 
   return (
     <div className="app-layout">
-      <Navigation activeTab={activeTab} onTabChange={(tab) => {
-        setActiveTab(tab);
-      }} />
+      <Navigation 
+        activeTab={activeTab} 
+        onTabChange={(tab) => setActiveTab(tab)} 
+        onSymbolSelect={(symbol) => setSelectedSymbol(symbol)}
+      />
       
       <main className="app-main">
         <header className="app-header">
@@ -126,6 +130,13 @@ export default function Home() {
         <ReportViewer 
           report={selectedReport} 
           onClose={() => setSelectedReport(null)} 
+        />
+      )}
+
+      {selectedSymbol && (
+        <ProfileModal 
+          symbol={selectedSymbol}
+          onClose={() => setSelectedSymbol(null)}
         />
       )}
       

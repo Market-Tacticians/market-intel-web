@@ -158,3 +158,37 @@
     width: 100%;
   }
 }
+
+.nav-section-title {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding: 0 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.symbol-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.symbol-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: var(--accent);
+}

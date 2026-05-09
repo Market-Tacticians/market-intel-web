@@ -1,0 +1,177 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 95vw;
+  max-width: 1400px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 12, 0.6);
+}
+
+.modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agg-select {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  outline: none;
+}
+
+.modal-body {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.profiles-container {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+}
+
+.price-axis {
+  width: 80px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  padding-right: 8px;
+  padding-top: 85px; /* Offset to align with histograms under their headers */
+  margin-bottom: 12px; /* For scrollbar */
+}
+
+.axis-label {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.profiles-grid {
+  flex: 1;
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.profile-header {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  height: 73px;
+  flex-shrink: 0;
+}
+
+.histogram-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 12px 12px 0;
+  overflow-y: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-height: 0;
+  cursor: crosshair;
+  position: relative;
+}
+
+.bar-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.bar {
+  background-color: rgba(59, 130, 246, 0.3);
+  border-right: 1px solid rgba(59, 130, 246, 0.6);
+  transition: background-color 0.2s;
+  height: 100%;
+  min-height: 1px;
+}
+
+.is-poc .bar {
+  background-color: rgba(234, 179, 8, 0.4);
+  border-right: 1px solid rgba(234, 179, 8, 0.8);
+}
+
+.row:hover .bar {
+  background-color: rgba(59, 130, 246, 0.5);
+}
+
+.row.is-poc:hover .bar {
+  background-color: rgba(234, 179, 8, 0.6);
+}
+
+.count-tooltip {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.row:hover .count-tooltip {
+  display: block;
+}

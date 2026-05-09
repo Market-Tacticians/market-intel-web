@@ -1,0 +1,265 @@
+'use client';
+
+import React, { useEffect, useState, useMemo } from 'react';
+import { supabase } from '../lib/supabase';
+import './ProfileModal.css';
+
+interface ProfileModalProps {
+  symbol: string;
+  onClose: () => void;
+}
+
+interface ProfileRow {
+  id: string;
+  instrument: string;
+  session_date: string;
+  session_open: string;
+  session_close: string;
+  open_price: number;
+  high_price: number;
+  low_price: number;
+  close_price: number;
+  total_volume: number;
+  tpo_profile: Record<string, number>;
+  is_complete: boolean;
+}
+
+const TICK_CONFIG: Record<string, number> = {
+  'ES': 0.25,
+  'NQ': 0.25,
+  'YM': 1.00,
+  'RTY': 0.10,
+  'GC': 0.10,
+  'CL': 0.01,
+  'SI': 0.005
+};
+
+export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
+  const [profiles, setProfiles] = useState<ProfileRow[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
+  // Aggregation state: 'raw' is 1 tick. Others are tick multipliers: 5, 10, 20, 50, 100.
+  const [tickAgg, setTickAgg] = useState<number>(1);
+
+  const baseTick = TICK_CONFIG[symbol] || 0.25;
+
+  useEffect(() => {
+    async function fetchProfiles() {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from('market_profiles')
+          .select('*')
+          .eq('instrument', symbol)
+          .order('session_date', { ascending: false })
+          .limit(5);
+
+        if (error) throw error;
+        
+        // Reverse so the oldest is on the left, newest on the right
+        setProfiles((data || []).reverse());
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProfiles();
+  }, [symbol]);
+
+  // Compute shared price axis based on global min/max across all 5 profiles and aggregation level
+  const sharedAxis = useMemo(() => {
+    if (profiles.length === 0) return { prices: [], globalMaxCount: 0 };
+
+    let globalMin = Infinity;
+    let globalMax = -Infinity;
+    let globalMaxCount = 0;
+
+    const interval = baseTick * tickAgg;
+
+    // Step 1: Find raw global min/max
+    profiles.forEach(p => {
+      const keys = Object.keys(p.tpo_profile).map(Number);
+      if (keys.length > 0) {
+        const min = Math.min(...keys);
+        const max = Math.max(...keys);
+        if (min < globalMin) globalMin = min;
+        if (max > globalMax) globalMax = max;
+      }
+    });
+
+    if (globalMin === Infinity) return { prices: [], globalMaxCount: 0 };
+
+    // Step 2: Snap global min/max to the new aggregation interval
+    // We floor the min and ceil the max to ensure the range covers everything
+    const snapMin = Math.floor(globalMin / interval) * interval;
+    const snapMax = Math.ceil(globalMax / interval) * interval;
+
+    // Step 3: Create the shared array of prices
+    const prices: number[] = [];
+    for (let p = snapMax; p >= snapMin - 0.000001; p -= interval) {
+      prices.push(p);
+    }
+
+    // Step 4: Find global max count for scaling the bars visually relative to each other
+    profiles.forEach(p => {
+      // We must aggregate each profile to find its max count
+      const aggCounts: Record<number, number> = {};
+      Object.entries(p.tpo_profile).forEach(([priceStr, count]) => {
+        const pNum = parseFloat(priceStr);
+        const bucket = Math.floor(pNum / interval) * interval;
+        // Fix float precision issues for map keys
+        const bucketKey = parseFloat(bucket.toFixed(6));
+        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + count;
+      });
+      const maxCount = Math.max(0, ...Object.values(aggCounts));
+      if (maxCount > globalMaxCount) globalMaxCount = maxCount;
+    });
+
+    return { prices, globalMaxCount, interval };
+  }, [profiles, tickAgg, baseTick]);
+
+  // Compute aggregated data for each profile so we don't recalculate in render
+  const aggregatedProfiles = useMemo(() => {
+    const { interval } = sharedAxis;
+    if (!interval) return [];
+
+    return profiles.map(p => {
+      const aggCounts: Record<number, number> = {};
+      let totalTpo = 0;
+      let pocCount = -1;
+      let pocPrice = 0;
+
+      Object.entries(p.tpo_profile).forEach(([priceStr, count]) => {
+        const pNum = parseFloat(priceStr);
+        const bucket = Math.floor(pNum / interval) * interval;
+        const bucketKey = parseFloat(bucket.toFixed(6));
+        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + count;
+        totalTpo += count;
+      });
+
+      // Find POC
+      Object.entries(aggCounts).forEach(([priceStr, count]) => {
+        if (count > pocCount) {
+          pocCount = count;
+          pocPrice = parseFloat(priceStr);
+        }
+      });
+
+      return {
+        ...p,
+        aggCounts,
+        pocPrice,
+        totalTpo
+      };
+    });
+  }, [profiles, sharedAxis]);
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content glass-panel">
+        <div className="modal-header">
+          <div className="modal-title">
+            <span className="text-accent font-bold text-xl">{symbol}</span>
+            <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+          </div>
+          
+          <div className="modal-controls">
+            <label className="text-xs text-muted mono uppercase">Aggregation</label>
+            <select 
+              className="agg-select mono" 
+              value={tickAgg} 
+              onChange={e => setTickAgg(Number(e.target.value))}
+            >
+              <option value={1}>Raw Ticks ({baseTick})</option>
+              <option value={5}>5 Ticks ({(baseTick * 5).toFixed(2)})</option>
+              <option value={10}>10 Ticks ({(baseTick * 10).toFixed(2)})</option>
+              <option value={20}>20 Ticks ({(baseTick * 20).toFixed(2)})</option>
+              <option value={50}>50 Ticks ({(baseTick * 50).toFixed(2)})</option>
+              <option value={100}>100 Ticks ({(baseTick * 100).toFixed(2)})</option>
+            </select>
+            <button className="btn mono text-xs ml-4" onClick={onClose}>CLOSE</button>
+          </div>
+        </div>
+
+        <div className="modal-body">
+          {loading ? (
+            <div className="p-20 text-center mono animate-pulse">FETCHING PROFILE DATA...</div>
+          ) : error ? (
+            <div className="p-20 text-center mono text-danger">ERROR: {error}</div>
+          ) : profiles.length === 0 ? (
+            <div className="p-20 text-center mono text-secondary">NO PROFILE DATA AVAILABLE FOR THIS SYMBOL.</div>
+          ) : (
+            <div className="profiles-container">
+              {/* Left Price Axis */}
+              <div className="price-axis">
+                {sharedAxis.prices.map((price, index) => {
+                  const labelHeight = 14; 
+                  const containerHeight = 650;
+                  const rowCount = sharedAxis.prices.length;
+                  const labelStep = Math.max(1, Math.ceil((labelHeight * rowCount) / containerHeight));
+                  
+                  // Show label if it aligns with step, or if it's the very top/bottom
+                  const showLabel = (index % labelStep === 0) || index === 0 || index === rowCount - 1;
+                  const decimals = baseTick < 0.01 ? 3 : baseTick < 0.1 ? 2 : 2;
+                  // For aggregations > 1 tick, standardizing on 0 decimals was requested but for instruments like CL (0.01) we need decimals. 
+                  // So we will dynamically adjust based on the interval magnitude.
+                  const dispDecimals = sharedAxis.interval! >= 1 ? 0 : decimals;
+                  
+                  return (
+                    <div key={price} className="axis-label" style={{ visibility: showLabel ? 'visible' : 'hidden' }}>
+                      {price.toFixed(dispDecimals)}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Profiles Grid */}
+              <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
+                {aggregatedProfiles.map((profile, pIdx) => (
+                  <div key={profile.id} className="profile-column">
+                    <div className="profile-header mono">
+                      <div className="date text-accent">{profile.session_date}</div>
+                      <div className="status uppercase text-[10px] text-muted">
+                        {profile.is_complete ? 'Complete' : 'Developing'}
+                      </div>
+                      <div className="stats mt-2 text-[10px]">
+                        <div>Vol: {profile.total_volume.toLocaleString()}</div>
+                        <div>POC: {profile.pocPrice.toFixed(baseTick < 1 ? 2 : 0)}</div>
+                      </div>
+                    </div>
+                    <div className="histogram-wrapper">
+                      {sharedAxis.prices.map(price => {
+                        // Fix float issues
+                        const priceKey = parseFloat(price.toFixed(6));
+                        const count = profile.aggCounts[priceKey] || 0;
+                        const widthPct = sharedAxis.globalMaxCount > 0 ? (count / sharedAxis.globalMaxCount) * 100 : 0;
+                        const isPoc = priceKey === profile.pocPrice && count > 0;
+
+                        return (
+                          <div key={priceKey} className={`row ${isPoc ? 'is-poc' : ''}`}>
+                            <div className="bar-container">
+                              {count > 0 && (
+                                <div className="bar" style={{ width: `${widthPct}%` }}></div>
+                              )}
+                              {count > 0 && (
+                                <div className="count-tooltip">
+                                  {count.toLocaleString()} TPO ({((count / profile.totalTpo) * 100).toFixed(1)}%)
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
