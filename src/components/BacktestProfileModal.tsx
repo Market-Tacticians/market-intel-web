@@ -80,7 +80,7 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
   }, [symbol, archiveDate]);
 
   const sharedAxis = useMemo(() => {
-    if (profiles.length === 0) return { prices: [], globalMaxCount: 0 };
+    if (profiles.length === 0) return { prices: [], globalMaxCount: 0, interval: 0 };
 
     let globalMin = Infinity;
     let globalMax = -Infinity;
@@ -98,7 +98,7 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
       }
     });
 
-    if (globalMin === Infinity) return { prices: [], globalMaxCount: 0 };
+    if (globalMin === Infinity) return { prices: [], globalMaxCount: 0, interval: 0 };
 
     const snapMin = Math.floor(globalMin / interval) * interval;
     const snapMax = Math.ceil(globalMax / interval) * interval;

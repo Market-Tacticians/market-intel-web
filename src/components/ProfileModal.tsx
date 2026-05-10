@@ -77,7 +77,7 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
   // Compute shared price axis based on global min/max across all 5 profiles and aggregation level
   const sharedAxis = useMemo(() => {
-    if (profiles.length === 0) return { prices: [], globalMaxCount: 0 };
+    if (profiles.length === 0) return { prices: [], globalMaxCount: 0, interval: 0 };
 
     let globalMin = Infinity;
     let globalMax = -Infinity;
@@ -96,7 +96,7 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
       }
     });
 
-    if (globalMin === Infinity) return { prices: [], globalMaxCount: 0 };
+    if (globalMin === Infinity) return { prices: [], globalMaxCount: 0, interval: 0 };
 
     // Step 2: Snap global min/max to the new aggregation interval
     // We floor the min and ceil the max to ensure the range covers everything
