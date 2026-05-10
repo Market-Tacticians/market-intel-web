@@ -300,3 +300,17 @@
   color: #6b7a8d;
   padding-bottom: 2px;
 }
+
+.profile-column.is-snapshot {
+  border-right: 2px dashed var(--amber);
+  background: rgba(255, 193, 7, 0.05);
+}
+
+.profile-column.is-snapshot .day-header {
+  border-bottom-color: var(--amber);
+}
+
+.profile-column.is-snapshot .stats {
+  color: var(--amber);
+}
+

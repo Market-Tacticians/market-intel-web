@@ -5,67 +5,71 @@ import { supabase } from '../lib/supabase';
 import ProfileColumn from './ProfileColumn';
 import './ProfileModal.css';
 
-interface ProfileModalProps {
+interface BacktestProfileModalProps {
   symbol: string;
+  archiveDate: string; // YYYY-MM-DD
   onClose: () => void;
 }
 
-interface ProfileRow {
-  id: string;
-  instrument: string;
-  session_date: string;
-  session_open: string;
-  session_close: string;
-  open_price: number;
-  high_price: number;
-  low_price: number;
-  close_price: number;
-  total_volume: number;
-  poc_price: number;
-  vah_price: number;
-  val_price: number;
-  open_regime: string;
-  close_regime: string;
-  tpo_profile: Record<string, number>;
-  period_closes?: Record<string, number>;
-  is_complete: boolean;
-}
-
-const TICK_CONFIG: Record<string, number> = {
-  'ES': 0.25,
-  'NQ': 0.25,
-  'YM': 1.00,
-  'RTY': 0.10,
-  'GC': 0.10,
-  'CL': 0.01,
-  'SI': 0.005
-};
-
-export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
-  const [profiles, setProfiles] = useState<ProfileRow[]>([]);
+export default function BacktestProfileModal({ symbol, archiveDate, onClose }: BacktestProfileModalProps) {
+  const [profiles, setProfiles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
-  // Aggregation state: 'raw' is 1 tick. Others are tick multipliers: 5, 10, 20, 50, 100.
   const [tickAgg, setTickAgg] = useState<number>(1);
 
+  const TICK_CONFIG: Record<string, number> = {
+    'ES': 0.25,
+    'NQ': 0.25,
+    'YM': 1.00,
+    'RTY': 0.10,
+    'GC': 0.10,
+    'CL': 0.01,
+    'SI': 0.005
+  };
   const baseTick = TICK_CONFIG[symbol] || 0.25;
 
   useEffect(() => {
     async function fetchProfiles() {
       try {
         setLoading(true);
+        // Fetch up to 5 sessions ending on the archive date
         const { data, error } = await supabase
           .from('market_profiles')
           .select('*')
           .eq('instrument', symbol)
+          .lte('session_date', archiveDate)
           .order('session_date', { ascending: false })
           .limit(5);
 
         if (error) throw error;
         
-        // Reverse so the oldest is on the left, newest on the right
-        setProfiles((data || []).reverse());
+        const rawData = (data || []).reverse();
+
+        // Transform the data to insert the snapshot column
+        const finalProfiles: any[] = [];
+        
+        rawData.forEach(row => {
+          if (row.session_date === archiveDate && row.snapshot_730) {
+             // Create the partial 7:30 AM snapshot profile
+             finalProfiles.push({
+               ...row,
+               id: row.id + '-snapshot',
+               isSnapshot: true,
+               ...row.snapshot_730,
+               displayRegime: row.snapshot_730.regime || row.open_regime,
+               regimeLabel: 'Open Regime'
+             });
+          }
+          finalProfiles.push({ 
+            ...row, 
+            isSnapshot: false,
+            displayRegime: row.session_date === archiveDate ? row.close_regime : null,
+            regimeLabel: row.session_date === archiveDate ? 'Close Regime' : null
+          });
+        });
+
+        setProfiles(finalProfiles);
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -73,9 +77,8 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
       }
     }
     fetchProfiles();
-  }, [symbol]);
+  }, [symbol, archiveDate]);
 
-  // Compute shared price axis based on global min/max across all 5 profiles and aggregation level
   const sharedAxis = useMemo(() => {
     if (profiles.length === 0) return { prices: [], globalMaxCount: 0 };
 
@@ -85,9 +88,8 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
     const interval = baseTick * tickAgg;
 
-    // Step 1: Find raw global min/max
     profiles.forEach(p => {
-      const keys = Object.keys(p.tpo_profile).map(Number);
+      const keys = Object.keys(p.tpo_profile || {}).map(Number);
       if (keys.length > 0) {
         const min = Math.min(...keys);
         const max = Math.max(...keys);
@@ -98,27 +100,21 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
     if (globalMin === Infinity) return { prices: [], globalMaxCount: 0 };
 
-    // Step 2: Snap global min/max to the new aggregation interval
-    // We floor the min and ceil the max to ensure the range covers everything
     const snapMin = Math.floor(globalMin / interval) * interval;
     const snapMax = Math.ceil(globalMax / interval) * interval;
 
-    // Step 3: Create the shared array of prices
     const prices: number[] = [];
     for (let p = snapMax; p >= snapMin - 0.000001; p -= interval) {
       prices.push(parseFloat(p.toFixed(6)));
     }
 
-    // Step 4: Find global max count for scaling the bars visually relative to each other
     profiles.forEach(p => {
-      // We must aggregate each profile to find its max count
       const aggCounts: Record<number, number> = {};
-      Object.entries(p.tpo_profile).forEach(([priceStr, count]) => {
+      Object.entries(p.tpo_profile || {}).forEach(([priceStr, count]) => {
         const pNum = parseFloat(priceStr);
         const bucket = Math.floor(pNum / interval) * interval;
-        // Fix float precision issues for map keys
         const bucketKey = parseFloat(bucket.toFixed(6));
-        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + count;
+        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + (count as number);
       });
       const maxCount = Math.max(0, ...Object.values(aggCounts));
       if (maxCount > globalMaxCount) globalMaxCount = maxCount;
@@ -127,7 +123,6 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
     return { prices, globalMaxCount, interval };
   }, [profiles, tickAgg, baseTick]);
 
-  // Compute aggregated data for each profile so we don't recalculate in render
   const aggregatedProfiles = useMemo(() => {
     const { interval } = sharedAxis;
     if (!interval) return [];
@@ -135,20 +130,19 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
     return profiles.map(p => {
       const aggCounts: Record<number, number> = {};
       let totalTpo = 0;
-      let pocCount = -1;
-      let pocPrice = 0;
 
-      Object.entries(p.tpo_profile).forEach(([priceStr, count]) => {
+      Object.entries(p.tpo_profile || {}).forEach(([priceStr, count]) => {
         const pNum = parseFloat(priceStr);
         const bucket = Math.floor(pNum / interval) * interval;
         const bucketKey = parseFloat(bucket.toFixed(6));
-        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + count;
-        totalTpo += count;
+        const c = count as number;
+        aggCounts[bucketKey] = (aggCounts[bucketKey] || 0) + c;
+        totalTpo += c;
       });
 
-      const getBucket = (p: number | null | undefined) => {
-        if (p === undefined || p === null) return null;
-        return parseFloat((Math.floor(p / interval + 0.000001) * interval).toFixed(6));
+      const getBucket = (val: number | null | undefined) => {
+        if (val === undefined || val === null) return null;
+        return parseFloat((Math.floor(val / interval + 0.000001) * interval).toFixed(6));
       };
 
       return {
@@ -168,11 +162,11 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content glass-panel">
-        <div className="modal-header">
+      <div className="modal-content glass-panel" style={{ maxWidth: '95vw' }}>
+        <div className="modal-header" style={{ borderBottomColor: 'var(--amber)' }}>
           <div className="modal-title">
-            <span className="text-accent font-bold text-xl">{symbol}</span>
-            <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+            <span className="text-amber font-bold text-xl">{symbol}</span>
+            <span className="text-secondary ml-4 uppercase">Backtest Mode (7:30 AM ET)</span>
           </div>
           
           <div className="modal-controls">
@@ -195,11 +189,11 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
         <div className="modal-body">
           {loading ? (
-            <div className="p-20 text-center mono animate-pulse">FETCHING PROFILE DATA...</div>
+            <div className="p-20 text-center mono animate-pulse text-amber">FETCHING BACKTEST DATA...</div>
           ) : error ? (
             <div className="p-20 text-center mono text-danger">ERROR: {error}</div>
           ) : profiles.length === 0 ? (
-            <div className="p-20 text-center mono text-secondary">NO PROFILE DATA AVAILABLE FOR THIS SYMBOL.</div>
+            <div className="p-20 text-center mono text-secondary">NO PROFILE DATA AVAILABLE FOR THIS SYMBOL/DATE.</div>
           ) : (
             <div className="profiles-container">
               {/* Left Price Axis */}
@@ -236,14 +230,25 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
 
               {/* Profiles Grid */}
               <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
-                {aggregatedProfiles.map((profile) => (
-                  <ProfileColumn 
-                    key={profile.id}
-                    profile={profile}
-                    baseTick={baseTick}
-                    sharedAxis={sharedAxis}
-                  />
-                ))}
+                {aggregatedProfiles.map((profile, idx) => {
+                  let titleOverride = undefined;
+                  if (profile.isSnapshot) {
+                    titleOverride = "Snapshot (7:30 AM ET)";
+                  } else if (profile.session_date === archiveDate) {
+                    titleOverride = "Resolved Session";
+                  }
+                  
+                  return (
+                    <ProfileColumn 
+                      key={profile.id}
+                      profile={profile}
+                      baseTick={baseTick}
+                      sharedAxis={sharedAxis}
+                      titleOverride={titleOverride}
+                      isSnapshot={profile.isSnapshot}
+                    />
+                  );
+                })}
               </div>
             </div>
           )}
