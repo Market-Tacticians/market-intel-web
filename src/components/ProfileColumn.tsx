@@ -172,12 +172,19 @@ export default function ProfileColumn({ profile, baseTick, sharedAxis, titleOver
             const maxP = sharedAxis.prices[0];
             const rowCount = sharedAxis.prices.length;
 
+            let cutoffPoint: { x: number, y: number } | null = null;
+
             const points = periods.map((period, i) => {
               const price = profile.period_closes![period];
               if (price === undefined || price === null) return null;
               const exactIdx = (maxP - price) / sharedAxis.interval!;
               const yPct = ((exactIdx + 0.5) / rowCount) * 100;
               const xPct = (i / (periods.length - 1)) * 100;
+
+              if (period.endsWith('07:00')) {
+                cutoffPoint = { x: xPct, y: yPct };
+              }
+
               return `${xPct},${yPct}`;
             }).filter(Boolean);
 
@@ -192,6 +199,17 @@ export default function ProfileColumn({ profile, baseTick, sharedAxis, titleOver
                   strokeWidth="2"
                   vectorEffect="non-scaling-stroke"
                 />
+                {titleOverride === "Resolved Session" && cutoffPoint && (
+                  <circle 
+                    cx={cutoffPoint.x} 
+                    cy={cutoffPoint.y} 
+                    r="1.5" 
+                    fill="var(--amber)" 
+                    stroke="white" 
+                    strokeWidth="0.5"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                )}
               </svg>
             );
           })()}
