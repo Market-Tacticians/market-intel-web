@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
 import { supabase } from '../lib/supabase';
+import { format } from 'date-fns';
 import './ProfileModal.css';
 
 interface ProfileModalProps {
@@ -26,6 +27,7 @@ interface ProfileRow {
   open_regime: string;
   close_regime: string;
   tpo_profile: Record<string, number>;
+  period_closes?: Record<string, number>;
   is_complete: boolean;
 }
 
@@ -173,6 +175,26 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
     return '';
   };
 
+  const formatProfileDate = (dateStr: string) => {
+    try {
+      const [year, month, day] = dateStr.split('-').map(Number);
+      const date = new Date(year, month - 1, day);
+      return format(date, 'MMMM do, yyyy');
+    } catch (e) {
+      return dateStr;
+    }
+  };
+
+  const formatProfileDay = (dateStr: string) => {
+    try {
+      const [year, month, day] = dateStr.split('-').map(Number);
+      const date = new Date(year, month - 1, day);
+      return format(date, 'EEEE');
+    } catch (e) {
+      return '';
+    }
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content glass-panel">
@@ -246,8 +268,9 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                 {aggregatedProfiles.map((profile, pIdx) => (
                   <div key={profile.id} className="profile-column">
                     <div className="profile-header mono">
+                      <div className="day-header">{formatProfileDay(profile.session_date)}</div>
                       <div className="flex justify-between items-center">
-                        <div className="date text-accent text-[15px]">{profile.session_date}</div>
+                        <div className="date text-accent text-[15px]">{formatProfileDate(profile.session_date)}</div>
                         <div className="status uppercase text-xs text-muted">
                           {profile.is_complete ? 'Complete' : 'Developing'}
                         </div>
@@ -347,6 +370,57 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                               </div>
                             );
                           });
+                        })()}
+                        {(() => {
+                          const periods = Object.keys(profile.period_closes || {}).sort();
+                          if (periods.length < 2) return null;
+
+                          const maxP = sharedAxis.prices[0];
+                          const rowCount = sharedAxis.prices.length;
+
+                          const points = periods.map((period, i) => {
+                            const price = profile.period_closes![period];
+                            if (price === undefined || price === null) return null;
+                            const exactIdx = (maxP - price) / sharedAxis.interval!;
+                            const yPct = ((exactIdx + 0.5) / rowCount) * 100;
+                            const xPct = (i / (periods.length - 1)) * 100;
+                            return `${xPct},${yPct}`;
+                          }).filter(Boolean);
+
+                          if (points.length < 2) return null;
+
+                          return (
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 20 }}>
+                              <polyline
+                                points={points.join(' ')}
+                                fill="none"
+                                stroke="rgba(255, 255, 255, 0.8)"
+                                strokeWidth="2"
+                                vectorEffect="non-scaling-stroke"
+                              />
+                            </svg>
+                          );
+                        })()}
+                        {(() => {
+                          const periods = Object.keys(profile.period_closes || {}).sort();
+                          if (periods.length < 2) return null;
+
+                          return (
+                            <div className="time-axis">
+                              {periods.map((period, i) => {
+                                const timePart = period.split(' ')[1];
+                                const xPct = (i / (periods.length - 1)) * 100;
+                                // Show every 4th label to avoid crowding, plus the very last one
+                                if (i % 4 !== 0 && i !== periods.length - 1) return null;
+
+                                return (
+                                  <div key={period} className="time-label" style={{ left: `${xPct}%` }}>
+                                    {timePart}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          );
                         })()}
                       </div>
                     </div>
