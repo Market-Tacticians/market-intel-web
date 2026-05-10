@@ -172,23 +172,28 @@ export default function ProfileColumn({ profile, baseTick, sharedAxis, titleOver
             const maxP = sharedAxis.prices[0];
             const rowCount = sharedAxis.prices.length;
 
-            let cutoffPoint: { x: number, y: number } | null = null;
-
             const points = periods.map((period, i) => {
               const price = profile.period_closes![period];
               if (price === undefined || price === null) return null;
               const exactIdx = (maxP - price) / sharedAxis.interval!;
               const yPct = ((exactIdx + 0.5) / rowCount) * 100;
               const xPct = (i / (periods.length - 1)) * 100;
-
-              if (period.endsWith('07:00')) {
-                cutoffPoint = { x: xPct, y: yPct };
-              }
-
               return `${xPct},${yPct}`;
             }).filter(Boolean);
 
             if (points.length < 2) return null;
+
+            const cutoffPeriod = periods.find(p => p.endsWith('07:00'));
+            let cutoffPoint = null;
+            if (cutoffPeriod) {
+              const i = periods.indexOf(cutoffPeriod);
+              const price = profile.period_closes[cutoffPeriod];
+              const exactIdx = (maxP - price) / sharedAxis.interval!;
+              cutoffPoint = {
+                x: (i / (periods.length - 1)) * 100,
+                y: ((exactIdx + 0.5) / rowCount) * 100
+              };
+            }
 
             return (
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 20 }}>
