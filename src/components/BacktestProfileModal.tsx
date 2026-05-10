@@ -15,8 +15,8 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
   const [profiles, setProfiles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
   const [tickAgg, setTickAgg] = useState<number>(1);
+  const [showResolved, setShowResolved] = useState(false);
 
   const TICK_CONFIG: Record<string, number> = {
     'ES': 0.25,
@@ -28,6 +28,7 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
     'SI': 0.005
   };
   const baseTick = TICK_CONFIG[symbol] || 0.25;
+
 
   useEffect(() => {
     async function fetchProfiles() {
@@ -238,6 +239,21 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
                     titleOverride = "Resolved Session";
                   }
                   
+                  if (titleOverride === "Resolved Session" && !showResolved) {
+                    return (
+                      <div key={profile.id} className="profile-column" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '1px dashed rgba(255,255,255,0.1)' }}>
+                        <div className="mono text-muted mb-4 text-xs text-center">What happened next?</div>
+                        <button 
+                          className="btn mono" 
+                          style={{ borderColor: 'var(--amber)', color: 'var(--amber)' }}
+                          onClick={() => setShowResolved(true)}
+                        >
+                          REVEAL RESOLUTION
+                        </button>
+                      </div>
+                    );
+                  }
+
                   return (
                     <ProfileColumn 
                       key={profile.id}
@@ -250,6 +266,7 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
                   );
                 })}
               </div>
+
             </div>
           )}
         </div>
