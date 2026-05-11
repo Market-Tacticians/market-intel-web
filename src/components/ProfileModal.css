@@ -71,8 +71,8 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border);
-  padding-right: 8px;
+  border-left: 1px solid var(--border);
+  padding-left: 8px;
   padding-top: 197px; /* Offset to align with histograms under their headers (185px header + 12px padding) */
   margin-bottom: 12px; /* For scrollbar */
 }
@@ -80,7 +80,7 @@
 .axis-label {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--text-secondary);
@@ -115,7 +115,7 @@
 .histogram-wrapper {
   flex: 1;
   display: block;
-  padding: 12px 12px 12px 0;
+  padding: 12px 0 12px 12px;
   overflow: hidden;
   position: relative;
 }

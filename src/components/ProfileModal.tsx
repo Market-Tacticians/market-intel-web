@@ -202,7 +202,19 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
             <div className="p-20 text-center mono text-secondary">NO PROFILE DATA AVAILABLE FOR THIS SYMBOL.</div>
           ) : (
             <div className="profiles-container">
-              {/* Left Price Axis */}
+              {/* Profiles Grid */}
+              <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
+                {aggregatedProfiles.map((profile) => (
+                  <ProfileColumn 
+                    key={profile.id}
+                    profile={profile}
+                    baseTick={baseTick}
+                    sharedAxis={sharedAxis}
+                  />
+                ))}
+              </div>
+
+              {/* Right Price Axis */}
               <div className="price-axis">
                 <div className="histogram-inner">
                   {(() => {
@@ -232,18 +244,6 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
                     return labels;
                   })()}
                 </div>
-              </div>
-
-              {/* Profiles Grid */}
-              <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
-                {aggregatedProfiles.map((profile) => (
-                  <ProfileColumn 
-                    key={profile.id}
-                    profile={profile}
-                    baseTick={baseTick}
-                    sharedAxis={sharedAxis}
-                  />
-                ))}
               </div>
             </div>
           )}

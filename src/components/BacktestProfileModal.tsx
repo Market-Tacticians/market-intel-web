@@ -197,38 +197,6 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
             <div className="p-20 text-center mono text-secondary">NO PROFILE DATA AVAILABLE FOR THIS SYMBOL/DATE.</div>
           ) : (
             <div className="profiles-container">
-              {/* Left Price Axis */}
-              <div className="price-axis">
-                <div className="histogram-inner">
-                  {(() => {
-                    const rowCount = sharedAxis.prices.length;
-                    if (rowCount === 0) return null;
-                    const labelHeight = 14; 
-                    const containerHeight = 650;
-                    const labelStep = Math.max(1, Math.ceil((labelHeight * rowCount) / containerHeight));
-                    const decimals = baseTick < 0.01 ? 3 : baseTick < 0.1 ? 2 : 2;
-                    const dispDecimals = sharedAxis.interval! >= 1 ? 0 : decimals;
-                    
-                    const labels = [];
-                    for (let i = 0; i < rowCount; i++) {
-                      if (i % labelStep === 0 || i === 0 || i === rowCount - 1) {
-                        labels.push(
-                          <div key={sharedAxis.prices[i]} className="axis-label" style={{ 
-                            position: 'absolute',
-                            top: `${(i / rowCount) * 100}%`,
-                            height: `${(1 / rowCount) * 100}%`,
-                            width: '100%'
-                          }}>
-                            {sharedAxis.prices[i].toFixed(dispDecimals)}
-                          </div>
-                        );
-                      }
-                    }
-                    return labels;
-                  })()}
-                </div>
-              </div>
-
               {/* Profiles Grid */}
               <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
                 {aggregatedProfiles.map((profile, idx) => {
@@ -265,6 +233,38 @@ export default function BacktestProfileModal({ symbol, archiveDate, onClose }: B
                     />
                   );
                 })}
+              </div>
+
+              {/* Right Price Axis */}
+              <div className="price-axis">
+                <div className="histogram-inner">
+                  {(() => {
+                    const rowCount = sharedAxis.prices.length;
+                    if (rowCount === 0) return null;
+                    const labelHeight = 14; 
+                    const containerHeight = 650;
+                    const labelStep = Math.max(1, Math.ceil((labelHeight * rowCount) / containerHeight));
+                    const decimals = baseTick < 0.01 ? 3 : baseTick < 0.1 ? 2 : 2;
+                    const dispDecimals = sharedAxis.interval! >= 1 ? 0 : decimals;
+                    
+                    const labels = [];
+                    for (let i = 0; i < rowCount; i++) {
+                      if (i % labelStep === 0 || i === 0 || i === rowCount - 1) {
+                        labels.push(
+                          <div key={sharedAxis.prices[i]} className="axis-label" style={{ 
+                            position: 'absolute',
+                            top: `${(i / rowCount) * 100}%`,
+                            height: `${(1 / rowCount) * 100}%`,
+                            width: '100%'
+                          }}>
+                            {sharedAxis.prices[i].toFixed(dispDecimals)}
+                          </div>
+                        );
+                      }
+                    }
+                    return labels;
+                  })()}
+                </div>
               </div>
 
             </div>
