@@ -4,11 +4,14 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { supabase } from '../lib/supabase';
 import ProfileColumn from './ProfileColumn';
 import './ProfileModal.css';
+import { useLatestCorrelations } from '../hooks/useLatestCorrelations';
 
 interface ProfileModalProps {
   symbol: string;
   onClose: () => void;
 }
+
+// ... keeping interfaces and TICK_CONFIG the same
 
 interface ProfileRow {
   id: string;
@@ -48,11 +51,21 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
   
   // Aggregation state: 'raw' is 1 tick. Others are tick multipliers: 5, 10, 20, 50, 100.
   const [tickAgg, setTickAgg] = useState<number>(1);
-
   const baseTick = TICK_CONFIG[symbol] || 0.25;
+
+  const { correlations } = useLatestCorrelations();
+  const corr = correlations[symbol];
+
+  const getAlignmentColor = (alignment?: string) => {
+    if (alignment === 'correlated') return 'text-[#10b981] border-[#10b981]/30 bg-[#10b981]/10';
+    if (alignment === 'non_correlated') return 'text-[#ef4444] border-[#ef4444]/30 bg-[#ef4444]/10';
+    if (alignment === 'neutral') return 'text-[#f59e0b] border-[#f59e0b]/30 bg-[#f59e0b]/10';
+    return 'text-secondary border-secondary/30 bg-white/5';
+  };
 
   useEffect(() => {
     async function fetchProfiles() {
+// ... keeping the rest unchanged ...
       try {
         setLoading(true);
         const { data, error } = await supabase
@@ -169,28 +182,64 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
   return (
     <div className="modal-overlay">
       <div className="modal-content glass-panel">
-        <div className="modal-header">
-          <div className="modal-title">
-            <span className="text-accent font-bold text-xl">{symbol}</span>
-            <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+        <div className="modal-header" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+            <div className="modal-title">
+              <span className="text-accent font-bold text-xl">{symbol}</span>
+              <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+            </div>
+            
+            <div className="modal-controls">
+              <label className="text-xs text-muted mono uppercase">Aggregation</label>
+              <select 
+                className="agg-select mono" 
+                value={tickAgg} 
+                onChange={e => setTickAgg(Number(e.target.value))}
+              >
+                <option value={1}>Raw Ticks ({baseTick})</option>
+                <option value={5}>5 Ticks ({(baseTick * 5).toFixed(2)})</option>
+                <option value={10}>10 Ticks ({(baseTick * 10).toFixed(2)})</option>
+                <option value={20}>20 Ticks ({(baseTick * 20).toFixed(2)})</option>
+                <option value={50}>50 Ticks ({(baseTick * 50).toFixed(2)})</option>
+                <option value={100}>100 Ticks ({(baseTick * 100).toFixed(2)})</option>
+              </select>
+              <button className="btn mono text-xs ml-4" onClick={onClose}>CLOSE</button>
+            </div>
           </div>
-          
-          <div className="modal-controls">
-            <label className="text-xs text-muted mono uppercase">Aggregation</label>
-            <select 
-              className="agg-select mono" 
-              value={tickAgg} 
-              onChange={e => setTickAgg(Number(e.target.value))}
-            >
-              <option value={1}>Raw Ticks ({baseTick})</option>
-              <option value={5}>5 Ticks ({(baseTick * 5).toFixed(2)})</option>
-              <option value={10}>10 Ticks ({(baseTick * 10).toFixed(2)})</option>
-              <option value={20}>20 Ticks ({(baseTick * 20).toFixed(2)})</option>
-              <option value={50}>50 Ticks ({(baseTick * 50).toFixed(2)})</option>
-              <option value={100}>100 Ticks ({(baseTick * 100).toFixed(2)})</option>
-            </select>
-            <button className="btn mono text-xs ml-4" onClick={onClose}>CLOSE</button>
-          </div>
+
+          {/* Correlation Data Header */}
+          {corr && (
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', width: '100%', padding: '0.5rem', background: 'rgba(0,0,0,0.2)', borderRadius: '6px' }}>
+              <div className={`mono text-[10px] uppercase border px-2 py-1 rounded ${getAlignmentColor(corr.regime_alignment)}`}>
+                <span className="opacity-50 mr-1">REGIME ALIGNMENT:</span> 
+                {corr.regime_alignment.replace(/_/g, ' ')}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">STATE:</span> 
+                {corr.technical_state.replace(/_/g, ' ')}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">LOC (1°):</span> 
+                {corr.current_location?.primary?.replace(/_/g, ' ') || 'N/A'}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">LOC (2°):</span> 
+                {corr.current_location?.secondary?.replace(/_/g, ' ') || 'N/A'}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">LOC (3°):</span> 
+                {corr.current_location?.tertiary?.replace(/_/g, ' ') || 'N/A'}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">SEQUENCE:</span> 
+                {corr.sequence_behavior.replace(/_/g, ' ')}
+              </div>
+              <div className="mono text-[10px] uppercase border border-white/10 px-2 py-1 rounded text-white/80 bg-white/5">
+                <span className="opacity-50 mr-1">VOLUME:</span> 
+                {corr.participation_state.replace(/_/g, ' ')}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="modal-body">

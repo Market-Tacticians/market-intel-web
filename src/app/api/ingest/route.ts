@@ -199,18 +199,18 @@ export async function POST(request: Request) {
 
     // 11. Create a Snapshot of the newly ingested report (v1)
     // The incoming body is already perfectly formatted as the full JSON
-    const { error: snapshotError } = await supabaseAdmin.from('report_snapshots').insert({
+    const { data: snapshotData, error: snapshotError } = await supabaseAdmin.from('report_snapshots').insert({
       original_report_id: reportId,
       title: body.meta.title,
       week_of: body.meta.week_of,
       update_version: body.meta.update_version || 1,
       generated_at: body.meta.last_updated || body.meta.generated,
       report_json: body
-    });
+    }).select('id').single();
 
     if (snapshotError) throw snapshotError;
 
-    return NextResponse.json({ success: true, message: "Report ingested and snapshotted successfully!", report_id: reportId });
+    return NextResponse.json({ success: true, message: "Report ingested and snapshotted successfully!", report_id: reportId, snapshot_id: snapshotData.id });
   } catch (error: any) {
     console.error('Ingestion error:', error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

@@ -192,3 +192,37 @@
   color: var(--text-primary);
   border-color: var(--accent);
 }
+
+/* Regime Alignment Colors */
+.symbol-btn.correlated {
+  color: var(--success);
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.1);
+}
+.symbol-btn.correlated:hover {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.symbol-btn.non-correlated {
+  color: var(--red);
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.1);
+}
+.symbol-btn.non-correlated:hover {
+  border-color: var(--red);
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--red);
+}
+
+.symbol-btn.neutral {
+  color: var(--amber);
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.1);
+}
+.symbol-btn.neutral:hover {
+  border-color: var(--amber);
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--amber);
+}

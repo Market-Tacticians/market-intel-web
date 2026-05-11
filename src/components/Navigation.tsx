@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './Navigation.css';
+import { useLatestCorrelations } from '../hooks/useLatestCorrelations';
 
 export type TabType = 'archive' | 'template';
 
@@ -18,6 +19,15 @@ export default function Navigation({ activeTab, onTabChange, onSymbolSelect }: N
   ];
 
   const symbols = ['ES', 'NQ', 'YM', 'RTY', 'GC', 'CL', 'SI'];
+  const { correlations } = useLatestCorrelations();
+
+  const getAlignmentClass = (alignment?: string) => {
+    if (!alignment) return '';
+    if (alignment === 'correlated') return 'correlated';
+    if (alignment === 'non_correlated') return 'non-correlated';
+    if (alignment === 'neutral') return 'neutral';
+    return '';
+  };
 
   return (
     <nav className="nav-sidebar glass-panel">
@@ -42,17 +52,23 @@ export default function Navigation({ activeTab, onTabChange, onSymbolSelect }: N
           </button>
         ))}
         
-        <div className="nav-section-title uppercase">Market Profiles</div>
+        <div className="nav-section-title uppercase mt-6">Market Profiles</div>
         <div className="symbol-grid">
-          {symbols.map(sym => (
-            <button 
-              key={sym} 
-              className="symbol-btn mono"
-              onClick={() => onSymbolSelect(sym)}
-            >
-              {sym}
-            </button>
-          ))}
+          {symbols.map(sym => {
+            const alignment = correlations[sym]?.regime_alignment;
+            const alignClass = getAlignmentClass(alignment);
+            
+            return (
+              <button 
+                key={sym} 
+                className={`symbol-btn mono ${alignClass}`}
+                onClick={() => onSymbolSelect(sym)}
+                title={alignment ? `Regime Alignment: ${alignment.replace(/_/g, ' ')}` : undefined}
+              >
+                {sym}
+              </button>
+            );
+          })}
         </div>
       </div>
 

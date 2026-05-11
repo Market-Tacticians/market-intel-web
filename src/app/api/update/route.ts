@@ -289,19 +289,25 @@ export async function POST(request: Request) {
     const completeJson = await assembleReportJson(supabaseAdmin, updatedLiveReport);
 
     // Insert into report_snapshots
-    await supabaseAdmin.from('report_snapshots').insert({
+    const { data: snapshotData, error: snapshotError } = await supabaseAdmin.from('report_snapshots').insert({
       original_report_id: reportId,
       title: updatedLiveReport.title,
       week_of: updatedLiveReport.week_of,
       update_version: newVersion,
       generated_at: updateTimestamp,
       report_json: completeJson
-    });
+    }).select('id').single();
+
+    if (snapshotError) {
+      console.error('Failed to create report snapshot:', snapshotError);
+      throw snapshotError;
+    }
 
     return NextResponse.json({ 
       success: true, 
       message: `Report successfully updated to version ${newVersion} and snapshotted!`,
-      version: newVersion
+      version: newVersion,
+      snapshot_id: snapshotData.id
     });
 
   } catch (error: any) {
