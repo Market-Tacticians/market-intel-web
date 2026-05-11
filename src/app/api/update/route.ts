@@ -30,7 +30,6 @@ export async function POST(request: Request) {
       .from('reports')
       .update({
         update_version: newVersion,
-        generated_at: updateTimestamp,
         updated_at: updateTimestamp
       })
       .eq('id', reportId);
@@ -83,6 +82,8 @@ export async function POST(request: Request) {
 
         if (nData) {
           const currentUpdates = nData.updates || [];
+          // Force the backend timestamp to prevent LLM hallucination
+          u.update.timestamp = updateTimestamp;
           currentUpdates.push(u.update);
           await supabaseAdmin
             .from('report_narratives')
@@ -106,6 +107,7 @@ export async function POST(request: Request) {
 
         if (cData) {
           const currentUpdates = cData.updates || [];
+          if (c.update) c.update.timestamp = updateTimestamp;
           currentUpdates.push(c.update);
           const updateObj: any = { updates: currentUpdates, updated_at: updateTimestamp };
           if (c.new_impact) updateObj.impact = c.new_impact;
@@ -151,7 +153,7 @@ export async function POST(request: Request) {
             value: ms.new_value,
             direction: ms.new_direction,
             note: ms.new_note,
-            as_of: body.market_snapshot_updates.as_of,
+            as_of: updateTimestamp,
             updated_at: updateTimestamp
           })
           .eq('report_id', reportId)
@@ -174,6 +176,7 @@ export async function POST(request: Request) {
         if (sData) {
           const updateObj: any = { updated_at: updateTimestamp };
           if (s.update) {
+            s.update.timestamp = updateTimestamp;
             const currentUpdates = sData.updates || [];
             currentUpdates.push(s.update);
             updateObj.updates = currentUpdates;
@@ -220,6 +223,7 @@ export async function POST(request: Request) {
 
         if (scData) {
           const currentUpdates = scData.updates || [];
+          if (sc.update) sc.update.timestamp = updateTimestamp;
           currentUpdates.push(sc.update);
           await supabaseAdmin.from('report_scenarios').update({ updates: currentUpdates, updated_at: updateTimestamp }).eq('id', scData.id);
         }
@@ -239,6 +243,7 @@ export async function POST(request: Request) {
         if (qData) {
           const updateObj: any = { updated_at: updateTimestamp };
           if (q.update) {
+            q.update.timestamp = updateTimestamp;
             const currentUpdates = qData.updates || [];
             currentUpdates.push(q.update);
             updateObj.updates = currentUpdates;
