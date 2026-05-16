@@ -11,7 +11,7 @@ export interface ProfileColumnProps {
   profile: any;
   baseTick: number;
   sharedAxis: SharedAxis;
-  titleOverride?: string;
+  titleOverride?: React.ReactNode;
   isSnapshot?: boolean;
 }
 

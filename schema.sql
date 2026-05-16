@@ -219,3 +219,23 @@ create policy "Public Read Access" on public.report_snapshots for select to anon
 create index if not exists idx_report_snapshots_original_id on public.report_snapshots (original_report_id);
 create index if not exists idx_report_snapshots_week_of on public.report_snapshots (week_of desc);
 create index if not exists idx_report_snapshots_generated_at on public.report_snapshots (generated_at desc);
+
+-- ==========================================
+-- USERS SCHEMA
+-- ==========================================
+
+create table if not exists public.users (
+  id text primary key, -- This will hold the Clerk user_id (e.g., 'user_2...')
+  email text,
+  first_name text,
+  last_name text,
+  image_url text,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+alter table public.users enable row level security;
+-- Allow the service role to do everything
+create policy "Service Role Full Access" on public.users for all to service_role using (true) with check (true);
+-- Optionally allow authenticated users to read their own profile
+create policy "Users can read own profile" on public.users for select using (true);

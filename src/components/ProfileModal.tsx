@@ -9,6 +9,7 @@ import { useLatestCorrelations } from '../hooks/useLatestCorrelations';
 interface ProfileModalProps {
   symbol: string;
   onClose: () => void;
+  onSymbolSelect?: (symbol: string) => void;
 }
 
 // ... keeping interfaces and TICK_CONFIG the same
@@ -44,7 +45,7 @@ const TICK_CONFIG: Record<string, number> = {
   'SI': 0.005
 };
 
-export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
+export default function ProfileModal({ symbol, onClose, onSymbolSelect }: ProfileModalProps) {
   const [profiles, setProfiles] = useState<ProfileRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -184,9 +185,34 @@ export default function ProfileModal({ symbol, onClose }: ProfileModalProps) {
       <div className="modal-content glass-panel">
         <div className="modal-header" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-            <div className="modal-title">
-              <span className="text-accent font-bold text-xl">{symbol}</span>
-              <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="modal-title">
+                <span className="text-accent font-bold text-xl">{symbol}</span>
+                <span className="text-secondary ml-4">Market Profiles (Last {profiles.length} Sessions)</span>
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem', marginLeft: '2rem' }}>
+                {['ES', 'NQ', 'YM', 'RTY', 'GC', 'CL', 'SI'].map(sym => {
+                  const isSelected = symbol === sym;
+                  const alignment = correlations[sym]?.regime_alignment;
+                  const alignClasses = getAlignmentColor(alignment);
+                  return (
+                    <button 
+                      key={sym} 
+                      className={`mono border rounded ${alignClasses}`}
+                      style={{ 
+                        padding: '2px 8px', 
+                        fontSize: '11px', 
+                        cursor: 'pointer',
+                        opacity: isSelected ? 1 : 0.5,
+                        borderColor: isSelected ? 'var(--text-primary)' : undefined
+                      }}
+                      onClick={() => onSymbolSelect && onSymbolSelect(sym)}
+                    >
+                      {sym}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             
             <div className="modal-controls">

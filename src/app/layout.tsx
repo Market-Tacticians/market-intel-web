@@ -1,3 +1,4 @@
+import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
@@ -30,7 +31,24 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${inter.variable} ${plexSans.variable} ${plexMono.variable} antialiased font-sans`}>
-        {children}
+        <ClerkProvider>
+          <header className="flex items-center justify-end p-4 bg-white/50 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
+            <div className="flex items-center gap-4">
+              <Show when="signed-out">
+                <div className="flex gap-2">
+                  <SignInButton mode="modal" />
+                  <SignUpButton mode="modal" />
+                </div>
+              </Show>
+              <Show when="signed-in">
+                <UserButton appearance={{ elements: { userButtonAvatarBox: "w-9 h-9" } }} />
+              </Show>
+            </div>
+          </header>
+          <main>
+            {children}
+          </main>
+        </ClerkProvider>
       </body>
     </html>
   );

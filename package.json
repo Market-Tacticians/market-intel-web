@@ -11,6 +11,7 @@
     "sync-json": "npx ts-node --project tsconfig.scripts.json scripts/ingest-json.ts"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.3.3",
     "@supabase/supabase-js": "^2.104.1",
     "@tailwindcss/postcss": "^4.2.4",
     "cheerio": "^1.2.0",
@@ -19,7 +20,8 @@
     "dotenv": "^17.4.2",
     "next": "16.2.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "svix": "^1.93.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.39",

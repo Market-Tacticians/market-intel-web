@@ -137,6 +137,7 @@ export default function Home() {
         <ProfileModal 
           symbol={selectedSymbol}
           onClose={() => setSelectedSymbol(null)}
+          onSymbolSelect={(sym) => setSelectedSymbol(sym)}
         />
       )}
       

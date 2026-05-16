@@ -11,15 +11,20 @@ interface BacktestProfileModalProps {
   archiveDate: string; // YYYY-MM-DD
   snapshotId: string;
   onClose: () => void;
+  onSymbolSelect?: (symbol: string) => void;
 }
 
-export default function BacktestProfileModal({ symbol, archiveDate, snapshotId, onClose }: BacktestProfileModalProps) {
+export default function BacktestProfileModal({ symbol, archiveDate, snapshotId, onClose, onSymbolSelect }: BacktestProfileModalProps) {
   const [profiles, setProfiles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [tickAgg, setTickAgg] = useState<number>(1);
   const [showResolved, setShowResolved] = useState(false);
   const [closeSnapshotId, setCloseSnapshotId] = useState<string | null>(null);
+
+  useEffect(() => {
+    setShowResolved(false);
+  }, [symbol]);
 
   // Fetch correlations for the initial snapshot (usually 7:30 AM)
   const { correlations: openCorrelations } = useSnapshotCorrelations(snapshotId);
@@ -210,9 +215,36 @@ export default function BacktestProfileModal({ symbol, archiveDate, snapshotId, 
       <div className="modal-content glass-panel" style={{ maxWidth: '95vw' }}>
         <div className="modal-header" style={{ borderBottomColor: 'var(--amber)', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-            <div className="modal-title">
-              <span className="text-amber font-bold text-xl">{symbol}</span>
-              <span className="text-secondary ml-4 uppercase">Backtest Mode (7:30 AM ET)</span>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="modal-title">
+                <span className="text-amber font-bold text-xl">{symbol}</span>
+                <span className="text-secondary ml-4 uppercase">Backtest Mode (7:30 AM ET)</span>
+              </div>
+              <div style={{ display: 'flex', gap: '0.5rem', marginLeft: '2rem' }}>
+                {['ES', 'NQ', 'YM', 'RTY', 'GC', 'CL', 'SI'].map(sym => {
+                  const isSelected = symbol === sym;
+                  const alignment = (isSelected && showResolved) 
+                    ? closeCorrelations[sym]?.regime_alignment 
+                    : openCorrelations[sym]?.regime_alignment;
+                  const alignClasses = getAlignmentColor(alignment);
+                  return (
+                    <button 
+                      key={sym} 
+                      className={`mono border rounded ${alignClasses}`}
+                      style={{ 
+                        padding: '2px 8px', 
+                        fontSize: '11px', 
+                        cursor: 'pointer',
+                        opacity: isSelected ? 1 : 0.5,
+                        borderColor: isSelected ? 'var(--text-primary)' : undefined
+                      }}
+                      onClick={() => onSymbolSelect && onSymbolSelect(sym)}
+                    >
+                      {sym}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             
             <div className="modal-controls">
@@ -285,14 +317,28 @@ export default function BacktestProfileModal({ symbol, archiveDate, snapshotId, 
               {/* Profiles Grid */}
               <div className="profiles-grid" style={{ gridTemplateColumns: `repeat(${aggregatedProfiles.length}, 1fr)` }}>
                 {aggregatedProfiles.map((profile, idx) => {
-                  let titleOverride = undefined;
+                  let titleOverride: React.ReactNode = undefined;
+                  let isResolvedColumn = false;
+
                   if (profile.isSnapshot) {
                     titleOverride = "Snapshot (7:30 AM ET)";
                   } else if (profile.session_date === archiveDate) {
-                    titleOverride = "Resolved Session";
+                    isResolvedColumn = true;
+                    titleOverride = showResolved ? (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span>Resolved Session</span>
+                        <button 
+                          className="btn mono text-[10px]" 
+                          style={{ padding: '2px 6px', borderColor: 'var(--amber)', color: 'var(--amber)', height: 'auto', minHeight: 0 }}
+                          onClick={(e) => { e.stopPropagation(); setShowResolved(false); }}
+                        >
+                          HIDE
+                        </button>
+                      </div>
+                    ) : "Resolved Session";
                   }
                   
-                  if (titleOverride === "Resolved Session" && !showResolved) {
+                  if (isResolvedColumn && !showResolved) {
                     return (
                       <div key={profile.id} className="profile-column" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '1px dashed rgba(255,255,255,0.1)' }}>
                         <div className="mono text-muted mb-4 text-xs text-center">What happened next?</div>

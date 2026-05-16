@@ -83,6 +83,7 @@ export default function ReportViewer({ report, onClose }: ReportViewerProps) {
           archiveDate={report.calendar_date}
           snapshotId={report.id}
           onClose={() => setSelectedSymbol(null)}
+          onSymbolSelect={(sym) => setSelectedSymbol(sym)}
         />
       )}
     </div>
